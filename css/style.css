@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'League Spartan Bold';
+    src: url('../fonts/LeagueSpartan-Bold.woff2');
+  }
+
+
+html * {
+    font-family: 'League Spartan Bold';
+}
+body, html {height: 100%}
+.bg {
+background-size: cover;
+  min-height: 100%;
+  background-position: center;
+}
+
+.ana-logo {
+    margin:5px 0;
+}
+
+.bgpalete1 {
+    background-image: linear-gradient(90deg, #f7b18b 10%, #f7b18b 20%, #F6EAEE 20%, #F6EAEE 40%, #F5C9C0 40%, #F5C9C0 60%, #91BEE5 60%, #91BEE5 80%, #EC9641 80%, #EC9641 100%);
+}
+
+.bgpalete2 {
+    background-image: linear-gradient(90deg, #EC9641 10%, #EC9641 20%, #f7b18b 20%, #f7b18b 40%, #CED3EA 40%, #CED3EA 60%, #F5C9C0 60%, #F5C9C0 80%, #91BEE5 80%, #91BEE5 100%);
+}
+
+.bgpalete3 {
+    background-image: linear-gradient(90deg, #91BEE5 10%, #91BEE5 20%, #EC9641 20%, #EC9641 40%, #f7b18b 40%, #f7b18b 60%, #F6EAEE 60%, #F6EAEE 80%, #F5C9C0 80%, #F5C9C0 100%);
+}
+
+.bgpalete4 {
+    background-image: linear-gradient(90deg, #FDF3DD 10%, #FDF3DD 20%, #91BEE5 20%, #91BEE5 40%, #EC9641 40%, #EC9641 60%, #f7b18b 60%, #f7b18b 80%, #CED3EA 80%, #CED3EA 100%);
+}
+
+.bgpalete5 {
+    background-image: linear-gradient(90deg, #F6EAEE 10%, #F6EAEE 20%, #CED3EA 20%, #CED3EA 40%, #91BEE5 40%, #91BEE5 60%, #EC9641 60%, #EC9641 80%, #f7b18b 80%, #f7b18b 100%);
+}
+
+.responsive-text-jumbo {
+font-size:15vw;
+}
+
+.responsive-text-large {
+    font-size:2vw;
+}
+
+input:focus, textarea {
+    outline: none !important;
+}
+
+.inpt {
+    width: 30%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+    
+.formspring {
+    -moz-border-radius: 6px;
+
+-webkit-border-radius: 6px;
+
+-khtml-border-radius: 6px;
+
+border-radius:6px;
+border-width: 1px;
+border-color: white;
+background-color: transparent;
+}
+
+.hiddenbuttom {
+    border-width: 0px;
+background-color: transparent;
+}
+
