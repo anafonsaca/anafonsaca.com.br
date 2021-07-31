@@ -19,23 +19,27 @@ background-size: cover;
 }
 
 .bgpalete1 {
-    background-image: linear-gradient(90deg, #f7b18b 10%, #f7b18b 20%, #F6EAEE 20%, #F6EAEE 40%, #F5C9C0 40%, #F5C9C0 60%, #91BEE5 60%, #91BEE5 80%, #EC9641 80%, #EC9641 100%);
+    background-image: linear-gradient(90deg, #f7b18b 100%, #f7b18b 0%, #F6EAEE 0%, #F6EAEE 0%, #F5C9C0 0%, #F5C9C0 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%);
 }
 
 .bgpalete2 {
-    background-image: linear-gradient(90deg, #EC9641 10%, #EC9641 20%, #f7b18b 20%, #f7b18b 40%, #CED3EA 40%, #CED3EA 60%, #F5C9C0 60%, #F5C9C0 80%, #91BEE5 80%, #91BEE5 100%);
+    background-image: linear-gradient(90deg, #f7e6c2 100%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%, #CED3EA 0%, #CED3EA 0%, #F5C9C0 0%, #F5C9C0 0%, #91BEE5 0%, #91BEE5 0%);
 }
 
 .bgpalete3 {
-    background-image: linear-gradient(90deg, #91BEE5 10%, #91BEE5 20%, #EC9641 20%, #EC9641 40%, #f7b18b 40%, #f7b18b 60%, #F6EAEE 60%, #F6EAEE 80%, #F5C9C0 80%, #F5C9C0 100%);
+    background-image: linear-gradient(90deg, #91BEE5 100%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%, #F6EAEE 0%, #F6EAEE 0%, #F5C9C0 0%, #F5C9C0 0%);
 }
 
 .bgpalete4 {
-    background-image: linear-gradient(90deg, #FDF3DD 10%, #FDF3DD 20%, #91BEE5 20%, #91BEE5 40%, #EC9641 40%, #EC9641 60%, #f7b18b 60%, #f7b18b 80%, #CED3EA 80%, #CED3EA 100%);
+    background-image: linear-gradient(90deg, #EFAFB8 100%, #FDF3DD 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%, #CED3EA 0%, #CED3EA 0%);
 }
 
 .bgpalete5 {
-    background-image: linear-gradient(90deg, #F6EAEE 10%, #F6EAEE 20%, #CED3EA 20%, #CED3EA 40%, #91BEE5 40%, #91BEE5 60%, #EC9641 60%, #EC9641 80%, #f7b18b 80%, #f7b18b 100%);
+    background-image: linear-gradient(90deg, #B2D89B 100%, #F6EAEE 0%, #CED3EA 0%, #CED3EA 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%);
+}
+
+.bgpalete6 {
+    background-image: linear-gradient(90deg, #CED3EA 100%, #F6EAEE 0%, #CED3EA 0%, #CED3EA 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%);
 }
 
 .responsive-text-jumbo {

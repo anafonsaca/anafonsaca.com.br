@@ -60,12 +60,19 @@ function changeBg5() {
     var mainbg = document.getElementById("maindiv");
     mainbg.classList.remove("bgpalete4");
     mainbg.classList.add("bgpalete5");
+    setTimeout(changeBg6, tempo); 
+    }
+
+    function changeBg6() {
+    var mainbg = document.getElementById("maindiv");
+    mainbg.classList.remove("bgpalete5");
+    mainbg.classList.add("bgpalete6");
     setTimeout(changeBg1, tempo); 
     }
 
 function changeBg1() {
     var mainbg = document.getElementById("maindiv");
-    mainbg.classList.remove("bgpalete5");
+    mainbg.classList.remove("bgpalete6");
     mainbg.classList.add("bgpalete1");
     setTimeout(changeBg2, tempo); 
     }
