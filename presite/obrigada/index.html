@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang=”pt-br”></html>
+<html>
+<title>Ana Fonsaca - Obrigada!</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../css/w3.css">
+<link rel="stylesheet" href="../css/style.css">
+<body>
+
+<div class="bg bgpalete1 w3-display-container w3-text-white" id="maindiv">
+  <div class="w3-display-middle w3-block">
+    <h1 class="responsive-text-jumbo w3-animate-top w3-center ana-logo"><a href="https://anafonsaca.com.br" style="text-decoration: none;">ana fonsaca</a></h1>
+
+    <div class="w3-center w3-animate-bottom ">
+      
+        <p class="responsive-text-large ana-logo">obrigada! ficamos felizes em poder compartilhar em breve o lançamento da marca com você.</p>
+
+        
+    </div>
+
+  </div>
+  <p class="w3-small w3-center w3-bottom"><a href="https://instagram.com/shop.anafonsaca" style="text-decoration: none;">@shop.anafonsaca</a></p>
+</div>
+
+</body>
+<script>
+    let tempo = 1200;
+function changeBg2() {
+    var mainbg = document.getElementById("maindiv");
+    mainbg.classList.remove("bgpalete1");
+    mainbg.classList.add("bgpalete2");
+    setTimeout(changeBg3, tempo); 
+    }
+function changeBg3() {
+    var mainbg = document.getElementById("maindiv");
+    mainbg.classList.remove("bgpalete2");
+    mainbg.classList.add("bgpalete3");
+    setTimeout(changeBg4, tempo); 
+    }
+function changeBg4() {
+    var mainbg = document.getElementById("maindiv");
+    mainbg.classList.remove("bgpalete3");
+    mainbg.classList.add("bgpalete4");
+    setTimeout(changeBg5, tempo); 
+    }
+
+function changeBg5() {
+    var mainbg = document.getElementById("maindiv");
+    mainbg.classList.remove("bgpalete4");
+    mainbg.classList.add("bgpalete5");
+    setTimeout(changeBg1, tempo); 
+    }
+
+function changeBg1() {
+    var mainbg = document.getElementById("maindiv");
+    mainbg.classList.remove("bgpalete5");
+    mainbg.classList.add("bgpalete1");
+    setTimeout(changeBg2, tempo); 
+    }
+
+setTimeout(changeBg2, tempo); 
+</script>
+
+</html>

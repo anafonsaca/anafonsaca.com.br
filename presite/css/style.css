@@ -1,0 +1,84 @@
+@font-face {
+    font-family: 'League Spartan Bold';
+    src: url('../fonts/LeagueSpartan-Bold.woff2');
+  }
+
+
+html * {
+    font-family: 'League Spartan Bold';
+}
+body, html {height: 100%}
+.bg {
+background-size: cover;
+  min-height: 100%;
+  background-position: center;
+  background-color: #FCD9C5;
+}
+
+.ana-logo {
+    margin:5px 0;
+}
+
+.bgpalete1 {
+    background-image: linear-gradient(90deg, #f7b18b 100%, #f7b18b 0%, #F6EAEE 0%, #F6EAEE 0%, #F5C9C0 0%, #F5C9C0 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%);
+}
+
+.bgpalete2 {
+    background-image: linear-gradient(90deg, #f7e6c2 100%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%, #CED3EA 0%, #CED3EA 0%, #F5C9C0 0%, #F5C9C0 0%, #91BEE5 0%, #91BEE5 0%);
+}
+
+.bgpalete3 {
+    background-image: linear-gradient(90deg, #91BEE5 100%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%, #F6EAEE 0%, #F6EAEE 0%, #F5C9C0 0%, #F5C9C0 0%);
+}
+
+.bgpalete4 {
+    background-image: linear-gradient(90deg, #EFAFB8 100%, #FDF3DD 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%, #CED3EA 0%, #CED3EA 0%);
+}
+
+.bgpalete5 {
+    background-image: linear-gradient(90deg, #B2D89B 100%, #F6EAEE 0%, #CED3EA 0%, #CED3EA 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%);
+}
+
+.bgpalete6 {
+    background-image: linear-gradient(90deg, #CED3EA 100%, #F6EAEE 0%, #CED3EA 0%, #CED3EA 0%, #91BEE5 0%, #91BEE5 0%, #EC9641 0%, #EC9641 0%, #f7b18b 0%, #f7b18b 0%);
+}
+
+.responsive-text-jumbo {
+font-size:15vw;
+}
+
+.responsive-text-large {
+    font-size:2vw;
+}
+
+input:focus, textarea {
+    outline: none !important;
+}
+
+.inpt {
+    width: 30%;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+    
+.formspring {
+    -moz-border-radius: 6px;
+
+-webkit-border-radius: 6px;
+
+-khtml-border-radius: 6px;
+
+border-radius:6px;
+border-width: 1px;
+border-color: white;
+background-color: transparent;
+}
+
+.hiddenbuttom {
+    border-width: 0px;
+background-color: transparent;
+}
+
