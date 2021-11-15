@@ -62,7 +62,7 @@
           <span id="shopcartview">
 
           <div class="w3-row w3-row-padding">
-            <button onclick="dropInfo('suacompra')" class="w3-card w3-button w3-tiny color-ba8671 hover-e4d5d3 btnpage w3-round-large w3-left w3-large w3-margin-bottom hover-f2f0eb" style="width:50%;">items selecionados</button>
+            <button onclick="dropInfo('suacompra')" class="w3-card w3-button w3-tiny color-ba8671 hover-e4d5d3 btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">items selecionados</button>
           </div>
           <div id="suacompra" class="w3-container foldable">
           <div class="" id="carthtml"></div>
@@ -72,7 +72,7 @@
         <!-- itemlist end -->
     <!-- deliver form start -->
         <div class="w3-row w3-row-padding">
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-left w3-large w3-margin-bottom hover-f2f0eb" style="width:50%;">dados para entrega</button>
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">entrega e pagamento</button>
   </div>
       <div id="dadosparaentrega" class="w3-container foldable">
      
@@ -140,7 +140,7 @@
 
     <div class="w3-row w3-row-padding">
 
-      <button class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-right w3-large w3-margin-bottom hover-f2f0eb" id="checkoutbuttom" form="formulariodecontato" type="submit" style="width:50%;" onclick="dropInfoOpen('dadosparaentrega')">pagamento </button>
+      <button class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-right w3-margin-bottom hover-f2f0eb" id="checkoutbuttom" form="formulariodecontato" type="submit" style="width:50%;" onclick="dropInfoOpen('dadosparaentrega')">pagar</button>
     </div>
   </form>
   </div>
@@ -197,7 +197,7 @@
           <div class="" style="max-width:700px;">
             <div class="w3-container w3-round-large w3-card w3-margin-bottom">
               <div class="w3-section">
-                <h5 class="bold w3-xxlarge">bermuda candy</h5>
+                <h5 class="bold w3-large">bermuda candy</h5>
                 
               </div>
               <span class="">
@@ -207,7 +207,11 @@
               <div class="w3-clear"></div>
             </span>
               <div class="w3-section w3-small">
-                <p>a bermuda candy é feita em sarja de viscose com toque suave e confortável. corte de alfaiataria, cintura alta, comprimento logo acima do joelho, fechamento com trava de segurança em botões e zíper, passantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. acabamento interno com viés e costura francesa, barra com revel aplicado de 7cm. essa bermuda promete ser a mais cool do seu guarda roupa. </p>
+                <p>a bermuda candy é feita em sarja de viscose com toque suave e confortável. 
+corte de alfaiataria, cintura alta, comprimento logo acima do joelho, fechamento com trava de segurança em botões e zíper.
+passantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. 
+acabamento interno em viés e costura francesa, barra com revel aplicado.
+note: essa bermuda promete ser a mais cool do seu guarda roupa. </p>
 
               </div>
             </div>
@@ -236,12 +240,18 @@
                 </span>
             
               </div>
+
+           
+                <button class="w3-card w3-button w3-small color-d3e4f5 btnpage w3-round-large w3-center w3-disabled" onclick="addToCart(this)" id="btnadd" data-sku="BER01SS22" data-tamanho="" data-nome="bermuda candy" data-cor="off white" data-valor="588" data-descricao="a bermuda candy é feita em sarja de viscose com toque suave e confortável. 
+corte de alfaiataria, cintura alta, comprimento logo acima do joelho, fechamento com trava de segurança em botões e zíper.
+passantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. 
+acabamento interno em viés e costura francesa, barra com revel aplicado.
+note: essa bermuda promete ser a mais cool do seu guarda roupa. " data-path="/shop/bermuda-candy" style="width: 50%;">comprar</button>
+           
             
 
             </div>
-            <div class="w3-left w3-margin-top" style="width: 100%;">
-              <button class="w3-card w3-button w3-small color-d3e4f5 btnpage w3-round-large w3-center" onclick="addToCart(this)" id="btnadd" data-sku="BER01SS22" data-tamanho="" data-nome="bermuda candy" data-cor="off white" data-valor="588" data-descricao="a bermuda candy é feita em sarja de viscose com toque suave e confortável. corte de alfaiataria, cintura alta, comprimento logo acima do joelho, fechamento com trava de segurança em botões e zíper, passantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. acabamento interno com viés e costura francesa, barra com revel aplicado de 7cm. essa bermuda promete ser a mais cool do seu guarda roupa. " data-path="/shop/bermuda-candy" style="width: 50%;">comprar</button>
-            </div>
+
             <p class="w3-center" style="font-style:italic;"></p>
           </div>
         </div>

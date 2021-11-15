@@ -40,20 +40,29 @@ pwd
 fi
 
 ###index:
+export titulo='joy motifs - summer collection'
 
-cat head.html > ../index.html
-cat shopcart.html >> ../index.html
-cat indexmid.html >> ../index.html
-cat footer.html >> ../index.html
+
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat indexmid.html
+  cat footer.html
+  #echo "HEREDOC"
+} | sh > ../index.html
+
 #############################
 
 
 ###shop:
-cat head.html > ../shop/index.html
+export titulo='shop'
 
-cat shopcart.html >> ../shop/index.html
-
-cat grid-mid.html >> ../shop/index.html
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat grid-mid.html
+  #echo "HRHRHRHR"
+} | sh > ../shop/index.html
 
 
 

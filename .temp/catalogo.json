@@ -2,7 +2,7 @@
     "CAM01SS22": {
         "sku": "CAM01SS22",
         "titulo": "camisa casulo",
-        "descricao": "a camisa casulo \u00e9 feita em tricoline de algod\u00e3o, tecido leve, com maciez e respiro. camisa com colarinho de pontas alongadas, mangas curtas volumosas em formato de casulo. fechamento frontal por bot\u00f5es e vista sobreposta, deixando aparente apenas o primeiro bot\u00e3o. o caimento e cumprimento da pe\u00e7a \u00e9 regular. o corte lateral tem uma ondula\u00e7\u00e3o que traz modernidade e autenticidade para a pe\u00e7a. acabamento interno com vi\u00e9s e costura francesa, barra com revel aplicado de 7cm. essa camisa merece mais aten\u00e7\u00e3o do que voc\u00ea imagina, quando vestir pela primeira vez, nao vai querer mais outra camisa no guarda roupa, ela \u00e9 tudo! \n",
+        "descricao": "a camisa casulo \u00e9 feita em tricoline de algod\u00e3o, tecido leve, com maciez e respiro.\ncolarinho de pontas alongadas, mangas curtas volumosas em formato de casulo. \nfechamento frontal por bot\u00f5es e vista sobreposta, aparente apenas o primeiro bot\u00e3o.\ncaimento e cumprimento da pe\u00e7a \u00e9 regular.\ncorte lateral ondulado trazendo modernidade para a pe\u00e7a.\nacabamento interno em vi\u00e9s e costura francesa, barra com revel aplicado.\nnote: essa camisa merece mais olofortes do que voc\u00ea imagina, quando vestir pela primeira vez, nao vai mais querer tirar, ela \u00e9 tudo! \n",
         "cor": "azul claro",
         "p": "2",
         "m": "2",
@@ -17,7 +17,7 @@
     "CAL01SS22": {
         "sku": "CAL01SS22",
         "titulo": "cal\u00e7a copenhagen",
-        "descricao": "a cal\u00e7a copenhagen \u00e9 feita em sarja de viscose com toque suave e confort\u00e1vel. corte de alfaiataria, cintura alta, detalhes em pregas duplas frontais, perna com corte arredondado, fechamento com trava de seguran\u00e7a em bot\u00f5es e z\u00edper, passantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. acabamento interno com vi\u00e9s e costura francesa, barra com revel aplicado de 7cm. essa cal\u00e7a \u00e9 o \"must\" da alfaitaria despojada, vai estar sempre com voc\u00ea. ",
+        "descricao": "a cal\u00e7a copenhagen \u00e9 feita em sarja de viscose com toque suave e confort\u00e1vel. \ncorte de alfaiataria, cintura alta, detalhes em pregas duplas frontais, perna com corte arredondado, fechamento com trava de seguran\u00e7a em bot\u00f5es e z\u00edper.\npassantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. \nacabamento interno com vi\u00e9s e costura francesa, barra com revel aplicado.\nnote: essa cal\u00e7a \u00e9 o \"must\" da alfaitaria despojada, vai estar sempre com voc\u00ea. ",
         "cor": "terracota",
         "p": "1",
         "m": "2",
@@ -32,7 +32,7 @@
     "VES03SS22": {
         "sku": "VES03SS22",
         "titulo": "vestido tomas",
-        "descricao": "o vestido tomas \u00e9 feito em algod\u00e3o com estampa exclusiva da nossa cole\u00e7\u00e3o joy motifs. o tamanho real do cogumelo estampado \u00e9 de 30cm, \"enorme\", afirmando nossa identidade volumosa nas pe\u00e7as e no design. a estampa \u00e9 fun e aut\u00eantica. o vestido possui decote quadrado, manga curta com leve volume e acabamento de tomas. a barra possui acabamento em tomas e franzidos que d\u00e3o bastante amplitude ao vestido. possui bolso na lateral. acabamento interno com vi\u00e9s e costura francesa. essa pe\u00e7a \u00e9 \u00fanica, singular e com muito bom humor. \nEssa pe\u00e7a acompanha a faixa com o mesmo tecido do vestido.\nA modelagem do vestido \u00e9 ampla e soltinha, sugerimos que:\nManequim 34 a 38 adquira o tamanho P\nManequim 40 a 44 adquira o tamanho M ",
+        "descricao": "o vestido tomas \u00e9 feito em algod\u00e3o com estampa exclusiva da nossa cole\u00e7\u00e3o joy motifs. \ndecote quadrado, manga curta com leve volume e acabamento de tomas. \na barra possui acabamento toma e franzidos que d\u00e3o bastante amplitude ao vestido. \npossui bolso na lateral. \nacabamento interno em vi\u00e9s e costura francesa. \nnote: essa pe\u00e7a \u00e9 \u00fanica, divertida, singular e com muito bom humor. \n\nessa pe\u00e7a acompanha a faixa com o mesmo tecido do vestido.\n\na modelagem do vestido \u00e9 ampla e soltinha, sugerimos que:\nmanequim 34 a 38 adquira o tamanho P\nmanequim 40 a 44 adquira o tamanho M ",
         "cor": "estampado",
         "p": "5",
         "m": "5",
@@ -46,8 +46,8 @@
     },
     "VES01SS22": {
         "sku": "VES01SS22",
-        "titulo": "vestido puff puff",
-        "descricao": "o vestido puff puff \u00e9 feito de tecido gaze dupla texturizada em algod\u00e3o, com forro tamb\u00e9m em algod\u00e3o. o vestido tem cumprimento mini, com mangas bufantes e recorte com franzidos, efeito de silhueta volumosa. nas costas possui fechamento em gota com bot\u00e3o. acabamento interno com vi\u00e9s e costura francesa. esse vestido \u00e9 um acontecimento, uma inspira\u00e7\u00e3o do que h\u00e1 de mais atual na moda: conforto e autenticidade.",
+        "titulo": "vestido daisy",
+        "descricao": "o vestido daisy \u00e9 feito de tecido gaze dupla texturizada em algod\u00e3o, com forro tamb\u00e9m em algod\u00e3o.\ncumprimento mini, com mangas bufantes e recorte com franzidos, efeito de silhueta volumosa.\nnas costas possui fechamento em gota com bot\u00e3o. \nacabamento interno com vi\u00e9s e costura francesa. \nnote: esse vestido expira conforto e conceito.",
         "cor": "branco",
         "p": "2",
         "m": "2",
@@ -62,7 +62,7 @@
     "CAM02SS22": {
         "sku": "CAM02SS22",
         "titulo": "camisa coffee",
-        "descricao": "a camisa coffee com padronagem xadrez \u00e9 feita em algod\u00e3o e linho. o tecido \u00e9 encorpado, traz import\u00e2ncia no corte e caimento da pe\u00e7a. o toque \u00e9 confort\u00e1vel. camisa com colarinho de pontas alongadas, mangas compridas volumosas com abotoamento nos punhos, bolso frontal. fechamento frontal por bot\u00f5es e vista sobreposta, deixando aparente apenas o primeiro bot\u00e3o. o caimento \u00e9 mais amplo, com comprimento alongado. o corte lateral tem uma ondula\u00e7\u00e3o que traz modernidade e autenticidade para a pe\u00e7a. acabamento interno com vi\u00e9s e costura francesa, barra com revel aplicado de 7cm. se pudessemos definir o sentimento que \u00e9 vestir essa camisa, diriamos que \u00e9 se sentir pronta, forte e audaciosa, essa pe\u00e7a transmite import\u00e2ncia! \n",
+        "descricao": "a camisa coffee com padronagem xadrez \u00e9 feita em algod\u00e3o e linho, toque confort\u00e1vel. \no tecido \u00e9 encorpado, com corte e caimento importante.\ncolarinho de pontas alongadas, mangas compridas volumosas com abotoamento nos punhos, bolso frontal. \nfechamento frontal por bot\u00f5es e vista sobreposta, aparente apenas o primeiro bot\u00e3o. \no caimento \u00e9 amplo, com comprimento alongado. \ncorte lateral ondulado trazendo modernidade para a pe\u00e7a.\nacabamento interno com vi\u00e9s e costura francesa, barra com revel aplicado.\nnote: se pudessemos definir o sentimento que \u00e9 vestir essa camisa, diriamos que \u00e9 se sentir pronta, forte e audaciosa!\n",
         "cor": "estampado",
         "p": "1",
         "m": "1",
@@ -77,7 +77,7 @@
     "BER01SS22": {
         "sku": "BER01SS22",
         "titulo": "bermuda candy",
-        "descricao": "a bermuda candy \u00e9 feita em sarja de viscose com toque suave e confort\u00e1vel. corte de alfaiataria, cintura alta, comprimento logo acima do joelho, fechamento com trava de seguran\u00e7a em bot\u00f5es e z\u00edper, passantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. acabamento interno com vi\u00e9s e costura francesa, barra com revel aplicado de 7cm. essa bermuda promete ser a mais cool do seu guarda roupa. ",
+        "descricao": "a bermuda candy \u00e9 feita em sarja de viscose com toque suave e confort\u00e1vel. \ncorte de alfaiataria, cintura alta, comprimento logo acima do joelho, fechamento com trava de seguran\u00e7a em bot\u00f5es e z\u00edper.\npassantes para cinto, dois bolsos nas laterais e dois bolsos posteriores. \nacabamento interno em vi\u00e9s e costura francesa, barra com revel aplicado.\nnote: essa bermuda promete ser a mais cool do seu guarda roupa. ",
         "cor": "off white",
         "p": "2",
         "m": "2",
@@ -91,8 +91,8 @@
     },
     "VES02SS22": {
         "sku": "VES02SS22",
-        "titulo": "vestido music",
-        "descricao": "o vestido music \u00e9 feito em algod\u00e3o e seda, tecido com muita importancia e sofistica\u00e7\u00e3o. o vestido modelo regata, \u00e9 fluido, leve e elegante. possui gola arredondada com leves franzidos. nas costas possui fechamento em gota com bot\u00e3o. na barra, recortes com mais franzidos. o vestido possui bolsos na lateral. acabamento interno com vi\u00e9s e costura francesa. essa pe\u00e7a \u00e9 atemporal, elegante, e merece ser editada de mil e uma maneiras, vai de um casamento at\u00e9 o passeio do fim de semana.\nEssa pe\u00e7a acompanha a faixa com o mesmo tecido do vestido. ",
+        "titulo": "vestido hygge",
+        "descricao": "o vestido hygge \u00e9 feito em seda com algod\u00e3o, carrega leveza e sofistica\u00e7\u00e3o. \nmodelo regata, fluido, com bolsos na lateral e gola arredondada com franzidos. \nnas costas possui fechamento em gota com bot\u00e3o madreperola. \nacabamento interno em vi\u00e9s e costura francesa. \nnote: essa pe\u00e7a \u00e9 atemporal, elegante, e merece ser editada de mil e uma maneiras - do casamento at\u00e9 o dia a dia. \n\nessa pe\u00e7a acompanha a faixa com o mesmo tecido do vestido. ",
         "cor": "rosa",
         "p": "1",
         "m": "2",
@@ -106,8 +106,8 @@
     },
     "VES04SS22": {
         "sku": "VES04SS22",
-        "titulo": "vestido hygge",
-        "descricao": "o vestido hygge \u00e9 feito em algod\u00e3o com estampa floral exclusiva da nossa cole\u00e7\u00e3o joy motifs. o vestido possui decote canoa, redondo na frente e formato em V nas costas ( o decote foi estrategicamente pensado para poder usar o vestido com suti\u00e3, ou seja, o decote n\u00e3o \u00e9 profundo). Manga com detalhes que remetem a silhueta das flores. Na cintura possui um corte com franzido trazendo e movimento para o vestido. o vestido possui bolsos na lateral. a barra possui recorte com acabamento em tomas e franzidos. acabamento interno com vi\u00e9s e costura francesa. essa pe\u00e7a tem aroma floral s\u00f3 de olhar, um verdadeiro campo de flores! \nEssa pe\u00e7a acompanha faixa com o mesmo tecido do vestido. \nA modelagem do vestido \u00e9 ampla e soltinha, sugerimos que:\nManequim 34 a 38 adquira o tamanho P\nManequim 40 a 44 adquira o tamanho M ",
+        "titulo": "vestido flower field",
+        "descricao": "o vestido flower field \u00e9 feito em algod\u00e3o com estampa floral exclusiva da nossa cole\u00e7\u00e3o joy motifs. \ndecote canoa na frente, nas costas decote em V, estrategicamente pensado para poder usar suti\u00e3,  o decote n\u00e3o \u00e9 profundo. \nmanga com recorte que remetem ao formato das flores. \nna cintura possui um corte com franzido trazendo movimento para o vestido. \no vestido possui bolsos na lateral. \na barra possui recorte com acabamento toma e franzidos. \nacabamento interno em vi\u00e9s e costura francesa. \nnote: essa pe\u00e7a exala aroma floral s\u00f3 de olhar, um verdadeiro campo de flores! \n\nessa pe\u00e7a acompanha faixa com o mesmo tecido do vestido. \n\na modelagem do vestido \u00e9 ampla, sugerimos que:\nmanequim 34 a 38 adquira o tamanho P\nmanequim 40 a 44 adquira o tamanho M ",
         "cor": "estampado",
         "p": "5",
         "m": "5",
@@ -122,7 +122,7 @@
     "TO01SS22": {
         "sku": "TO01SS22",
         "titulo": "tote bag joy motifs",
-        "descricao": "tote bag feita em lona refor\u00e7ada com bolso interno. estampa em silk com o s\u00edmbolo da cole\u00e7\u00e3o joy motifs. essa totebag tem um design diferenciado, ela \u00e9 ampla e com linhas bem modernas. vai estar com voc\u00ea em diversas ocasi\u00f5es, use para tudo, com tudo, e em todos os lugares que quiser.",
+        "descricao": "tote bag feita em lona refor\u00e7ada com bolso interno. \nestampa em silk com o s\u00edmbolo da cole\u00e7\u00e3o joy motifs. \nessa totebag tem um design diferenciado, ela \u00e9 ampla e com linhas bem modernas. \nnote: vai estar com voc\u00ea em diversas ocasi\u00f5es, use para tudo, com tudo, e em todos os lugares que quiser.",
         "cor": "algod\u00e3o cru",
         "p": "0",
         "m": "0",

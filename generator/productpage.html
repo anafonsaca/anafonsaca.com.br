@@ -47,7 +47,7 @@
           <div class="" style="max-width:700px;">
             <div class="w3-container w3-round-large w3-card w3-margin-bottom">
               <div class="w3-section">
-                <h5 class="bold w3-xxlarge">${titulo}</h5>
+                <h5 class="bold w3-large">${titulo}</h5>
                 
               </div>
               <span class="${precoativo}">
@@ -86,12 +86,14 @@
                 </span>
             
               </div>
+
+           
+                <button class="w3-card w3-button w3-small color-d3e4f5 btnpage w3-round-large w3-center w3-disabled" onclick="addToCart(this)" id="btnadd" data-sku="${sku}" data-tamanho="" data-nome="${titulo}" data-cor="${cor}" data-valor="${valor}" data-descricao="${descricao}" data-path="/shop/${url}" style="width: 50%;">comprar</button>
+           
             
 
             </div>
-            <div class="w3-left w3-margin-top" style="width: 100%;">
-              <button class="w3-card w3-button w3-small color-d3e4f5 btnpage w3-round-large w3-center" onclick="addToCart(this)" id="btnadd" data-sku="${sku}" data-tamanho="" data-nome="${titulo}" data-cor="${cor}" data-valor="${valor}" data-descricao="${descricao}" data-path="/shop/${url}" style="width: 50%;">comprar</button>
-            </div>
+
             <p class="w3-center" style="font-style:italic;">${tag}</p>
           </div>
         </div>
