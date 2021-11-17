@@ -91,7 +91,7 @@ function esvaziaCarrinho() {
 
 
 function toggleCart() {
-    carticon = document.getElementById("bagicon");
+    carticon = document.getElementById("bagicon"); 
     closeicon = document.getElementById("closeicon");
     shopcart = document.getElementById("shopCart");
     pagecontent = document.getElementById("pagecontent");
@@ -100,17 +100,17 @@ function toggleCart() {
         cartopen = false;
         shopcart.style.display = "none";
       //  pagecontent.style.display = "";
-        carticon.innerHTML = carticonnumber;
-        carticon.style.display = "";
-        closeicon.style.display = "none";
+        //carticon.innerHTML = carticonnumber;
+        //carticon.style.display = "";
+        //closeicon.style.display = "none";
      
 
     } else {
         cartopen = true;
         shopcart.style.display = "block";
       //  pagecontent.style.display = "none";
-        carticon.style.display = "none";
-        closeicon.style.display = "";
+      //  carticon.style.display = "none";
+      //  closeicon.style.display = "";
         dropInfo('suacompra');
 
 
@@ -185,7 +185,9 @@ function cartRender() {
     document.getElementById("bagstatus").innerHTML = "";
 
     if (carrinho.length == 0) {
-        document.getElementById("bagicon").innerHTML = '';
+        carticon = document.getElementById("bagicon");  
+        carticon.innerHTML = '';
+        carticon.style.display = "none";
 
         shopcartview.style.display = "none";
 
@@ -199,7 +201,7 @@ function cartRender() {
         emptytxt.className = "w3-display-middle";
         emptytxt.innerHTML = "nenhum item selecionado";
         emptydiv.appendChild(emptytxt);
-        document.getElementById("bagicon").innerHTML = '';
+      
         
 
         // document.getElementById("bagbuttom").style.display = "none";
@@ -283,7 +285,9 @@ function cartRender() {
             itemprice.innerHTML = 'R$' + obj.valor;
             iteminfodiv.appendChild(itemprice);
             carticonnumber = cartcounter;
-            document.getElementById("bagicon").innerHTML = cartcounter;
+            carticon = document.getElementById("bagicon")
+            carticon.innerHTML = cartcounter;
+            carticon.style.display = "";
 
         }
 
