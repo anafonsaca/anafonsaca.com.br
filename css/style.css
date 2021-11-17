@@ -97,34 +97,23 @@ body, h1, h2, h3, h4, h5, p {
     margin-left: 24px;
 }
 
-.bg1 {
-   background: #F6EAEE !important;
-}
 
-.bg2 {
-    background: #CED3EA !important;
+
+
+.color-e6e1d8 {
+  background-color: #e6e1d8!important;
  }
 
- .bg3 {
-    background: #f7b18b !important;
- }
-
- .bg4 {
-    background: #91BEE5 !important;
- }
-
- .bg5 {
-    background: #EC9641 !important;
- }
-
- .bg-sand{
-     background: #f9f7f2;
-
-
+.color-f9dec7 {
+  background-color: #f9dec7!important;
  }
 
  .color-ba8671 {
   background-color: #ba8671!important;
+ }
+
+ .color-faeadf {
+  background-color: #faeadf!important;
  }
 
  .color-d3e4f5 {
@@ -402,6 +391,12 @@ body, h1, h2, h3, h4, h5, p {
 .bannertext {
   font-size:12vw !important; 
   white-space: nowrap !important;
+  position: fixed;
+}
+
+.abouttext {
+  font-size:1.2vw !important; 
+
   position: fixed;
 }
 

@@ -33,7 +33,7 @@ function meu_callback(conteudo) {
         document.getElementById('formrua').value = (conteudo.logradouro).toLowerCase();
         document.getElementById('formbairro').value = (conteudo.bairro).toLowerCase();
         document.getElementById('formcidade').value = (conteudo.localidade).toLowerCase();
-        document.getElementById('formestado').value = (conteudo.uf);
+        document.getElementById('formestado').value = (conteudo.uf).toUpperCase();
     } //end if.
     else {
         //CEP não Encontrado.
@@ -593,22 +593,22 @@ function checkoutGo() {
         },
         "Shipping": {
             "SourceZipCode": null,
-            "TargetZipCode": document.getElementById("formcep").value,
+            "TargetZipCode": document.getElementById("formcep").value.replace(/\D/g, ""),
             "Type": "Free",
             "Services": null,
             "Address": {
-                "Street": document.getElementById("formrua").value,
+                "Street": document.getElementById("formrua").value.toUpperCase(),
                 "Number": document.getElementById("formnumero").value,
-                "Complement": document.getElementById("formcomplemento").value,
-                "District": document.getElementById("formbairro").value,
-                "City": document.getElementById("formcidade").value,
-                "State": document.getElementById("formestado").value
+                "Complement": document.getElementById("formcomplemento").value.toUpperCase(),
+                "District": document.getElementById("formbairro").value.toUpperCase(),
+                "City": document.getElementById("formcidade").value.toUpperCase(),
+                "State": document.getElementById("formestado").value.toUpperCase()
             }
         },
         "Customer": {
-            "Identity": document.getElementById("formcpf").value,
-            "FullName": document.getElementById("formnome").value,
-            "Email": document.getElementById("formemail").value,
+            "Identity": document.getElementById("formcpf").value.replace(/\D/g, ""),
+            "FullName": document.getElementById("formnome").value.toUpperCase(),
+            "Email": document.getElementById("formemail").value.toUpperCase(),
             "Phone": document.getElementById("formtelefone").value
         },
         "Settings": null
@@ -660,8 +660,6 @@ function checkoutGo() {
 };
 
 
-
-
 function unfoldAll() {
     var x = document.getElementsByClassName("foldable");
 var i;
@@ -688,6 +686,8 @@ function dropInfo(id) {
     var x = document.getElementById(id);
     x.style.maxHeight = x.scrollHeight + "px";
   }
+
+
 
   function showLoader() {
     document.getElementById('loadermodal').style.display = 'block'
