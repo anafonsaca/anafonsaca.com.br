@@ -98,6 +98,16 @@ body, h1, h2, h3, h4, h5, p {
 }
 
 
+.textobloco {
+  text-indent: 100px;
+  line-height: 2.8;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-left: 200px;
+  margin-right: 200px;
+  
+}
+
 
 
 .color-e6e1d8 {
