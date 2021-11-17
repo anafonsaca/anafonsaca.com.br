@@ -463,7 +463,9 @@ function estoqueLoad(estoqueJson) {
 }
 
 function getEstoque(sku) {
-    console.log(sku)
+    if (sku) {
+
+    
     if ( ! sku.includes('sku')) {
 
     
@@ -478,6 +480,7 @@ function getEstoque(sku) {
         )
         .catch(error => console.error(error))
     }
+}
 }
 
 
