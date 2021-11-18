@@ -181,3 +181,7 @@ done < <(jq 'keys'[] -r <<< "$json")
 
 cat footer.html >> ../shop/index.html
 
+sed -i 's/activehome/color-f9dec7/g' ../index.html
+sed -i 's/activeabout/color-faeadf/g' ../about/index.html
+sed -i 's/activeshop/color-e6e1d8/g' ../shop/index.html
+

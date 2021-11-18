@@ -7,6 +7,7 @@ var cepdeorigem = 88330786;
 var carrinho = [];
 var carticonnumber = 0;
 var cartopen = false;
+var tableopen = false;
 var estoqueUni;
 var estoquePeq;
 var estoqueMed;
@@ -89,6 +90,18 @@ function esvaziaCarrinho() {
     localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
+function toggleTable () {
+
+tabmedidas = document.getElementById("tabelamedidas");
+
+if (tableopen) {
+tableopen = false;
+tabmedidas.style.display = "none";
+} else {
+tableopen = true;
+tabmedidas.style.display = "block";
+}
+}
 
 function toggleCart() {
     carticon = document.getElementById("bagicon"); 
@@ -752,4 +765,11 @@ document.getElementById("shopCart").addEventListener('click', function (e) {
 
 
 
+      document.getElementById("tabelamedidas").addEventListener('click', function (e) {
+        if (e.target.id == "tabelamedidas") {
+            toggleTable();
+        }
+          }, false);
+    
+    
     

@@ -21,16 +21,16 @@
     <div class="w3-top">
       <div class="w3-bar w3-padding w3-white">
  
-          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7" lang="en" style="width:20%">home</a>
+          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%">home</a>
      
        
-          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf" lang="en" style="width:20%">about</a>
+          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%">about</a>
     
    
-          <a href="https://blog.anafonsaca.com.br" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3" lang="en" style="width:20%">blog</a>
+          <a href="https://blog.anafonsaca.com.br"  target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
       
       
-          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8" lang="en" style="width:20%">shop</a>
+          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%">shop</a>
       
       
           <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f2f0eb" style="width:20%">
@@ -41,6 +41,77 @@
    
       </div>
     </div>
+
+    <div id="tabelamedidas" class="w3-modal blurred">
+
+      <div class="w3-modal-content w3-margin-bottom" style="max-width:800px">
+        <!--
+        <div class="w3-row w3-padding-24">
+          <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleTable()">x</button>
+        </div> 
+        -->
+          <table class="w3-table-all w3-small">
+              <tbody>
+              <tr>
+              <td> </td>
+              <td>
+              
+              <p class="w3-center bold">P: 34 a 36</p>
+              </td>
+              <td>
+              <p class="w3-center bold">M: 38 a 40</p>
+              </td>
+              <td>
+              <p class="w3-center bold">G: 40 a 42</p>
+              </td>
+              </tr>
+              <tr>
+              <td>
+              <p class="bold">busto</p>
+              <i class="w3-tiny">medir abaixo do braço ao redor do peito na parte mais saliente do busto</i>
+              </td>
+              <td class="w3-center">84 a 89 cm</td>
+              <td class="w3-center">89 a 94 cm</td>
+              <td class="w3-center"> 94 a 99 cm</td>
+              </tr>
+              <tr>
+              <td>
+              <p class="bold">manga</p>
+              <i class="w3-tiny">medir do ombro ao punho</i>
+              </td>
+              <td class="w3-center"> 58 a 60 cm</td>
+              <td class="w3-center"> 60 a 62 cm</td>
+              <td class="w3-center"> 62 a 64 cm</td>
+              <tr>
+                  <td>
+                  <p class="bold">cintura</p>
+                  <i class="w3-tiny">medir ao redor da linha mais fina da cintura</i>
+                  </td>
+                  <td class="w3-center">65 a 70 cm</td>
+                  <td class="w3-center">70 a 75 cm</td>
+                  <td class="w3-center">75 a 80 cm</td>
+              </tr>
+              
+              <tr>
+                  <td>
+                  <p class="bold">quadril</p>
+                  <i class="w3-tiny">medir ao redor da parte mais saliente</i>
+                  </td>
+                  <td class="w3-center">92 a 96 cm</td>
+                  <td class="w3-center">96 a 100 cm</td>
+                  <td class="w3-center">100 a 104 cm</td>
+              </tr>
+              </tbody>
+              </table>
+         <div class="w3-small w3-margin">
+                  <p>ao se medir não aperta a fita, deixar confortável</p>
+                  <p>cada tecido possui um comportamento diferente, seja por sua gramatura ou fibra, podendo existir baixas variações nas medidas</p>
+                  <p>a modelo veste P e possui as medidas: <br> altura: 1,70cm / busto: 84cm / cintura: 62cm / quadril 90cm.</p>
+         </div>  
+
+        </div>
+      </div>
+
 
     <!-- loader -->
  
@@ -62,7 +133,7 @@
           <span id="shopcartview">
 
           <div class="w3-row w3-row-padding">
-            <button onclick="dropInfo('suacompra')" class="w3-card w3-button w3-tiny color-ba8671 hover-e4d5d3 btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">items selecionados</button>
+            <button onclick="dropInfo('suacompra')" class="w3-card w3-button w3-xsmall color-ba8671 hover-e4d5d3 btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">sua compra</button>
           </div>
           <div id="suacompra" class="w3-container foldable">
           <div class="" id="carthtml"></div>
@@ -72,7 +143,11 @@
         <!-- itemlist end -->
     <!-- deliver form start -->
         <div class="w3-row w3-row-padding">
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">entrega e pagamento</button>
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-xsmall color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">entrega</button>
+  </div>
+  <div class="w3-row w3-row-padding">
+
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-xsmall color-e6e1d8 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" id="checkoutbuttom" form="formulariodecontato" type="submit" style="width:50%;">pagamento</button>
   </div>
       <div id="dadosparaentrega" class="w3-container foldable">
      
@@ -138,10 +213,7 @@
     </div>
 
 
-    <div class="w3-row w3-row-padding">
-
-      <button class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-right w3-margin-bottom hover-f2f0eb" id="checkoutbuttom" form="formulariodecontato" type="submit" style="width:50%;" onclick="dropInfo('dadosparaentrega')">pagar</button>
-    </div>
+  
   </form>
   </div>
 
@@ -202,18 +274,15 @@
               </div>
               <span class="">
               <div class="w3-clear"></div>
-              <div class="w3-section w3-large bold">R$ 948</div>
-              <p class="w3-section">12x R$ 79</p>
+              <div class="w3-section w3-small bold">R$ 948</div>
+              <p class="w3-section w3-small">12x R$ 79</p>
               <div class="w3-clear"></div>
             </span>
               <div class="w3-section w3-small">
-                <p>o vestido hygge é feito em seda com algodão, carrega leveza e sofisticação. 
-modelo regata, fluido, com bolsos na lateral e gola arredondada com franzidos. 
-nas costas possui fechamento em gota com botão madreperola. 
-acabamento interno em viés e costura francesa. 
-note: essa peça é atemporal, elegante, e merece ser editada de mil e uma maneiras - do casamento até o dia a dia. 
-
-essa peça acompanha a faixa com o mesmo tecido do vestido. </p>
+                <p>O vestido hygge é feito em seda com algodão, carrega leveza e sofisticação. <br>
+Modelo regata, fluido, com bolsos na lateral e gola arredondada com franzidos. <br>
+Nas costas possui fechamento em gota com botão. <br>
+Acabamento interno em viés e costura francesa.<br></p>
 
               </div>
             </div>
@@ -223,7 +292,16 @@ essa peça acompanha a faixa com o mesmo tecido do vestido. </p>
               <div class="w3-section">
                 <p class="w3-small">composição: 68% algodão 32% seda forro 100% algodão</p>
               </div>
+
+
             </div>
+
+          
+              <button class="w3-card w3-button w3-small w3-round-large" onclick="toggleTable()" >tabela de medidas</button>
+ 
+              <div class="w3-clear w3-margin-bottom"></div>
+
+          
     
             <div class="evenly ">
               
@@ -244,18 +322,15 @@ essa peça acompanha a faixa com o mesmo tecido do vestido. </p>
               </div>
 
            
-                <button class="w3-card w3-button w3-small color-d3e4f5 btnpage w3-round-large w3-center w3-disabled" onclick="addToCart(this)" id="btnadd" data-sku="VES02SS22" data-tamanho="" data-nome="vestido hygge" data-cor="rosa" data-valor="948" data-descricao="o vestido hygge é feito em seda com algodão, carrega leveza e sofisticação. 
-modelo regata, fluido, com bolsos na lateral e gola arredondada com franzidos. 
-nas costas possui fechamento em gota com botão madreperola. 
-acabamento interno em viés e costura francesa. 
-note: essa peça é atemporal, elegante, e merece ser editada de mil e uma maneiras - do casamento até o dia a dia. 
-
-essa peça acompanha a faixa com o mesmo tecido do vestido. " data-path="/shop/vestido-hygge" style="width: 50%;">comprar</button>
+                <button class="w3-card w3-button w3-small color-d3e4f5 btnpage w3-round-large w3-center w3-disabled" onclick="addToCart(this)" id="btnadd" data-sku="VES02SS22" data-tamanho="" data-nome="vestido hygge" data-cor="rosa" data-valor="948" data-path="/shop/vestido-hygge" style="width: 50%;">comprar</button>
            
             
 
             </div>
 
+
+
+     
             <p class="w3-center" style="font-style:italic;"></p>
           </div>
         </div>
