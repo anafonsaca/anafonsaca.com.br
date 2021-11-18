@@ -6,31 +6,16 @@
   <span id="bagstatus"></span>
  
         <!-- item list start -->
-     
+    
+          <div class="w3-row w3-padding-24">
+            <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleCart()">x</button>
+          </div>  
 
+          <span id="shopcartview">
 
-          
-              <div class="w3-bar w3-white w3-round-large">
-           
-         
-                <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
-               
-                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-d3e4f5" id="entregabuttom">entrega</button>
-           
-                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-e6e1d8" id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
-
-                <button onclick="toggleCart()" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall color-ffffff w3-round-large hover-f2f0eb w3-right">x</button>
-       
-           
-              </div>
-          
-
-            <span id="shopcartview"></span>
-
-
-
-
-
+          <div class="w3-row w3-row-padding">
+            <button onclick="dropInfo('suacompra')" class="w3-card w3-button w3-xsmall color-ba8671 hover-e4d5d3 btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">sua compra</button>
+          </div>
           <div id="suacompra" class="w3-container foldable">
           <div class="" id="carthtml"></div>
         </div>
@@ -38,8 +23,13 @@
 
         <!-- itemlist end -->
     <!-- deliver form start -->
-  
+        <div class="w3-row w3-row-padding">
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-xsmall color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">entrega</button>
+  </div>
+  <div class="w3-row w3-row-padding">
 
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-xsmall color-e6e1d8 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" id="checkoutbuttom" form="formulariodecontato" type="submit" style="width:50%;">pagamento</button>
+  </div>
       <div id="dadosparaentrega" class="w3-container foldable">
      
     <form id="formulariodecontato" onsubmit="event.preventDefault();">
@@ -99,7 +89,7 @@
 
    
       </div>
-      <p class="w3-padding w3-tiny w3-center">frete grátis - envio imediato</p>
+      <p class="w3-padding w3-tiny w3-right">frete grátis - envio imediato</p>
 
     </div>
 

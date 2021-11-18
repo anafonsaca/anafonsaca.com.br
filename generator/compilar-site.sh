@@ -7,6 +7,11 @@ if ! json="$(python3 cadastro-sheets-json.py)"; then
 exit 1
 fi
 
+#while read -r key; do 
+#echo "$key"
+#done < <(jq 'keys_unsorted'[] -r <<< "$json")
+#exit
+
 mkdir ../.temp/ 2>/dev/null
 echo "$json" > ../.temp/catalogo.json
 
@@ -85,6 +90,9 @@ export estoque=$(jq -r ."$sku".estoque <<< "$json")
 export relacionados=$(jq -r ."$sku".relacionados <<< "$json")
 export cor=$(jq -r ."$sku".cor <<< "$json")
 export tag=$(jq -r ."$sku".tag <<< "$json")
+export nota=$(jq -r ."$sku".nota <<< "$json")
+export obs=$(jq -r ."$sku".obs <<< "$json")
+
 
 if [[ -n "$tag" ]]; then
 export precoativo="invisivel"
@@ -92,7 +100,7 @@ else
 export precoativo=""
 fi
 
-export parcelamento=12
+export parcelamento=6
 export parcela=$(awk -v val="$valor" -v par="$parcelamento" -v OFMT="%5.2f%" BEGIN'{ print (val / par)}')
 export url=${titulo// /-}
 
@@ -172,7 +180,7 @@ fi
 
 
 
-done < <(jq 'keys'[] -r <<< "$json")
+done < <(jq 'keys_unsorted'[] -r <<< "$json")
 
 ### fecha o div caso tenha terminado num grid par ####
  #if [[ $((gridcounter%2)) -eq 0 ]]; then 
@@ -185,3 +193,4 @@ sed -i 's/activehome/color-f9dec7/g' ../index.html
 sed -i 's/activeabout/color-faeadf/g' ../about/index.html
 sed -i 's/activeshop/color-e6e1d8/g' ../shop/index.html
 
+cp ../index.html ../404.html
