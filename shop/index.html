@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <title>ana fonsaca - shop</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="/css/w3.css">
   <link rel="stylesheet" href="/css/style.css">
   <body>
@@ -125,16 +125,31 @@
   <span id="bagstatus"></span>
  
         <!-- item list start -->
-    
-          <div class="w3-row w3-padding-24">
-            <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleCart()">x</button>
-          </div>  
+     
 
-          <span id="shopcartview">
 
-          <div class="w3-row w3-row-padding">
-            <button onclick="dropInfo('suacompra')" class="w3-card w3-button w3-xsmall color-ba8671 hover-e4d5d3 btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">sua compra</button>
-          </div>
+          
+              <div class="w3-bar w3-white w3-round-large">
+           
+         
+                <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+               
+                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-d3e4f5" id="entregabuttom">entrega</button>
+           
+                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-e6e1d8" id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
+
+                <button onclick="toggleCart()" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall color-ffffff w3-round-large hover-f2f0eb w3-right">x</button>
+       
+           
+              </div>
+          
+
+            <span id="shopcartview"></span>
+
+
+
+
+
           <div id="suacompra" class="w3-container foldable">
           <div class="" id="carthtml"></div>
         </div>
@@ -142,13 +157,8 @@
 
         <!-- itemlist end -->
     <!-- deliver form start -->
-        <div class="w3-row w3-row-padding">
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-xsmall color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">entrega</button>
-  </div>
-  <div class="w3-row w3-row-padding">
+  
 
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-xsmall color-e6e1d8 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" id="checkoutbuttom" form="formulariodecontato" type="submit" style="width:50%;">pagamento</button>
-  </div>
       <div id="dadosparaentrega" class="w3-container foldable">
      
     <form id="formulariodecontato" onsubmit="event.preventDefault();">
@@ -208,7 +218,7 @@
 
    
       </div>
-      <p class="w3-padding w3-tiny w3-right">frete grátis - envio imediato</p>
+      <p class="w3-padding w3-tiny w3-center">frete grátis - envio imediato</p>
 
     </div>
 
@@ -231,15 +241,15 @@
 
 
 <div class="w3-col s6 m6 cursor">
-    <a href="/shop/bermuda-candy">
+    <a href="/shop/camisa-casulo">
       <div class="w3-display-container w3-card">
-    <img src="/img/BER01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
+    <img src="/img/CAM01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
     <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
   </div>
   <p class="w3-center">
-    <span class="bold w3-large">bermuda candy</span><br>
-    <span class=" w3-small ">R$ 588</span><br>
-    <span class="w3-tiny ">12x R$ 49 </span>
+    <span class="bold w3-large">camisa casulo</span><br>
+    <span class=" w3-small ">R$ 548</span><br>
+    <span class="w3-tiny ">6x R$ 91,33 </span>
     <p></a>
   </div>
   
@@ -255,87 +265,7 @@
   <p class="w3-center">
     <span class="bold w3-large">calça copenhagen</span><br>
     <span class=" w3-small ">R$ 888</span><br>
-    <span class="w3-tiny ">12x R$ 74 </span>
-    <p></a>
-  </div>
-  
-
-
-
-<div class="w3-col s6 m6 cursor">
-    <a href="/shop/camisa-casulo">
-      <div class="w3-display-container w3-card">
-    <img src="/img/CAM01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
-    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
-  </div>
-  <p class="w3-center">
-    <span class="bold w3-large">camisa casulo</span><br>
-    <span class=" w3-small ">R$ 548</span><br>
-    <span class="w3-tiny ">12x R$ 45,67 </span>
-    <p></a>
-  </div>
-  
-
-
-
-<div class="w3-col s6 m6 cursor">
-    <a href="/shop/camisa-coffee">
-      <div class="w3-display-container w3-card">
-    <img src="/img/CAM02SS22/01-grid.webp" class="thumbgrid" style="width:100%">
-    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
-  </div>
-  <p class="w3-center">
-    <span class="bold w3-large">camisa coffee</span><br>
-    <span class=" w3-small ">R$ 738</span><br>
-    <span class="w3-tiny ">12x R$ 61,50 </span>
-    <p></a>
-  </div>
-  
-
-
-
-<div class="w3-col s6 m6 cursor">
-    <a href="/shop/tote-bag-joy-motifs">
-      <div class="w3-display-container w3-card">
-    <img src="/img/TO01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
-    <span class="w3-tag w3-display-middle w3-round-large transparente">lançamento em breve</span>
-  </div>
-  <p class="w3-center">
-    <span class="bold w3-large">tote bag joy motifs</span><br>
-    <span class=" w3-small invisivel">R$ em breve</span><br>
-    <span class="w3-tiny invisivel">12x R$ 0 </span>
-    <p></a>
-  </div>
-  
-
-
-
-<div class="w3-col s6 m6 cursor">
-    <a href="/shop/vestido-cloud">
-      <div class="w3-display-container w3-card">
-    <img src="/img/VES01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
-    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
-  </div>
-  <p class="w3-center">
-    <span class="bold w3-large">vestido cloud</span><br>
-    <span class=" w3-small ">R$ 798</span><br>
-    <span class="w3-tiny ">12x R$ 66,50 </span>
-    <p></a>
-  </div>
-  
-
-
-
-<div class="w3-col s6 m6 cursor">
-    <a href="/shop/vestido-hygge">
-      <div class="w3-display-container w3-card">
-    <img src="/img/VES02SS22/01-grid.webp" class="thumbgrid" style="width:100%">
-    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
-  </div>
-  <p class="w3-center">
-    <span class="bold w3-large">vestido hygge</span><br>
-    <span class=" w3-small ">R$ 948</span><br>
-    <span class="w3-tiny ">12x R$ 79 </span>
+    <span class="w3-tiny ">6x R$ 148 </span>
     <p></a>
   </div>
   
@@ -351,7 +281,71 @@
   <p class="w3-center">
     <span class="bold w3-large">vestido tomas</span><br>
     <span class=" w3-small invisivel">R$ em breve</span><br>
-    <span class="w3-tiny invisivel">12x R$ 0 </span>
+    <span class="w3-tiny invisivel">6x R$ 0 </span>
+    <p></a>
+  </div>
+  
+
+
+
+<div class="w3-col s6 m6 cursor">
+    <a href="/shop/vestido-nuvem">
+      <div class="w3-display-container w3-card">
+    <img src="/img/VES01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
+    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
+  </div>
+  <p class="w3-center">
+    <span class="bold w3-large">vestido nuvem</span><br>
+    <span class=" w3-small ">R$ 798</span><br>
+    <span class="w3-tiny ">6x R$ 133 </span>
+    <p></a>
+  </div>
+  
+
+
+
+<div class="w3-col s6 m6 cursor">
+    <a href="/shop/camisa-coffee">
+      <div class="w3-display-container w3-card">
+    <img src="/img/CAM02SS22/01-grid.webp" class="thumbgrid" style="width:100%">
+    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
+  </div>
+  <p class="w3-center">
+    <span class="bold w3-large">camisa coffee</span><br>
+    <span class=" w3-small ">R$ 738</span><br>
+    <span class="w3-tiny ">6x R$ 123 </span>
+    <p></a>
+  </div>
+  
+
+
+
+<div class="w3-col s6 m6 cursor">
+    <a href="/shop/bermuda-candy">
+      <div class="w3-display-container w3-card">
+    <img src="/img/BER01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
+    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
+  </div>
+  <p class="w3-center">
+    <span class="bold w3-large">bermuda candy</span><br>
+    <span class=" w3-small ">R$ 588</span><br>
+    <span class="w3-tiny ">6x R$ 98 </span>
+    <p></a>
+  </div>
+  
+
+
+
+<div class="w3-col s6 m6 cursor">
+    <a href="/shop/vestido-hygge">
+      <div class="w3-display-container w3-card">
+    <img src="/img/VES02SS22/01-grid.webp" class="thumbgrid" style="width:100%">
+    <span class="w3-tag w3-display-middle w3-round-large transparente"></span>
+  </div>
+  <p class="w3-center">
+    <span class="bold w3-large">vestido hygge</span><br>
+    <span class=" w3-small ">R$ 948</span><br>
+    <span class="w3-tiny ">6x R$ 158 </span>
     <p></a>
   </div>
   
@@ -367,10 +361,28 @@
   <p class="w3-center">
     <span class="bold w3-large">vestido daisy</span><br>
     <span class=" w3-small invisivel">R$ em breve</span><br>
-    <span class="w3-tiny invisivel">12x R$ 0 </span>
+    <span class="w3-tiny invisivel">6x R$ 0 </span>
     <p></a>
   </div>
   
+
+
+
+<div class="w3-col s6 m6 cursor">
+    <a href="/shop/tote-bag-joy-motifs">
+      <div class="w3-display-container w3-card">
+    <img src="/img/TO01SS22/01-grid.webp" class="thumbgrid" style="width:100%">
+    <span class="w3-tag w3-display-middle w3-round-large transparente">lançamento em breve</span>
+  </div>
+  <p class="w3-center">
+    <span class="bold w3-large">tote bag joy motifs</span><br>
+    <span class=" w3-small invisivel">R$ em breve</span><br>
+    <span class="w3-tiny invisivel">6x R$ 0 </span>
+    <p></a>
+  </div>
+  
+
+
 
 
   </div>

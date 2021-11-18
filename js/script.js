@@ -681,6 +681,10 @@ function checkoutGo() {
 
 
 function unfoldAll() {
+
+
+
+
     var x = document.getElementsByClassName("foldable");
 var i;
 for (i = 0; i < x.length; i++) {
@@ -689,9 +693,24 @@ for (i = 0; i < x.length; i++) {
 }
 
 function dropInfo(id) {
+    document.getElementById('suacomprabuttom').classList.remove('color-ba8671');
+      document.getElementById('entregabuttom').classList.remove('color-d3e4f5');
+      document.getElementById('checkoutbuttom').classList.remove('color-e6e1d8');
+    switch(id) {
+        case 'suacompra':
+            document.getElementById('suacomprabuttom').classList.add('color-ba8671');
+          break;
+          case 'dadosparaentrega':
+            document.getElementById('entregabuttom').classList.add('color-d3e4f5');
+          break;
+          case 'pagamentos':
+            document.getElementById('checkoutbuttom').classList.add('color-e6e1d8');
+          break;
+      }
+
+
     unfoldAll()
     var x = document.getElementById(id);
-
 
     if (x.style.maxHeight) {
         x.style.maxHeight = null;
