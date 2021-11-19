@@ -17,7 +17,7 @@ echo "$json" > ../.temp/catalogo.json
 
 if [[ "$1" != "x" ]]; then
 
-if ! rclone sync anafonshop:'PASTAS MACBOOK'/'1. Moda'/'7. ANA FONSACA '/'3. Site'/'1. Fotos site' ../img --verbose; then
+if ! rclone sync anafonshop:'PASTAS'/'1. Moda'/'1. ana fonsaca'/'3. Site'/'1. Fotos site' ../img --verbose; then
 exit 1
 fi
 
