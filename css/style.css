@@ -83,6 +83,8 @@ body, h1, h2, h3, h4, h5, p {
     
       }
 
+
+
 .itemlist {
   
     margin-bottom: 24px;
@@ -334,9 +336,18 @@ body, h1, h2, h3, h4, h5, p {
   }
   
   /* Add a transparency effect for thumnbail images */
-  .thumb {
-    opacity: 0.6;
-  }
+
+.pad4 {
+  padding: 4px;
+}
+ 
+.thumb{
+  opacity: 0.6;
+
+  width: 100%;
+}
+
+
   
   .active,
   .thumb:hover {
@@ -404,6 +415,11 @@ body, h1, h2, h3, h4, h5, p {
   
 
 }
+
+
+
+
+
 
 .flex-container > div {
 
