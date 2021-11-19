@@ -202,6 +202,10 @@ function cartRender() {
         carticon.innerHTML = '';
         carticon.style.display = "none";
 
+        document.getElementById('suacomprabuttom').classList.add('w3-disabled');
+        document.getElementById('entregabuttom').classList.add('w3-disabled');
+        document.getElementById('checkoutbuttom').classList.add('w3-disabled');
+
         shopcartview.style.display = "none";
 
 
@@ -221,6 +225,9 @@ function cartRender() {
     } else {
 
         shopcartview.style.display = "";
+        document.getElementById('suacomprabuttom').classList.remove('w3-disabled');
+        document.getElementById('entregabuttom').classList.remove('w3-disabled');
+        document.getElementById('checkoutbuttom').classList.remove('w3-disabled');
 
 
 
@@ -784,11 +791,7 @@ document.getElementById("shopCart").addEventListener('click', function (e) {
 
 
 
-      document.getElementById("tabelamedidas").addEventListener('click', function (e) {
-        if (e.target.id == "tabelamedidas") {
-            toggleTable();
-        }
-          }, false);
+ 
     
     
     

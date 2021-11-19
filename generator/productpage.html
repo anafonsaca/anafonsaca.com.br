@@ -40,6 +40,21 @@
             <div class="column ">
               <img class="thumb cursor  w3-card" src="/img/${imagename}/05.webp" onclick="showSlide(this)" alt="foto do produto 05">
             </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/${imagename}/06.webp" onclick="showSlide(this)" alt="foto do produto 06">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/${imagename}/07.webp" onclick="showSlide(this)" alt="foto do produto 07">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/${imagename}/08.webp" onclick="showSlide(this)" alt="foto do produto 08">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/${imagename}/09.webp" onclick="showSlide(this)" alt="foto do produto 09">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/${imagename}/10.webp" onclick="showSlide(this)" alt="foto do produto 10">
+            </div>
           </div>
         </div>
         <div class="w3-half w3-row-padding">
@@ -53,7 +68,7 @@
               <span class="${precoativo}">
               <div class="w3-clear"></div>
               <div class="w3-section w3-small bold">R\$ ${valor}</div>
-              <p class="w3-section w3-small">12x R\$ ${parcela}</p>
+              <p class="w3-section w3-tiny">12x R\$ ${parcela}</p>
               <div class="w3-clear"></div>
             </span>
               <div class="w3-section w3-small">
@@ -78,7 +93,7 @@
 
 
           
-              <button class="w3-card w3-button w3-small w3-round-large" onclick="toggleTable()" ><img src="/assets/icon-fita-metrica.svg" alt="fita metrica" height="18" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
+              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8" onclick="toggleTable()" ><img src="/assets/icon-fita-metrica.svg" alt="fita metrica" height="18" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
  
               <div class="w3-clear w3-margin-bottom"></div>
 
@@ -88,18 +103,18 @@
               
               <div class="w3-left" id="sizes">
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-border w3-border-grey btnsize w3-round-large sizebutton hover-f9dec7" id="pbtn" onclick="setSize(this)">P</button>
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7" id="pbtn" onclick="setSize(this)">P</button>
                   <span class="tooltiptext color-f2f0eb" id="ptip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-border w3-border-grey btnsize w3-round-large sizebutton hover-faeadf" id="mbtn" onclick="setSize(this)">M</button>
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf" id="mbtn" onclick="setSize(this)">M</button>
                   <span class="tooltiptext color-f2f0eb" id="mtip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-border w3-border-grey btnsize w3-round-large sizebutton hover-e4d5d3" id="gbtn" onclick="setSize(this)">G</button>
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3" id="gbtn" onclick="setSize(this)">G</button>
                   <span class="tooltiptext color-f2f0eb" id="gtip"></span>
                 </span>
-                <button class="w3-margin-top w3-card w3-button w3-small color-d3e4f5 w3-border w3-border-grey w3-round-large w3-disabled bold" onclick="addToCart(this)" id="btnadd" style="width:150px" data-sku="${sku}" data-tamanho="" data-nome="${titulo}" data-cor="${cor}" data-valor="${valor}" data-path="/shop/${url}">comprar</button>
+                <button class="w3-margin-top w3-card w3-button w3-small color-d3e4f5 w3-round-large w3-disabled bold hover-e6e1d8" onclick="addToCart(this)" id="btnadd" style="width:150px" data-sku="${sku}" data-tamanho="" data-nome="${titulo}" data-cor="${cor}" data-valor="${valor}" data-path="/shop/${url}">comprar</button>
               </div>
 
      

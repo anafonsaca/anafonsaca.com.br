@@ -42,17 +42,17 @@
       </div>
     </div>
 
-    <div id="tabelamedidas" class="w3-modal blurred">
+    <div id="tabelamedidas" class="w3-modal blurred transluc" onclick="toggleTable()">
 
-      <div class="w3-modal-content w3-margin-bottom" style="max-width:800px">
+      <div class="w3-modal-content w3-margin-bottom w3-round-large trans" style="max-width:800px">
         <!--
         <div class="w3-row w3-padding-24">
           <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleTable()">x</button>
         </div> 
         -->
-          <table class="w3-table-all w3-small">
-              <tbody>
-              <tr>
+          <table class="w3-table w3-bordered w3-small w3-round-large">
+              <tbody class="w3-round-large">
+              <tr class="w3-round-large">
               <td> </td>
               <td>
               
@@ -122,6 +122,21 @@
 
 <div class="w3-modal-content w3-round-large w3-margin-bottom" id="innerCart" style="max-width:600px">
 
+
+  <div class="w3-bar w3-white w3-round-large">
+           
+         
+    <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+   
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-d3e4f5" id="entregabuttom">entrega</button>
+
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card  btnmargin w3-blockw3-button w3-xsmall w3-round-large hover-e6e1d8 " id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
+
+    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button w3-xsmall  btnmargin w3-block color-ffffff w3-round-large hover-f2f0eb w3-right">x</button>
+
+
+  </div>
+
   <span id="bagstatus"></span>
  
         <!-- item list start -->
@@ -129,22 +144,10 @@
 
 
           
-              <div class="w3-bar w3-white w3-round-large">
-           
-         
-                <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
-               
-                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-d3e4f5" id="entregabuttom">entrega</button>
-           
-                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-e6e1d8" id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
 
-                <button onclick="toggleCart()" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall color-ffffff w3-round-large hover-f2f0eb w3-right">x</button>
-       
-           
-              </div>
           
 
-            <span id="shopcartview"></span>
+            <span id="shopcartview">
 
 
 
@@ -272,6 +275,21 @@
             <div class="column ">
               <img class="thumb cursor  w3-card" src="/img/VES02SS22/05.webp" onclick="showSlide(this)" alt="foto do produto 05">
             </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/VES02SS22/06.webp" onclick="showSlide(this)" alt="foto do produto 06">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/VES02SS22/07.webp" onclick="showSlide(this)" alt="foto do produto 07">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/VES02SS22/08.webp" onclick="showSlide(this)" alt="foto do produto 08">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/VES02SS22/09.webp" onclick="showSlide(this)" alt="foto do produto 09">
+            </div>
+            <div class="column ">
+              <img class="thumb cursor  w3-card" src="/img/VES02SS22/10.webp" onclick="showSlide(this)" alt="foto do produto 10">
+            </div>
           </div>
         </div>
         <div class="w3-half w3-row-padding">
@@ -285,7 +303,7 @@
               <span class="">
               <div class="w3-clear"></div>
               <div class="w3-section w3-small bold">R$ 948</div>
-              <p class="w3-section w3-small">12x R$ 158</p>
+              <p class="w3-section w3-tiny">12x R$ 158</p>
               <div class="w3-clear"></div>
             </span>
               <div class="w3-section w3-small">
@@ -313,7 +331,7 @@ Acabamento interno em viés e costura francesa.<br></p>
 
 
           
-              <button class="w3-card w3-button w3-small w3-round-large" onclick="toggleTable()" ><img src="/assets/icon-fita-metrica.svg" alt="fita metrica" height="18" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
+              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8" onclick="toggleTable()" ><img src="/assets/icon-fita-metrica.svg" alt="fita metrica" height="18" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
  
               <div class="w3-clear w3-margin-bottom"></div>
 
@@ -323,18 +341,18 @@ Acabamento interno em viés e costura francesa.<br></p>
               
               <div class="w3-left" id="sizes">
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-border w3-border-grey btnsize w3-round-large sizebutton hover-f9dec7" id="pbtn" onclick="setSize(this)">P</button>
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7" id="pbtn" onclick="setSize(this)">P</button>
                   <span class="tooltiptext color-f2f0eb" id="ptip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-border w3-border-grey btnsize w3-round-large sizebutton hover-faeadf" id="mbtn" onclick="setSize(this)">M</button>
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf" id="mbtn" onclick="setSize(this)">M</button>
                   <span class="tooltiptext color-f2f0eb" id="mtip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-border w3-border-grey btnsize w3-round-large sizebutton hover-e4d5d3" id="gbtn" onclick="setSize(this)">G</button>
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3" id="gbtn" onclick="setSize(this)">G</button>
                   <span class="tooltiptext color-f2f0eb" id="gtip"></span>
                 </span>
-                <button class="w3-margin-top w3-card w3-button w3-small color-d3e4f5 w3-border w3-border-grey w3-round-large w3-disabled bold" onclick="addToCart(this)" id="btnadd" style="width:150px" data-sku="VES02SS22" data-tamanho="" data-nome="vestido hygge" data-cor="rosa" data-valor="948" data-path="/shop/vestido-hygge">comprar</button>
+                <button class="w3-margin-top w3-card w3-button w3-small color-d3e4f5 w3-round-large w3-disabled bold hover-e6e1d8" onclick="addToCart(this)" id="btnadd" style="width:150px" data-sku="VES02SS22" data-tamanho="" data-nome="vestido hygge" data-cor="rosa" data-valor="948" data-path="/shop/vestido-hygge">comprar</button>
               </div>
 
      
@@ -386,8 +404,7 @@ Acabamento interno em viés e costura francesa.<br></p>
         <a href="https://twitter.com/anafonsaca" target="_blank"><svg class="icon text-color-e6e1d8 text-hover-e4d5d3"><use xlink:href="/assets/symbol-defs.svg#icon-twitter"></use></svg></a>
 
      </div>
-      <p class="text-color-e6e1d8" style="font-weight: bold;">ana fonsaca - 2022</p>
-      <p class="text-color-e6e1d8" style="font-weight: bold;">cnpj: 40.197.291/0001-74 - florianópolis - brasil</p>
+      <p class="text-color-e6e1d8" style="font-weight: bold;">ana fonsaca - cnpj: 40.197.291/0001-74 - florianópolis - brasil - 2022</p>
     </footer>
 
     <div id="loadermodal" class="w3-modal blurred">

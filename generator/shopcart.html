@@ -3,6 +3,21 @@
 
 <div class="w3-modal-content w3-round-large w3-margin-bottom" id="innerCart" style="max-width:600px">
 
+
+  <div class="w3-bar w3-white w3-round-large">
+           
+         
+    <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+   
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-d3e4f5" id="entregabuttom">entrega</button>
+
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card  btnmargin w3-blockw3-button w3-xsmall w3-round-large hover-e6e1d8 " id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
+
+    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button w3-xsmall  btnmargin w3-block color-ffffff w3-round-large hover-f2f0eb w3-right">x</button>
+
+
+  </div>
+
   <span id="bagstatus"></span>
  
         <!-- item list start -->
@@ -10,22 +25,10 @@
 
 
           
-              <div class="w3-bar w3-white w3-round-large">
-           
-         
-                <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
-               
-                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-d3e4f5" id="entregabuttom">entrega</button>
-           
-                <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall w3-round-large hover-e6e1d8" id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
 
-                <button onclick="toggleCart()" class="w3-bar-item w3-margin w3-card w3-button w3-xsmall color-ffffff w3-round-large hover-f2f0eb w3-right">x</button>
-       
-           
-              </div>
           
 
-            <span id="shopcartview"></span>
+            <span id="shopcartview">
 
 
 

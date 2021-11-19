@@ -375,7 +375,7 @@ body, h1, h2, h3, h4, h5, p {
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
-    border-color: transparent transparent black transparent;
+    border-color: transparent transparent #e6e1d8 transparent;
   }
   
   .tooltip:hover .tooltiptext {
@@ -417,6 +417,18 @@ body, h1, h2, h3, h4, h5, p {
   width: 100%;
   height: auto;
 
+}
+
+.btnmargin {
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.trans {
+  background-color: rgba(255,255,255,0.5) !important;
+  color: white !important;
 }
 
 .bannertext {
@@ -521,7 +533,7 @@ body, h1, h2, h3, h4, h5, p {
 
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.2s ease-out;
+   /* transition: max-height 0.2s ease-out; */
   
 }
 
