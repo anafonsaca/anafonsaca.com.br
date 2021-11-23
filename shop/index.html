@@ -27,7 +27,7 @@
           <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%">about</a>
     
    
-          <a href="https://blog.anafonsaca.com.br"  target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
+          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
       
       
           <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 color-e6e1d8" lang="en" style="width:20%">shop</a>
@@ -126,13 +126,13 @@
   <div class="w3-bar w3-white w3-round-large">
            
          
-    <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+    <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-tiny bold w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
    
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-d3e4f5" id="entregabuttom">entrega</button>
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-tiny bold w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
 
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card  btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8 " id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card  btnmargin w3-block w3-button w3-tiny bold w3-round-large hover-d3e4f5 " id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
 
-    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button w3-xsmall  btnmargin w3-block color-ffffff w3-round-large hover-f2f0eb w3-right">x</button>
+    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button btnmargin w3-block color-ffffff w3-round-large w3-tiny bold hover-f2f0eb w3-right">x</button>
 
 
   </div>
@@ -171,57 +171,71 @@
         <div class="w3-row-padding">
       
           <div class="w3-padding">
-            <labe class="w3-tiny">nome: </label>
-              <input class="w3-input w3-border w3-round-large w3-tiny" type="text" required pattern="\S+.*" name="nome" id="formnome">
+            <labe class="w3-tiny bold">nome: </label>
+              <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" required pattern="\S+.*" name="nome" id="formnome">
           </div>
           <div class="w3-padding w3-half">
-            <label class="w3-tiny">email:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="email" id="formemail" required pattern="\S+.*"/>
+            <label class="w3-tiny bold">email:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="email" id="formemail" required pattern="\S+.*"/>
           </div>
      
           <div class="w3-padding w3-half">
-            <label class="w3-tiny">cpf:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="cpf" id="formcpf" required>
+            <label class="w3-tiny bold">cpf:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number" name="cpf" id="formcpf" required>
           </div>
           <div class="w3-padding w3-half">
-            <label class="w3-tiny">telefone:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="telefone" id="formtelefone" required>
+            <label class="w3-tiny bold">telefone:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="telefone" id="formtelefone" required>
           </div>
           <div class="w3-padding w3-half">
-            <labe class="w3-tiny">cep: </label>
-              <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
+            <label class="w3-tiny bold">cep: </label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
           </div>
           <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny">rua:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="rua" id="formrua" required >
+            <label class="w3-tiny bold">rua:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="formrua" required >
           </div>
           <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny">numero:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="numero" id="formnumero"  required>
+            <label class="w3-tiny bold">numero:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number" name="numero" id="formnumero"  required>
           </div>
           <div class="w3-clear w3-margin-bottom"></div>
           <div class="w3-padding  w3-half">
-            <label class="w3-tiny">bairro:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" name="bairro" id="formbairro" type="text">
+            <label class="w3-tiny bold">bairro:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="formbairro" type="text">
           </div>
           <div class="w3-padding  w3-half">
-            <label class="w3-tiny">complemento:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="complemento" id="formcomplemento">
+            <label class="w3-tiny bold">complemento:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="formcomplemento">
           </div>
           <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny">cidade:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="cidade" id="formcidade" required>
+            <label class="w3-tiny bold">cidade:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="formcidade" required>
           </div>
           <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny">estado:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="estado" id="formestado" maxlength="2" required>
+            <label class="w3-tiny bold">estado:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="estado" id="formestado" maxlength="2" required>
           </div>
         </div>
 
 
+        <div class="w3-bar w3-white">
+    
+        <div class="w3-bar-item btnmargin">
+          <input type="radio" id="frete" name="tipofrete" value="gratis" checked>
+            <label for="frete w3-xsmall bold">frete grátis</label>
+        </div>
+        <div class="w3-bar-item btnmargin w3-right">
+          <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom2" form="formulariodecontato" type="submit">pagamento</button>
+   
+        </div>
+     
+</div>
    
       </div>
-      <p class="w3-padding w3-tiny w3-center">frete grátis - envio imediato</p>
+
+
+
 
     </div>
 
@@ -414,7 +428,7 @@
             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             
       </div>
-      <p class="w3-center w3-text-white">redirecionando para o checkout cielo...</p>
+      <p class="w3-center w3-text-white" style="margin-top:10%;">redirecionando para o checkout cielo...</p>
     </div>
 
     <script src="/js/script.js"></script>

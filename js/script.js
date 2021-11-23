@@ -594,6 +594,19 @@ function makeId(length) {
 
 
 function checkoutGo() {
+
+    cpf = document.getElementById("formcpf").value.replace(/\D/g, "")
+    if(!isValidCPF(cpf)) {
+        window.alert("CPF inválido: " + cpf)
+        return
+    }
+    
+    cep = document.getElementById("formcep").value.replace(/\D/g, "")
+    if (cep.length != 8) {
+        window.alert("CEP Inválido: " + cep)
+        return
+    }
+
     showLoader();
     var cartcounter = 0;
     var itemsselecionados = [];
@@ -700,19 +713,20 @@ for (i = 0; i < x.length; i++) {
 }
 
 function dropInfo(id) {
+    console.log(id.classList);
     document.getElementById('suacomprabuttom').classList.remove('color-ba8671');
-      document.getElementById('entregabuttom').classList.remove('color-d3e4f5');
-      document.getElementById('checkoutbuttom').classList.remove('color-e6e1d8');
+      document.getElementById('entregabuttom').classList.remove('color-e6e1d8');
+    //  document.getElementById('checkoutbuttom').classList.remove('color-d3e4f5');
     switch(id) {
         case 'suacompra':
             document.getElementById('suacomprabuttom').classList.add('color-ba8671');
           break;
           case 'dadosparaentrega':
-            document.getElementById('entregabuttom').classList.add('color-d3e4f5');
+            document.getElementById('entregabuttom').classList.add('color-e6e1d8');
           break;
-          case 'pagamentos':
-            document.getElementById('checkoutbuttom').classList.add('color-e6e1d8');
-          break;
+        //  case 'pagamentos':
+        //    document.getElementById('checkoutbuttom').classList.add('color-d3e4f5');
+        //  break;
       }
 
 
@@ -776,6 +790,22 @@ function dropInfo(id) {
     }
 
   }
+
+  function isValidCPF(cpf) {
+    if (typeof cpf !== 'string') return false
+    cpf = cpf.replace(/[^\d]+/g, '')
+    if (cpf.length !== 11 || !!cpf.match(/(\d)\1{10}/)) return false
+    cpf = cpf.split('')
+    const validator = cpf
+        .filter((digit, index, array) => index >= array.length - 2 && digit)
+        .map( el => +el )
+    const toValidate = pop => cpf
+        .filter((digit, index, array) => index < array.length - pop && digit)
+        .map(el => +el)
+    const rest = (count, pop) => (toValidate(pop)
+        .reduce((soma, el, i) => soma + el * (count - i), 0) * 10) % 11 % 10
+    return !(rest(10,2) !== validator[0] || rest(11,1) !== validator[1])
+}
 
 // INIT:
 
