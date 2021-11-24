@@ -600,7 +600,7 @@ function checkoutGo() {
         window.alert("CPF inválido: " + cpf)
         return
     }
-    
+
     cep = document.getElementById("formcep").value.replace(/\D/g, "")
     if (cep.length != 8) {
         window.alert("CEP Inválido: " + cep)
@@ -649,7 +649,8 @@ function checkoutGo() {
             "Identity": document.getElementById("formcpf").value.replace(/\D/g, ""),
             "FullName": document.getElementById("formnome").value.toUpperCase(),
             "Email": document.getElementById("formemail").value.toUpperCase(),
-            "Phone": document.getElementById("formtelefone").value
+          //  "Phone": document.getElementById("formtelefone").value
+          "Phone": null
         },
         "Settings": null
     }

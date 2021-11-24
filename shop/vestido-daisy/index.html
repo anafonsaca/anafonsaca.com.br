@@ -170,8 +170,8 @@
        <!-- <p class="w3-left w3-small" style="margin-left:18px;">dados para entrega:</p> -->
         <div class="w3-row-padding">
       
-          <div class="w3-padding">
-            <labe class="w3-tiny bold">nome: </label>
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">nome: </label>
               <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" required pattern="\S+.*" name="nome" id="formnome">
           </div>
           <div class="w3-padding w3-half">
@@ -183,10 +183,12 @@
             <label class="w3-tiny bold">cpf:</label>
             <input class="w3-input w3-border w3-round-large w3-xsmall" type="number" name="cpf" id="formcpf" required>
           </div>
+          <!--
           <div class="w3-padding w3-half">
             <label class="w3-tiny bold">telefone:</label>
             <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="telefone" id="formtelefone" required>
           </div>
+          -->
           <div class="w3-padding w3-half">
             <label class="w3-tiny bold">cep: </label>
             <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
@@ -435,7 +437,7 @@ Manequim 40 a 44 adquira o tamanho M <br></p>
             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             
       </div>
-      <p class="w3-center w3-text-white" style="margin-top:10%;">redirecionando para o checkout cielo...</p>
+      <p class="w3-center w3-text-white" style="position: fixed;left: 0;bottom: 30px;width: 100%; font-style: italic;">redirecionando para o checkout cielo...</p>
     </div>
 
     <script src="/js/script.js"></script>
