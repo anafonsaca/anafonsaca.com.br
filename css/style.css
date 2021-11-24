@@ -14,6 +14,17 @@ body, h1, h2, h3, h4, h5, p {
     
 }
 
+.thumbgrid {
+  max-width: 100%;
+  -webkit-transition: all 0.5s ease; /* Safari and Chrome */
+  -moz-transition: all 0.5s ease; /* Firefox */
+  -ms-transition: all 0.5s ease; /* IE 9 */
+  -o-transition: all 0.5s ease; /* Opera */
+  transition: all 0.5s ease;
+}
+.thumbgrid:hover {
+  transform: scale(1.05);
+}
 
 
 .banner {
