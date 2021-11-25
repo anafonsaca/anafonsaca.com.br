@@ -100,7 +100,7 @@ else
 export precoativo=""
 fi
 
-export parcelamento=6
+export parcelamento=12
 export parcela=$(awk -v val="$valor" -v par="$parcelamento" -v OFMT="%5.2f%" BEGIN'{ print (val / par)}')
 export url=${titulo// /-}
 

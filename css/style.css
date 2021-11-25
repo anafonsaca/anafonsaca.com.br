@@ -26,6 +26,21 @@ body, h1, h2, h3, h4, h5, p {
   transform: scale(1.05);
 }
 
+/* Masonry grid */
+.masonry {
+  column-gap: 30px;
+  column-fill: initial;
+}
+
+.masonry .brick {
+  margin-bottom: 30px;
+  display: inline-block; /* Fix the misalignment of items */
+  vertical-align: top; /* Keep the item on the very top */
+}
+
+
+
+
 
 .banner {
     background-position: center;

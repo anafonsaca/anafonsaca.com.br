@@ -322,6 +322,12 @@ function cartRender() {
         totalprice.innerHTML = 'total: R$' + carttotal;
         carthtml.appendChild(totalprice);
 
+     //   avancabtn = document.createElement('button');
+       // avancabtn.className = "w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 ";
+       // avancabtn.innerHTML = '>';
+       // carthtml.appendChild(avancabtn);
+
+
 
 
                 //frete total price 2
