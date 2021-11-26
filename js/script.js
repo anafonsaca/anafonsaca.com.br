@@ -192,6 +192,7 @@ function cartRender() {
     var carttotal = 0;
     var cartcounter = 0;
     shopcartview = document.getElementById("shopcartview");
+    butoes = document.getElementById("cartbtns");
     carthtml = document.getElementById("carthtml");
     carthtml.innerHTML = "";
     //document.getElementById("totalprice2").innerHTML = '';
@@ -202,11 +203,8 @@ function cartRender() {
         carticon.innerHTML = '';
         carticon.style.display = "none";
 
-        document.getElementById('suacomprabuttom').classList.add('w3-disabled');
-        document.getElementById('entregabuttom').classList.add('w3-disabled');
-        document.getElementById('checkoutbuttom').classList.add('w3-disabled');
-
         shopcartview.style.display = "none";
+        butoes.style.display = "none";
 
 
         bagstatus = document.getElementById("bagstatus");
@@ -225,10 +223,7 @@ function cartRender() {
     } else {
 
         shopcartview.style.display = "";
-        document.getElementById('suacomprabuttom').classList.remove('w3-disabled');
-        document.getElementById('entregabuttom').classList.remove('w3-disabled');
-        document.getElementById('checkoutbuttom').classList.remove('w3-disabled');
-
+        butoes.style.display = "";
 
 
         for (i = 0; i < carrinho.length; i++) {
