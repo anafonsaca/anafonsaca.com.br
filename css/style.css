@@ -127,11 +127,12 @@ body, h1, h2, h3, h4, h5, p {
 
 
 .textobloco {
-  line-height: 2.8;
+  line-height: 1.5;
   text-align: justify;
-  text-justify: inter-word;
-  margin-left: 5%;
-  margin-right: 5%;
+
+  margin-left: 20%;
+  margin-right: 20%;
+
   
 }
 

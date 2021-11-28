@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <title>ana fonsaca - about</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="/css/w3.css">
   <link rel="stylesheet" href="/css/style.css">
   <body>
@@ -21,26 +21,97 @@
     <div class="w3-top">
       <div class="w3-bar w3-padding w3-white">
  
-          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7" lang="en" style="width:20%">home</a>
+          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%">home</a>
      
        
           <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf color-faeadf" lang="en" style="width:20%">about</a>
     
    
-          <a href="https://blog.anafonsaca.com.br" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3" lang="en" style="width:20%">blog</a>
+          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
       
       
-          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8" lang="en" style="width:20%">shop</a>
+          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%">shop</a>
       
       
           <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f2f0eb" style="width:20%">
-            <span><svg class="icon"><use xlink:href="/assets/symbol-defs.svg#icon-shopping-bag"></use></svg><span class="button__badge w3-margin-top" id="bagicon"></span></span>
+            <span><img src="/assets/bag.png" alt="sacola de compras" height="25" style="display: inline;vertical-align: middle;"><span class="button__badge w3-margin-top" id="bagicon"></span></span>
             <span id="closeicon" style="display:none;">x</span>
             
           </button>
    
       </div>
     </div>
+
+    <div id="tabelamedidas" class="w3-modal blurred transluc" onclick="toggleTable()">
+
+      <div class="w3-modal-content w3-margin-bottom w3-round-large trans" style="max-width:800px">
+        <!--
+        <div class="w3-row w3-padding-24">
+          <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleTable()">x</button>
+        </div> 
+        -->
+          <table class="w3-table w3-bordered w3-small w3-round-large">
+              <tbody class="w3-round-large">
+              <tr class="w3-round-large">
+              <td> </td>
+              <td>
+              
+              <p class="w3-center bold">P: 34 a 36</p>
+              </td>
+              <td>
+              <p class="w3-center bold">M: 38 a 40</p>
+              </td>
+              <td>
+              <p class="w3-center bold">G: 40 a 42</p>
+              </td>
+              </tr>
+              <tr>
+              <td>
+              <p class="bold">busto</p>
+              <i class="w3-tiny">medir abaixo do braço ao redor do peito na parte mais saliente do busto</i>
+              </td>
+              <td class="w3-center">84 a 89 cm</td>
+              <td class="w3-center">89 a 94 cm</td>
+              <td class="w3-center"> 94 a 99 cm</td>
+              </tr>
+              <tr>
+              <td>
+              <p class="bold">manga</p>
+              <i class="w3-tiny">medir do ombro ao punho</i>
+              </td>
+              <td class="w3-center"> 58 a 60 cm</td>
+              <td class="w3-center"> 60 a 62 cm</td>
+              <td class="w3-center"> 62 a 64 cm</td>
+              <tr>
+                  <td>
+                  <p class="bold">cintura</p>
+                  <i class="w3-tiny">medir ao redor da linha mais fina da cintura</i>
+                  </td>
+                  <td class="w3-center">65 a 70 cm</td>
+                  <td class="w3-center">70 a 75 cm</td>
+                  <td class="w3-center">75 a 80 cm</td>
+              </tr>
+              
+              <tr>
+                  <td>
+                  <p class="bold">quadril</p>
+                  <i class="w3-tiny">medir ao redor da parte mais saliente</i>
+                  </td>
+                  <td class="w3-center">92 a 96 cm</td>
+                  <td class="w3-center">96 a 100 cm</td>
+                  <td class="w3-center">100 a 104 cm</td>
+              </tr>
+              </tbody>
+              </table>
+         <div class="w3-small w3-margin">
+                  <p>ao se medir não aperta a fita, deixar confortável</p>
+                  <p>cada tecido possui um comportamento diferente, seja por sua gramatura ou fibra, podendo existir baixas variações nas medidas</p>
+                  <p>a modelo veste P e possui as medidas: <br> altura: 1,70cm / busto: 84cm / cintura: 62cm / quadril 90cm.</p>
+         </div>  
+
+        </div>
+      </div>
+
 
     <!-- loader -->
  
@@ -51,19 +122,37 @@
 
 <div class="w3-modal-content w3-round-large w3-margin-bottom" id="innerCart" style="max-width:600px">
 
+
+  <div class="w3-bar w3-white w3-round-large">
+           
+    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button btnmargin w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
+
+    <span id="cartbtns">
+    <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+   
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
+
+    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card  btnmargin w3-block w3-button w3-xsmall w3-round-large hover-d3e4f5 " id="checkoutbuttom" form="formulariodecontato" type="submit">pagamento</button>
+    </span>
+
+  </div>
+
   <span id="bagstatus"></span>
  
         <!-- item list start -->
-    
-          <div class="w3-row w3-padding-24">
-            <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleCart()">x</button>
-          </div>  
+     
 
-          <span id="shopcartview">
 
-          <div class="w3-row w3-row-padding">
-            <button onclick="dropInfo('suacompra')" class="w3-card w3-button w3-tiny color-ba8671 hover-e4d5d3 btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">items selecionados</button>
-          </div>
+          
+
+          
+
+            <span id="shopcartview">
+
+
+
+
+
           <div id="suacompra" class="w3-container foldable">
           <div class="" id="carthtml"></div>
         </div>
@@ -71,9 +160,8 @@
 
         <!-- itemlist end -->
     <!-- deliver form start -->
-        <div class="w3-row w3-row-padding">
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-left w3-margin-bottom hover-f2f0eb" style="width:50%;">entrega e pagamento</button>
-  </div>
+  
+
       <div id="dadosparaentrega" class="w3-container foldable">
      
     <form id="formulariodecontato" onsubmit="event.preventDefault();">
@@ -82,66 +170,79 @@
        <!-- <p class="w3-left w3-small" style="margin-left:18px;">dados para entrega:</p> -->
         <div class="w3-row-padding">
       
-          <div class="w3-padding">
-            <labe class="w3-tiny">nome: </label>
-              <input class="w3-input w3-border w3-round-large w3-tiny" type="text" required pattern="\S+.*" name="nome" id="formnome">
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">nome: </label>
+              <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" required pattern="\S+.*" name="nome" id="formnome">
           </div>
           <div class="w3-padding w3-half">
-            <label class="w3-tiny">email:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="email" id="formemail" required pattern="\S+.*"/>
+            <label class="w3-tiny bold">email:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="email" name="email" id="formemail" required pattern="\S+.*"/>
           </div>
      
           <div class="w3-padding w3-half">
-            <label class="w3-tiny">cpf:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="cpf" id="formcpf" required>
+            <label class="w3-tiny bold">cpf:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="cpf" id="formcpf" required>
           </div>
+          <!--
           <div class="w3-padding w3-half">
-            <label class="w3-tiny">telefone:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="telefone" id="formtelefone" required>
+            <label class="w3-tiny bold">telefone:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="telefone" id="formtelefone" required>
           </div>
+          -->
           <div class="w3-padding w3-half">
-            <labe class="w3-tiny">cep: </label>
-              <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
+            <label class="w3-tiny bold">cep: </label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
           </div>
           <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny">rua:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="rua" id="formrua" required >
+            <label class="w3-tiny bold">rua:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="formrua" required >
           </div>
           <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny">numero:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="numero" id="formnumero"  required>
+            <label class="w3-tiny bold">numero:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="numero" id="formnumero"  required>
           </div>
           <div class="w3-clear w3-margin-bottom"></div>
           <div class="w3-padding  w3-half">
-            <label class="w3-tiny">bairro:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" name="bairro" id="formbairro" type="text">
+            <label class="w3-tiny bold">bairro:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="formbairro" type="text">
           </div>
           <div class="w3-padding  w3-half">
-            <label class="w3-tiny">complemento:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text"  name="complemento" id="formcomplemento">
+            <label class="w3-tiny bold">complemento:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="formcomplemento">
           </div>
           <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny">cidade:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="cidade" id="formcidade" required>
+            <label class="w3-tiny bold">cidade:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="formcidade" required>
           </div>
           <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny">estado:</label>
-            <input class="w3-input w3-border w3-round-large w3-tiny" type="text" name="estado" id="formestado" maxlength="2" required>
+            <label class="w3-tiny bold">estado:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="estado" id="formestado" maxlength="2" required>
           </div>
         </div>
 
 
+        <div class="w3-bar w3-white">
+    
+        <div class="w3-bar-item btnmargin">
+          <input type="radio" id="frete" name="tipofrete" value="gratis" checked>
+            <label for="frete w3-xsmall bold">frete grátis</label>
+        </div>
+        <div class="w3-bar-item btnmargin w3-right">
+          <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom2" form="formulariodecontato" type="submit">pagamento</button>
+   
+        </div>
+     
+</div>
    
       </div>
-      <p class="w3-padding w3-tiny w3-right">frete grátis - envio imediato</p>
+
+
+
 
     </div>
 
 
-    <div class="w3-row w3-row-padding">
-
-      <button class="w3-card w3-button w3-tiny color-d3e4f5 hover-f2f0eb btnpage w3-round-large w3-right w3-margin-bottom hover-f2f0eb" id="checkoutbuttom" form="formulariodecontato" type="submit" style="width:50%;" onclick="dropInfo('dadosparaentrega')">pagar</button>
-    </div>
+  
   </form>
   </div>
 
@@ -149,13 +250,7 @@
   </span>
   </div>
   </div>
-
-
-
-
-   
-   
-    <!-- end Shopping Cart -->
+  
     <!-- Start page content -->
     <span id="pagecontent">
 
@@ -164,38 +259,49 @@
 
               <div class="w3-section w3-small w3-center w3-margin">
          
+                <img src="/assets/anafonsaca.png" alt="foto de Ana Fonsaca" width="50%">
+                <div style="line-height: 0.6;margin-bottom:50px">
+                <h2 class="bold w3-text-black w3-large">ana paula fonsaca</h2>
+
+                <p>psicóloga e designer de moda.</p>
+                </div>
                 
-<p class="textobloco w3-large">
-Ana Fonsaca é uma marca de vestuário brasileira, marcada pela <span class="color-f9dec7">alegria</span>, bem estar, e a simplicidade sofisticada. Criamos roupas essenciais, despretensiosas, com <span class="color-f9dec7">bom humor</span>, praticidade e conforto. As peças carregam criatividade, pequenos detalhes e muitos diferenciais, com seu design fluído, volumoso, cores adocicadas e estampas <span class="color-f2f0eb">autorais</span>. 
-
-<br> Somos uma marca consciente, nossas peças são feitas por mãos brasileiras, cuidadosas e cheias de afeto. Utilizamos tecidos de fibras <span class="color-d3e4f5">naturais</span>, que garantem conforto e suavidade. Acreditamos que o menos é mais, e não precisamos comprar tanto para compor o nosso <span class="color-f9dec7">estilo</span>. A edição é a chave no estilo.
-
-<br> A marca traduz um estado de espirito, um jeito de se expressar que vai além do guarda roupa. O nosso DNA revela a atitude de pessoas que vivem o aqui e agora, como um presente: confiantes, descoladas, casuais, e refletindo uma atitude <span class="color-faeadf">positiva</span>.
+<p class="textobloco w3-small">
+  Ana Fonsaca é uma marca de vestuário brasileira, marcada pelo bem estar e a simplicidade sofisticada. Criamos roupas essenciais, despretensiosas, com bom humor, praticidade e conforto. As peças carregam criatividade, fluidez, volumes, cores e estampas autorais. Acreditamos que menos é mais, e não precisamos comprar tanto para compor o nosso estilo, pois a edição é peça a chave. O nosso estado de espirito revela a atitude de pessoas que vivem o aqui e agora, como um presente: confiantes, descoladas, casuais, e refletindo uma atitude positiva.
 </p>
 
 
-              </div>
-    
-      </div>
-      <div class="w3-container w3-row w3-center">
-        <img src="/assets/cover.webp" class="responsive" style="width: 70%;">
-      </div>
-      <!-- Add a background color and large text to the whole page -->
+  
 
+
+  </div>
+</div>
     </span>
-
+    <div id="snackbar" class="w3-center color-ba8671">produto adicionado</div>
     <!-- End page content -->
-    <footer class="w3-center color-ffffff w3-padding-64 w3-small w3-round-large">
-      <div class="w3-xlarge w3-section w3-text-black">
+    <footer class="w3-container w3-padding-32">  
+      <div class="w3-row-padding w3-text-grey">
+        <div class="w3-third w3-left">
+          <p class="w3-tiny">nossas políticas</p>
+          <p class="w3-tiny">consciência</p>
+          <p class="w3-tiny">contato</p>
+        </div>
+        <div class="w3-third w3-center w3-padding-32">
    
-        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><svg class="icon text-color-e6e1d8 text-hover-e4d5d3"><use xlink:href="/assets/symbol-defs.svg#icon-pinterest"></use></svg></a>
-        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><svg class="icon text-color-e6e1d8 text-hover-e4d5d3"><use xlink:href="/assets/symbol-defs.svg#icon-instagram"></use></svg></a>
-        <a href="https://open.spotify.com/playlist/1moqJAto1pyxn0jLdfPHiD?si=1f315a24a41e4cf5" target="_blank"><svg class="icon text-color-e6e1d8 text-hover-e4d5d3"><use xlink:href="/assets/symbol-defs.svg#icon-spotify"></use></svg></a>
-        <a href="https://twitter.com/anafonsaca" target="_blank"><svg class="icon text-color-e6e1d8 text-hover-e4d5d3"><use xlink:href="/assets/symbol-defs.svg#icon-twitter"></use></svg></a>
+        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://open.spotify.com/playlist/1moqJAto1pyxn0jLdfPHiD?si=1f315a24a41e4cf5" target="_blank"><img src="/assets/spotify.png" alt="spotify" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
 
      </div>
-      <p class="text-color-e6e1d8" style="font-weight: bold;">ana fonsaca - 2022</p>
-      <p class="text-color-e6e1d8" style="font-weight: bold;">cnpj: 40.197.291/0001-74 - florianópolis - brasil</p>
+     <div class="w3-third w3-right" style="text-align: right;">
+      <p class="w3-tiny">cnpj: <span class="w3-tiny">40.197.291/0001-74</span></p>
+      <p class="w3-tiny">florianópolis - brasil</p>
+      <p class="w3-tiny">desde <span class="w3-tiny">2021</span></p>
+    </div>
+    </div>
     </footer>
 
     <div id="loadermodal" class="w3-modal blurred">
@@ -207,11 +313,13 @@ Ana Fonsaca é uma marca de vestuário brasileira, marcada pela <span class="col
             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             
       </div>
-      <p class="w3-center w3-text-white">redirecionando para o checkout cielo...</p>
+      <p class="w3-center w3-text-white" style="position: fixed;left: 0;bottom: 30px;width: 100%; font-style: italic;">redirecionando para o checkout cielo...</p>
     </div>
 
     <script src="/js/script.js"></script>
-
+    <script>
+      getEstoque("");
+    </script>
     
   </body>
 </html>

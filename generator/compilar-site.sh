@@ -59,7 +59,29 @@ export titulo='joy motifs - summer collection'
 #############################
 
 
+###about:
+mkdir ../about 2>/dev/null
+
+export titulo='about'
+
+
+
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat aboutmid.html
+  cat footer.html
+  #echo "HEREDOC"
+} | sh > ../about/index.html
+
+#############################
+
+
+
+
 ###shop:
+mkdir ../shop 2>/dev/null
+
 export titulo='shop'
 
 { echo "cat <<HEREDOC"
