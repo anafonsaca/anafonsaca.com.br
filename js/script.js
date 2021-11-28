@@ -757,41 +757,7 @@ function dropInfo(id) {
 
 
   var scrolleds = 0
-  function magicText() {
-    scrolleds  += 1
-    if ( scrolleds > 40 && scrolleds < 80 ) {
-        banner = document.getElementById("banner");
-        banner.innerHTML = "joy motifs - summer collection";
-        banner.classList.remove("bannertext");
-        banner.classList.add("bannertextmid");
-        
-    }
-
-    if ( scrolleds > 121 && scrolleds < 200 ) {
-        banner = document.getElementById("banner");
-        banner.innerHTML = "ana fonsaca";
-        banner.classList.remove("bannertextmid");
-        banner.classList.add("bannertext");
-        
-    }
-
-    if ( scrolleds > 201 && scrolleds < 280 ) {
-        banner = document.getElementById("banner");
-        banner.innerHTML = "joy motifs - summer collection";
-        banner.classList.remove("bannertext");
-        banner.classList.add("bannertextmid");
-        
-    }
-
-    if ( scrolleds > 281 && scrolleds < 300 ) {
-        banner = document.getElementById("banner");
-        banner.innerHTML = "ana fonsaca";
-        banner.classList.remove("bannertextmid");
-        banner.classList.add("bannertext");
-        
-    }
-
-  }
+  
 
   function isValidCPF(cpf) {
     if (typeof cpf !== 'string') return false
