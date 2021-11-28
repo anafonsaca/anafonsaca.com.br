@@ -529,9 +529,8 @@ function addSuccess() {
 }
 
 
-// Form save:
+/* FORMULARIO SAVE
 
-// form.js
 const formId = "formulariodecontato"; // ID of the form
 const saveButton = document.querySelector("#save"); // select save button
 let form = document.getElementById("formulariodecontato"); // select form
@@ -569,13 +568,15 @@ const populateForm = () => {
     }
 };
 
+
+
 document.onload = populateForm(); 
 
 window.onunload = event => {
     data = getFormData();
     localStorage.setItem(formId, JSON.stringify(data[formId]));
 };
-
+*/
 
 
 // Checkout:
@@ -596,6 +597,7 @@ function makeId(length) {
 
 function checkoutGo() {
 
+    /* VALIDA FORM
     cpf = document.getElementById("formcpf").value.replace(/\D/g, "")
     if(!isValidCPF(cpf)) {
         window.alert("CPF inválido: " + cpf)
@@ -607,6 +609,7 @@ function checkoutGo() {
         window.alert("CEP Inválido: " + cep)
         return
     }
+    */
 
     showLoader();
     var cartcounter = 0;
@@ -634,6 +637,27 @@ function checkoutGo() {
         },
         "Shipping": {
             "SourceZipCode": null,
+            "TargetZipCode": null,
+            "Type": "Free",
+            "Services": null,
+            "Address": null
+        },
+        "Customer": null,
+        "Settings": null
+    }
+
+
+
+/*  user data form parsing
+  orderdata = {
+        "OrderNumber": Date.now() + makeId(8),
+        "SoftDescriptor": "pedido de anafonsaca.com.br",
+        "Cart": {
+            "Discount": null,
+            "Items": itemsselecionados
+        },
+        "Shipping": {
+            "SourceZipCode": null,
             "TargetZipCode": document.getElementById("formcep").value.replace(/\D/g, ""),
             "Type": "Free",
             "Services": null,
@@ -650,11 +674,14 @@ function checkoutGo() {
             "Identity": document.getElementById("formcpf").value.replace(/\D/g, ""),
             "FullName": document.getElementById("formnome").value.toUpperCase(),
             "Email": document.getElementById("formemail").value.toUpperCase(),
-          //  "Phone": document.getElementById("formtelefone").value
-          "Phone": null
+            "Phone": document.getElementById("formtelefone").value
+        
         },
         "Settings": null
     }
+    */
+
+
 
     var postDetails = {
         method: 'POST',
@@ -717,15 +744,15 @@ for (i = 0; i < x.length; i++) {
 function dropInfo(id) {
     console.log(id.classList);
     document.getElementById('suacomprabuttom').classList.remove('color-ba8671');
-      document.getElementById('entregabuttom').classList.remove('color-e6e1d8');
+    //  document.getElementById('entregabuttom').classList.remove('color-e6e1d8');
     //  document.getElementById('checkoutbuttom').classList.remove('color-d3e4f5');
     switch(id) {
         case 'suacompra':
             document.getElementById('suacomprabuttom').classList.add('color-ba8671');
           break;
-          case 'dadosparaentrega':
-            document.getElementById('entregabuttom').classList.add('color-e6e1d8');
-          break;
+       //   case 'dadosparaentrega':
+       //     document.getElementById('entregabuttom').classList.add('color-e6e1d8');
+       //   break;
         //  case 'pagamentos':
         //    document.getElementById('checkoutbuttom').classList.add('color-d3e4f5');
         //  break;
@@ -779,7 +806,7 @@ function dropInfo(id) {
 
 cartRender();
 
-document.getElementById("formulariodecontato").addEventListener("submit", checkoutGo);
+//document.getElementById("formulariodecontato").addEventListener("submit", checkoutGo);
 
 document.getElementById("shopCart").addEventListener('click', function (e) {
     if (e.target.id == "shopCart") {
