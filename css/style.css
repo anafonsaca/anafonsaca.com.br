@@ -478,9 +478,10 @@ body, h1, h2, h3, h4, h5, p {
 }
 
 .trans {
-  background-color: rgba(255,255,255,0.5) !important;
-  color: white !important;
+  background-color: rgba(255,255,255,0.7) !important;
+
 }
+
 
 .bannertext {
   font-size:12vw !important; 
