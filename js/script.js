@@ -124,7 +124,7 @@ function toggleCart() {
       //  pagecontent.style.display = "none";
       //  carticon.style.display = "none";
       //  closeicon.style.display = "";
-        dropInfo('suacompra');
+     //   dropInfo('suacompra');
 
 
     }
@@ -741,6 +741,7 @@ for (i = 0; i < x.length; i++) {
 }
 }
 
+/*
 function dropInfo(id) {
     console.log(id.classList);
     document.getElementById('suacomprabuttom').classList.remove('color-ba8671');
@@ -775,7 +776,7 @@ function dropInfo(id) {
     var x = document.getElementById(id);
     x.style.maxHeight = x.scrollHeight + "px";
   }
-
+*/
 
 
   function showLoader() {

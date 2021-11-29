@@ -145,13 +145,7 @@
            
     <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button btnmargin w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
 
-    <span id="cartbtns">
-    <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
-   <!--
-    <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
--->
-    <button onclick="checkoutGo()" class="w3-bar-item w3-card  btnmargin w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom">checkout</button>
-    </span>
+
 
   </div>
 
@@ -171,8 +165,16 @@
 
 
 
-          <div id="suacompra" class="w3-container foldable">
+          <div id="suacompra" class="w3-container">  <!-- foldable (class) -->
           <div class="" id="carthtml"></div>
+          <span id="cartbtns">
+             <!--
+            <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+          
+            <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
+        -->
+            <button onclick="checkoutGo()" class="w3-bar-item w3-card w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom">checkout</button>
+            </span>
         </div>
  
 
@@ -464,7 +466,7 @@ Acabamento interno em viés e costura francesa, barra com revel aplicado.<br></p
             <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
             
       </div>
-      <p class="w3-center w3-text-white" style="position: fixed;left: 0;bottom: 30px;width: 100%; font-style: italic;">redirecionando para o checkout cielo...</p>
+      <p class="w3-center w3-text-white" style="position: fixed;left: 0;bottom: 30px;width: 100%;">redirecionando para o checkout cielo...</p>
     </div>
 
     <script src="/js/script.js"></script>
