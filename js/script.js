@@ -15,6 +15,7 @@ var estoqueGra;
 var estoqueJson;
 var orderdata = {};
 var uniqueid;
+var carttotal = 0;
 
 
 
@@ -189,7 +190,7 @@ function removeFromCart() {
 
 /// cart render start
 function cartRender() {
-    var carttotal = 0;
+    carttotal = 0;  //declarada global para checkout ver
     var cartcounter = 0;
     shopcartview = document.getElementById("shopcartview");
     butoes = document.getElementById("cartbtns");
@@ -628,7 +629,14 @@ function checkoutGo() {
         itemsselecionados[i]['Weight'] = 1;
     }
 
+    /*
+            "total": carttotal,
+        "useragent": navigator.userAgent,
+        "time": Date.now(),
+        */
+
     orderdata = {
+
         "OrderNumber": Date.now() + makeId(8),
         "SoftDescriptor": "pedido de anafonsaca.com.br",
         "Cart": {
