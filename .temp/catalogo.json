@@ -7,14 +7,14 @@
         "obs": "",
         "cor": "azul claro",
         "p": "2",
-        "m": "1",
+        "m": "2",
         "g": "1",
         "u": "0",
-        "estoque": "4",
+        "estoque": "5",
         "relacionados": "CAL01SS22, BER01SS22, TO01SS22",
         "composicao": "70% algod\u00e3o 27% poliamida 3% elastano",
         "tag": "",
-        "preco": "548"
+        "preco": "528"
     },
     "CAL01SS22": {
         "sku": "CAL01SS22",
@@ -31,7 +31,7 @@
         "relacionados": "CAM01SS22, CAM02SS22, TO01SS22",
         "composicao": "90% viscose 10% poliester",
         "tag": "",
-        "preco": "888"
+        "preco": "678"
     },
     "VES03SS22": {
         "sku": "VES03SS22",
@@ -47,8 +47,8 @@
         "estoque": "0",
         "relacionados": "TO01SS22",
         "composicao": "100% algod\u00e3o com certifa\u00e7\u00e3o BCI (better cotton initiative)",
-        "tag": "lan\u00e7amento em breve",
-        "preco": "em breve"
+        "tag": "",
+        "preco": "648"
     },
     "VES01SS22": {
         "sku": "VES01SS22",
@@ -65,7 +65,7 @@
         "relacionados": "TO01SS22",
         "composicao": "100% algod\u00e3o",
         "tag": "",
-        "preco": "798"
+        "preco": "718"
     },
     "CAM02SS22": {
         "sku": "CAM02SS22",
@@ -82,7 +82,7 @@
         "relacionados": "CAL01SS22, BER01SS22, TO01SS22",
         "composicao": "70% algod\u00e3o 30% linho",
         "tag": "",
-        "preco": "738"
+        "preco": "628"
     },
     "BER01SS22": {
         "sku": "BER01SS22",
@@ -99,7 +99,7 @@
         "relacionados": "CAM01SS22, CAM02SS22, TO01SS22",
         "composicao": "90% viscose 10% poliester",
         "tag": "",
-        "preco": "588"
+        "preco": "578"
     },
     "VES02SS22": {
         "sku": "VES02SS22",
@@ -116,7 +116,7 @@
         "relacionados": "CAM02SS22",
         "composicao": "68% algod\u00e3o 32% seda forro 100% algod\u00e3o",
         "tag": "",
-        "preco": "948"
+        "preco": "848"
     },
     "VES04SS22": {
         "sku": "VES04SS22",
@@ -132,8 +132,8 @@
         "estoque": "0",
         "relacionados": "TO01SS22",
         "composicao": "100% algod\u00e3o com certifa\u00e7\u00e3o BCI (better cotton initiative)",
-        "tag": "lan\u00e7amento em breve",
-        "preco": "em breve"
+        "tag": "",
+        "preco": "658"
     },
     "TO01SS22": {
         "sku": "TO01SS22",
@@ -150,6 +150,6 @@
         "relacionados": "CAL01SS22, CAM01SS22",
         "composicao": "100% algod\u00e3o org\u00e2nico ",
         "tag": "lan\u00e7amento em breve",
-        "preco": "em breve"
+        "preco": "168"
     }
 }
