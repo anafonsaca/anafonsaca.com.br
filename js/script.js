@@ -174,6 +174,8 @@ function addToCart(product) {
         localStorage.setItem("carrinho", JSON.stringify(carrinho));
         cartRender();
         estoqueLoad(estoqueJson);
+        skuadded = product.dataset.sku;
+        fbq('track', 'AddToCart',{contents: {skuadded},});
         addSuccess();
     }
 }
@@ -615,6 +617,7 @@ function checkoutGo() {
     showLoader();
     var cartcounter = 0;
     var itemsselecionados = [];
+    var skus = [];
 
     for (i = 0; i < carrinho.length; i++) {
         obj = JSON.parse(carrinho[i]);
@@ -627,7 +630,11 @@ function checkoutGo() {
         itemsselecionados[i]['Type'] = "Asset";
         itemsselecionados[i]['Sku'] = obj.sku;
         itemsselecionados[i]['Weight'] = 1;
+        skus[i] = obj.sku;
     }
+
+
+    fbq('track', 'InitiateCheckout',{content_ids: skus});
 
     /*
             "total": carttotal,
@@ -688,6 +695,7 @@ function checkoutGo() {
         "Settings": null
     }
     */
+
 
 
 
@@ -810,6 +818,22 @@ function dropInfo(id) {
         .reduce((soma, el, i) => soma + el * (count - i), 0) * 10) % 11 % 10
     return !(rest(10,2) !== validator[0] || rest(11,1) !== validator[1])
 }
+
+//Facebook Pixel Code
+
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '613123119936316');
+  fbq('track', 'PageView');
+  
+
+
 
 // INIT:
 
