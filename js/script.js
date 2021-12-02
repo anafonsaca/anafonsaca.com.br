@@ -633,8 +633,9 @@ function checkoutGo() {
         skus[i] = obj.sku;
     }
 
+    orderid = Date.now() + makeId(8);
 
-    fbq('track', 'InitiateCheckout',{content_ids: skus});
+    fbq('track', 'InitiateCheckout',{content_ids: skus, order_id: orderid});
 
     /*
             "total": carttotal,
@@ -644,7 +645,7 @@ function checkoutGo() {
 
     orderdata = {
 
-        "OrderNumber": Date.now() + makeId(8),
+        "OrderNumber": orderid,
         "SoftDescriptor": "pedido de anafonsaca.com.br",
         "Cart": {
             "Discount": null,
