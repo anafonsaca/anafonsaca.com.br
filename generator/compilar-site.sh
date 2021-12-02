@@ -27,6 +27,7 @@ for dir in *; do
 
 if cd "$dir"; then
 pwd
+shopt -s nocaseglob
 for i in *.jpg; do
 printf "%s" "${i%.*}.webp..."
 if convert "$i" -resize 1920x1920\> "${i%.*}".webp; then
@@ -45,7 +46,7 @@ pwd
 fi
 
 ###index:
-export titulo='joy motifs - summer collection'
+export titulo='home'
 
 
 { echo "cat <<HEREDOC"
@@ -114,13 +115,13 @@ export cor=$(jq -r ."$sku".cor <<< "$json")
 export tag=$(jq -r ."$sku".tag <<< "$json")
 export nota=$(jq -r ."$sku".nota <<< "$json")
 export obs=$(jq -r ."$sku".obs <<< "$json")
+export grid=$(jq -r ."$sku".grid <<< "$json")
 
-
-if [[ -n "$tag" ]]; then
-export precoativo="invisivel"
-else
-export precoativo=""
-fi
+#if [[ -n "$tag" ]]; then
+#export precoativo="invisivel"
+#else
+#export precoativo=""
+#fi
 
 export parcelamento=12
 export parcela=$(awk -v val="$valor" -v par="$parcelamento" -v OFMT="%5.2f%" BEGIN'{ print (val / par)}')
@@ -138,6 +139,7 @@ echo "composicao: $composicao"
 echo "estoque: $estoque"
 echo "relacionados: $relacionados"
 echo "url: /shop/$url"
+echo "grid: $grid"
 
 export imagename="$sku"
 if [[ ! -s "../img/$sku/01.webp" ]]; then
@@ -186,12 +188,15 @@ fi
 #echo '<div class="w3-col l3 s6">' >> '../shop/index.html'
 # fi
 
+if [[ "$grid" != 'off' ]]; then
  { echo "cat <<HEREDOC"
   cat griditem.html
   echo "HEREDOC"
  } | sh > './.gridtemp'
 
  cat ./.gridtemp >> '../shop/index.html'
+ fi
+
 
  #if [[ ! $((gridcounter%2)) -eq 0 ]]; then 
 #echo '</div>' >> '../shop/index.html'
