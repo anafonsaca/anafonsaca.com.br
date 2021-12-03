@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <title>ana fonsaca - cartela de adesivo </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="/css/w3.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BK8KR9TX0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BK8KR9TX0W');
+</script>
+
+
+
+
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-padding w3-white">
+ 
+          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%">home</a>
+     
+       
+          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%">about</a>
+    
+   
+          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
+      
+      
+          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%">shop</a>
+      
+      
+          <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f2f0eb" style="width:20%">
+            <span><img src="/assets/bag.png" alt="sacola de compras" height="25" style="display: inline;vertical-align: middle;"><span class="button__badge w3-margin-top" id="bagicon"></span></span>
+            <span id="closeicon" style="display:none;">x</span>
+            
+          </button>
+   
+      </div>
+    </div>
+
+    <div id="tabelamedidas" class="w3-modal blurred transluc" onclick="toggleTable()">
+
+      <div class="w3-modal-content w3-margin-bottom w3-round-large trans" style="max-width:800px">
+        <!--
+        <div class="w3-row w3-padding-24">
+          <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleTable()">x</button>
+        </div> 
+        -->
+          <table class="w3-table w3-bordered w3-small w3-round-large">
+              <tbody class="w3-round-large">
+              <tr class="w3-round-large">
+              <td> </td>
+              <td>
+              
+              <p class="w3-center bold">P: 34 a 36</p>
+              </td>
+              <td>
+              <p class="w3-center bold">M: 38 a 40</p>
+              </td>
+              <td>
+              <p class="w3-center bold">G: 40 a 42</p>
+              </td>
+              </tr>
+              <tr>
+              <td>
+              <p class="bold">busto</p>
+              <i class="w3-tiny">medir abaixo do braço ao redor do peito na parte mais saliente do busto</i>
+              </td>
+              <td class="w3-center">84 a 89 cm</td>
+              <td class="w3-center">89 a 94 cm</td>
+              <td class="w3-center"> 94 a 99 cm</td>
+              </tr>
+              <tr>
+              <td>
+              <p class="bold">manga</p>
+              <i class="w3-tiny">medir do ombro ao punho</i>
+              </td>
+              <td class="w3-center"> 58 a 60 cm</td>
+              <td class="w3-center"> 60 a 62 cm</td>
+              <td class="w3-center"> 62 a 64 cm</td>
+              <tr>
+                  <td>
+                  <p class="bold">cintura</p>
+                  <i class="w3-tiny">medir ao redor da linha mais fina da cintura</i>
+                  </td>
+                  <td class="w3-center">65 a 70 cm</td>
+                  <td class="w3-center">70 a 75 cm</td>
+                  <td class="w3-center">75 a 80 cm</td>
+              </tr>
+              
+              <tr>
+                  <td>
+                  <p class="bold">quadril</p>
+                  <i class="w3-tiny">medir ao redor da parte mais saliente</i>
+                  </td>
+                  <td class="w3-center">92 a 96 cm</td>
+                  <td class="w3-center">96 a 100 cm</td>
+                  <td class="w3-center">100 a 104 cm</td>
+              </tr>
+              </tbody>
+              </table>
+         <div class="w3-small w3-margin">
+                  <p>ao se medir não aperta a fita, deixar confortável</p>
+                  <p>cada tecido possui um comportamento diferente, seja por sua gramatura ou fibra, podendo existir baixas variações nas medidas</p>
+                  <p>a modelo veste P e possui as medidas: <br> altura: 1,70cm / busto: 84cm / cintura: 62cm / quadril 90cm.</p>
+         </div>  
+
+        </div>
+      </div>
+
+
+    <!-- loader -->
+ 
+    <!-- start Shopping Cart -->
+   
+
+      <div id="shopCart" class="w3-modal blurred">
+
+<div class="w3-modal-content w3-round-large w3-margin-bottom" id="innerCart" style="max-width:600px">
+
+
+  <div class="w3-bar w3-white w3-round-large">
+           
+    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button btnmargin w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
+
+
+
+  </div>
+
+  <span id="bagstatus"></span>
+ 
+        <!-- item list start -->
+     
+
+
+          
+
+          
+
+            <span id="shopcartview">
+
+
+
+
+
+          <div id="suacompra" class="w3-container">  <!-- foldable (class) -->
+          <div class="" id="carthtml"></div>
+          <span id="cartbtns">
+             <!--
+            <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+          
+            <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
+        -->
+            <button onclick="checkoutGo()" class="w3-bar-item w3-card w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom">checkout</button>
+            </span>
+        </div>
+ 
+
+        <!-- itemlist end -->
+    <!-- deliver form start
+  
+
+      <div id="dadosparaentrega" class="w3-container foldable">
+     
+    <form id="formulariodecontato" onsubmit="event.preventDefault();">
+    <div class="w3-container w3-row-padding w3-margin-bottom" id="deliverform">
+      <div class="w3-display-container w3-margin-bottom w3-white">
+       
+        <div class="w3-row-padding">
+      
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">nome: </label>
+              <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" required pattern="\S+.*" name="nome" id="formnome">
+          </div>
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">email:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="email" name="email" id="formemail" required pattern="\S+.*"/>
+          </div>
+     
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">cpf:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="cpf" id="formcpf" required>
+          </div>
+          
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">telefone:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="telefone" id="formtelefone" required>
+          </div>
+          
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">cep: </label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
+          </div>
+          <div class="w3-padding  w3-threequarter">
+            <label class="w3-tiny bold">rua:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="formrua" required >
+          </div>
+          <div class="w3-padding  w3-quarter">
+            <label class="w3-tiny bold">numero:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="numero" id="formnumero"  required>
+          </div>
+          <div class="w3-clear w3-margin-bottom"></div>
+          <div class="w3-padding  w3-half">
+            <label class="w3-tiny bold">bairro:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="formbairro" type="text">
+          </div>
+          <div class="w3-padding  w3-half">
+            <label class="w3-tiny bold">complemento:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="formcomplemento">
+          </div>
+          <div class="w3-padding  w3-threequarter">
+            <label class="w3-tiny bold">cidade:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="formcidade" required>
+          </div>
+          <div class="w3-padding  w3-quarter">
+            <label class="w3-tiny bold">estado:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="estado" id="formestado" maxlength="2" required>
+          </div>
+        </div>
+
+
+        <div class="w3-bar w3-white">
+    
+        <div class="w3-bar-item btnmargin">
+          <input type="radio" id="frete" name="tipofrete" value="gratis" checked>
+            <label for="frete w3-xsmall bold">frete grátis</label>
+        </div>
+        <div class="w3-bar-item btnmargin w3-right">
+          <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom2" form="formulariodecontato" type="submit">pagamento</button>
+   
+        </div>
+     
+</div>
+   
+      </div>
+
+
+
+
+    </div>
+
+
+  
+  </form>
+  </div>
+
+     deliver form end -->
+  </span>
+  </div>
+  </div>
+  
+
+
+
+
+   
+   
+    <!-- end Shopping Cart -->
+    <!-- Start page content -->
+    <span id="pagecontent">
+      <div id="modalbox" class="w3-modal blurred" onclick="this.style.display='none'">
+        <div class="w3-modal-content">
+          <img src="#" id="modalimg" class="">
+        </div>
+      </div>
+      <div class="w3-container w3-row w3-padding-64">
+        <div class="slidecontainer w3-half cursor w3-row-padding w3-margin-bottom">
+          <div class="w3-card w3-display-container">
+            <img src="/img/ADES01SS22/01.webp" alt="imagem do produto" class="" id="slide" style="width:100%" onclick="goModal(this);">
+            <div class="w3-btn w3-round-large w3-display-left w3-container w3-text-white" onclick="prevSlide()">
+              <p>❮</p>
+            </div>
+            <div class="w3-btn w3-round-large w3-display-right w3-container w3-text-white" onclick="nextSlide()">
+              <p>❯</p>
+            </div>
+          </div>
+          <div class="row thumbs w3-margin-top">
+            <div class="column pad4">
+              <img class="thumb cursor w3-card" src="/img/ADES01SS22/01.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 01">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/02.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 02">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/03.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 03">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/04.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 04">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/05.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 05">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/06.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 06">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/07.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 07">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/08.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 08">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/09.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 09">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card" src="/img/ADES01SS22/10.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 10">
+            </div>
+          </div>
+        </div>
+        <div class="w3-half w3-row-padding">
+          <!-- About Container -->
+          <div class="" style="max-width:700px;">
+            <div class="w3-container w3-round-large w3-card w3-margin-bottom">
+              <div class="w3-section">
+                <h5 class="bold w3-large">cartela de adesivo </h5>
+                
+              </div>
+              <span class="">
+              <div class="w3-clear"></div>
+              <div class="w3-section w3-small bold">R$ 10</div>
+              <p class="w3-section w3-tiny">12x R$  0,83</p>
+              <div class="w3-clear"></div>
+            </span>
+              <div class="w3-section w3-small">
+                <p>cartela com 4 adesivos com o tema da coleção joy motifs</p>
+                <p class="bold"></p>
+
+              </div>
+            </div>
+
+           
+
+            <div class="w3-card w3-container w3-round-large w3-margin-bottom">
+  
+              <div class="w3-section">
+                <p class="w3-small">composição: </p>
+                <p class="w3-small bold"></p>
+              </div>
+
+
+            </div>
+
+
+
+          
+              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8" onclick="toggleTable()" ><img src="/assets/metric.png" alt="fita metrica" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
+ 
+              <div class="w3-clear w3-margin-bottom"></div>
+
+          
+              <div class="w3-margin-bottom">
+            <div class="evenly ">
+              
+              <div class="w3-left" id="sizes">
+                <span class="tooltip">
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7" id="pbtn" onclick="setSize(this)">P</button>
+                  <span class="tooltiptext color-f2f0eb" id="ptip"></span>
+                </span>
+                <span class="tooltip">
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf" id="mbtn" onclick="setSize(this)">M</button>
+                  <span class="tooltiptext color-f2f0eb" id="mtip"></span>
+                </span>
+                <span class="tooltip">
+                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3" id="gbtn" onclick="setSize(this)">G</button>
+                  <span class="tooltiptext color-f2f0eb" id="gtip"></span>
+                </span>
+                <button class="w3-margin-top w3-card w3-button w3-small color-d3e4f5 w3-round-large w3-disabled bold hover-e6e1d8" onclick="addToCart(this)" id="btnadd" style="width:150px" data-sku="ADES01SS22" data-tamanho="" data-nome="cartela de adesivo " data-cor="mix" data-valor="10" data-path="/shop/cartela-de-adesivo-">comprar</button>
+              </div>
+
+     
+            </div>
+
+            </div>
+
+
+
+     
+            <p class="w3-center" style="font-style:italic;"></p>
+            
+          </div>
+        </div>
+      </div>
+      <!-- Add a background color and large text to the whole page -->
+
+      <div id="aviseme" class="w3-modal">
+        <div class="w3-modal-content w3-card-4 w3-round-large" style="max-width:600px">
+          <div class="w3-center"><br>
+            <span onclick="document.getElementById('aviseme').style.display='none'" class="w3-button w3-small w3-display-topright w3-round-large color-ffffff hover-f2f0eb" title="fechar">&times;</span>
+          </div>
+          <form class="w3-container" action="https://submit-form.com/xRfYsYUt">
+            <div class="w3-section">
+              <p id="avisemetexto">avise-me quando voltar ao estoque</p>
+              <!-- <label><b>email:</b></label> -->
+              <input class="w3-input w3-border" type="email" placeholder="email" name="email" required>
+              <button class="w3-button w3-block color-e6e1d8 w3-section w3-padding w3-round-large hover-f2f0eb" type="submit">enviar</button>
+            </div>
+          </form>
+
+              
+  
+
+
+
+
+  </div>
+</div>
+    </span>
+    <div id="snackbar" class="w3-center color-ba8671">produto adicionado</div>
+    <!-- End page content -->
+    <footer class="w3-container w3-padding-32">  
+      <div class="w3-row-padding w3-text-grey">
+        <div class="w3-third w3-left">
+          <p class="w3-tiny">nossas políticas</p>
+          <p class="w3-tiny">consciência</p>
+          <p class="w3-tiny">contato</p>
+        </div>
+        <div class="w3-third w3-center w3-padding-32">
+   
+        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+
+     </div>
+     <div class="w3-third w3-right" style="text-align: right;">
+      <p class="w3-tiny">cnpj: <span class="w3-tiny">40.197.291/0001-74</span></p>
+      <p class="w3-tiny">florianópolis - brasil</p>
+      <p class="w3-tiny">desde <span class="w3-tiny">2021</span></p>
+    </div>
+    </div>
+    </footer>
+
+    <div id="loadermodal" class="w3-modal blurred">
+      
+      <div class="w3-modal-content">
+
+    
+          <div class="lds-grid w3-display-middle">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+            
+      </div>
+      <p class="w3-center w3-text-white" style="position: fixed;left: 0;bottom: 30px;width: 100%;">redirecionando para o checkout cielo...</p>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script>
+      getEstoque("ADES01SS22");
+    </script>
+    
+  </body>
+</html>
