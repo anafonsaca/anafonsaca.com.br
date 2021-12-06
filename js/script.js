@@ -1,6 +1,6 @@
 //Settings:
 var checkoutapi = 'https://0jxfak47p9.execute-api.us-east-1.amazonaws.com/prod/anafonsacaApiDb';
-var estoqueurl = 'https://anafonsaca.s3.amazonaws.com/estoque.json?nocache=' + Date.now();
+var estoqueurl = 'https://anafonsaca.s3.amazonaws.com/estoque.json?nocache=' + Date.now().toString().slice(0, 8) + '00'
 var cepdeorigem = 88330786;
 
 
