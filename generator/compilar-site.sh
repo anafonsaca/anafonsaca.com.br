@@ -28,7 +28,7 @@ for dir in *; do
 if cd "$dir"; then
 pwd
 shopt -s nocaseglob
-for i in *.{jpg,png}; do
+for i in *.jpg; do
 printf "%s" "${i%.*}.webp..."
 if convert "$i" -resize 1920x1920\> "${i%.*}".webp; then
 convert "$i" -resize 1280x1280\> "${i%.*}"-grid.webp
