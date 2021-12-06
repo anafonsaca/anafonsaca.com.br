@@ -16,6 +16,7 @@ var estoqueJson;
 var orderdata = {};
 var uniqueid;
 var carttotal = 0;
+var cuidadosopen = false;
 
 
 
@@ -103,6 +104,19 @@ tableopen = true;
 tabmedidas.style.display = "block";
 }
 }
+
+function toggleCuidados () {
+
+    cuidadosinfo = document.getElementById("cuidadospeca");
+    
+    if (cuidadosopen) {
+        cuidadosopen = false;
+    cuidadosinfo.style.display = "none";
+    } else {
+        cuidadosopen = true;
+    cuidadosinfo.style.display = "block";
+    }
+    }
 
 function toggleCart() {
     carticon = document.getElementById("bagicon"); 
