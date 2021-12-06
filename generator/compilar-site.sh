@@ -77,6 +77,42 @@ export titulo='about'
 
 #############################
 
+###politicas e consciencia:
+mkdir ../politicas 2>/dev/null
+
+export titulo='politicas e consciência'
+
+
+
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat politicasmid.html
+  cat footer.html
+  #echo "HEREDOC"
+} | sh > ../politicas/index.html
+
+#############################
+
+#############################
+
+###contato:
+mkdir ../contato 2>/dev/null
+
+export titulo='contato'
+
+
+
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat contatomid.html
+  cat footer.html
+  #echo "HEREDOC"
+} | sh > ../contato/index.html
+
+#############################
+
 
 
 
