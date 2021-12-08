@@ -308,29 +308,31 @@ Manequim 40 a 44 adquira o tamanho M <br></p>
 
 
           
-              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8" onclick="toggleTable()" ><img src="/assets/metric.png" alt="tabelas de medida" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
-              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8" onclick="toggleCuidados()" ><img src="/assets/cottom.png" alt="cuidados com a peça" height="30" style="display: inline;vertical-align: middle;"> cuidados com a peça</button>
+              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleTable()" ><img src="/assets/metric.png" alt="tabelas de medida" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
+              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleCuidados()" ><img src="/assets/cottom.png" alt="cuidados com a peça" height="30" style="display: inline;vertical-align: middle;"> cuidados com a peça</button>
               <div class="w3-clear w3-margin-bottom"></div>
 
           
               <div class="w3-margin-bottom">
+                <p class="w3-tiny">escolha seu tamanho:</p>
             <div class="evenly ">
-              
+
               <div class="w3-left" id="sizes">
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="pbtn" onclick="setSize(this)">P</button>
+                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="pbtn" onclick="setSize(this)">P</button>
                   <span class="tooltiptext color-f2f0eb" id="ptip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf w3-small" id="mbtn" onclick="setSize(this)">M</button>
+                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf w3-small" id="mbtn" onclick="setSize(this)">M</button>
                   <span class="tooltiptext color-f2f0eb" id="mtip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-margin-top w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3 w3-small" id="gbtn" onclick="setSize(this)">G</button>
+                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3 w3-small" id="gbtn" onclick="setSize(this)">G</button>
                   <span class="tooltiptext color-f2f0eb" id="gtip"></span>
                 </span>
-                <button class="w3-margin-top w3-card w3-button w3-small color-d3e4f5 w3-round-large w3-disabled hover-e6e1d8 w3-large" onclick="addToCart(this)" id="btnadd" style="width:150px" data-sku="VES04SS22" data-tamanho="" data-nome="vestido daisy" data-cor="estampado" data-valor="658" data-path="/shop/vestido-daisy">comprar</button>
+
               </div>
+              <button class="w3-card w3-button w3-small color-d3e4f5 w3-round-large w3-disabled hover-e6e1d8 w3-large w3-right" onclick="addToCart(this)" id="btnadd" style="width:50%" data-sku="VES04SS22" data-tamanho="" data-nome="vestido daisy" data-cor="estampado" data-valor="658" data-path="/shop/vestido-daisy">comprar</button>
 
      
             </div>
@@ -422,25 +424,25 @@ Manequim 40 a 44 adquira o tamanho M <br></p>
 
           <div class="w3-modal-content w3-padding w3-margin-bottom w3-round-large trans" style="max-width:800px">
            
-<h2 class="w3-center">Guia de cuidado com as roupas</h2>
+<h2 class="w3-center bold">Guia de cuidado com as roupas</h2>
 
-<p>Lave com consciência, cuidado e passe suas roupas adiante.</p>
+<p class="w3-small">Lave com consciência, cuidado e passe suas roupas adiante.</p>
 
-<p>Na ana fonsaca criamos peças para durar muito tempo, por isso é importante estar ciente de como cuidar delas. Com alguns pequenos cuidados, é possível aumentar a vida útil da peça, reutilizando, reciclando, e ajudando a reduzir impactos sociais e no meio ambiente.</p>
+<p class="w3-small">Na ana fonsaca criamos peças para durar muito tempo, por isso é importante estar ciente de como cuidar delas. Com alguns pequenos cuidados, é possível aumentar a vida útil da peça, reutilizando, reciclando, e ajudando a reduzir impactos sociais e no meio ambiente.</p>
 
-<p>A melhor forma de cuidar da sua roupa varia de peça para peça, por isso é fundamental sempre ler atentamente a etiqueta de composição fixada na peça antes de lavar. Além disso, compartilhamos algumas dicas para aumentar o ciclo de vida da sua roupa: </p>
-<ul class="w3-center w3-padding-32" style="list-style-type: circle !important;">
-<li> Lave as suas peças em temperaturas baixas, no programa de lavagem suave, com ciclo de centrifugação baixo. Se for possível, lavar manualmente, principalmente as peças com porcentagem de seda na composição. </li>
+<p class="w3-small">A melhor forma de cuidar da sua roupa varia de peça para peça, por isso é fundamental sempre ler atentamente a etiqueta de composição fixada na peça antes de lavar. Além disso, compartilhamos algumas dicas para aumentar o ciclo de vida da sua roupa: </p>
+<ul class="w3-center w3-padding-32" style="list-style-type: circle !important; text-align:justify">
+<li class="w3-small" style="text-align:justify"> Lave as suas peças em temperaturas baixas, no programa de lavagem suave, com ciclo de centrifugação baixo. Se for possível, lavar manualmente, principalmente as peças com porcentagem de seda na composição. </li>
 
-<li> Ao lavá-las na máquina, proteja suas peças delicadas em saquinhos de roupa. </li>
+<li class="w3-small" style="text-align:justify"> Ao lavá-las na máquina, proteja suas peças delicadas em saquinhos de roupa. </li>
 
-<li> Seque suas roupas ao ar livre em vez de colocá-las na secadora - além de ser menos agressivo para as fibras dos tecidos, também gasta menos energia.</li>
+<li class="w3-small" style="text-align:justify"> Seque suas roupas ao ar livre em vez de colocá-las na secadora - além de ser menos agressivo para as fibras dos tecidos, também gasta menos energia.</li>
 
-<li> Ao detectar uma mancha, use o removedor de manchas no local específico em vez de lavar toda a roupa e deixa-la de molho. </li>
+<li class="w3-small" style="text-align:justify"> Ao detectar uma mancha, use o removedor de manchas no local específico em vez de lavar toda a roupa e deixa-la de molho. </li>
 
-<li> Se sua roupa descosturar, rasgar, ou sofrer qualquer tipo de dano, tente conserta-la ao invés de simplesmente substituí-la.</li>
+<li class="w3-small" style="text-align:justify"> Se sua roupa descosturar, rasgar, ou sofrer qualquer tipo de dano, tente conserta-la ao invés de simplesmente substituí-la.</li>
 
-<li> Quando a sua caminhada junto com a peça chegar ao fim, ou seja, quando ela não lhe servir mais, dê a outras pessoas a chance de comprá-la ou doá-la.</li>
+<li class="w3-small" style="text-align:justify"> Quando a sua caminhada junto com a peça chegar ao fim, ou seja, quando ela não lhe servir mais, dê a outras pessoas a chance de comprá-la ou doá-la.</li>
 </ul>  
             </div>
           </div>

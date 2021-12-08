@@ -226,7 +226,7 @@ function cartRender() {
 
         bagstatus = document.getElementById("bagstatus");
         emptydiv = document.createElement("div");
-        emptydiv.className = "w3-display-container  w3-padding w3-margin-bottom empty";
+        emptydiv.className = "w3-display-container w3-margin-bottom empty";
         bagstatus.appendChild(emptydiv);
 
         emptytxt = document.createElement("p");

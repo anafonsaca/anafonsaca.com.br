@@ -1,0 +1,139 @@
+import json
+import boto3
+import urllib.parse
+import urllib3
+import time
+import hashlib
+
+
+def lambda_handler(event, context):
+    
+    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+    table = dynamodb.Table('anafonsaca-vendas')
+    parsedBody = urllib.parse.parse_qs(event['body'])
+    
+    AccessToken = ''
+
+    
+    try:
+        nome = parsedBody['customer_name'][0] 
+        telefone = parsedBody['customer_phone'][0]
+        cpf = parsedBody['customer_identity'][0]
+        email = parsedBody['customer_email'][0]
+    
+        cep = parsedBody['shipping_address_zipcode'][0] 
+        bairro = parsedBody['shipping_address_district'][0]
+        cidade = parsedBody['shipping_address_city'][0]
+        uf = parsedBody['shipping_address_state'][0]
+    
+        endereco = parsedBody['shipping_address_line1'][0]
+        complemento = parsedBody['shipping_address_line2'][0]
+        numero = parsedBody['shipping_address_number'][0]
+    
+        ordernumber = parsedBody['order_number'][0]
+        value = parsedBody['amount'][0]
+    except:
+        print("Something went wrong")
+
+
+    table.update_item(
+        Key={
+            'venda': ordernumber
+        },
+        UpdateExpression='SET paystatus = :val1',
+        ExpressionAttributeValues={
+            ':val1': parsedBody['payment_status'][0]
+        }
+    )
+
+
+    orderdata = table.get_item(Key={'venda': ordernumber})['Item']
+    
+
+    
+    
+
+    
+    
+    SENDER = "Ana Fonsaca <shop.anafonsaca@gmail.com>"
+    RECIPIENT = "shop.anafonsaca@gmail.com"
+    SUBJECT = "Nova venda!"
+    BODY_TEXT = (str(parsedBody))
+    CHARSET = "UTF-8"
+    client = boto3.client('ses',region_name="us-east-1")
+
+
+    try:
+
+        response = client.send_email(
+            Destination={
+                'ToAddresses': [
+                    RECIPIENT,
+                ],
+            },
+            Message={
+                'Body': {
+                    'Text': {
+                        'Charset': CHARSET,
+                        'Data': BODY_TEXT,
+                    },
+                },
+                'Subject': {
+                    'Charset': CHARSET,
+                    'Data': SUBJECT,
+                },
+            },
+        Source=SENDER
+        )
+
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+    else:
+        emmailstatus = "Email sent! Message ID: " + str(response['MessageId'])
+
+   
+   
+    try:
+   
+        emailhashed = hashlib.sha256(email.encode("utf-8")).hexdigest()
+
+        UserData = {
+            "em":emailhashed
+        }
+        CustomData = {
+  
+            "order_id":ordernumber,
+            "currency":'BRL',
+            "value":value,
+        }
+        Event = {
+            "event_name":"Purchase",
+            "event_time":int(time.time()),
+            "user_data":UserData,
+            "custom_data":CustomData,
+            "action_source":"website",
+    
+        }
+    
+        payload = 'data=[' + json.dumps(Event) + ']' + '&access_token=' + AccessToken
+
+    except:
+        print("infoerror")
+
+    
+
+    http = urllib3.PoolManager()
+    r = http.request('POST', 'https://graph.facebook.com/v12.0/613123119936316/events',
+                body=payload)
+                
+    repostafb = str(json.loads(r.data))
+                
+    r2 = http.request('POST', 'https://web.hook.sh/bd3e79f4-efcb-4fb2-8db8-5e84d0580788',
+                body=str(repostafb))
+    
+    
+    
+    return {
+        'statusCode': 200
+    }
+
