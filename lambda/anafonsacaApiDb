@@ -80,7 +80,7 @@ def lambda_handler(event, context):
     
     http = urllib3.PoolManager()
     r = http.request('POST', 'https://cieloecommerce.cielo.com.br/api/public/v1/orders',
-                 headers={'Content-Type': 'application/json', 'MerchantId': '45b15960-db29-435d-b950-477cd73cde8d'},
+                 headers={'Content-Type': 'application/json', 'MerchantId': ''},
                  body=datapost)
     
     return {

@@ -123,12 +123,12 @@ def lambda_handler(event, context):
     
 
     http = urllib3.PoolManager()
-    r = http.request('POST', 'https://graph.facebook.com/v12.0/613123119936316/events',
+    r = http.request('POST', '',
                 body=payload)
                 
     repostafb = str(json.loads(r.data))
                 
-    r2 = http.request('POST', 'https://web.hook.sh/bd3e79f4-efcb-4fb2-8db8-5e84d0580788',
+    r2 = http.request('POST', '',
                 body=str(repostafb))
     
     
