@@ -1,0 +1,14 @@
+###checkout:
+mkdir ../checkout 2>/dev/null
+
+export titulo='checkout'
+
+
+
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat checkoutmid.html
+  cat footer.html
+  #echo "HEREDOC"
+} | sh > ../checkout/index.html

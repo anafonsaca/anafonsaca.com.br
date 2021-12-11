@@ -1,119 +1,384 @@
 <!DOCTYPE html>
-<html lang=”pt-br”></html>
-<html>
-<title>ana fonsaca - checkout</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/css/w3.css">
-<link rel="stylesheet" href="/css/style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<html lang="pt-br">
+  <title>ana fonsaca - checkout</title>
+  <meta name="description" content="@shop.anafonsaca">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spartan:wght@100;700&display=swap" rel="stylesheet">
-<body> 
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://anafonsaca.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ana fonsaca">
+<meta property="og:description" content="@shop.anafonsaca">
+<meta property="og:image" content="https://anafonsaca.com.br/assets/anafon.jpg">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="anafonsaca.com.br">
+<meta property="twitter:url" content="https://anafonsaca.com.br/">
+<meta name="twitter:title" content="ana fonsaca">
+<meta name="twitter:description" content="@shop.anafonsaca">
+<meta name="twitter:image" content="https://anafonsaca.com.br/assets/anafon.jpg">
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="/css/w3.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BK8KR9TX0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BK8KR9TX0W');
+</script>
 
 
 
-<!-- Sidebar -->
-<nav class="w3-sidebar w3-black w3-xxlarge" style="display:none;padding-top:150px" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close_menu()" class="w3-button w3-black w3-xlarge w3-padding w3-display-topleft" style="padding:6px 24px">
-    <i class="fa fa-remove"></i>
-  </a>
-  <div class="w3-bar-block w3-center">
-    <a href="/" class="w3-bar-item w3-button w3-text-grey w3-hover-black">home</a>
-    <a href="/shop" class="w3-bar-item w3-button w3-text-grey w3-hover-black">shop</a>
-    <a href="/me" class="w3-bar-item w3-button w3-text-grey w3-hover-black">meus pedidos</a>
-    <a href="/about" class="w3-bar-item w3-button w3-text-grey w3-hover-black">about</a>
-    <a href="/contact" class="w3-bar-item w3-button w3-text-grey w3-hover-black">contato</a>
-  </div>
-</nav>
 
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1500px">
-
-<!-- Header -->
-
-<div>
-
-<span class="w3-button w3-xlarge w3-white w3-left" onclick="w3_open_menu()"><i class="fa fa-bars"></i></span>
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-padding w3-white">
  
-<!-- 
-    <span class=" w3-tiny w3-white w3-right">
-    <input type="text" name="search">
-</span>
--->
-<div class="w3-clear"></div>
-<header class="w3-center w3-margin-bottom">
-  <h1 class="w3-jumbo bold"><a href="/">ana fonsaca</a></h1>
-</header>
-</div>
-
-<!-- Photo Grid -->
-
-<div class="w3-container">
-
-  <div class="w3-half w3-padding">
-    <div id="carthtml" class="checkout-list"></div>
-  </div>
-  <div class="w3-half w3-padding">
-  <form class="" action="/action_page.php">
+          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%">home</a>
+     
+       
+          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%">about</a>
     
-    <p>      
-    <label class="w3-text-blue"><b>nome:</b></label>
-    <input class="w3-input w3-border" name="nome" type="text"></p>
-    <p>      
-    <label class="w3-text-blue"><b>email:</b></label>
-    <input class="w3-input w3-border" name="email" type="email"></p>
-    <p>      
-        <label class="w3-text-blue"><b>cpf:</b></label>
-        <input class="w3-input w3-border" name="cpf" type="number"></p>
-        <p>      
-            <label class="w3-text-blue"><b>telefone:</b></label>
-            <input class="w3-input w3-border" name="cpf" type="number"></p>
-            <p>      
-                <label class="w3-text-blue"><b>cep:</b></label>
-                <input class="w3-input w3-border" name="entregacep" type="text" onblur="pesquisacep(this.value);"></p>
-                  
-  
-                <p>      
-                    <label class="w3-text-blue"><b>rua:</b></label>
-                    <input class="w3-input w3-border" id="rua"name="entregarua" type="text"></p>
-                    <p>      
-                        <label class="w3-text-blue"><b>numero:</b></label>
-                        <input class="w3-input w3-border" name="entreganumero" type="text"></p>
-                        <p>      
-                            <label class="w3-text-blue"><b>bairro:</b></label>
-                            <input class="w3-input w3-border" id="bairro" name="entregabairro" type="text"></p>
-                            <p>      
-                                <label class="w3-text-blue"><b>complemento:</b></label>
-                                <input class="w3-input w3-border" name="entregacomplemento" type="text"></p>
-                                <p>      
-                                    <label class="w3-text-blue"><b>cidade:</b></label>
-                                    <input class="w3-input w3-border" id="cidade" name="entregacidade" type="text"></p>
-                                    <p>      
-                                        <label class="w3-text-blue"><b>estado (uf):</b></label>
-                                        <input class="w3-input w3-border" id="uf" name="entregaestado" type="text" size="2"></p>
-                        
-    <p>      
-    <button class="w3-btn w3-blue w3-right">finalizar compra</button></p>
-  </form>
-</div>
+   
+          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
+      
+      
+          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%">shop</a>
+      
+      
+          <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f2f0eb" style="width:20%">
+            <span><img src="/assets/bag.png" alt="sacola de compras" height="25" style="display: inline;vertical-align: middle;"><span class="button__badge w3-margin-top" id="bagicon"></span></span>
+            <span id="closeicon" style="display:none;">x</span>
+            
+          </button>
+   
+      </div>
+    </div>
 
-</div>
+   
 
-<!-- End Page Content -->
-</div>
 
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-xlarge" style="margin-top:128px"> 
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <p class="w3-medium">ana fonsaca - cnpj: 1312312341232 - brasil.</p>
-</footer>
+    <!-- loader -->
+ 
+    <!-- start Shopping Cart -->
+   
+
+      <div id="shopCart" class="w3-modal blurred">
+
+<div class="w3-modal-content w3-round-large w3-margin-bottom" id="innerCart" style="max-width:600px">
+
+
+  <div class="w3-bar w3-white w3-round-large">
+           
+    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button btnmargin w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
+
+
+
+  </div>
+
+  <span id="bagstatus"></span>
+ 
+        <!-- item list start -->
+     
+
+
+          
+
+          
+
+            <span id="shopcartview">
+
+
+
+
+
+          <div id="suacompra" class="w3-container">  <!-- foldable (class) -->
+          <div class="" id="carthtml"></div>
+          <span id="cartbtns">
+             <!--
+            <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
+          
+            <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
+        -->
+            <button onclick="checkoutGo()" class="w3-bar-item w3-card w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom">checkout</button>
+            </span>
+        </div>
  
 
-<script src="/js/script.js"></script>
-<script src="/js/cep.js"></script>
-</body>
+        <!-- itemlist end -->
+    <!-- deliver form start
+  
+
+      <div id="dadosparaentrega" class="w3-container foldable">
+     
+    <form id="formulariodecontato" onsubmit="event.preventDefault();">
+    <div class="w3-container w3-row-padding w3-margin-bottom" id="deliverform">
+      <div class="w3-display-container w3-margin-bottom w3-white">
+       
+        <div class="w3-row-padding">
+      
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">nome: </label>
+              <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" required pattern="\S+.*" name="nome" id="formnome">
+          </div>
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">email:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="email" name="email" id="formemail" required pattern="\S+.*"/>
+          </div>
+     
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">cpf:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="cpf" id="formcpf" required>
+          </div>
+          
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">telefone:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="telefone" id="formtelefone" required>
+          </div>
+          
+          <div class="w3-padding w3-half">
+            <label class="w3-tiny bold">cep: </label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
+          </div>
+          <div class="w3-padding  w3-threequarter">
+            <label class="w3-tiny bold">rua:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="formrua" required >
+          </div>
+          <div class="w3-padding  w3-quarter">
+            <label class="w3-tiny bold">numero:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="numero" id="formnumero"  required>
+          </div>
+          <div class="w3-clear w3-margin-bottom"></div>
+          <div class="w3-padding  w3-half">
+            <label class="w3-tiny bold">bairro:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="formbairro" type="text">
+          </div>
+          <div class="w3-padding  w3-half">
+            <label class="w3-tiny bold">complemento:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="formcomplemento">
+          </div>
+          <div class="w3-padding  w3-threequarter">
+            <label class="w3-tiny bold">cidade:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="formcidade" required>
+          </div>
+          <div class="w3-padding  w3-quarter">
+            <label class="w3-tiny bold">estado:</label>
+            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="estado" id="formestado" maxlength="2" required>
+          </div>
+        </div>
+
+
+        <div class="w3-bar w3-white">
+    
+        <div class="w3-bar-item btnmargin">
+          <input type="radio" id="frete" name="tipofrete" value="gratis" checked>
+            <label for="frete w3-xsmall bold">frete grátis</label>
+        </div>
+        <div class="w3-bar-item btnmargin w3-right">
+          <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom2" form="formulariodecontato" type="submit">pagamento</button>
+   
+        </div>
+     
+</div>
+   
+      </div>
+
+
+
+
+    </div>
+
+
+  
+  </form>
+  </div>
+
+     deliver form end -->
+  </span>
+  </div>
+  </div>
+  
+
+
+
+
+   
+   
+    <!-- end Shopping Cart -->
+    <!-- Start page content -->
+    <span id="pagecontent">
+      <div id="modalbox" class="w3-modal blurred" onclick="this.style.display='none'">
+        <div class="w3-modal-content">
+          <img src="#" id="modalimg" class="">
+        </div>
+      </div>
+      <div class="w3-container w3-row w3-padding-64">
+
+        <div class="w3-half w3-row-padding w3-margin-bottom">
+        <div class="w3-card w3-round-large w3-padding">
+<h2 class="w3-large bold">endereço de entrega:</h2>
+<div class="w3-padding w3-half">
+  <label class="w3-tiny bold">cep: </label>
+    <input class="w3-input w3-border w3-round-large w3-xsmall mask" type="tel" name="entrega-cep" id="entrega-cep" data-js="cep" onblur="pesquisacep(this.value)" required>
+</div>
+<div class="w3-padding w3-half">
+<label for="entrega-uf" class="w3-tiny bold">estado:</label>
+<select id="entrega-uf" name="entrega-uf" class="w3-input w3-border w3-round-large w3-xsmall">
+  <option hidden disabled selected value></option>
+  <option value="AC">acre</option>
+  <option value="AL">alagoas</option>
+  <option value="AP">amapá</option>
+  <option value="AM">amazonas</option>
+  <option value="BA">bahia</option>
+  <option value="CE">ceará</option>
+  <option value="DF">distrito federal</option>
+  <option value="ES">espírito santo</option>
+  <option value="GO">goiás</option>
+  <option value="MA">maranhão</option>
+  <option value="MT">mato Grosso</option>
+  <option value="MS">mato grosso do sul</option>
+  <option value="MG">minas gerais</option>
+  <option value="PA">pará</option>
+  <option value="PB">paraíba</option>
+  <option value="PR">paraná</option>
+  <option value="PE">pernambuco</option>
+  <option value="PI">piauí</option>
+  <option value="RJ">rio de Janeiro</option>
+  <option value="RN">rio grande do norte</option>
+  <option value="RS">rio grande do sul</option>
+  <option value="RO">rondônia</option>
+  <option value="RR">roraima</option>
+  <option value="SC">santa catarina</option>
+  <option value="SP">são paulo</option>
+  <option value="SE">sergipe</option>
+  <option value="TO">tocantins</option>
+  <option value="EX">estrangeiro</option>
+</select>
+</div>
+<div class="w3-padding  w3-threequarter">
+  <label class="w3-tiny bold">rua:</label>
+  <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="entrega-rua" required >
+</div>
+<div class="w3-padding  w3-quarter">
+  <label class="w3-tiny bold">numero:</label>
+  <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="numero" id="entrega-numero"  required>
+</div>
+
+<div class="w3-padding  w3-half">
+  <label class="w3-tiny bold">cidade:</label>
+  <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="entrega-cidade" required>
+</div>
+<div class="w3-padding  w3-half">
+  <label class="w3-tiny bold">bairro:</label>
+  <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="entrega-bairro" type="text">
+</div>
+<div class="w3-padding">
+  <label class="w3-tiny bold">complemento:</label>
+  <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="entrega-complemento">
+</div>
+        </div>
+      </div>
+        <div class="w3-half w3-row-padding w3-margin-bottom">
+   
+      
+            <div class="w3-card w3-round-large w3-padding">
+<h2>forma de pagamento</h2>
+     
+            
+          </div>
+      
+      </div>
+
+      <div class="w3-half w3-row-padding w3-margin-bottom">
+        <div class="w3-card w3-round-large w3-padding">
+<h2>endereço de cobrança:</h2>
+        </div>
+      </div>
+        <div class="w3-half w3-row-padding w3-margin-bottom">
+     
+      
+            <div class="w3-card w3-round-large w3-padding">
+<h2>sua compra:</h2>
+     
+            
+          </div>
+      
+      </div>
+  
+
+
+
+
+
+              
+  
+
+
+
+
+  </div>
+</div>
+    </span>
+    <div id="snackbar" class="w3-center color-ba8671">produto adicionado</div>
+    <!-- End page content -->
+    <footer class="w3-container w3-padding-32">  
+      <div class="w3-row-padding w3-text-grey">
+        <div class="w3-third w3-left">
+          <a href="/politicas/#politicas"><p class="w3-tiny">nossas políticas</p></a>
+          <a href="/politicas/#consciencia"><p class="w3-tiny">consciência</p></a>
+          <a href="/contato"><p class="w3-tiny">contato</p></a>
+        </div>
+        <div class="w3-third w3-center w3-padding-32">
+   
+        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+        <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
+
+     </div>
+     <div class="w3-third w3-right" style="text-align: right;">
+      <p class="w3-tiny">cnpj: <span class="w3-tiny">40.197.291/0001-74</span></p>
+      <p class="w3-tiny">florianópolis - brasil</p>
+      <p class="w3-tiny">desde <span class="w3-tiny">2021</span></p>
+
+    </div>
+
+    </div>
+
+    </footer>
+
+
+    <div id="loadermodal" class="w3-modal blurred">
+      
+      <div class="w3-modal-content">
+
+    
+          <div class="lds-grid w3-display-middle">
+            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+   
+      </div>
+      <p class="w3-center w3-text-white w3-small" style="position: fixed;left: 0;bottom: 40px;width: 100%;">redirecionando para o checkout cielo</p>
+  
+
+    
+    </div>
+
+    
+
+    <script src="/js/script.js"></script>
+    <script>
+      getEstoque("");
+    </script>
+    
+  </body>
 </html>

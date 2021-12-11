@@ -77,6 +77,23 @@ export titulo='about'
 
 #############################
 
+###checkout:
+mkdir ../checkout 2>/dev/null
+
+export titulo='checkout'
+
+
+
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat checkoutmid.html
+  cat footer.html
+  #echo "HEREDOC"
+} | sh > ../checkout/index.html
+
+#############################
+
 ###politicas e consciencia:
 mkdir ../politicas 2>/dev/null
 
@@ -161,8 +178,8 @@ export grid=$(jq -r ."$sku".grid <<< "$json")
 
 export parcelamento=12
 export parcela=$(awk -v val="$valor" -v par="$parcelamento" -v OFMT="%5.2f%" BEGIN'{ print (val / par)}')
-export url=${titulo// /-}
-
+url=$(printf "%s" "$titulo" | iconv -f UTF-8 -t ASCII//TRANSLIT)
+export url=${url// /-}
 
 
 

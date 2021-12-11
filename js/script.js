@@ -33,14 +33,32 @@ function limpa_formulário_cep() {
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        document.getElementById('formrua').value = (conteudo.logradouro).toLowerCase();
-        document.getElementById('formbairro').value = (conteudo.bairro).toLowerCase();
-        document.getElementById('formcidade').value = (conteudo.localidade).toLowerCase();
-        document.getElementById('formestado').value = (conteudo.uf).toUpperCase();
+        document.getElementById('entrega-rua').value = (conteudo.logradouro).toLowerCase();
+        document.getElementById('entrega-bairro').value = (conteudo.bairro).toLowerCase();
+        document.getElementById('entrega-cidade').value = (conteudo.localidade).toLowerCase();
+        //uf dropdown
+        var entregauf = (conteudo.uf).toUpperCase();
+        var objSelect = document.getElementById("entrega-uf");
+        setSelectedValue(objSelect, entregauf);
+
     } //end if.
     else {
         //CEP não Encontrado.
         limpa_formulário_cep();
+    }
+}
+
+
+
+function setSelectedValue(selectObj, valueToSet) {
+    console.log("seta: " + selectObj + " - " + valueToSet)
+    for (var i = 0; i < selectObj.options.length; i++) {
+        console.log(selectObj.options[i].text)
+        if (selectObj.options[i].value == valueToSet) {
+            console.log("encontrado")
+            selectObj.options[i].selected = true;
+            return;
+        }
     }
 }
 
@@ -63,6 +81,8 @@ function pesquisacep(valor) {
             document.getElementById('formbairro').value = "...";
             document.getElementById('formcidade').value = "...";
             document.getElementById('formestado').value = "...";
+
+
 
             //Cria um elemento javascript.
             var script = document.createElement('script');
@@ -211,6 +231,7 @@ function cartRender() {
     shopcartview = document.getElementById("shopcartview");
     butoes = document.getElementById("cartbtns");
     carthtml = document.getElementById("carthtml");
+    console.log("cart: " + carthtml)
     carthtml.innerHTML = "";
     //document.getElementById("totalprice2").innerHTML = '';
     document.getElementById("bagstatus").innerHTML = "";
@@ -848,6 +869,84 @@ function dropInfo(id) {
   fbq('track', 'PageView');
   
 
+
+
+
+
+
+
+
+// FORMS
+
+const mask = {
+    cpf(value) {
+      return value
+        .replace(/\D/g, '') // aceita somente caracteres numero.
+        .replace(/(\d{3})(\d)/, '$1.$2') // () => permite criar grupos de captura.
+        .replace(/(\d{3})(\d)/, '$1.$2') // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
+        .replace(/(\d{3})(\d{2})/, '$1-$2') // substitui '78910' por '789-10'.
+        .replace(/(-\d{2})\d+?$/, '$1');
+    },
+  
+    cnpj(value) {
+      return value
+        .replace(/\D/g, '')
+        .replace(/(\d{2})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{3})(\d)/, '$1/$2')
+        .replace(/(\d{4})(\d{1,2})/, '$1-$2')
+        .replace(/(-\d{2})\d+?$/, '$1');
+    },
+  
+    phone(value) {
+      return value
+        .replace(/\D/g, '')
+        .replace(/(\d{2})(\d)/, '($1) - $2')
+        .replace(/(\d{4})(\d)/, '$1-$2')
+        .replace(/(\d{4})-(\d)(\d{4})/, '$1$2-$3')
+        .replace(/(\d{4})\d+?$/, '$1');
+    },
+  
+    cep(value) {
+      return value
+        .replace(/\D/g, '')
+        .replace(/(\d{5})(\d)/, '$1-$2')
+        .replace(/(-\d{3})\d+?$/, '$1');
+    },
+  
+    pis(value) {
+      return value
+        .replace(/\D/g, '')
+        .replace(/(\d{3})(\d)/, '$1.$2')
+        .replace(/(\d{5})(\d)/, '$1.$2')
+        .replace(/(\d{5})\.(\d{2})(\d)/, '$1$2-$3')
+        .replace(/(-\d)\d+?$/, '$1');
+    },
+  
+    cartao(value) {
+      return value
+        .replace(/\D/g, '')
+        .replace(/(\d{4})(\d)/, '$1-$2')
+        .replace(/(\d{4})(\d)/, '$1-$2')
+        .replace(/(\d{4})(\d)/, '$1-$2')
+        .replace(/(-\d{4})\d+?$/, '$1');
+    },
+  };
+  
+  document.querySelectorAll('.mask').forEach((input) => {
+    const field = input.dataset.js; 
+  
+    input.addEventListener('input', (event) => {
+      event.target.value = mask[field](event.target.value);
+    });
+  });
+  
+  const mascaraNumero = (numero) => {
+    return [...new Array(3).fill('****'), numero.slice(-4)].join('-');
+  };
+  
+
+  
 
 
 // INIT:

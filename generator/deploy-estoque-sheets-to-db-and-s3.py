@@ -25,10 +25,33 @@ dynamodb = boto3.resource('dynamodb')
 
 table = dynamodb.Table('anafonsaca-estoque')
 
+
 with table.batch_writer() as writer:
     for roupa in data:  
-        writer.put_item(Item={'sku': roupa, 'p': data[roupa]['p'], 'm': data[roupa]['m'], 'g': data[roupa]['g'], 'u': data[roupa]['u'], 'preco': data[roupa]['preco']})
-
+        writer.put_item(Item={
+        'sku': roupa,
+        'p':  int(data[roupa]['p']),
+        
+        'm': int(data[roupa]['m']),
+        
+        'g': 
+            int(data[roupa]['g']), 
+        
+        
+        'u': 
+            int(data[roupa]['u']),
+        
+        
+        'preco': 
+            str(data[roupa]['preco'])
+        
+    })
+        
+        
+        
+        
+        
+ 
 
 ####### gera arquivo json limpo pro s3
 
