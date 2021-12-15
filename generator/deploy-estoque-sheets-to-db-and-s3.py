@@ -81,5 +81,5 @@ def upload_to_aws(local_file, bucket, s3_file):
         print("Credentials not available")
         return False
 
-
+input("press enter")
 uploaded = upload_to_aws('../data/estoque.json', 'anafonsaca', 'estoque.json')

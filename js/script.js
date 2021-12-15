@@ -17,17 +17,52 @@ var orderdata = {};
 var uniqueid;
 var carttotal = 0;
 var cuidadosopen = false;
+var entreganomeedited = false;
+var formapagnomeedited = false;
+
+function getCardFlag(cardnumber) {
+    var cardnumber = cardnumber.replace(/[^0-9]+/g, '');
+
+    var cards = {
+        visa      : /^4[0-9]{12}(?:[0-9]{3})/,
+        master : /^5[1-5][0-9]{14}/,
+        diners    : /^3(?:0[0-5]|[68][0-9])[0-9]{11}/,
+        amex      : /^3[47][0-9]{13}/,
+        discover  : /^6(?:011|5[0-9]{2})[0-9]{12}/,
+        hipercard  : /^(606282\d{10}(\d{3})?)|(3841\d{15})/,
+        elo        : /^((((636368)|(438935)|(504175)|(451416)|(636297))\d{0,10})|((5067)|(4576)|(4011))\d{0,12})/,
+        jcb        : /^(?:2131|1800|35\d{3})\d{11}/,
+        aura      : /^(5078\d{2})(\d{2})(\d{11})$/
+    };
+
+    for (var flag in cards) {
+        if(cards[flag].test(cardnumber)) {
+            document.getElementById("formapag-cartao").style.backgroundImage = "url('/assets/" + flag + ".png" + "')";
+        }
+    }
+}
+
+function nomeCarbonCopy(valor) {
+
+    if (entreganomeedited == false) {
+        document.getElementById('entrega-nome').value = (valor);
+    }
+
+    if (formapagnomeedited == false) {
+        document.getElementById('formapag-nome').value = (valor);
+    }
+}
 
 
 
 
-/////////////////////////////// cep/////////////////////////
+/////////////////////////////// cep-entrega /////////////////////////
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
-    document.getElementById('rua').value = ("");
-    document.getElementById('bairro').value = ("");
-    document.getElementById('cidade').value = ("");
-    document.getElementById('uf').value = ("");
+    document.getElementById('entrega-rua').value = ("");
+    document.getElementById('entrega-bairro').value = ("");
+    document.getElementById('entrega-cidade').value = ("");
+    document.getElementById('entrega-uf').value = ("");
 }
 
 function meu_callback(conteudo) {
@@ -51,14 +86,28 @@ function meu_callback(conteudo) {
 
 
 function setSelectedValue(selectObj, valueToSet) {
-    console.log("seta: " + selectObj + " - " + valueToSet)
+
     for (var i = 0; i < selectObj.options.length; i++) {
-        console.log(selectObj.options[i].text)
+
         if (selectObj.options[i].value == valueToSet) {
-            console.log("encontrado")
+
             selectObj.options[i].selected = true;
             return;
         }
+    }
+}
+
+
+function fimDoCep(valor) {
+
+    if (valor.length == 9) {
+        pesquisacep(valor)
+    }
+}
+
+function fimDoNumero(valor) {
+    if (valor.length > 16) {
+        getCardFlag(valor)
     }
 }
 
@@ -77,10 +126,9 @@ function pesquisacep(valor) {
         if (validacep.test(cep)) {
 
             //Preenche os campos com "..." enquanto consulta webservice.
-            document.getElementById('formrua').value = "...";
-            document.getElementById('formbairro').value = "...";
-            document.getElementById('formcidade').value = "...";
-            document.getElementById('formestado').value = "...";
+            document.getElementById('entrega-rua').value = "...";
+            document.getElementById('entrega-bairro').value = "...";
+            document.getElementById('entrega-cidade').value = "...";
 
 
 
@@ -140,30 +188,24 @@ function toggleCuidados () {
 
 function toggleCart() {
     carticon = document.getElementById("bagicon"); 
-    closeicon = document.getElementById("closeicon");
+
     shopcart = document.getElementById("shopCart");
     pagecontent = document.getElementById("pagecontent");
 
     if (cartopen) {
         cartopen = false;
         shopcart.style.display = "none";
-      //  pagecontent.style.display = "";
-        //carticon.innerHTML = carticonnumber;
-        //carticon.style.display = "";
-        //closeicon.style.display = "none";
+
+    
      
 
     } else {
         cartopen = true;
         shopcart.style.display = "block";
-      //  pagecontent.style.display = "none";
-      //  carticon.style.display = "none";
-      //  closeicon.style.display = "";
-     //   dropInfo('suacompra');
 
 
     }
-    carticon.classList.remove("w3-animate-zoom");
+   
     cartRender()
 }
 
@@ -181,8 +223,12 @@ if (carrinhostored != null) {
 
 function setSize(size) {
     if (!size.classList.contains('w3-disabled')) {
-        tamanho = size.innerHTML;
-
+        if (size.innerHTML == 'único') {
+            tamanho = 'u'
+        } else {
+            tamanho = size.innerHTML;
+        }
+        
         addbuttom = document.getElementById("btnadd");
         addbuttom.setAttribute("data-tamanho", tamanho);
         addbuttom.classList.remove("w3-disabled");
@@ -228,20 +274,24 @@ function removeFromCart() {
 function cartRender() {
     carttotal = 0;  //declarada global para checkout ver
     var cartcounter = 0;
-    shopcartview = document.getElementById("shopcartview");
-    butoes = document.getElementById("cartbtns");
+
+    butoes = document.getElementById("checkoutbuttom");
+    var checkoutcart = document.getElementById("checkoutcart");
+    if(checkoutcart)
+    carthtml = document.getElementById("checkoutcart");
+    else
     carthtml = document.getElementById("carthtml");
-    console.log("cart: " + carthtml)
+
     carthtml.innerHTML = "";
     //document.getElementById("totalprice2").innerHTML = '';
     document.getElementById("bagstatus").innerHTML = "";
 
     if (carrinho.length == 0) {
         carticon = document.getElementById("bagicon");  
-        carticon.innerHTML = '';
-        carticon.style.display = "none";
+        if (carticon){carticon.innerHTML = ''};
+        if (carticon){carticon.style.display = "none"};
 
-        shopcartview.style.display = "none";
+
         butoes.style.display = "none";
 
 
@@ -260,7 +310,7 @@ function cartRender() {
         // document.getElementById("bagbuttom").style.display = "none";
     } else {
 
-        shopcartview.style.display = "";
+    
         butoes.style.display = "";
 
 
@@ -339,8 +389,8 @@ function cartRender() {
             iteminfodiv.appendChild(itemprice);
             carticonnumber = cartcounter;
             carticon = document.getElementById("bagicon")
-            carticon.innerHTML = cartcounter;
-            carticon.style.display = "";
+            if (carticon){carticon.innerHTML = cartcounter};
+            if (carticon){carticon.style.display = ""};
 
         }
 
@@ -450,6 +500,14 @@ function setActiveThumb() {
 }
 
 function renderSizeButtons() {
+    if (estoqueUni > 0) {
+        document.getElementById('sizes').style.display = "none";
+        document.getElementById('uniqsize').style.display = "block";
+        document.getElementById('ubtn').classList.remove("w3-disabled");
+        document.getElementById('utip').innerHTML = estoqueUni + " disponivel";
+    } else {
+
+    
     if (estoquePeq < 1) {
         document.getElementById('ptip').innerHTML = "esgotado";
         document.getElementById('pbtn').classList.remove("w3-disabled");
@@ -476,7 +534,7 @@ function renderSizeButtons() {
         document.getElementById('gbtn').classList.remove("w3-disabled");
         document.getElementById('gtip').innerHTML = estoqueGra + " disponivel";
     }
-
+}
 
 }
 
@@ -885,7 +943,7 @@ const mask = {
         .replace(/(\d{3})(\d)/, '$1.$2') // () => permite criar grupos de captura.
         .replace(/(\d{3})(\d)/, '$1.$2') // $1, $2, $3 ... permite substituir a captura pela propria captura acrescida de algo
         .replace(/(\d{3})(\d{2})/, '$1-$2') // substitui '78910' por '789-10'.
-        .replace(/(-\d{2})\d+?$/, '$1');
+        
     },
   
     cnpj(value) {
@@ -913,6 +971,13 @@ const mask = {
         .replace(/(\d{5})(\d)/, '$1-$2')
         .replace(/(-\d{3})\d+?$/, '$1');
     },
+    vencimento(value) {
+        return value
+          .replace(/\D/g, '')
+          .replace(/(\d{2})(\d)/, '$1-$2')
+          .replace(/(-\d{2})\d+?$/, '$1').replace(/\-/g, "/");
+
+      },
   
     pis(value) {
       return value
@@ -941,9 +1006,7 @@ const mask = {
     });
   });
   
-  const mascaraNumero = (numero) => {
-    return [...new Array(3).fill('****'), numero.slice(-4)].join('-');
-  };
+ 
   
 
   
@@ -953,17 +1016,21 @@ const mask = {
 
 cartRender();
 
+
+
 //document.getElementById("formulariodecontato").addEventListener("submit", checkoutGo);
 
-document.getElementById("shopCart").addEventListener('click', function (e) {
+cartmodal = document.getElementById("shopCart")
+if (cartmodal) {
+
+
+cartmodal.addEventListener('click', function (e) {
     if (e.target.id == "shopCart") {
         toggleCart();
     }
       }, false);
 
+    }
 
 
- 
-    
-    
     
