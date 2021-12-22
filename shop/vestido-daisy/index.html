@@ -42,22 +42,21 @@
     <div class="w3-top">
       <div class="w3-bar w3-padding w3-white">
  
-          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%">home</a>
+          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:25%">home</a>
      
        
-          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%">about</a>
+          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:25%">about</a>
     
-   
+   <!--
           <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
       
+    -->  
+          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:25%">shop</a>
       
-          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%">shop</a>
       
-      
-          <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f2f0eb" style="width:20%">
+          <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f2f0eb" style="width:25%">
             <span><img src="/assets/bag.png" alt="sacola de compras" height="25" style="display: inline;vertical-align: middle;"><span class="button__badge w3-margin-top" id="bagicon"></span></span>
-            <span id="closeicon" style="display:none;">x</span>
-            
+    
           </button>
    
       </div>
@@ -299,7 +298,7 @@ Acabamento interno em viés e costura francesa.<br></p>
                 <p class="w3-small bold">Essa peça acompanha faixa com o mesmo tecido do vestido. <br>
 A modelagem do vestido é ampla, sugerimos que: <br>
 Manequim 34 a 38 adquira o tamanho P <br>
-Manequim 40 a 44 adquira o tamanho M <br></p>
+Manequim 40 a 42 adquira o tamanho M <br></p>
               </div>
 
 
@@ -484,31 +483,67 @@ Manequim 40 a 44 adquira o tamanho M <br></p>
     </span>
     <div id="snackbar" class="w3-center color-ba8671">produto adicionado</div>
     <!-- End page content -->
-    <footer class="w3-container w3-padding-32">  
-      <div class="w3-row-padding w3-text-grey">
-        <div class="w3-third w3-left">
-          <a href="/politicas/#politicas"><p class="w3-tiny">nossas políticas</p></a>
-          <a href="/politicas/#consciencia"><p class="w3-tiny">consciência</p></a>
-          <a href="/contato"><p class="w3-tiny">contato</p></a>
+    <footer class="">  
+      <div class="w3-row w3-text-grey">
+        <div class="w3-container w3-col s4">
+          <a href="/politicas/#politicas"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">nossas políticas</span></p></a>
+          <a href="/politicas/#consciencia"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">consciência</span></p></a>
+          <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">blog</span></p></a>
+          <a href="/contato"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">contato</span></p></a>
         </div>
-        <div class="w3-third w3-center w3-padding-32">
-   
-        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
-        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
-        <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
-        <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
-        <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
-        <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp" height="25" style="display: inline;vertical-align: middle;opacity:0.3;"></a>
-
+        <div class="w3-container w3-col s4 w3-mobile">
+   <p class="w3-center">
+        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
+        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
+        <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
+        <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
+        <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
+        <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
+      </p>
+      <br>
+      <p class="w3-center w3-tiny">Ana Fonsaca, CNPJ: 40.197.291/0001-74, desde 2021.</p>
+      <p class="w3-center w3-tiny">Florianópolis, SC - Brasil.</p>
      </div>
-     <div class="w3-third w3-right" style="text-align: right;">
-      <p class="w3-tiny">cnpj: <span class="w3-tiny">40.197.291/0001-74</span></p>
-      <p class="w3-tiny">florianópolis - brasil</p>
-      <p class="w3-tiny">desde <span class="w3-tiny">2021</span></p>
-
+     
+     <div class="w3-container w3-col s4 w3-mobile" style="text-align: right;">
+      <a href="https://soudealgodao.com.br/" target="_blank"><p class="w3-padding"><img src="/assets/soudealgodao.png" alt="sou marca parceira sou de algodão" style="width:70px"></p></a>
+      <a href="https://www.w3.org/2001/tag/doc/web-https" target="_blank"><p class="w3-padding"><img src="/assets/seguro.png" alt="site seguro com ssl" style="height:20px; opacity: 0.8;"></p></a>
+      <a href="https://www.cielo.com.br/e-commerce/" target="_blank"><p class="w3-padding"><img src="/assets/poweredbycielo.png" alt="powered by cielo" style="width:70px"></p></a>
+    </div>
     </div>
 
-    </div>
+    <!--
+    <div class="w3-container w3-row w3-hide-medium w3-hide-large">
+      <p class="w3-center w3-padding">
+           <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
+           <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
+           <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
+           <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
+           <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
+           <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
+         </p>
+      
+        </div>
+
+    <div class="w3-row w3-text-grey w3-hide-medium w3-hide-large">
+      <div class="w3-container w3-col s6">
+        <a href="/politicas/#politicas"><p class="w3-tiny"><span class="w3-button w3-round-large">nossas políticas</span></p></a>
+        <a href="/politicas/#consciencia"><p class="w3-tiny"><span class="w3-button w3-round-large">consciência</span></p></a>
+        <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">blog</span></p></a>
+        <a href="/contato"><p class="w3-tiny"><span class="w3-button w3-round-large">contato</span></p></a>
+      </div>
+
+   <div class="w3-container w3-col s6" style="text-align: right;">
+    <p class="w3-tiny w3-padding">cnpj: <span class="w3-tiny">40.197.291/0001-74</span></p>
+    <p class="w3-tiny w3-padding">florianópolis - brasil</p>
+    <p class="w3-tiny w3-padding">desde <span class="w3-tiny">2021</span></p>
+    <p class="w3-padding"><img src="/assets/seguro.png" style="height:20px; opacity: 0.8;"></p>
+  </div>
+
+
+
+  </div>
+-->
 
     </footer>
 

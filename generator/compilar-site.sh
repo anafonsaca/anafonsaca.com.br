@@ -85,8 +85,7 @@ export titulo='checkout'
 
 
 { echo "cat <<HEREDOC"
-  cat head.html
-  cat shopcart.html
+  cat headcheckout.html
   cat checkoutmid.html
   cat footer.html
   #echo "HEREDOC"
@@ -153,7 +152,7 @@ while read -r key; do
 #while read -r atributtes; do
 #echo "$atributtes"
 #done < <(jq ."$sku" <<< "$json" | jq 'keys'[] -r)
-
+if [[ -z "$key" ]]; then continue; fi
 export sku="$key"
 echo "----------------"
 echo "$sku"
