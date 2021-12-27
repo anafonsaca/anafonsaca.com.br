@@ -6,131 +6,30 @@
 
   <div class="w3-bar w3-white w3-round-large">
            
-    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button btnmargin w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
+    <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
 
 
 
   </div>
-
+  <!--
+  <h2 class="bold w3-text-black w3-large bold w3-center">sua compra:</h2>
+  <div class="w3-clear w3-margin"></div>
+  -->
   <span id="bagstatus"></span>
  
         <!-- item list start -->
-     
-
-
-          
-
-          
-
-            <span id="shopcartview">
-
-
-
-
-
           <div id="suacompra" class="w3-container">  <!-- foldable (class) -->
-          <div class="" id="carthtml"></div>
-          <span id="cartbtns">
-             <!--
-            <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
-          
-            <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
-        -->
+            
+          <div class="w3-clear" id="carthtml"></div>
+          <div id="cartbtns">
             <button onclick="checkoutGo()" class="w3-bar-item w3-card w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom">checkout</button>
-            </span>
+          <!--  <a href="/checkout"><button class="w3-bar-item w3-card-4 w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-e6e1d8 w3-right" style="width:50%" id="checkoutbuttom">checkout</button></a> -->
+          </div>
         </div>
  
 
         <!-- itemlist end -->
-    <!-- deliver form start
-  
 
-      <div id="dadosparaentrega" class="w3-container foldable">
-     
-    <form id="formulariodecontato" onsubmit="event.preventDefault();">
-    <div class="w3-container w3-row-padding w3-margin-bottom" id="deliverform">
-      <div class="w3-display-container w3-margin-bottom w3-white">
-       
-        <div class="w3-row-padding">
-      
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">nome: </label>
-              <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" required pattern="\S+.*" name="nome" id="formnome">
-          </div>
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">email:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="email" name="email" id="formemail" required pattern="\S+.*"/>
-          </div>
-     
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">cpf:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="cpf" id="formcpf" required>
-          </div>
-          
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">telefone:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="telefone" id="formtelefone" required>
-          </div>
-          
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">cep: </label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
-          </div>
-          <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny bold">rua:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="formrua" required >
-          </div>
-          <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny bold">numero:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="numero" id="formnumero"  required>
-          </div>
-          <div class="w3-clear w3-margin-bottom"></div>
-          <div class="w3-padding  w3-half">
-            <label class="w3-tiny bold">bairro:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="formbairro" type="text">
-          </div>
-          <div class="w3-padding  w3-half">
-            <label class="w3-tiny bold">complemento:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="formcomplemento">
-          </div>
-          <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny bold">cidade:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="formcidade" required>
-          </div>
-          <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny bold">estado:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="estado" id="formestado" maxlength="2" required>
-          </div>
-        </div>
-
-
-        <div class="w3-bar w3-white">
-    
-        <div class="w3-bar-item btnmargin">
-          <input type="radio" id="frete" name="tipofrete" value="gratis" checked>
-            <label for="frete w3-xsmall bold">frete grátis</label>
-        </div>
-        <div class="w3-bar-item btnmargin w3-right">
-          <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom2" form="formulariodecontato" type="submit">pagamento</button>
-   
-        </div>
-     
-</div>
-   
-      </div>
-
-
-
-
-    </div>
-
-
-  
-  </form>
-  </div>
-
-     deliver form end -->
-  </span>
   </div>
   </div>
   

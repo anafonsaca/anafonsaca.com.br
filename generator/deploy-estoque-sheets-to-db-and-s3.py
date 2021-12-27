@@ -15,9 +15,9 @@ lines = [l.decode('utf-8') for l in response.readlines()]
 data = {}
 csvReader = csv.DictReader(lines)
 for rows in csvReader:
-	id = rows['sku']
-	data[id] = rows
-
+  if (rows['sku']):
+    id = rows['sku']
+    data[id] = rows
 
 ############### insere no dynamodb
 
@@ -30,24 +30,19 @@ with table.batch_writer() as writer:
     for roupa in data:  
         writer.put_item(Item={
         'sku': roupa,
-        'p':  int(data[roupa]['p']),
+        'p': int(data[roupa]['p']),
         
         'm': int(data[roupa]['m']),
         
-        'g': 
-            int(data[roupa]['g']), 
+        'g': int(data[roupa]['g']), 
         
         
-        'u': 
-            int(data[roupa]['u']),
+        'u': int(data[roupa]['u']),
         
         
-        'preco': 
-            str(data[roupa]['preco'])
+        'preco': str(data[roupa]['preco'])
         
     })
-        
-        
         
         
         
@@ -81,5 +76,5 @@ def upload_to_aws(local_file, bucket, s3_file):
         print("Credentials not available")
         return False
 
-input("press enter")
+
 uploaded = upload_to_aws('../data/estoque.json', 'anafonsaca', 'estoque.json')

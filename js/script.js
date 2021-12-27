@@ -12,13 +12,26 @@ var estoqueUni;
 var estoquePeq;
 var estoqueMed;
 var estoqueGra;
-var estoqueJson;
+var estoqueJson = {};
+estoqueJson.p = 1;
+estoqueJson.m = 1;
+estoqueJson.g = 1;
+estoqueJson.u = 1;
 var orderdata = {};
 var uniqueid;
 var carttotal = 0;
 var cuidadosopen = false;
-var entreganomeedited = false;
-var formapagnomeedited = false;
+var entregaedited = false;
+var formapagedited = false;
+var statesbrasil;
+var auto_fill_street_address = 'street-address'
+var auto_fill_district = 'district'
+var auto_fill_city = 'city'
+var auto_fill_state = 'state'
+var inputemail1 = document.getElementById('email')
+var inputemail2 = document.getElementById('email-confirmation')
+const formId = "checkoutform"; // ID of the form
+var form = document.getElementById(formId); // select form
 
 function getCardFlag(cardnumber) {
     var cardnumber = cardnumber.replace(/[^0-9]+/g, '');
@@ -37,50 +50,45 @@ function getCardFlag(cardnumber) {
 
     for (var flag in cards) {
         if(cards[flag].test(cardnumber)) {
-            document.getElementById("formapag-cartao").style.backgroundImage = "url('/assets/" + flag + ".png" + "')";
+            document.getElementById("cc-number").style.backgroundImage = "url('/assets/" + flag + ".png" + "')";
         }
     }
 }
 
-function nomeCarbonCopy(valor) {
 
-    if (entreganomeedited == false) {
-        document.getElementById('entrega-nome').value = (valor);
-    }
-
-    if (formapagnomeedited == false) {
-        document.getElementById('formapag-nome').value = (valor);
-    }
+function formapagclone(){
+    document.getElementById('cc-name').value = (document.getElementById('receiver').value);
+    document.getElementById('cc-document').value = (document.getElementById('document').value);
+    document.getElementById('cc-country-name').value = (document.getElementById('country-name').value);
+    document.getElementById('cc-postal-code').value = (document.getElementById('postal-code').value);
+    document.getElementById('cc-state').value = (document.getElementById('state').value);
+    document.getElementById('cc-city').value = (document.getElementById('city').value);
+    document.getElementById('cc-street-address').value = (document.getElementById('street-address').value);
+    document.getElementById('cc-street-number').value = (document.getElementById('street-number').value);
+    document.getElementById('cc-district').value = (document.getElementById('district').value);
 }
-
 
 
 
 /////////////////////////////// cep-entrega /////////////////////////
-function limpa_formulário_cep() {
-    //Limpa valores do formulário de cep.
-    document.getElementById('entrega-rua').value = ("");
-    document.getElementById('entrega-bairro').value = ("");
-    document.getElementById('entrega-cidade').value = ("");
-    document.getElementById('entrega-uf').value = ("");
-}
+
+
 
 function meu_callback(conteudo) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        document.getElementById('entrega-rua').value = (conteudo.logradouro).toLowerCase();
-        document.getElementById('entrega-bairro').value = (conteudo.bairro).toLowerCase();
-        document.getElementById('entrega-cidade').value = (conteudo.localidade).toLowerCase();
+        document.getElementById(auto_fill_street_address).value = (conteudo.logradouro).toLowerCase();
+        document.getElementById(auto_fill_district).value = (conteudo.bairro).toLowerCase();
+        document.getElementById(auto_fill_city).value = (conteudo.localidade).toLowerCase();
+
         //uf dropdown
         var entregauf = (conteudo.uf).toUpperCase();
-        var objSelect = document.getElementById("entrega-uf");
+
+        var objSelect = document.getElementById(auto_fill_state);
         setSelectedValue(objSelect, entregauf);
 
     } //end if.
-    else {
-        //CEP não Encontrado.
-        limpa_formulário_cep();
-    }
+  
 }
 
 
@@ -98,18 +106,6 @@ function setSelectedValue(selectObj, valueToSet) {
 }
 
 
-function fimDoCep(valor) {
-
-    if (valor.length == 9) {
-        pesquisacep(valor)
-    }
-}
-
-function fimDoNumero(valor) {
-    if (valor.length > 16) {
-        getCardFlag(valor)
-    }
-}
 
 function pesquisacep(valor) {
 
@@ -125,13 +121,6 @@ function pesquisacep(valor) {
         //Valida o formato do CEP.
         if (validacep.test(cep)) {
 
-            //Preenche os campos com "..." enquanto consulta webservice.
-            document.getElementById('entrega-rua').value = "...";
-            document.getElementById('entrega-bairro').value = "...";
-            document.getElementById('entrega-cidade').value = "...";
-
-
-
             //Cria um elemento javascript.
             var script = document.createElement('script');
 
@@ -142,18 +131,40 @@ function pesquisacep(valor) {
             document.body.appendChild(script);
 
         } //end if.
-        else {
-            //cep é inválido.
-            limpa_formulário_cep();
-
-        }
+        
     } //end if.
-    else {
-        //cep sem valor, limpa formulário.
-        limpa_formulário_cep();
-    }
+
 };
+
+
+function fimDoCep(valor, selectstreet, selectdistrict, selectcity, selectstate) {
+
+    if (valor.length == 9) {
+        auto_fill_street_address = selectstreet;
+        auto_fill_district = selectdistrict;
+        auto_fill_city = selectcity;
+        auto_fill_state = selectstate;
+        pesquisacep(valor)
+    }
+}
+
+
 ///////////////////////////////////////////////////////////
+
+function confirmEmail() {
+if (inputemail1.value != inputemail2.value) {
+inputemail2.classList.add("w3-border-red");
+} else {
+    inputemail2.classList.remove("w3-border-red");
+    document.getElementById('emailwarning').style.display = 'none';
+}
+}
+
+function fimDoNumero(valor) {
+    if (valor.length > 16) {
+        getCardFlag(valor)
+    }
+}
 
 function esvaziaCarrinho() {
     var carrinho = [];
@@ -405,6 +416,7 @@ function cartRender() {
         totalprice.innerHTML = 'total: R$' + carttotal;
         carthtml.appendChild(totalprice);
 
+
      //   avancabtn = document.createElement('button');
        // avancabtn.className = "w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 ";
        // avancabtn.innerHTML = '>';
@@ -437,7 +449,24 @@ function cartRender() {
 
     }
 
+    calculaParcelas(carttotal);
+}
 
+function calculaParcelas(total) {
+parcelaselector = document.querySelector("#installments");
+if (parcelaselector) {
+    Array.from(parcelaselector.options).forEach(function(option_element) {
+   if (total > 0) {
+        if (option_element.value == 1) {
+            option_element.text = Number(((total / option_element.value)).toFixed(2)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + ' à vista'
+        } else {
+        option_element.text = option_element.value + 'x de ' + Number(((total / option_element.value)).toFixed(2)).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + ' (sem juros)';
+        }
+    } else {
+        option_element.text = option_element.value + 'x';
+    }
+    });
+}
 }
 /// cart render end
 
@@ -500,8 +529,11 @@ function setActiveThumb() {
 }
 
 function renderSizeButtons() {
+    sizebtns = document.getElementById('sizes');
+    if (sizebtns) {
+
     if (estoqueUni > 0) {
-        document.getElementById('sizes').style.display = "none";
+        sizebtns.style.display = "none";
         document.getElementById('uniqsize').style.display = "block";
         document.getElementById('ubtn').classList.remove("w3-disabled");
         document.getElementById('utip').innerHTML = estoqueUni + " disponivel";
@@ -535,7 +567,7 @@ function renderSizeButtons() {
         document.getElementById('gtip').innerHTML = estoqueGra + " disponivel";
     }
 }
-
+}
 }
 
 function calculaEstoque(sku) {
@@ -625,54 +657,6 @@ function addSuccess() {
 }
 
 
-/* FORMULARIO SAVE
-
-const formId = "formulariodecontato"; // ID of the form
-const saveButton = document.querySelector("#save"); // select save button
-let form = document.getElementById("formulariodecontato"); // select form
-let formElements = form.elements; // get the elements in the form
-
-
-const getFormData = () => {
-    let data = {
-        [formId]: {}
-    };
-    for (const element of formElements) {
-        if (element.name.length > 0) {
-            data[formId][element.name] = element.value;
-        }
-    }
-    return data;
-};
-
-
-const populateForm = () => {
-    if (localStorage.getItem(formId)) {
-        const savedData = JSON.parse(localStorage.getItem(formId)); // get and parse the saved data from localStorage
-        for (const element of formElements) {
-            if (element.name in savedData) {
-                if (element.id) {
-
-                }
-
-                element.value = savedData[element.name];
-            }
-        }
-
-    } else {
-
-    }
-};
-
-
-
-document.onload = populateForm(); 
-
-window.onunload = event => {
-    data = getFormData();
-    localStorage.setItem(formId, JSON.stringify(data[formId]));
-};
-*/
 
 
 // Checkout:
@@ -691,22 +675,16 @@ function makeId(length) {
 
 
 
-function checkoutGo() {
+function checkoutGo()  {
 
-    /* VALIDA FORM
-    cpf = document.getElementById("formcpf").value.replace(/\D/g, "")
-    if(!isValidCPF(cpf)) {
-        window.alert("CPF inválido: " + cpf)
-        return
+    if (inputemail2) {
+    if (inputemail1.value != inputemail2.value) {
+        document.getElementById('emailwarning').style.display = 'block';
+        confirmEmail();
+        inputemail2.focus();
+        return false;
     }
-
-    cep = document.getElementById("formcep").value.replace(/\D/g, "")
-    if (cep.length != 8) {
-        window.alert("CEP Inválido: " + cep)
-        return
-    }
-    */
-
+}
     showLoader();
     var cartcounter = 0;
     var itemsselecionados = [];
@@ -730,12 +708,47 @@ function checkoutGo() {
 
     fbq('track', 'InitiateCheckout',{content_ids: skus, order_id: orderid});
 
-    /*
-            "total": carttotal,
-        "useragent": navigator.userAgent,
-        "time": Date.now(),
-        */
 
+        /*  form para checkoutexterno
+
+    */
+
+
+if (form) {
+
+
+  orderdata = {
+        "OrderNumber": orderid,
+        "SoftDescriptor": "pedido de anafonsaca.com.br",
+        "Cart": {
+            "Discount": null,
+            "Items": itemsselecionados
+        },
+        "Shipping": {
+            "SourceZipCode": null,
+            "TargetZipCode": document.getElementById("postal-code").value.replace(/\D/g, ""),
+            "Type": "Free",
+            "Services": null,
+            "Address": {
+                "Street": document.getElementById("street-address").value.toLowerCase(),
+                "Number": document.getElementById("street-number").value,
+                "Complement": document.getElementById("complement").value.toLowerCase(),
+                "District": document.getElementById("district").value.toLowerCase(),
+                "City": document.getElementById("city").value.toLowerCase(),
+                "State": document.getElementById("state").value
+            }
+        },
+        "Customer": {
+            "Identity": document.getElementById("document").value.replace(/\D/g, ""),
+            "FullName": document.getElementById("name").value.toLowerCase(),
+            "Email": document.getElementById("email").value.toLowerCase(),
+            "Phone": document.getElementById("phone").value.replace(/\D/g, "")
+        
+        },
+        "Settings": null
+    }
+
+} else {
     orderdata = {
 
         "OrderNumber": orderid,
@@ -754,42 +767,7 @@ function checkoutGo() {
         "Customer": null,
         "Settings": null
     }
-
-
-
-/*  user data form parsing
-  orderdata = {
-        "OrderNumber": Date.now() + makeId(8),
-        "SoftDescriptor": "pedido de anafonsaca.com.br",
-        "Cart": {
-            "Discount": null,
-            "Items": itemsselecionados
-        },
-        "Shipping": {
-            "SourceZipCode": null,
-            "TargetZipCode": document.getElementById("formcep").value.replace(/\D/g, ""),
-            "Type": "Free",
-            "Services": null,
-            "Address": {
-                "Street": document.getElementById("formrua").value.toUpperCase(),
-                "Number": document.getElementById("formnumero").value,
-                "Complement": document.getElementById("formcomplemento").value.toUpperCase(),
-                "District": document.getElementById("formbairro").value.toUpperCase(),
-                "City": document.getElementById("formcidade").value.toUpperCase(),
-                "State": document.getElementById("formestado").value.toUpperCase()
-            }
-        },
-        "Customer": {
-            "Identity": document.getElementById("formcpf").value.replace(/\D/g, ""),
-            "FullName": document.getElementById("formnome").value.toUpperCase(),
-            "Email": document.getElementById("formemail").value.toUpperCase(),
-            "Phone": document.getElementById("formtelefone").value
-        
-        },
-        "Settings": null
-    }
-    */
-
+}
 
 
 
@@ -849,6 +827,32 @@ var i;
 for (i = 0; i < x.length; i++) {
   x[i].style.maxHeight = null;
 }
+}
+
+function anotherCountry(country, elemen) {
+
+    if (country != 'BR') {
+        selector = document.getElementById(elemen);
+        if (selector.dataset.country == 'BR') {
+        statesbrasil = selector.cloneNode(true);
+        }
+        selector.remove()
+        stateinput = document.createElement("input");
+        stateinput.className = "w3-input w3-border w3-round-large w3-tiny";
+        stateinput.type="text";
+        stateinput.name=elemen;
+        stateinput.id=elemen;
+        selectah = elemen + 'selector'
+        document.getElementById(selectah).appendChild(stateinput);
+    } else {
+        if (statesbrasil) {
+            document.getElementById(elemen).remove()
+            selectah = elemen + 'selector'
+            document.getElementById(selectah).appendChild(statesbrasil);
+        }
+    }
+
+
 }
 
 /*
@@ -1010,15 +1014,82 @@ const mask = {
   
 
   
+function focusDiv(card) {
+ var els = document.getElementsByClassName("focuseable")
+ Array.prototype.forEach.call(els, function(el) {
+    if ( el.id == card.id ) {
+        el.classList.replace('w3-card', 'w3-card-4');
+    } else {
+        el.classList.replace('w3-card-4', 'w3-card'); 
+    }
+});
+}
 
+function duplicaEndereco(checkbox) {
+    if (checkbox.checked) {
+        document.getElementById("formentrega").style.display = 'none';
+    } else {
+        document.getElementById("formentrega").style.display = 'block';
+    }
+}
 
-// INIT:
+//////////////////////////////////// INIT:
 
 cartRender();
 
+// FORMULARIO SAVE and BUTOM LISTERNER
 
 
-//document.getElementById("formulariodecontato").addEventListener("submit", checkoutGo);
+if (form) {
+
+
+form.addEventListener("submit", checkoutGo);
+
+let formElements = form.elements; // get the elements in the form
+
+
+const getFormData = () => {
+    let data = {
+        [formId]: {}
+    };
+    for (const element of formElements) {
+        
+        if (element.name.length > 0 && ! element.classList.contains('dontsave')) {
+            data[formId][element.name] = element.value;
+        } 
+    }
+    return data;
+};
+
+
+const populateForm = () => {
+    if (localStorage.getItem(formId)) {
+        const savedData = JSON.parse(localStorage.getItem(formId)); // get and parse the saved data from localStorage
+        for (const element of formElements) {
+            if (element.name in savedData) {
+                if (element.id) {
+
+                }
+
+                element.value = savedData[element.name];
+            }
+        }
+
+    } 
+};
+document.onload = populateForm(); 
+
+
+
+window.onunload = event => {
+    data = getFormData();
+    localStorage.setItem(formId, JSON.stringify(data[formId]));
+};
+
+}
+//
+
+
 
 cartmodal = document.getElementById("shopCart")
 if (cartmodal) {

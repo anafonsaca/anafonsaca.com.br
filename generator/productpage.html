@@ -15,8 +15,8 @@
       </div>
       <div class="w3-container w3-row w3-padding-64">
         <div class="slidecontainer w3-half cursor w3-row-padding w3-margin-bottom">
-          <div class="w3-card w3-display-container">
-            <img src="/img/${imagename}/01.webp" alt="imagem do produto" class="" id="slide" style="width:100%" onclick="goModal(this);">
+          <div class="w3-card w3-display-container w3-round-large">
+            <img src="/img/${imagename}/01.webp" alt="imagem do produto" class="w3-round-large" id="slide" style="width:100%" onclick="goModal(this);">
             <div class="w3-btn w3-round-large w3-display-left w3-container w3-text-white" onclick="prevSlide()">
               <p>❮</p>
             </div>
@@ -93,8 +93,8 @@
 
 
           
-              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleTable()" ><img src="/assets/metric.png" alt="tabelas de medida" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
-              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleCuidados()" ><img src="/assets/cottom.png" alt="cuidados com a peça" height="30" style="display: inline;vertical-align: middle;"> cuidados com a peça</button>
+              <button class="w3-card-4 w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleTable()" ><img src="/assets/metric.png" alt="tabelas de medida" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
+              <button class="w3-card-4 w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleCuidados()" ><img src="/assets/cottom.png" alt="cuidados com a peça" height="30" style="display: inline;vertical-align: middle;"> cuidados com a peça</button>
               <div class="w3-clear w3-margin-bottom"></div>
 
           
@@ -104,27 +104,27 @@
 
               <div class="w3-left" id="sizes">
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="pbtn" onclick="setSize(this)">P</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="pbtn" onclick="setSize(this)">P</button>
                   <span class="tooltiptext color-f2f0eb" id="ptip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf w3-small" id="mbtn" onclick="setSize(this)">M</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf w3-small" id="mbtn" onclick="setSize(this)">M</button>
                   <span class="tooltiptext color-f2f0eb" id="mtip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3 w3-small" id="gbtn" onclick="setSize(this)">G</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3 w3-small" id="gbtn" onclick="setSize(this)">G</button>
                   <span class="tooltiptext color-f2f0eb" id="gtip"></span>
                 </span>
 
               </div>
               <div class="w3-left" id="uniqsize" style="display: none;">
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="ubtn" onclick="setSize(this)">único</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="ubtn" onclick="setSize(this)">único</button>
                   <span class="tooltiptext color-f2f0eb" id="utip"></span>
                 </span>
 
               </div>
-              <button class="w3-card w3-button w3-small color-d3e4f5 w3-round-large w3-disabled hover-e6e1d8 w3-large w3-right" onclick="addToCart(this)" id="btnadd" style="width:50%" data-sku="${sku}" data-tamanho="" data-nome="${titulo}" data-cor="${cor}" data-valor="${valor}" data-path="/shop/${url}">comprar</button>
+              <button class="w3-card-4 w3-button w3-small color-d3e4f5 w3-round-large w3-disabled hover-e6e1d8 w3-large w3-right" onclick="addToCart(this)" id="btnadd" style="width:50%" data-sku="${sku}" data-tamanho="" data-nome="${titulo}" data-cor="${cor}" data-valor="${valor}" data-path="/shop/${url}">comprar</button>
 
      
             </div>
@@ -143,7 +143,7 @@
 
       <div id="tabelamedidas" class="w3-modal blurred" onclick="toggleTable()">
 
-        <div class="w3-modal-content w3-margin-bottom w3-round-large trans" style="max-width:800px">
+        <div class="w3-modal-content w3-margin-bottom w3-round-large trans w3-text-white" style="max-width:800px">
           <!--
           <div class="w3-row w3-padding-24">
             <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleTable()">x</button>
@@ -214,7 +214,7 @@
 
         <div id="cuidadospeca" class="w3-modal blurred" onclick="toggleCuidados()">
 
-          <div class="w3-modal-content w3-padding w3-margin-bottom w3-round-large trans" style="max-width:800px">
+          <div class="w3-modal-content w3-padding w3-margin-bottom w3-round-large trans w3-text-white" style="max-width:800px">
            
 <h2 class="w3-center bold">Guia de cuidado com as roupas</h2>
 

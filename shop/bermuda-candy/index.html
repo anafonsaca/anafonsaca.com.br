@@ -77,131 +77,30 @@
 
   <div class="w3-bar w3-white w3-round-large">
            
-    <button onclick="toggleCart()" class="w3-bar-item w3-card w3-button btnmargin w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
+    <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
 
 
 
   </div>
-
+  <!--
+  <h2 class="bold w3-text-black w3-large bold w3-center">sua compra:</h2>
+  <div class="w3-clear w3-margin"></div>
+  -->
   <span id="bagstatus"></span>
  
         <!-- item list start -->
-     
-
-
-          
-
-          
-
-            <span id="shopcartview">
-
-
-
-
-
           <div id="suacompra" class="w3-container">  <!-- foldable (class) -->
-          <div class="" id="carthtml"></div>
-          <span id="cartbtns">
-             <!--
-            <button onclick="dropInfo('suacompra')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-ba8671" id="suacomprabuttom">sua compra</button>
-          
-            <button onclick="dropInfo('dadosparaentrega')" class="w3-bar-item w3-card btnmargin w3-block w3-button w3-xsmall w3-round-large hover-e6e1d8" id="entregabuttom">entrega</button>
-        -->
+            
+          <div class="w3-clear" id="carthtml"></div>
+          <div id="cartbtns">
             <button onclick="checkoutGo()" class="w3-bar-item w3-card w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom">checkout</button>
-            </span>
+          <!--  <a href="/checkout"><button class="w3-bar-item w3-card-4 w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-e6e1d8 w3-right" style="width:50%" id="checkoutbuttom">checkout</button></a> -->
+          </div>
         </div>
  
 
         <!-- itemlist end -->
-    <!-- deliver form start
-  
 
-      <div id="dadosparaentrega" class="w3-container foldable">
-     
-    <form id="formulariodecontato" onsubmit="event.preventDefault();">
-    <div class="w3-container w3-row-padding w3-margin-bottom" id="deliverform">
-      <div class="w3-display-container w3-margin-bottom w3-white">
-       
-        <div class="w3-row-padding">
-      
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">nome: </label>
-              <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" required pattern="\S+.*" name="nome" id="formnome">
-          </div>
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">email:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="email" name="email" id="formemail" required pattern="\S+.*"/>
-          </div>
-     
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">cpf:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="cpf" id="formcpf" required>
-          </div>
-          
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">telefone:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="number"  name="telefone" id="formtelefone" required>
-          </div>
-          
-          <div class="w3-padding w3-half">
-            <label class="w3-tiny bold">cep: </label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel"  name="cep" id="formcep" onblur="pesquisacep(this.value)" required>
-          </div>
-          <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny bold">rua:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="formrua" required >
-          </div>
-          <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny bold">numero:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="numero" id="formnumero"  required>
-          </div>
-          <div class="w3-clear w3-margin-bottom"></div>
-          <div class="w3-padding  w3-half">
-            <label class="w3-tiny bold">bairro:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="formbairro" type="text">
-          </div>
-          <div class="w3-padding  w3-half">
-            <label class="w3-tiny bold">complemento:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="formcomplemento">
-          </div>
-          <div class="w3-padding  w3-threequarter">
-            <label class="w3-tiny bold">cidade:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="formcidade" required>
-          </div>
-          <div class="w3-padding  w3-quarter">
-            <label class="w3-tiny bold">estado:</label>
-            <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="estado" id="formestado" maxlength="2" required>
-          </div>
-        </div>
-
-
-        <div class="w3-bar w3-white">
-    
-        <div class="w3-bar-item btnmargin">
-          <input type="radio" id="frete" name="tipofrete" value="gratis" checked>
-            <label for="frete w3-xsmall bold">frete grátis</label>
-        </div>
-        <div class="w3-bar-item btnmargin w3-right">
-          <button onclick="dropInfo('dadosparaentrega')" class="w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom2" form="formulariodecontato" type="submit">pagamento</button>
-   
-        </div>
-     
-</div>
-   
-      </div>
-
-
-
-
-    </div>
-
-
-  
-  </form>
-  </div>
-
-     deliver form end -->
-  </span>
   </div>
   </div>
   
@@ -221,8 +120,8 @@
       </div>
       <div class="w3-container w3-row w3-padding-64">
         <div class="slidecontainer w3-half cursor w3-row-padding w3-margin-bottom">
-          <div class="w3-card w3-display-container">
-            <img src="/img/BER01SS22/01.webp" alt="imagem do produto" class="" id="slide" style="width:100%" onclick="goModal(this);">
+          <div class="w3-card w3-display-container w3-round-large">
+            <img src="/img/BER01SS22/01.webp" alt="imagem do produto" class="w3-round-large" id="slide" style="width:100%" onclick="goModal(this);">
             <div class="w3-btn w3-round-large w3-display-left w3-container w3-text-white" onclick="prevSlide()">
               <p>❮</p>
             </div>
@@ -302,8 +201,8 @@ Acabamento interno em viés e costura francesa, barra com revel aplicado.<br></p
 
 
           
-              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleTable()" ><img src="/assets/metric.png" alt="tabelas de medida" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
-              <button class="w3-card w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleCuidados()" ><img src="/assets/cottom.png" alt="cuidados com a peça" height="30" style="display: inline;vertical-align: middle;"> cuidados com a peça</button>
+              <button class="w3-card-4 w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleTable()" ><img src="/assets/metric.png" alt="tabelas de medida" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
+              <button class="w3-card-4 w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom" onclick="toggleCuidados()" ><img src="/assets/cottom.png" alt="cuidados com a peça" height="30" style="display: inline;vertical-align: middle;"> cuidados com a peça</button>
               <div class="w3-clear w3-margin-bottom"></div>
 
           
@@ -313,27 +212,27 @@ Acabamento interno em viés e costura francesa, barra com revel aplicado.<br></p
 
               <div class="w3-left" id="sizes">
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="pbtn" onclick="setSize(this)">P</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="pbtn" onclick="setSize(this)">P</button>
                   <span class="tooltiptext color-f2f0eb" id="ptip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf w3-small" id="mbtn" onclick="setSize(this)">M</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf w3-small" id="mbtn" onclick="setSize(this)">M</button>
                   <span class="tooltiptext color-f2f0eb" id="mtip"></span>
                 </span>
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3 w3-small" id="gbtn" onclick="setSize(this)">G</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3 w3-small" id="gbtn" onclick="setSize(this)">G</button>
                   <span class="tooltiptext color-f2f0eb" id="gtip"></span>
                 </span>
 
               </div>
               <div class="w3-left" id="uniqsize" style="display: none;">
                 <span class="tooltip">
-                  <button class="w3-card w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="ubtn" onclick="setSize(this)">único</button>
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small" id="ubtn" onclick="setSize(this)">único</button>
                   <span class="tooltiptext color-f2f0eb" id="utip"></span>
                 </span>
 
               </div>
-              <button class="w3-card w3-button w3-small color-d3e4f5 w3-round-large w3-disabled hover-e6e1d8 w3-large w3-right" onclick="addToCart(this)" id="btnadd" style="width:50%" data-sku="BER01SS22" data-tamanho="" data-nome="bermuda candy" data-cor="off white" data-valor="578" data-path="/shop/bermuda-candy">comprar</button>
+              <button class="w3-card-4 w3-button w3-small color-d3e4f5 w3-round-large w3-disabled hover-e6e1d8 w3-large w3-right" onclick="addToCart(this)" id="btnadd" style="width:50%" data-sku="BER01SS22" data-tamanho="" data-nome="bermuda candy" data-cor="off white" data-valor="578" data-path="/shop/bermuda-candy">comprar</button>
 
      
             </div>
@@ -352,7 +251,7 @@ Acabamento interno em viés e costura francesa, barra com revel aplicado.<br></p
 
       <div id="tabelamedidas" class="w3-modal blurred" onclick="toggleTable()">
 
-        <div class="w3-modal-content w3-margin-bottom w3-round-large trans" style="max-width:800px">
+        <div class="w3-modal-content w3-margin-bottom w3-round-large trans w3-text-white" style="max-width:800px">
           <!--
           <div class="w3-row w3-padding-24">
             <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleTable()">x</button>
@@ -423,7 +322,7 @@ Acabamento interno em viés e costura francesa, barra com revel aplicado.<br></p
 
         <div id="cuidadospeca" class="w3-modal blurred" onclick="toggleCuidados()">
 
-          <div class="w3-modal-content w3-padding w3-margin-bottom w3-round-large trans" style="max-width:800px">
+          <div class="w3-modal-content w3-padding w3-margin-bottom w3-round-large trans w3-text-white" style="max-width:800px">
            
 <h2 class="w3-center bold">Guia de cuidado com as roupas</h2>
 
@@ -478,69 +377,45 @@ Acabamento interno em viés e costura francesa, barra com revel aplicado.<br></p
     </span>
     <div id="snackbar" class="w3-center color-ba8671">produto adicionado</div>
     <!-- End page content -->
-    <footer class="">  
-      <div class="w3-row w3-text-grey">
-        <div class="w3-container w3-col s4">
-          <a href="/politicas/#politicas"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">nossas políticas</span></p></a>
-          <a href="/politicas/#consciencia"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">consciência</span></p></a>
-          <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">blog</span></p></a>
-          <a href="/contato"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">contato</span></p></a>
-        </div>
-        <div class="w3-container w3-col s4 w3-mobile">
-   <p class="w3-center">
-        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
-        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
-        <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
-        <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
-        <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
-        <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
-      </p>
-      <br>
-      <p class="w3-center w3-tiny">Ana Fonsaca, CNPJ: 40.197.291/0001-74, desde 2021.</p>
-      <p class="w3-center w3-tiny">Florianópolis, SC - Brasil.</p>
-     </div>
-     
-     <div class="w3-container w3-col s4 w3-mobile" style="text-align: right;">
-      <a href="https://soudealgodao.com.br/" target="_blank"><p class="w3-padding"><img src="/assets/soudealgodao.png" alt="sou marca parceira sou de algodão" style="width:70px"></p></a>
-      <a href="https://www.w3.org/2001/tag/doc/web-https" target="_blank"><p class="w3-padding"><img src="/assets/seguro.png" alt="site seguro com ssl" style="height:20px; opacity: 0.8;"></p></a>
-      <a href="https://www.cielo.com.br/e-commerce/" target="_blank"><p class="w3-padding"><img src="/assets/poweredbycielo.png" alt="powered by cielo" style="width:70px"></p></a>
-    </div>
-    </div>
 
-    <!--
-    <div class="w3-container w3-row w3-hide-medium w3-hide-large">
-      <p class="w3-center w3-padding">
-           <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
-           <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
-           <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
-           <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
-           <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
-           <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
-         </p>
+
+    <footer class="w3-container" style="height:200px;"> 
       
-        </div>
+    
+    <div class="w3-contaiener w3-center w3-padding">
+ 
+      <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
+      <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
+      <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
+      <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
+      <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
+      <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
+   </div>
+   <div class="w3-container w3-center w3-padding">
+    <a href="/politicas/#politicas/"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">nossas políticas</span></p></a>
+    <a href="/politicas/#consciencia/"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">consciência</span></p>
+      <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">blog</span></p>
+        <a href="/pedidos"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">meus pedidos</span></p>
+          <a href="/contato"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">contato</span></p>
+    </div>  
 
-    <div class="w3-row w3-text-grey w3-hide-medium w3-hide-large">
-      <div class="w3-container w3-col s6">
-        <a href="/politicas/#politicas"><p class="w3-tiny"><span class="w3-button w3-round-large">nossas políticas</span></p></a>
-        <a href="/politicas/#consciencia"><p class="w3-tiny"><span class="w3-button w3-round-large">consciência</span></p></a>
-        <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">blog</span></p></a>
-        <a href="/contato"><p class="w3-tiny"><span class="w3-button w3-round-large">contato</span></p></a>
-      </div>
+<div class="w3-container w3-center" style="line-height: 50px;">
+      
+  <a href="https://soudealgodao.com.br/" target="_blank"><span class="w3-padding"><img src="/assets/soudealgodao.png" alt="sou marca parceira sou de algodão" style="height:30px"></span></a>
+ 
 
-   <div class="w3-container w3-col s6" style="text-align: right;">
-    <p class="w3-tiny w3-padding">cnpj: <span class="w3-tiny">40.197.291/0001-74</span></p>
-    <p class="w3-tiny w3-padding">florianópolis - brasil</p>
-    <p class="w3-tiny w3-padding">desde <span class="w3-tiny">2021</span></p>
-    <p class="w3-padding"><img src="/assets/seguro.png" style="height:20px; opacity: 0.8;"></p>
-  </div>
+  <a href="https://www.w3.org/2001/tag/doc/web-https" target="_blank"><span class="w3-padding"><img src="/assets/seguro.png" alt="site seguro com ssl" style="height:30px"></span></a>
 
 
+  <a href="https://www.cielo.com.br/e-commerce/" target="_blank"><span class="w3-padding"><img src="/assets/cielo.png" alt="powered by cielo" style="height:30px"></span></a>
+</div>
+<div class="w3-container w3-center w3-padding">
+<p class="w3-tiny">Ana Fonsaca, CNPJ: 40.197.291/0001-74. Florianópolis, SC - Brasil.</p>
+</div>   
+</footer>
 
-  </div>
--->
 
-    </footer>
+   
 
 
     <div id="loadermodal" class="w3-modal blurred">

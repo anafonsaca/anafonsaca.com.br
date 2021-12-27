@@ -39,13 +39,24 @@
 
 
     <!-- Links (sit on top) -->
-    <div class="w3-top">
+    <div class="">
       <div class="w3-bar w3-padding w3-white">
  
-          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%"> voltar </a>
+          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:25%">home</a>
      
        
+          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:25%">about</a>
+    
+   <!--
+          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
       
+    -->  
+          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:25%">shop</a>
+      
+      
+          <button onclick="history.back()" class="w3-bar-item w3-button w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb" style="width:25%"><img src="/assets/voltar.png" alt="sacola de compras" height="10" style="display: inline;vertical-align: middle;"></button>
+  
+  
    
       </div>
     </div>
@@ -53,9 +64,7 @@
    
 
 
-    <!-- loader -->
  
-    <!-- start Shopping Cart -->
    
 
 
@@ -67,107 +76,896 @@
     <!-- end Shopping Cart -->
     <!-- Start page content -->
     <span id="pagecontent">
-      <div id="modalbox" class="w3-modal blurred" onclick="this.style.display='none'">
-        <div class="w3-modal-content">
-          <img src="#" id="modalimg" class="">
-        </div>
-      </div>
-      <div class="w3-container w3-row w3-padding-64">
+      <div class="boxes-content w3-margin-top w3-padding">
+        <div class="w3-row-padding w3-margin-bottom">
+          <form id="checkoutform" onsubmit="event.preventDefault();">
+          <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">dados do comprador</h2>
+        <div class="w3-card w3-animate-left w3-round-large w3-row-padding focuseable" id="card-dadosdocomprador" onclick="focusDiv(this)">
+          <div class="w3-padding w3-row w3-margin-top">
+            <label class="w3-tiny bold">nome completo:</label>
+            <input class="w3-input w3-border w3-round-large w3-small" type="text" name="name" id="name" required pattern="\S+.*" required>
+          </div>
+          <div class="w3-row">
 
-        <div class="w3-half w3-row-padding w3-margin-bottom">
-        <div class="w3-card w3-round-large w3-padding">
-<h2 class="w3-large bold">endereço de entrega:</h2>
-<div class="w3-padding w3-half">
-  <label class="w3-tiny bold">cep: </label>
-    <input class="w3-input w3-border w3-round-large w3-xsmall mask" type="tel" name="entrega-cep" id="entrega-cep" data-js="cep" onblur="pesquisacep(this.value)" required>
+
+<div class="w3-padding  w3-col s6">
+  <label class="w3-tiny bold">email:</label>
+  <input class="w3-input w3-border w3-round-large w3-small" type="email"  name="email" id="email" required pattern="\S+.*" required >
 </div>
-<div class="w3-padding w3-half">
-<label for="entrega-uf" class="w3-tiny bold">estado:</label>
-<select id="entrega-uf" name="entrega-uf" class="w3-input w3-border w3-round-large w3-xsmall">
-  <option hidden disabled selected value></option>
-  <option value="AC">acre</option>
-  <option value="AL">alagoas</option>
-  <option value="AP">amapá</option>
-  <option value="AM">amazonas</option>
-  <option value="BA">bahia</option>
-  <option value="CE">ceará</option>
-  <option value="DF">distrito federal</option>
-  <option value="ES">espírito santo</option>
-  <option value="GO">goiás</option>
-  <option value="MA">maranhão</option>
-  <option value="MT">mato Grosso</option>
-  <option value="MS">mato grosso do sul</option>
-  <option value="MG">minas gerais</option>
-  <option value="PA">pará</option>
-  <option value="PB">paraíba</option>
-  <option value="PR">paraná</option>
-  <option value="PE">pernambuco</option>
-  <option value="PI">piauí</option>
-  <option value="RJ">rio de Janeiro</option>
-  <option value="RN">rio grande do norte</option>
-  <option value="RS">rio grande do sul</option>
-  <option value="RO">rondônia</option>
-  <option value="RR">roraima</option>
-  <option value="SC">santa catarina</option>
-  <option value="SP">são paulo</option>
-  <option value="SE">sergipe</option>
-  <option value="TO">tocantins</option>
-  <option value="EX">estrangeiro</option>
-</select>
+<div class="w3-padding w3-col s6">
+  <label class="w3-tiny">email (comfirmação):</label>
+  <input class="w3-input w3-border w3-round-large w3-small" type="email-confirmation" name="email-confirmation" id="email-confirmation" onkeyup="confirmEmail()" required>
+  <label class="w3-tiny w3-text-red" id="emailwarning" style="display:none;">os campos dos emails precisam estar iguais</label>
 </div>
-<div class="w3-padding  w3-threequarter">
-  <label class="w3-tiny bold">rua:</label>
-  <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="rua" id="entrega-rua" required >
 </div>
-<div class="w3-padding  w3-quarter">
-  <label class="w3-tiny bold">numero:</label>
-  <input class="w3-input w3-border w3-round-large w3-xsmall" type="tel" name="numero" id="entrega-numero"  required>
+<div class="w3-row">
+<div class="w3-padding w3-col s6">
+  <label class="w3-tiny bold">documento (cpf ou cnpj): </label>
+    <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="document" id="document" required>
+</div>
+<div class="w3-padding w3-col s6">
+  <label class="w3-tiny bold">cep:</label>
+    <input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="postal-code" id="postal-code" data-js="cep" onkeyup="fimDoCep(this.value, 'street-address', 'district', 'city', 'state')" required>
 </div>
 
-<div class="w3-padding  w3-half">
-  <label class="w3-tiny bold">cidade:</label>
-  <input class="w3-input w3-border w3-round-large w3-xsmall" type="text" name="cidade" id="entrega-cidade" required>
+
 </div>
-<div class="w3-padding  w3-half">
-  <label class="w3-tiny bold">bairro:</label>
-  <input class="w3-input w3-border w3-round-large w3-xsmall" name="bairro" id="entrega-bairro" type="text">
-</div>
-<div class="w3-padding">
-  <label class="w3-tiny bold">complemento:</label>
-  <input class="w3-input w3-border w3-round-large w3-xsmall" type="text"  name="complemento" id="entrega-complemento">
-</div>
-        </div>
+<div class="w3-row">
+
+  <div class="w3-padding w3-col s6">
+    <label for="country-name" class="w3-tiny bold">país:</label>
+    <select id="country-name" onchange="anotherCountry(this.value, 'state')" name="country-name" class="w3-input w3-border w3-round-large w3-small">
+      <option value="AA">Aruba</option>
+      <option value="AC">Antígua e Barbuda</option>
+      <option value="AE">Emirados Árabes Unidos</option>
+      <option value="AF">Afeganistão</option>
+      <option value="AG">Argélia</option>
+      <option value="AJ">Azerbaijão</option>
+      <option value="AL">Albânia</option>
+      <option value="AM">Armênia</option>
+      <option value="AN">Andorra</option>
+      <option value="AO">Angola</option>
+      <option value="AQ">Samoa Americana</option>
+      <option value="AR">Argentina</option>
+      <option value="AS">Austrália</option>
+      <option value="AT">Ilhas Ashmore e Cartier</option>
+      <option value="AU">Áustria</option>
+      <option value="AV">Anguilla</option>
+      <option value="AX">Acrotíri</option>
+      <option value="AY">Antártica</option>
+      <option value="AZ">açores</option>
+      <option value="BA">Bahrain</option>
+      <option value="BB">Barbados</option>
+      <option value="BC">Botswana</option>
+      <option value="BD">Bermudas</option>
+      <option value="BE">Bélgica</option>
+      <option value="BF">Bahamas</option>
+      <option value="BG">Bangladesh</option>
+      <option value="BH">Belize</option>
+      <option value="BK">Bósnia e Herzegovina</option>
+      <option value="BL">Bolívia</option>
+      <option value="BM">Birmânia Myanmar</option>
+      <option value="BN">Benim</option>
+      <option value="BO">Bielorrússia</option>
+      <option value="BP">Ilhas Salomão</option>
+      <option value="BQ">Ilha Navassa</option>
+      <option value="BR" selected>Brasil</option>
+      <option value="BT">Butão</option>
+      <option value="BU">Bulgária</option>
+      <option value="BV">Ilha Bouvet</option>
+      <option value="BX">Brunei</option>
+      <option value="BY">Burundi</option>
+      <option value="CA">Canadá</option>
+      <option value="CB">Camboja</option>
+      <option value="CD">Chade</option>
+      <option value="CE">Sri Lanka</option>
+      <option value="CF">República do Congo</option>
+      <option value="CG">República Democrática do Congo</option>
+      <option value="CH">República Popular da China</option>
+      <option value="CL">Chile</option>
+      <option value="CJ">Ilhas Cayman</option>
+      <option value="CK">Ilhas Cocos Keeling</option>
+      <option value="CM">Camarões</option>
+      <option value="CN">Comores</option>
+      <option value="CO">Colômbia</option>
+      <option value="CQ">Ilhas Marianas do Norte</option>
+      <option value="CR">Ilhas do Mar de Coral</option>
+      <option value="CS">Costa Rica</option>
+      <option value="CT">República Centro-Africana</option>
+      <option value="CU">Cuba</option>
+      <option value="CV">Cabo Verde</option>
+      <option value="CW">Ilhas Cook</option>
+      <option value="CY">Chipre</option>
+      <option value="CZ">República Tcheca</option>
+      <option value="DA">Dinamarca</option>
+      <option value="DJ">Djibouti</option>
+      <option value="DO">Dominica</option>
+      <option value="DQ">Ilha Jarvis</option>
+      <option value="DR">República Dominicana</option>
+      <option value="DX">Deceleia</option>
+      <option value="EC">Equador</option>
+      <option value="EG">Egito</option>
+      <option value="EI">Irlanda</option>
+      <option value="EK">Guiné Equatorial</option>
+      <option value="EN">Estónia</option>
+      <option value="ER">Eritreia</option>
+      <option value="ES">El Salvador</option>
+      <option value="ET">Etiópia</option>
+      <option value="EZ">República Checa</option>
+      <option value="FG">Guiana Francesa</option>
+      <option value="FI">Finlândia</option>
+      <option value="FJ">Fiji</option>
+      <option value="FK">Ilhas Falkland Ilhas Malvinas</option>
+      <option value="FM">Estados Federados da Micronésia</option>
+      <option value="FO">Ilhas Feroe</option>
+      <option value="FP">Polinésia Francesa</option>
+      <option value="FQ">Ilha Baker</option>
+      <option value="FR">França</option>
+      <option value="FS">Terras Austrais e Antárticas Francesas</option>
+      <option value="GA">Gâmbia</option>
+      <option value="GB">Gabão</option>
+      <option value="GF">Guiana francesa</option>
+      <option value="GG">Geórgia</option>
+      <option value="GH">Gana</option>
+      <option value="GI">Gibraltar</option>
+      <option value="GJ">Granada</option>
+      <option value="GK">Guernsey</option>
+      <option value="GL">Gronelândia</option>
+      <option value="GM">Alemanha</option>
+      <option value="GP">Guadalupe</option>
+      <option value="GQ">Guam</option>
+      <option value="GR">Grécia</option>
+      <option value="GT">Guatemala</option>
+      <option value="GV">Guiné</option>
+      <option value="GW">Guiné-Bissau</option>
+      <option value="GY">Guiana</option>
+      <option value="GZ">Faixa de Gaza</option>
+      <option value="HA">Haiti</option>
+      <option value="HK">Hong Kong</option>
+      <option value="HM">Ilha Heard e Ilhas McDonald</option>
+      <option value="HO">Honduras</option>
+      <option value="HQ">Ilha Howland</option>
+      <option value="HR">Croácia</option>
+      <option value="HU">Hungria</option>
+      <option value="IC">Islândia</option>
+      <option value="ID">Indonésia</option>
+      <option value="IM">Ilha de Man</option>
+      <option value="IN">Índia</option>
+      <option value="IO">Território Britânico do Oceano Índico</option>
+      <option value="IP">Ilha de Clipperton</option>
+      <option value="IR">Irão</option>
+      <option value="IS">Israel</option>
+      <option value="IT">Itália</option>
+      <option value="CI">Costa do Marfim</option>
+      <option value="IZ">Iraque</option>
+      <option value="JP">Japão</option>
+      <option value="JE">Jersey</option>
+      <option value="JM">Jamaica</option>
+      <option value="JN">Jan Mayen</option>
+      <option value="JO">Jordânia</option>
+      <option value="JQ">Atol Johnston</option>
+      <option value="KE">Quénia</option>
+      <option value="KG">Quirguistão</option>
+      <option value="KN">Coreia do Norte</option>
+      <option value="KQ">Recife Kingman</option>
+      <option value="KR">Kiribati</option>
+      <option value="KS">Coreia do Sul</option>
+      <option value="KT">Ilha Christmas</option>
+      <option value="KU">Kuwait</option>
+      <option value="KV">Cazaquistão</option>
+      <option value="LA">Laos</option>
+      <option value="LE">Líbano</option>
+      <option value="LG">Letónia</option>
+      <option value="LH">Lituânia</option>
+      <option value="LI">Libéria</option>
+      <option value="LO">Eslováquia</option>
+      <option value="LP">Latin Purificado</option>
+      <option value="LQ">Atol Palmyra</option>
+      <option value="LS">Liechtenstein</option>
+      <option value="LT">Lesoto</option>
+      <option value="LU">Luxemburgo</option>
+      <option value="LY">Líbia</option>
+      <option value="MA">Marrocos</option>
+      <option value="MB">Martinica</option>
+      <option value="MC">Macau</option>
+      <option value="MD">Moldávia</option>
+      <option value="ME">Madeira</option>
+      <option value="MF">Mayotte</option>
+      <option value="MG">Mongólia</option>
+      <option value="MH">Montserrat</option>
+      <option value="MI">Malawi</option>
+      <option value="MJ">Montenegro</option>
+      <option value="MK">Macedônia</option>
+      <option value="ML">Mali</option>
+      <option value="MN">Mônaco</option>
+      <option value="MP">Maurícia</option>
+      <option value="MQ">Atol de Midway</option>
+      <option value="MR">Mauritânia</option>
+      <option value="MT">Malta</option>
+      <option value="MU">Omã</option>
+      <option value="MV">Maldivas</option>
+      <option value="MX">México</option>
+      <option value="MY">Malásia</option>
+      <option value="MZ">Moçambique</option>
+      <option value="NC">Nova Caledônia</option>
+      <option value="NE">Niue</option>
+      <option value="NF">Ilha Norfolk</option>
+      <option value="NG">Níger</option>
+      <option value="NH">Vanuatu</option>
+      <option value="NI">Nigéria</option>
+      <option value="NL">Países Baixos</option>
+      <option value="NO">Noruega</option>
+      <option value="NP">Nepal</option>
+      <option value="NR">Nauru</option>
+      <option value="NS">Suriname</option>
+      <option value="NT">Antilhas Holandesas</option>
+      <option value="NU">Nicarágua</option>
+      <option value="NZ">Nova Zelândia</option>
+      <option value="PA">Paraguai</option>
+      <option value="PC">Ilhas Pitcairn</option>
+      <option value="PE">Peru</option>
+      <option value="PF">Ilhas Paracel</option>
+      <option value="PG">Ilhas Spratly</option>
+      <option value="PK">Paquistão</option>
+      <option value="PL">Polônia</option>
+      <option value="PM">Panamá</option>
+      <option value="PT">Portugal</option>
+      <option value="PP">Papua-Nova Guiné</option>
+      <option value="PS">Palau</option>
+      <option value="PU">Guiné-Bissau</option>
+      <option value="QA">Qatar</option>
+      <option value="RE">Reunião</option>
+      <option value="RI">Sérvia</option>
+      <option value="RM">Ilhas Marshall</option>
+      <option value="RN">Saint Martin</option>
+      <option value="RO">Roménia</option>
+      <option value="RP">Filipinas</option>
+      <option value="RQ">Porto Rico</option>
+      <option value="RS">Rússia</option>
+      <option value="RW">Ruanda</option>
+      <option value="SA">Arábia Saudita</option>
+      <option value="SB">Saint Pierre e Miquelon</option>
+      <option value="SC">São Cristóvão e Nevis</option>
+      <option value="SE">Seychelles</option>
+      <option value="SF">África do Sul</option>
+      <option value="SG">Senegal</option>
+      <option value="SH">Santa Helena território</option>
+      <option value="SI">Eslovénia</option>
+      <option value="SL">Serra Leoa</option>
+      <option value="SM">San Marino</option>
+      <option value="SN">Singapura</option>
+      <option value="SO">Somália</option>
+      <option value="SP">Espanha</option>
+      <option value="ST">Santa Lúcia</option>
+      <option value="SU">Sudão</option>
+      <option value="SV">Svalbard</option>
+      <option value="SW">Suécia</option>
+      <option value="SX">Ilhas Geórgia do Sul e Sandwich do Sul</option>
+      <option value="SY">Síria</option>
+      <option value="SZ">Suiça</option>
+      <option value="TB">Saint-Barthélemy Antilhas francesas</option>
+      <option value="TD">Trinidad e Tobago</option>
+      <option value="TH">Tailândia</option>
+      <option value="TI">Tadjiquistão</option>
+      <option value="TK">Ilhas Turks e Caicos</option>
+      <option value="TL">Tokelau</option>
+      <option value="TN">Tonga</option>
+      <option value="TO">Togo</option>
+      <option value="TP">São Tomé e Príncipe</option>
+      <option value="TS">Tunísia</option>
+      <option value="TT">Timor-Leste</option>
+      <option value="TR">Turquia</option>
+      <option value="TV">Tuvalu</option>
+      <option value="TW">Taiwan</option>
+      <option value="TX">Turquemenistão</option>
+      <option value="TZ">Tanzânia</option>
+      <option value="UG">Uganda</option>
+      <option value="UK">Reino Unido</option>
+      <option value="UP">Ucrânia</option>
+      <option value="US">Estados Unidos</option>
+      <option value="UV">Burkina Faso</option>
+      <option value="UY">Uruguai</option>
+      <option value="UZ">Uzbequistão</option>
+      <option value="VC">São Vicente e Granadinas</option>
+      <option value="VE">Venezuela</option>
+      <option value="VI">Ilhas Virgens Britânicas</option>
+      <option value="VM">Vietname</option>
+      <option value="VQ">Ilhas Virgens Americanas</option>
+      <option value="VT">Vaticano</option>
+      <option value="WA">Namíbia</option>
+      <option value="WE">Cisjordânia</option>
+      <option value="WF">Wallis e Futuna</option>
+      <option value="WI">Saara Ocidental</option>
+      <option value="WQ">Ilha Wake</option>
+      <option value="WS">Samoa</option>
+      <option value="WZ">Suazilândia</option>
+      <option value="YM">Iémen</option>
+      <option value="ZA">Zâmbia</option>
+      <option value="ZI">Zimbabwe</option>
+    </select>
+ 
+ 
+  </div>
+
+    <div class="w3-padding w3-col s6" id="stateselector">
+      <label for="state" class="w3-tiny bold">estado:</label>
+      <select id="state" name="state" data-country="BR" class="w3-input w3-border w3-round-large w3-tiny">
+        <option hidden disabled selected value></option>
+        <option value="AC">acre</option>
+        <option value="AL">alagoas</option>
+        <option value="AP">amapá</option>
+        <option value="AM">amazonas</option>
+        <option value="BA">bahia</option>
+        <option value="CE">ceará</option>
+        <option value="DF">distrito federal</option>
+        <option value="ES">espírito santo</option>
+        <option value="GO">goiás</option>
+        <option value="MA">maranhão</option>
+        <option value="MT">mato Grosso</option>
+        <option value="MS">mato grosso do sul</option>
+        <option value="MG">minas gerais</option>
+        <option value="PA">pará</option>
+        <option value="PB">paraíba</option>
+        <option value="PR">paraná</option>
+        <option value="PE">pernambuco</option>
+        <option value="PI">piauí</option>
+        <option value="RJ">rio de Janeiro</option>
+        <option value="RN">rio grande do norte</option>
+        <option value="RS">rio grande do sul</option>
+        <option value="RO">rondônia</option>
+        <option value="RR">roraima</option>
+        <option value="SC">santa catarina</option>
+        <option value="SP">são paulo</option>
+        <option value="SE">sergipe</option>
+        <option value="TO">tocantins</option>
+        <option value="EX">estrangeiro</option>
+      </select>
       </div>
-        <div class="w3-half w3-row-padding w3-margin-bottom">
+
+  </div>
+  <div class="w3-row">
    
-      
-            <div class="w3-card w3-round-large w3-padding">
-<h2>forma de pagamento</h2>
-     
-            
-          </div>
-      
-      </div>
+    <div class="w3-padding w3-col s6">
+      <label class="w3-small bold">cidade:</label>
+      <input class="w3-input w3-border w3-round-large w3-small" type="text" name="city" id="city" required>
+    </div>
 
-      <div class="w3-half w3-row-padding w3-margin-bottom">
-        <div class="w3-card w3-round-large w3-padding">
-<h2>endereço de cobrança:</h2>
+    <div class="w3-padding  w3-col s6">
+      <label class="w3-small w3-tiny">bairro:</label>
+      <input class="w3-input w3-border w3-round-large w3-small" name="district" id="district" type="text" required>
+    </div>
+
+  </div>
+  <div class="w3-row">
+  <div class="w3-padding  w3-col s8">
+    <label class="w3-tiny bold">rua:</label>
+    <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="street-address" id="street-address" required >
+  </div>
+    <div class="w3-padding w3-col s4">
+      <label class="w3-tiny bold">numero:</label>
+      <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="street-number" id="street-number"  required>
+    </div>
+    </div>
+<div class="w3-row w3-margin-bottom">
+  <div class="w3-padding w3-col s6">
+    <label class="w3-tiny bold">complemento:</label>
+    <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="complement" id="complement">
+  </div>
+<div class="w3-padding w3-col s6">
+<label class="w3-tiny bold">telefone (opcional):</label>
+<input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="phone" id="phone" data-js="phone">
+</div>
+
+
+
+
+
+  </div>
+
+
+
         </div>
       </div>
-        <div class="w3-half w3-row-padding w3-margin-bottom">
-     
-      
-            <div class="w3-card w3-round-large w3-padding">
-<h2>sua compra:</h2>
-     
-            
+        <div class="w3-row-padding w3-margin-bottom">
+   
+          <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">entrega</h2>
+            <div class="w3-card w3-animate-right w3-round-large w3-row-padding focuseable" id="card-enderecodaentrega" onclick="focusDiv(this)">
+<div class="w3-margin-top w3-animate-top" id="formentrega" style="display:none;">
+              <div class="w3-row">
+            <div class="w3-padding w3-col s6">
+              <label class="w3-tiny bold">nome do destinatário:</label>
+              <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="delivery-name" id="delivery-name" pattern="\S+.*">
+            </div>
+
+            <div class="w3-padding w3-col s6">
+              <label class="w3-tiny bold">cep:</label>
+                <input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="delivery-postal-code" id="delivery-postal-code" data-js="cep"  onkeyup="fimDoCep(this.value, 'delivery-street-address', 'delivery-district', 'delivery-city', 'delivery-state')" >
+            </div>
+
+           
           </div>
-      
-      </div>
+          <div class="w3-row">
+
+            <div class="w3-padding w3-col s6">
+              <label for="delivery-country-name" class="w3-tiny bold">país:</label>
+              <select id="delivery-country-name" onchange="anotherCountry(this.value, 'state')" name="delivery-country-name" class="w3-input w3-border w3-round-large w3-small">
+                <option value="AA">Aruba</option>
+                <option value="AC">Antígua e Barbuda</option>
+                <option value="AE">Emirados Árabes Unidos</option>
+                <option value="AF">Afeganistão</option>
+                <option value="AG">Argélia</option>
+                <option value="AJ">Azerbaijão</option>
+                <option value="AL">Albânia</option>
+                <option value="AM">Armênia</option>
+                <option value="AN">Andorra</option>
+                <option value="AO">Angola</option>
+                <option value="AQ">Samoa Americana</option>
+                <option value="AR">Argentina</option>
+                <option value="AS">Austrália</option>
+                <option value="AT">Ilhas Ashmore e Cartier</option>
+                <option value="AU">Áustria</option>
+                <option value="AV">Anguilla</option>
+                <option value="AX">Acrotíri</option>
+                <option value="AY">Antártica</option>
+                <option value="AZ">açores</option>
+                <option value="BA">Bahrain</option>
+                <option value="BB">Barbados</option>
+                <option value="BC">Botswana</option>
+                <option value="BD">Bermudas</option>
+                <option value="BE">Bélgica</option>
+                <option value="BF">Bahamas</option>
+                <option value="BG">Bangladesh</option>
+                <option value="BH">Belize</option>
+                <option value="BK">Bósnia e Herzegovina</option>
+                <option value="BL">Bolívia</option>
+                <option value="BM">Birmânia Myanmar</option>
+                <option value="BN">Benim</option>
+                <option value="BO">Bielorrússia</option>
+                <option value="BP">Ilhas Salomão</option>
+                <option value="BQ">Ilha Navassa</option>
+                <option value="BR" selected>Brasil</option>
+                <option value="BT">Butão</option>
+                <option value="BU">Bulgária</option>
+                <option value="BV">Ilha Bouvet</option>
+                <option value="BX">Brunei</option>
+                <option value="BY">Burundi</option>
+                <option value="CA">Canadá</option>
+                <option value="CB">Camboja</option>
+                <option value="CD">Chade</option>
+                <option value="CE">Sri Lanka</option>
+                <option value="CF">República do Congo</option>
+                <option value="CG">República Democrática do Congo</option>
+                <option value="CH">República Popular da China</option>
+                <option value="CL">Chile</option>
+                <option value="CJ">Ilhas Cayman</option>
+                <option value="CK">Ilhas Cocos Keeling</option>
+                <option value="CM">Camarões</option>
+                <option value="CN">Comores</option>
+                <option value="CO">Colômbia</option>
+                <option value="CQ">Ilhas Marianas do Norte</option>
+                <option value="CR">Ilhas do Mar de Coral</option>
+                <option value="CS">Costa Rica</option>
+                <option value="CT">República Centro-Africana</option>
+                <option value="CU">Cuba</option>
+                <option value="CV">Cabo Verde</option>
+                <option value="CW">Ilhas Cook</option>
+                <option value="CY">Chipre</option>
+                <option value="CZ">República Tcheca</option>
+                <option value="DA">Dinamarca</option>
+                <option value="DJ">Djibouti</option>
+                <option value="DO">Dominica</option>
+                <option value="DQ">Ilha Jarvis</option>
+                <option value="DR">República Dominicana</option>
+                <option value="DX">Deceleia</option>
+                <option value="EC">Equador</option>
+                <option value="EG">Egito</option>
+                <option value="EI">Irlanda</option>
+                <option value="EK">Guiné Equatorial</option>
+                <option value="EN">Estónia</option>
+                <option value="ER">Eritreia</option>
+                <option value="ES">El Salvador</option>
+                <option value="ET">Etiópia</option>
+                <option value="EZ">República Checa</option>
+                <option value="FG">Guiana Francesa</option>
+                <option value="FI">Finlândia</option>
+                <option value="FJ">Fiji</option>
+                <option value="FK">Ilhas Falkland Ilhas Malvinas</option>
+                <option value="FM">Estados Federados da Micronésia</option>
+                <option value="FO">Ilhas Feroe</option>
+                <option value="FP">Polinésia Francesa</option>
+                <option value="FQ">Ilha Baker</option>
+                <option value="FR">França</option>
+                <option value="FS">Terras Austrais e Antárticas Francesas</option>
+                <option value="GA">Gâmbia</option>
+                <option value="GB">Gabão</option>
+                <option value="GF">Guiana francesa</option>
+                <option value="GG">Geórgia</option>
+                <option value="GH">Gana</option>
+                <option value="GI">Gibraltar</option>
+                <option value="GJ">Granada</option>
+                <option value="GK">Guernsey</option>
+                <option value="GL">Gronelândia</option>
+                <option value="GM">Alemanha</option>
+                <option value="GP">Guadalupe</option>
+                <option value="GQ">Guam</option>
+                <option value="GR">Grécia</option>
+                <option value="GT">Guatemala</option>
+                <option value="GV">Guiné</option>
+                <option value="GW">Guiné-Bissau</option>
+                <option value="GY">Guiana</option>
+                <option value="GZ">Faixa de Gaza</option>
+                <option value="HA">Haiti</option>
+                <option value="HK">Hong Kong</option>
+                <option value="HM">Ilha Heard e Ilhas McDonald</option>
+                <option value="HO">Honduras</option>
+                <option value="HQ">Ilha Howland</option>
+                <option value="HR">Croácia</option>
+                <option value="HU">Hungria</option>
+                <option value="IC">Islândia</option>
+                <option value="ID">Indonésia</option>
+                <option value="IM">Ilha de Man</option>
+                <option value="IN">Índia</option>
+                <option value="IO">Território Britânico do Oceano Índico</option>
+                <option value="IP">Ilha de Clipperton</option>
+                <option value="IR">Irão</option>
+                <option value="IS">Israel</option>
+                <option value="IT">Itália</option>
+                <option value="CI">Costa do Marfim</option>
+                <option value="IZ">Iraque</option>
+                <option value="JP">Japão</option>
+                <option value="JE">Jersey</option>
+                <option value="JM">Jamaica</option>
+                <option value="JN">Jan Mayen</option>
+                <option value="JO">Jordânia</option>
+                <option value="JQ">Atol Johnston</option>
+                <option value="KE">Quénia</option>
+                <option value="KG">Quirguistão</option>
+                <option value="KN">Coreia do Norte</option>
+                <option value="KQ">Recife Kingman</option>
+                <option value="KR">Kiribati</option>
+                <option value="KS">Coreia do Sul</option>
+                <option value="KT">Ilha Christmas</option>
+                <option value="KU">Kuwait</option>
+                <option value="KV">Cazaquistão</option>
+                <option value="LA">Laos</option>
+                <option value="LE">Líbano</option>
+                <option value="LG">Letónia</option>
+                <option value="LH">Lituânia</option>
+                <option value="LI">Libéria</option>
+                <option value="LO">Eslováquia</option>
+                <option value="LP">Latin Purificado</option>
+                <option value="LQ">Atol Palmyra</option>
+                <option value="LS">Liechtenstein</option>
+                <option value="LT">Lesoto</option>
+                <option value="LU">Luxemburgo</option>
+                <option value="LY">Líbia</option>
+                <option value="MA">Marrocos</option>
+                <option value="MB">Martinica</option>
+                <option value="MC">Macau</option>
+                <option value="MD">Moldávia</option>
+                <option value="ME">Madeira</option>
+                <option value="MF">Mayotte</option>
+                <option value="MG">Mongólia</option>
+                <option value="MH">Montserrat</option>
+                <option value="MI">Malawi</option>
+                <option value="MJ">Montenegro</option>
+                <option value="MK">Macedônia</option>
+                <option value="ML">Mali</option>
+                <option value="MN">Mônaco</option>
+                <option value="MP">Maurícia</option>
+                <option value="MQ">Atol de Midway</option>
+                <option value="MR">Mauritânia</option>
+                <option value="MT">Malta</option>
+                <option value="MU">Omã</option>
+                <option value="MV">Maldivas</option>
+                <option value="MX">México</option>
+                <option value="MY">Malásia</option>
+                <option value="MZ">Moçambique</option>
+                <option value="NC">Nova Caledônia</option>
+                <option value="NE">Niue</option>
+                <option value="NF">Ilha Norfolk</option>
+                <option value="NG">Níger</option>
+                <option value="NH">Vanuatu</option>
+                <option value="NI">Nigéria</option>
+                <option value="NL">Países Baixos</option>
+                <option value="NO">Noruega</option>
+                <option value="NP">Nepal</option>
+                <option value="NR">Nauru</option>
+                <option value="NS">Suriname</option>
+                <option value="NT">Antilhas Holandesas</option>
+                <option value="NU">Nicarágua</option>
+                <option value="NZ">Nova Zelândia</option>
+                <option value="PA">Paraguai</option>
+                <option value="PC">Ilhas Pitcairn</option>
+                <option value="PE">Peru</option>
+                <option value="PF">Ilhas Paracel</option>
+                <option value="PG">Ilhas Spratly</option>
+                <option value="PK">Paquistão</option>
+                <option value="PL">Polônia</option>
+                <option value="PM">Panamá</option>
+                <option value="PT">Portugal</option>
+                <option value="PP">Papua-Nova Guiné</option>
+                <option value="PS">Palau</option>
+                <option value="PU">Guiné-Bissau</option>
+                <option value="QA">Qatar</option>
+                <option value="RE">Reunião</option>
+                <option value="RI">Sérvia</option>
+                <option value="RM">Ilhas Marshall</option>
+                <option value="RN">Saint Martin</option>
+                <option value="RO">Roménia</option>
+                <option value="RP">Filipinas</option>
+                <option value="RQ">Porto Rico</option>
+                <option value="RS">Rússia</option>
+                <option value="RW">Ruanda</option>
+                <option value="SA">Arábia Saudita</option>
+                <option value="SB">Saint Pierre e Miquelon</option>
+                <option value="SC">São Cristóvão e Nevis</option>
+                <option value="SE">Seychelles</option>
+                <option value="SF">África do Sul</option>
+                <option value="SG">Senegal</option>
+                <option value="SH">Santa Helena território</option>
+                <option value="SI">Eslovénia</option>
+                <option value="SL">Serra Leoa</option>
+                <option value="SM">San Marino</option>
+                <option value="SN">Singapura</option>
+                <option value="SO">Somália</option>
+                <option value="SP">Espanha</option>
+                <option value="ST">Santa Lúcia</option>
+                <option value="SU">Sudão</option>
+                <option value="SV">Svalbard</option>
+                <option value="SW">Suécia</option>
+                <option value="SX">Ilhas Geórgia do Sul e Sandwich do Sul</option>
+                <option value="SY">Síria</option>
+                <option value="SZ">Suiça</option>
+                <option value="TB">Saint-Barthélemy Antilhas francesas</option>
+                <option value="TD">Trinidad e Tobago</option>
+                <option value="TH">Tailândia</option>
+                <option value="TI">Tadjiquistão</option>
+                <option value="TK">Ilhas Turks e Caicos</option>
+                <option value="TL">Tokelau</option>
+                <option value="TN">Tonga</option>
+                <option value="TO">Togo</option>
+                <option value="TP">São Tomé e Príncipe</option>
+                <option value="TS">Tunísia</option>
+                <option value="TT">Timor-Leste</option>
+                <option value="TR">Turquia</option>
+                <option value="TV">Tuvalu</option>
+                <option value="TW">Taiwan</option>
+                <option value="TX">Turquemenistão</option>
+                <option value="TZ">Tanzânia</option>
+                <option value="UG">Uganda</option>
+                <option value="UK">Reino Unido</option>
+                <option value="UP">Ucrânia</option>
+                <option value="US">Estados Unidos</option>
+                <option value="UV">Burkina Faso</option>
+                <option value="UY">Uruguai</option>
+                <option value="UZ">Uzbequistão</option>
+                <option value="VC">São Vicente e Granadinas</option>
+                <option value="VE">Venezuela</option>
+                <option value="VI">Ilhas Virgens Britânicas</option>
+                <option value="VM">Vietname</option>
+                <option value="VQ">Ilhas Virgens Americanas</option>
+                <option value="VT">Vaticano</option>
+                <option value="WA">Namíbia</option>
+                <option value="WE">Cisjordânia</option>
+                <option value="WF">Wallis e Futuna</option>
+                <option value="WI">Saara Ocidental</option>
+                <option value="WQ">Ilha Wake</option>
+                <option value="WS">Samoa</option>
+                <option value="WZ">Suazilândia</option>
+                <option value="YM">Iémen</option>
+                <option value="ZA">Zâmbia</option>
+                <option value="ZI">Zimbabwe</option>
+              </select>
+           
+           
+            </div>
+
+              <div class="w3-padding w3-col s6" id="stateselector">
+                <label for="delivery-state" class="w3-tiny bold">estado:</label>
+                <select id="delivery-state" name="delivery-state" data-country="BR" class="w3-input w3-border w3-round-large w3-small">
+                  <option hidden disabled selected value></option>
+                  <option value="AC">acre</option>
+                  <option value="AL">alagoas</option>
+                  <option value="AP">amapá</option>
+                  <option value="AM">amazonas</option>
+                  <option value="BA">bahia</option>
+                  <option value="CE">ceará</option>
+                  <option value="DF">distrito federal</option>
+                  <option value="ES">espírito santo</option>
+                  <option value="GO">goiás</option>
+                  <option value="MA">maranhão</option>
+                  <option value="MT">mato Grosso</option>
+                  <option value="MS">mato grosso do sul</option>
+                  <option value="MG">minas gerais</option>
+                  <option value="PA">pará</option>
+                  <option value="PB">paraíba</option>
+                  <option value="PR">paraná</option>
+                  <option value="PE">pernambuco</option>
+                  <option value="PI">piauí</option>
+                  <option value="RJ">rio de Janeiro</option>
+                  <option value="RN">rio grande do norte</option>
+                  <option value="RS">rio grande do sul</option>
+                  <option value="RO">rondônia</option>
+                  <option value="RR">roraima</option>
+                  <option value="SC">santa catarina</option>
+                  <option value="SP">são paulo</option>
+                  <option value="SE">sergipe</option>
+                  <option value="TO">tocantins</option>
+                  <option value="EX">estrangeiro</option>
+                </select>
+                </div>
   
+            </div>
+            <div class="w3-row">
+             
+              <div class="w3-padding w3-col s6">
+                <label class="w3-tiny bold">cidade:</label>
+                <input class="w3-input w3-border w3-round-large w3-small" type="text" name="delivery-city" id="delivery-city" >
+              </div>
+
+              <div class="w3-padding  w3-col s6">
+                <label class="w3-tiny bold">bairro:</label>
+                <input class="w3-input w3-border w3-round-large w3-small" name="delivery-district" id="delivery-district" type="text" >
+              </div>
+
+            </div>
+            <div class="w3-row">
+            <div class="w3-padding  w3-col s8">
+              <label class="w3-tiny bold">rua:</label>
+              <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="delivery-street-address" id="delivery-street-address"  >
+            </div>
+              <div class="w3-padding w3-col s4">
+                <label class="w3-tiny bold">numero:</label>
+                <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="delivery-street-number" id="street-number"  >
+              </div>
+              </div>
+    <div class="w3-row">
+      <div class="w3-padding w3-col s6">
+        <label class="w3-tiny bold">telefone:</label>
+        <input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="delivery-phone" id="receiver-phone" data-js="phone">
+      </div>
+ 
+              <div class="w3-padding w3-col s6">
+                <label class="w3-tiny bold">complemento:</label>
+                <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="delivery-complement" id="complement">
+              </div>
 
 
 
+            </div>
+          </div>
+<div class="w3-row">
+          <div class="w3-padding w3-col s6 w3-margin-top">
+            <input class="w3-margin-top w3-check" type="checkbox" id="deliveryequalbill" name="deliveryequalbill" value="deliveryequalbill" onchange="duplicaEndereco(this)" checked>
+            <label class="w3-tiny bold" for="giftwrap"> endereço de entrega é o mesma da fatura.</label>
+            </div>
+
+            <div class="w3-padding w3-col s6 w3-margin-top">
+              <input class="w3-margin-top w3-check" type="checkbox" id="giftwrap" name="giftwrap" value="giftwrap">
+              <label class="w3-tiny bold" for="giftwrap"> incluir embalagem para presente</label>
+              </div>
+
+          </div>
+          <hr>
+                <div class="w3-row w3-padding w3-left">
+                  <input type="radio" class="w3-radio" id="delivery-type" name="delivery-type" value="free" checked>
+                    <label class="w3-tiny bold" for="delivery-type"> frete grátis (SEDEX)</label>
+  
+                </div>
+                <div class="w3-clear w3-margin-bottom"></div>
+
+
+
+                      
+                    </div>
+          
+                    <div class="w3-row-padding w3-margin-bottom">
+     
+                      <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">sua compra</h2>
+                      <div class="w3-row-padding w3-card w3-round-large focuseable" onclick="focusDiv(this)">
+
+            <span id="bagstatus" class="w3-margin"></span>
+            
+               <div id="checkoutcart" class="w3-margin"></div>
+            
+                    </div>
+                
+                </div>
+      <div class="w3-row-padding w3-margin-bottom">
+        <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">forma de pagamento</h2>
+        <div class="w3-card w3-round-large w3-row-padding focuseable" id="card-formadepagamento" onclick="focusDiv(this)">
+
+
+
+<div class="w3-padding w3-margin-top">
+  <input type="radio" class="w3-radio" id="credit-card" name="payment-type" value="credit-card" checked>
+    <label class="w3-tiny bold" for="credit-card">cartão de crédito</label>
+   <input type="radio" class="w3-radio" id="pix" name="payment-type" value="pix" disabled>
+    <label class="w3-tiny bold" for="pix">pix</label>
+</div>
+
+
+<div class="w3-padding w3-row">
+  <label class="w3-tiny bold">número do cartão:</label>
+  <input class="w3-input w3-border w3-round-large w3-small mask inputbg dontsave" type="tel"  name="cc-number" id="cc-number" data-js="cartao" onkeyup="fimDoNumero(this.value)"  placeholder="xxxx-xxxx-xxxx-xxxx"  required >
+</div>
+
+<div class="w3-row">
+<div class="w3-padding w3-col s3">
+  <label for="cc-exp-month" class="w3-tiny bold">mês:</label>
+  <select id="cc-exp-month" class="w3-input w3-border w3-round-large w3-small dontsave" required>
+    <option hidden disabled selected value></option>
+    <option value="01">01 (Janeiro)</option>
+    <option value="02">02 (Fevereiro)</option>
+    <option value="03">03 (Março)</option>
+    <option value="04">04 (Abril)</option>
+    <option value="05">05 (Maio)</option>
+    <option value="06">06 (Junho)</option>
+    <option value="07">07 (Julho)</option>
+    <option value="08">08 (Agosto)</option>
+    <option value="09">09 (Setembro)</option>
+    <option value="10">10 (Outubro)</option>
+    <option value="11">11 (Novembro)</option>
+    <option value="12">12 (Dezembro)</option>
+  </select>
+</div>
+<div class="w3-padding  w3-col s6">
+  <label for="cc-exp-year" class="w3-tiny bold">ano:</label>
+  <select style="width:50%" id="cc-exp-year" class="w3-input w3-border w3-round-large w3-small dontsave" required>
+    <option hidden disabled selected value></option>
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+    <option value="2024">2024</option>
+  </select>
+</div>
+<div class="w3-padding w3-col s3">
+  <label class="w3-tiny bold">cvv:</label>
+  <input class="w3-input w3-border w3-round-large w3-small dontsave" type="tel"  name="cc-csc" id="cc-csc" maxlength="3" autocomplete="off" required >
+</div>
+</div>
+
+
+
+
+
+
+  <div class="w3-clear"></div>
+
+<div class="w3-row">
+<div class="w3-padding w3-col s6">
+  <label for="installments" class="w3-tiny bold">parcelas:</label>
+  <select id="installments" name="installments" class="w3-input w3-border w3-round-large w3-small" required>
+
+    <option value="1" selected>1x à vista - </option>
+    <option value="2" selected>2x - </option>
+    <option value="3" selected>3x - </option>
+    <option value="4" selected>4x - </option>
+    <option value="5" selected>5x - </option>
+    <option value="6" selected>6x - </option>
+    <option value="7" selected>7x - </option>
+    <option value="8" selected>8x - </option>
+    <option value="9" selected>9x - </option>
+    <option value="10" selected>10x - </option>
+    <option value="11" selected>11x - </option>
+    <option value="12" selected>12x - </option>
+
+  </select>
+
+  </div>
+
+
+    <div class="w3-padding w3-col s6">
+      <button style="width: 100%; max-width:200px" class="w3-right w3-margin-top w3-card-4 w3-button w3-xsmall w3-round-large color-d3e4f5 hover-e6e1d8" id="checkoutbuttom" form="checkoutform" type="submit">pagar</button>
+    </div>
+  </div>
+
+ 
+<div class="w3-padding w3-clear"></div>
+        </div>
+      </div>
+ 
+  </form>
 
 
               
@@ -181,69 +979,45 @@
     </span>
     <div id="snackbar" class="w3-center color-ba8671">produto adicionado</div>
     <!-- End page content -->
-    <footer class="">  
-      <div class="w3-row w3-text-grey">
-        <div class="w3-container w3-col s4">
-          <a href="/politicas/#politicas"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">nossas políticas</span></p></a>
-          <a href="/politicas/#consciencia"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">consciência</span></p></a>
-          <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">blog</span></p></a>
-          <a href="/contato"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">contato</span></p></a>
-        </div>
-        <div class="w3-container w3-col s4 w3-mobile">
-   <p class="w3-center">
-        <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
-        <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
-        <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
-        <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
-        <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
-        <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
-      </p>
-      <br>
-      <p class="w3-center w3-tiny">Ana Fonsaca, CNPJ: 40.197.291/0001-74, desde 2021.</p>
-      <p class="w3-center w3-tiny">Florianópolis, SC - Brasil.</p>
-     </div>
-     
-     <div class="w3-container w3-col s4 w3-mobile" style="text-align: right;">
-      <a href="https://soudealgodao.com.br/" target="_blank"><p class="w3-padding"><img src="/assets/soudealgodao.png" alt="sou marca parceira sou de algodão" style="width:70px"></p></a>
-      <a href="https://www.w3.org/2001/tag/doc/web-https" target="_blank"><p class="w3-padding"><img src="/assets/seguro.png" alt="site seguro com ssl" style="height:20px; opacity: 0.8;"></p></a>
-      <a href="https://www.cielo.com.br/e-commerce/" target="_blank"><p class="w3-padding"><img src="/assets/poweredbycielo.png" alt="powered by cielo" style="width:70px"></p></a>
-    </div>
-    </div>
 
-    <!--
-    <div class="w3-container w3-row w3-hide-medium w3-hide-large">
-      <p class="w3-center w3-padding">
-           <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
-           <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
-           <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
-           <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
-           <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
-           <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
-         </p>
+
+    <footer class="w3-container" style="height:200px;"> 
       
-        </div>
+    
+    <div class="w3-contaiener w3-center w3-padding">
+ 
+      <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
+      <a href="https://www.instagram.com/shop.anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
+      <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
+      <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
+      <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
+      <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
+   </div>
+   <div class="w3-container w3-center w3-padding">
+    <a href="/politicas/#politicas/"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">nossas políticas</span></p></a>
+    <a href="/politicas/#consciencia/"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">consciência</span></p>
+      <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">blog</span></p>
+        <a href="/pedidos"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">meus pedidos</span></p>
+          <a href="/contato"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">contato</span></p>
+    </div>  
 
-    <div class="w3-row w3-text-grey w3-hide-medium w3-hide-large">
-      <div class="w3-container w3-col s6">
-        <a href="/politicas/#politicas"><p class="w3-tiny"><span class="w3-button w3-round-large">nossas políticas</span></p></a>
-        <a href="/politicas/#consciencia"><p class="w3-tiny"><span class="w3-button w3-round-large">consciência</span></p></a>
-        <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-round-large"><span class="w3-button w3-round-large">blog</span></p></a>
-        <a href="/contato"><p class="w3-tiny"><span class="w3-button w3-round-large">contato</span></p></a>
-      </div>
+<div class="w3-container w3-center" style="line-height: 50px;">
+      
+  <a href="https://soudealgodao.com.br/" target="_blank"><span class="w3-padding"><img src="/assets/soudealgodao.png" alt="sou marca parceira sou de algodão" style="height:30px"></span></a>
+ 
 
-   <div class="w3-container w3-col s6" style="text-align: right;">
-    <p class="w3-tiny w3-padding">cnpj: <span class="w3-tiny">40.197.291/0001-74</span></p>
-    <p class="w3-tiny w3-padding">florianópolis - brasil</p>
-    <p class="w3-tiny w3-padding">desde <span class="w3-tiny">2021</span></p>
-    <p class="w3-padding"><img src="/assets/seguro.png" style="height:20px; opacity: 0.8;"></p>
-  </div>
+  <a href="https://www.w3.org/2001/tag/doc/web-https" target="_blank"><span class="w3-padding"><img src="/assets/seguro.png" alt="site seguro com ssl" style="height:30px"></span></a>
 
 
+  <a href="https://www.cielo.com.br/e-commerce/" target="_blank"><span class="w3-padding"><img src="/assets/cielo.png" alt="powered by cielo" style="height:30px"></span></a>
+</div>
+<div class="w3-container w3-center w3-padding">
+<p class="w3-tiny">Ana Fonsaca, CNPJ: 40.197.291/0001-74. Florianópolis, SC - Brasil.</p>
+</div>   
+</footer>
 
-  </div>
--->
 
-    </footer>
+   
 
 
     <div id="loadermodal" class="w3-modal blurred">

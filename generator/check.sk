@@ -6,8 +6,7 @@ export titulo='checkout'
 
 
 { echo "cat <<HEREDOC"
-  cat head.html
-  cat shopcart.html
+  cat headcheckout.html
   cat checkoutmid.html
   cat footer.html
   #echo "HEREDOC"
