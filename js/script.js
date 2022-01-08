@@ -1,5 +1,5 @@
 //Settings:
-var checkoutapi = 'https://0jxfak47p9.execute-api.us-east-1.amazonaws.com/prod/anafonsacaApiDb';
+var checkoutapi = 'https://llbdtlkt95.execute-api.us-east-1.amazonaws.com/prod/pagarmeorder';
 var estoqueurl = 'https://anafonsaca.s3.amazonaws.com/estoque.json?nocache=' + Date.now().toString().slice(0, 8) + '00'
 var cepdeorigem = 88330786;
 
@@ -21,15 +21,22 @@ var orderdata = {};
 var uniqueid;
 var carttotal = 0;
 var cuidadosopen = false;
-var entregaedited = false;
-var formapagedited = false;
+var cardholderedited = false;
 var statesbrasil;
+var phonomaskedbackup;
 var auto_fill_street_address = 'street-address'
 var auto_fill_district = 'district'
 var auto_fill_city = 'city'
 var auto_fill_state = 'state'
-var inputemail1 = document.getElementById('email')
-var inputemail2 = document.getElementById('email-confirmation')
+
+var whats1 = document.getElementById('whatsappcheckout1')
+var whats2 = document.getElementById('whatsappcheckout2')
+
+//var inputemail1 = document.getElementById('email')
+//var inputemail2 = document.getElementById('emailconfirmation')
+var inputname = document.getElementById('name')
+var inputcardholder = document.getElementById('cardHolder')
+
 const formId = "checkoutform"; // ID of the form
 var form = document.getElementById(formId); // select form
 
@@ -50,24 +57,17 @@ function getCardFlag(cardnumber) {
 
     for (var flag in cards) {
         if(cards[flag].test(cardnumber)) {
-            document.getElementById("cc-number").style.backgroundImage = "url('/assets/" + flag + ".png" + "')";
+            document.getElementById("cardNumber").style.backgroundImage = "url('/assets/" + flag + ".png" + "')";
+            if (flag == 'amex') {
+                document.getElementById('cardCsc').setAttribute('maxlength',4)
+            }
      
         }
     }
 }
 
 
-function formapagclone(){
-    document.getElementById('cc-name').value = (document.getElementById('receiver').value);
-    document.getElementById('cc-document').value = (document.getElementById('document').value);
-    document.getElementById('cc-country-name').value = (document.getElementById('country-name').value);
-    document.getElementById('cc-postal-code').value = (document.getElementById('postal-code').value);
-    document.getElementById('cc-state').value = (document.getElementById('state').value);
-    document.getElementById('cc-city').value = (document.getElementById('city').value);
-    document.getElementById('cc-street-address').value = (document.getElementById('street-address').value);
-    document.getElementById('cc-street-number').value = (document.getElementById('street-number').value);
-    document.getElementById('cc-district').value = (document.getElementById('district').value);
-}
+
 
 
 
@@ -152,14 +152,22 @@ function fimDoCep(valor, selectstreet, selectdistrict, selectcity, selectstate) 
 
 ///////////////////////////////////////////////////////////
 
+function cardHolderNameCopy() {
+    if (! cardholderedited) {
+inputcardholder.value = inputname.value;
+    }
+}
+
+/*
 function confirmEmail() {
-if (inputemail1.value != inputemail2.value) {
+if (inputemail1.value.toLowerCase() != inputemail2.value.toLowerCase()) {
 inputemail2.classList.add("w3-border-red");
 } else {
     inputemail2.classList.remove("w3-border-red");
     document.getElementById('emailwarning').style.display = 'none';
 }
 }
+*/
 
 function fimDoNumero(valor) {
     if (valor.length > 16) {
@@ -326,7 +334,11 @@ function cartRender() {
         butoes.style.display = "";
 
 
+
+        var whatsstring = "Olá, eu gostaria de realizar o checkout referente aos itens: "
+
         for (i = 0; i < carrinho.length; i++) {
+            
             obj = JSON.parse(carrinho[i]);
 
             cartcounter += 1;
@@ -404,6 +416,16 @@ function cartRender() {
             if (carticon){carticon.innerHTML = cartcounter};
             if (carticon){carticon.style.display = ""};
 
+            whatsstring += ' - ' + obj.nome + ' [tamanho: ' + obj.tamanho + '] ' + ' [sku:' + obj.sku + '],'
+
+        }
+
+        if (whats1) {
+            whats1.href = 'https://wa.me/5541991595808?text=' + whatsstring
+        }
+
+        if (whats2) {
+            whats2.href = 'https://wa.me/5541991595808?text=' + whatsstring
         }
 
         //frete total price
@@ -416,37 +438,6 @@ function cartRender() {
         totalprice.className = "w3-row w3-right w3-large";
         totalprice.innerHTML = 'total: R$' + carttotal;
         carthtml.appendChild(totalprice);
-
-
-     //   avancabtn = document.createElement('button');
-       // avancabtn.className = "w3-card w3-block w3-button w3-tiny bold w3-round-large color-d3e4f5 hover-d3e4f5 ";
-       // avancabtn.innerHTML = '>';
-       // carthtml.appendChild(avancabtn);
-
-
-
-
-                //frete total price 2
-/*
-                spanprice = document.getElementById("totalprice2");
-                fretetipo2 = document.createElement("div");
-                fretetipo2.className = "w3-row";
-                fretetipo2.innerHTML = '<input type="radio" id="fretegratis" name="frete" value="gratis" checked><label for="fretegratis" class="w3-padding">frete grátis (SEDEX)</label>';
-                spanprice.appendChild(fretetipo2);
-                
-                
-        
-        
-                totalprice2 = document.createElement("p");
-                totalprice2.className = "w3-row bold w3-right w3-large";
-                totalprice2.innerHTML = 'total: R$' + carttotal;
-                console.log("add price");
-                spanprice.appendChild(totalprice2);
-
- 
-*/
-
-
 
     }
 
@@ -673,19 +664,26 @@ function makeId(length) {
     return result;
 }
 
-
-
-
-function checkoutGo()  {
-
+function checkoutGo(event)  {
+    event.preventDefault();
+/*
     if (inputemail2) {
-    if (inputemail1.value != inputemail2.value) {
+    if (inputemail1.value.toLowerCase() != inputemail2.value.toLowerCase()) {
         document.getElementById('emailwarning').style.display = 'block';
         confirmEmail();
         inputemail2.focus();
         return false;
     }
 }
+*/
+
+if (document.getElementById('website').value.length != 0) {
+    console.log('spam');
+    return
+}
+
+duplicaEndereco(document.getElementById('deliveryequalbill'), true);
+
     showLoader();
     var cartcounter = 0;
     var itemsselecionados = [];
@@ -697,84 +695,46 @@ function checkoutGo()  {
         itemsselecionados[i] = {};
         itemsselecionados[i]['Name'] = obj.nome;
         itemsselecionados[i]['Description'] = obj.tamanho;
-        itemsselecionados[i]['UnitPrice'] = null
-        itemsselecionados[i]['Quantity'] = 1;
+        itemsselecionados[i]['UnitPrice'] = obj.valor
+        itemsselecionados[i]['Quantity'] = '1';
         itemsselecionados[i]['Type'] = "Asset";
         itemsselecionados[i]['Sku'] = obj.sku;
-        itemsselecionados[i]['Weight'] = 1;
+        itemsselecionados[i]['Weight'] = '1';
         skus[i] = obj.sku;
     }
 
-    orderid = Date.now() + makeId(8);
+    let miniId = makeId(8);
+    orderid = miniId + '_' + Date.now();
 
     fbq('track', 'InitiateCheckout',{content_ids: skus, order_id: orderid});
 
 
-        /*  form para checkoutexterno
+    const data = new FormData(event.target);
+    const value = Object.fromEntries(data.entries());
+// value.topics = data.getAll("topics");
+    value.items = itemsselecionados;
+    value.OrderNumber = orderid;
+    value.SoftDescriptor = miniId;
+    value.cardNumber = value.cardNumber.replace(/\D/g, "");
 
-    */
-
-
-if (form) {
-
-
-  orderdata = {
-        "OrderNumber": orderid,
-        "SoftDescriptor": "pedido de anafonsaca.com.br",
-        "Cart": {
-            "Discount": null,
-            "Items": itemsselecionados
-        },
-        "Shipping": {
-            "SourceZipCode": null,
-            "TargetZipCode": document.getElementById("postal-code").value.replace(/\D/g, ""),
-            "Type": "Free",
-            "Services": null,
-            "Address": {
-                "Street": document.getElementById("street-address").value.toLowerCase(),
-                "Number": document.getElementById("street-number").value,
-                "Complement": document.getElementById("complement").value.toLowerCase(),
-                "District": document.getElementById("district").value.toLowerCase(),
-                "City": document.getElementById("city").value.toLowerCase(),
-                "State": document.getElementById("state").value
-            }
-        },
-        "Customer": {
-            "Identity": document.getElementById("document").value.replace(/\D/g, ""),
-            "FullName": document.getElementById("name").value.toLowerCase(),
-            "Email": document.getElementById("email").value.toLowerCase(),
-            "Phone": document.getElementById("phone").value.replace(/\D/g, "")
-        
-        },
-        "Settings": null
+    doctype = CNPJorCPFisValid(value.document);
+    if (doctype == 'cnpj') {
+        value.buyertype = 'company'
+    } else {
+        value.buyertype = 'individual'
     }
-
-} else {
-    orderdata = {
-
-        "OrderNumber": orderid,
-        "SoftDescriptor": "pedido de anafonsaca.com.br",
-        "Cart": {
-            "Discount": null,
-            "Items": itemsselecionados
-        },
-        "Shipping": {
-            "SourceZipCode": null,
-            "TargetZipCode": null,
-            "Type": "Free",
-            "Services": null,
-            "Address": null
-        },
-        "Customer": null,
-        "Settings": null
-    }
-}
-
-
+    value.phonecountry = document.getElementById('countryname').options[document.getElementById('countryname').selectedIndex].dataset.countrycode;
+    value.phoneareacode = value.phone.replace(/\D/g, "").substring(0, 2);
+    value.phone = value.phone.replace(/\D/g, "").substring(2);
+    value.deliveryphone = value.deliveryphone.replace(/\D/g, "");
+    value.document = value.document.replace(/\D/g, "");
+    value.postalcode = value.postalcode.replace(/\D/g, "");
+    value.deliverypostalcode = value.deliverypostalcode.replace(/\D/g, "");
+    value.total = carttotal.toString();
 
     var postDetails = {
         method: 'POST',
-        body: JSON.stringify(orderdata),
+        body: JSON.stringify(value),
         headers: {
             "Content-Type": "application/json; charset=utf-8"
         },
@@ -786,10 +746,9 @@ if (form) {
         {
             if ( response.status !== 200 )
             {
-                console.log( 'Looks like there was a problem. Status Code: ' +
-                    response.status );
-                   // window.alert("time out, por favor tente novamente")
-                    window.location.reload(true);
+                    console.log("O servidor de cobrança não respondeu (" + response.status + "),  tente novamente. Se o erro persistir, por favor entre em contato via whatsapp onde a nossa equipe poderá fianlizar o seu checkout pessoalmente.")
+                    //window.location.reload(true);
+                    paymentFailed();
                 return;
             }
             return response.json();
@@ -797,101 +756,147 @@ if (form) {
         )
         .then( myJson =>
         {
- 
             console.log(myJson);
-            if (myJson.includes("https://")) {
-                esvaziaCarrinho();
-              console.log("redirecionando para o checkout:")
-              window.location.href = myJson;
+            if (myJson.status == 'paid') {
+                paymentSuccess(myJson.order);
+            } else if (myJson.status == 'semestoque') {
+
+                estoqueFailed();
+            } else {
+                paymentFailed();
             }
             
         } )
-        .catch( err =>
-        {
-          console.log( 'Fetch Error :-S', err );
-          esvaziaCarrinho();
-          window.alert("estoque indisponível, por favor tente novamente");
-          window.location.reload(true);
-        } );
-
         
 };
 
-
-function unfoldAll() {
-
-
-
-
-    var x = document.getElementsByClassName("foldable");
-var i;
-for (i = 0; i < x.length; i++) {
-  x[i].style.maxHeight = null;
+function retornoteste(palavra, ordername) {
+    console.log(palavra)
+    showLoader();
+if (palavra == 'paid') {
+    console.log('pago')
+    paymentSuccess(ordername);
+} else {
+    if (palavra == 'semestoque') {
+        console.log('no estoq')
+    estoqueFailed();
+} else {
+    console.log('falha padrao')
+    paymentFailed();
 }
 }
+}
 
-function anotherCountry(country, elemen) {
 
+function paymentSuccess(ordername) {
+    document.getElementById('loadersymbol').style.display = 'none';
+    document.getElementById('loadersuccess').style.display = 'block';
+    orderlink = '/pedido?' + ordername
+    document.getElementById('pedidoinfolink').setAttribute('href', orderlink);
+    
+
+}
+
+function paymentFailed() {
+    document.getElementById('loadersymbol').style.display = 'none';
+    document.getElementById('loaderfail').style.display = 'block';
+}
+
+function estoqueFailed() {
+    esvaziaCarrinho()
+    document.getElementById('loadersymbol').style.display = 'none';
+    document.getElementById('loaderestoquefail').style.display = 'block';
+}
+
+function closeLoader() {
+    document.getElementById('loadersymbol').style.display = 'block';
+    document.getElementById('loaderfail').style.display = 'none';
+    document.getElementById('loadermodal').style.display = 'none'
+    document.getElementById('loaderestoquefail').style.display = 'none';
+    document.getElementById('loadersuccess').style.display = 'none';
+}
+
+
+function anotherCountry(country, stateelement, phoneelement, postalelement) {
+
+    
     if (country != 'BR') {
-        selector = document.getElementById(elemen);
+
+                //frete type
+                document.getElementById('intfrete').innerHTML = 'Global Shipping (With Tracking) - FREE'
+                //doc placeholder
+                document.getElementById('document').placeholder = 'PASSPORT';
+
+                //br postalcode input backup
+                postalmasked = document.getElementById(postalelement);
+                if (postalmasked.dataset.country && postalmasked.dataset.country == 'BR') {
+                    postalmaskedbackup = postalmasked.cloneNode(true);
+                    }
+                    postalmasked.remove()
+                    postalinput = document.createElement("input");
+                    postalinput.className = "w3-input w3-border w3-round-large w3-small";
+                    postalinput.type="tel";
+                    postalinput.name=postalelement;
+                    postalinput.id=postalelement;
+                    spanplace = postalelement + 'div'
+                    document.getElementById(spanplace).appendChild(postalinput);;
+
+        //br phono input backup
+        phonemasked = document.getElementById(phoneelement);
+        if (phonemasked.dataset.country && phonemasked.dataset.country == 'BR') {
+            phonemaskedbackup = phonemasked.cloneNode(true);
+            }
+            phonemasked.remove()
+            phoneinput = document.createElement("input");
+            phoneinput.className = "w3-input w3-border w3-round-large w3-small";
+            phoneinput.type="tel";
+            phoneinput.name=phoneelement;
+            phoneinput.id=phoneelement;
+            spanplace = phoneelement + 'div'
+            document.getElementById(spanplace).appendChild(phoneinput);
+
+        //br state input backup
+        selector = document.getElementById(stateelement);
         if (selector.dataset.country == 'BR') {
         statesbrasil = selector.cloneNode(true);
         }
         selector.remove()
         stateinput = document.createElement("input");
-        stateinput.className = "w3-input w3-border w3-round-large w3-tiny";
+        stateinput.className = "w3-input w3-border w3-round-large w3-small";
         stateinput.type="text";
-        stateinput.name=elemen;
-        stateinput.id=elemen;
-        selectah = elemen + 'selector'
+        stateinput.name=stateelement;
+        stateinput.id=stateelement;
+        selectah = stateelement + 'selector'
         document.getElementById(selectah).appendChild(stateinput);
     } else {
+
+              //frete type
+              document.getElementById('intfrete').innerHTML = 'frete grátis (SEDEX)'
+                        //doc placeholder
+                        document.getElementById('document').placeholder = 'CPF ou CNPJ';
+                //br postal input restore
+                if (postalmaskedbackup) {
+                    document.getElementById(postalelement).remove()
+                    spanplace = postalelement + 'div'
+                    document.getElementById(spanplace).appendChild(postalmaskedbackup);
+                }
+
+        //br phone input restore
+        if (phonemaskedbackup) {
+            document.getElementById(phoneelement).remove()
+            spanplace = phoneelement + 'div'
+            document.getElementById(spanplace).appendChild(phonemaskedbackup);
+        }
+        //br state input restore
         if (statesbrasil) {
-            document.getElementById(elemen).remove()
-            selectah = elemen + 'selector'
+            document.getElementById(stateelement).remove()
+            selectah = stateelement + 'selector'
             document.getElementById(selectah).appendChild(statesbrasil);
         }
     }
 
 
 }
-
-/*
-function dropInfo(id) {
-    console.log(id.classList);
-    document.getElementById('suacomprabuttom').classList.remove('color-ba8671');
-    //  document.getElementById('entregabuttom').classList.remove('color-e6e1d8');
-    //  document.getElementById('checkoutbuttom').classList.remove('color-d3e4f5');
-    switch(id) {
-        case 'suacompra':
-            document.getElementById('suacomprabuttom').classList.add('color-ba8671');
-          break;
-       //   case 'dadosparaentrega':
-       //     document.getElementById('entregabuttom').classList.add('color-e6e1d8');
-       //   break;
-        //  case 'pagamentos':
-        //    document.getElementById('checkoutbuttom').classList.add('color-d3e4f5');
-        //  break;
-      }
-
-
-    unfoldAll()
-    var x = document.getElementById(id);
-
-    if (x.style.maxHeight) {
-        x.style.maxHeight = null;
-      } else {
-        x.style.maxHeight = x.scrollHeight + "px";
-      } 
-
-  }
-
-  function dropInfoOpen(id) {
-    unfoldAll()
-    var x = document.getElementById(id);
-    x.style.maxHeight = x.scrollHeight + "px";
-  }
-*/
 
 
   function showLoader() {
@@ -917,6 +922,7 @@ function dropInfo(id) {
         .reduce((soma, el, i) => soma + el * (count - i), 0) * 10) % 11 % 10
     return !(rest(10,2) !== validator[0] || rest(11,1) !== validator[1])
 }
+
 
 //Facebook Pixel Code
 
@@ -976,22 +982,6 @@ const mask = {
         .replace(/(\d{5})(\d)/, '$1-$2')
         .replace(/(-\d{3})\d+?$/, '$1');
     },
-    vencimento(value) {
-        return value
-          .replace(/\D/g, '')
-          .replace(/(\d{2})(\d)/, '$1-$2')
-          .replace(/(-\d{2})\d+?$/, '$1').replace(/\-/g, "/");
-
-      },
-  
-    pis(value) {
-      return value
-        .replace(/\D/g, '')
-        .replace(/(\d{3})(\d)/, '$1.$2')
-        .replace(/(\d{5})(\d)/, '$1.$2')
-        .replace(/(\d{5})\.(\d{2})(\d)/, '$1$2-$3')
-        .replace(/(-\d)\d+?$/, '$1');
-    },
   
     cartao(value) {
       return value
@@ -1003,13 +993,8 @@ const mask = {
     },
   };
   
-  document.querySelectorAll('.mask').forEach((input) => {
-    const field = input.dataset.js; 
+
   
-    input.addEventListener('input', (event) => {
-      event.target.value = mask[field](event.target.value);
-    });
-  });
   
  
   
@@ -1019,18 +1004,50 @@ function focusDiv(card) {
  var els = document.getElementsByClassName("focuseable")
  Array.prototype.forEach.call(els, function(el) {
     if ( el.id == card.id ) {
-        el.classList.replace('w3-card', 'w3-card-4');
+        el.classList.replace('w3-card-4', 'w3-card');
     } else {
-        el.classList.replace('w3-card-4', 'w3-card'); 
+        el.classList.replace('w3-card', 'w3-card-4'); 
     }
 });
+
+let formElements = form.elements; // get the elements in the form
+
+
+const getFormData = () => {
+    let data = {
+        [formId]: {}
+    };
+    for (const element of formElements) {
+        
+        if (element.name.length > 0 && ! element.classList.contains('dontsave')) {
+            data[formId][element.name] = element.value;
+        } 
+    }
+    return data;
+};
+
+data = getFormData();
+localStorage.setItem(formId, JSON.stringify(data[formId]));
 }
 
-function duplicaEndereco(checkbox) {
+function duplicaEndereco(checkbox, savedelivery) {
     if (checkbox.checked) {
         document.getElementById("formentrega").style.display = 'none';
+        var deliverrequired = document.getElementsByClassName("deliveryform");
+        for (var i = 0; i < deliverrequired.length; i++) {
+            if (savedelivery) {
+                deliverrequired.item(i).value = document.getElementById(deliverrequired.item(i).name.replace('delivery','')).value;
+            }
+
+            deliverrequired.item(i).required = false;
+    }
     } else {
         document.getElementById("formentrega").style.display = 'block';
+
+    var deliverrequired = document.getElementsByClassName("deliveryform");
+    for (var i = 0; i < deliverrequired.length; i++) {
+        deliverrequired.item(i).required = true;
+}
     }
 }
 
@@ -1042,7 +1059,6 @@ cartRender();
 
 
 if (form) {
-
 
 form.addEventListener("submit", checkoutGo);
 
@@ -1177,41 +1193,3 @@ cartmodal.addEventListener('click', function (e) {
         return false;
     }
 
-    function tokenizeCard()  {
-
- 
-        var cardata = {
-     
-             "type": 'card',
-             "card" : {
-                 "holder_name": 'Frederico Flores',
-                 "number": '4242424242424242',
-                 "exp_month": '03',
-                 "exp_year": '2026',
-                 "cvv": '376',
-                 "holder_document": '05099450903'
-             }
-         }
-     
-     
-     
-     
-         var postDetails = {
-             method: 'POST',
-             body: JSON.stringify(cardata),
-             headers: {
-                 "Content-Type": "application/json; charset=utf-8"
-             },
-             mode: "cors"
-         };
-     
-         fetch( 'https://api.pagar.me/core/v5/tokens?appId=pk_Av7q1bktqRionypK', postDetails )
-             .then( response =>
-             {
-                 console.log(response);
-             });
-     
-             
-     };
-
-    

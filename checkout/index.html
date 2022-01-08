@@ -40,23 +40,24 @@
 
     <!-- Links (sit on top) -->
     <div class="">
+      
       <div class="w3-bar w3-padding w3-white">
- 
-          <a href="/" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:25%">home</a>
+
+
+        <a href="/" class="w3-bar-item w3-button w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">home</a>
      
        
-          <a href="/about" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:25%">about</a>
+        <a href="/about" class="w3-bar-item w3-button w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">about</a>
+  
+ <!--
+        <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
     
-   <!--
-          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
-      
-    -->  
-          <a href="/shop" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:25%">shop</a>
-      
-      
-          <button onclick="history.back()" class="w3-bar-item w3-button w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb" style="width:25%"><img src="/assets/voltar.png" alt="sacola de compras" height="10" style="display: inline;vertical-align: middle;"></button>
-  
-  
+  -->  
+        <a href="/shop" class="w3-bar-item w3-button w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">shop</a>
+    
+    
+        <button onclick="history.back()" class="w3-bar-item w3-button color-ffffff w3-round-large w3-xsmall hover-f2f0eb" style="width:20%; margin-left:2.5%; margin-right:2.5%"><img src="/assets/voltar.png" alt="sacola de compras" height="10" style="display: inline;vertical-align: middle;"></button>
+        
    
       </div>
     </div>
@@ -80,10 +81,10 @@
         <div class="w3-row-padding w3-margin-bottom">
           <form id="checkoutform" onsubmit="event.preventDefault();">
           <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">dados do comprador</h2>
-        <div class="w3-card w3-animate-left w3-round-large w3-row-padding focuseable" id="card-dadosdocomprador" onclick="focusDiv(this)">
+        <div class="w3-card-4 w3-animate-left w3-round-large w3-row-padding focuseable" id="card-dadosdocomprador" onclick="focusDiv(this)">
           <div class="w3-padding w3-row w3-margin-top">
             <label class="w3-tiny bold">nome completo:</label>
-            <input class="w3-input w3-border w3-round-large w3-small" type="text" name="name" id="name" required pattern="\S+.*" required>
+            <input class="w3-input w3-border w3-round-large w3-small" type="text" name="name" id="name" required pattern="\S+.*" required oninput="cardHolderNameCopy()">
           </div>
           <div class="w3-row">
 
@@ -92,304 +93,284 @@
   <label class="w3-tiny bold">email:</label>
   <input class="w3-input w3-border w3-round-large w3-small" type="email"  name="email" id="email" required pattern="\S+.*" required >
 </div>
+
+<div class="w3-padding w3-col s6">
+  <label class="w3-tiny bold">documento: </label>
+    <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="document" id="document" placeholder="CPF ou CNPJ" onblur="if (! CNPJorCPFisValid(this.value)) {this.classList.add('w3-border-red')} else {this.classList.remove('w3-border-red'); this.value = mask[CNPJorCPFisValid(this.value)](this.value)}" required>
+</div>
+
+
+
+
+<!--
 <div class="w3-padding w3-col s6">
   <label class="w3-tiny">email (comfirmação):</label>
-  <input class="w3-input w3-border w3-round-large w3-small" type="email-confirmation" name="email-confirmation" id="email-confirmation" onkeyup="confirmEmail()" required>
+  <input class="w3-input w3-border w3-round-large w3-small" type="emailconfirmation" name="emailconfirmation" id="emailconfirmation" onkeyup="confirmEmail()" required>
   <label class="w3-tiny w3-text-red" id="emailwarning" style="display:none;">os campos dos emails precisam estar iguais</label>
 </div>
+-->
 </div>
 <div class="w3-row">
-<div class="w3-padding w3-col s6">
-  <label class="w3-tiny bold">documento (cpf ou cnpj): </label>
-    <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="document" id="document" required>
-</div>
-<div class="w3-padding w3-col s6">
-  <label class="w3-tiny bold">cep:</label>
-    <input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="postal-code" id="postal-code" data-js="cep" onkeyup="fimDoCep(this.value, 'street-address', 'district', 'city', 'state')" required>
-</div>
-
-
-</div>
-<div class="w3-row">
-
   <div class="w3-padding w3-col s6">
-    <label for="country-name" class="w3-tiny bold">país:</label>
-    <select id="country-name" onchange="anotherCountry(this.value, 'state')" name="country-name" class="w3-input w3-border w3-round-large w3-small">
-      <option value="AA">Aruba</option>
-      <option value="AC">Antígua e Barbuda</option>
-      <option value="AE">Emirados Árabes Unidos</option>
-      <option value="AF">Afeganistão</option>
-      <option value="AG">Argélia</option>
-      <option value="AJ">Azerbaijão</option>
-      <option value="AL">Albânia</option>
-      <option value="AM">Armênia</option>
-      <option value="AN">Andorra</option>
-      <option value="AO">Angola</option>
-      <option value="AQ">Samoa Americana</option>
-      <option value="AR">Argentina</option>
-      <option value="AS">Austrália</option>
-      <option value="AT">Ilhas Ashmore e Cartier</option>
-      <option value="AU">Áustria</option>
-      <option value="AV">Anguilla</option>
-      <option value="AX">Acrotíri</option>
-      <option value="AY">Antártica</option>
-      <option value="AZ">açores</option>
-      <option value="BA">Bahrain</option>
-      <option value="BB">Barbados</option>
-      <option value="BC">Botswana</option>
-      <option value="BD">Bermudas</option>
-      <option value="BE">Bélgica</option>
-      <option value="BF">Bahamas</option>
-      <option value="BG">Bangladesh</option>
-      <option value="BH">Belize</option>
-      <option value="BK">Bósnia e Herzegovina</option>
-      <option value="BL">Bolívia</option>
-      <option value="BM">Birmânia Myanmar</option>
-      <option value="BN">Benim</option>
-      <option value="BO">Bielorrússia</option>
-      <option value="BP">Ilhas Salomão</option>
-      <option value="BQ">Ilha Navassa</option>
-      <option value="BR" selected>Brasil</option>
-      <option value="BT">Butão</option>
-      <option value="BU">Bulgária</option>
-      <option value="BV">Ilha Bouvet</option>
-      <option value="BX">Brunei</option>
-      <option value="BY">Burundi</option>
-      <option value="CA">Canadá</option>
-      <option value="CB">Camboja</option>
-      <option value="CD">Chade</option>
-      <option value="CE">Sri Lanka</option>
-      <option value="CF">República do Congo</option>
-      <option value="CG">República Democrática do Congo</option>
-      <option value="CH">República Popular da China</option>
-      <option value="CL">Chile</option>
-      <option value="CJ">Ilhas Cayman</option>
-      <option value="CK">Ilhas Cocos Keeling</option>
-      <option value="CM">Camarões</option>
-      <option value="CN">Comores</option>
-      <option value="CO">Colômbia</option>
-      <option value="CQ">Ilhas Marianas do Norte</option>
-      <option value="CR">Ilhas do Mar de Coral</option>
-      <option value="CS">Costa Rica</option>
-      <option value="CT">República Centro-Africana</option>
-      <option value="CU">Cuba</option>
-      <option value="CV">Cabo Verde</option>
-      <option value="CW">Ilhas Cook</option>
-      <option value="CY">Chipre</option>
-      <option value="CZ">República Tcheca</option>
-      <option value="DA">Dinamarca</option>
-      <option value="DJ">Djibouti</option>
-      <option value="DO">Dominica</option>
-      <option value="DQ">Ilha Jarvis</option>
-      <option value="DR">República Dominicana</option>
-      <option value="DX">Deceleia</option>
-      <option value="EC">Equador</option>
-      <option value="EG">Egito</option>
-      <option value="EI">Irlanda</option>
-      <option value="EK">Guiné Equatorial</option>
-      <option value="EN">Estónia</option>
-      <option value="ER">Eritreia</option>
-      <option value="ES">El Salvador</option>
-      <option value="ET">Etiópia</option>
-      <option value="EZ">República Checa</option>
-      <option value="FG">Guiana Francesa</option>
-      <option value="FI">Finlândia</option>
-      <option value="FJ">Fiji</option>
-      <option value="FK">Ilhas Falkland Ilhas Malvinas</option>
-      <option value="FM">Estados Federados da Micronésia</option>
-      <option value="FO">Ilhas Feroe</option>
-      <option value="FP">Polinésia Francesa</option>
-      <option value="FQ">Ilha Baker</option>
-      <option value="FR">França</option>
-      <option value="FS">Terras Austrais e Antárticas Francesas</option>
-      <option value="GA">Gâmbia</option>
-      <option value="GB">Gabão</option>
-      <option value="GF">Guiana francesa</option>
-      <option value="GG">Geórgia</option>
-      <option value="GH">Gana</option>
-      <option value="GI">Gibraltar</option>
-      <option value="GJ">Granada</option>
-      <option value="GK">Guernsey</option>
-      <option value="GL">Gronelândia</option>
-      <option value="GM">Alemanha</option>
-      <option value="GP">Guadalupe</option>
-      <option value="GQ">Guam</option>
-      <option value="GR">Grécia</option>
-      <option value="GT">Guatemala</option>
-      <option value="GV">Guiné</option>
-      <option value="GW">Guiné-Bissau</option>
-      <option value="GY">Guiana</option>
-      <option value="GZ">Faixa de Gaza</option>
-      <option value="HA">Haiti</option>
-      <option value="HK">Hong Kong</option>
-      <option value="HM">Ilha Heard e Ilhas McDonald</option>
-      <option value="HO">Honduras</option>
-      <option value="HQ">Ilha Howland</option>
-      <option value="HR">Croácia</option>
-      <option value="HU">Hungria</option>
-      <option value="IC">Islândia</option>
-      <option value="ID">Indonésia</option>
-      <option value="IM">Ilha de Man</option>
-      <option value="IN">Índia</option>
-      <option value="IO">Território Britânico do Oceano Índico</option>
-      <option value="IP">Ilha de Clipperton</option>
-      <option value="IR">Irão</option>
-      <option value="IS">Israel</option>
-      <option value="IT">Itália</option>
-      <option value="CI">Costa do Marfim</option>
-      <option value="IZ">Iraque</option>
-      <option value="JP">Japão</option>
-      <option value="JE">Jersey</option>
-      <option value="JM">Jamaica</option>
-      <option value="JN">Jan Mayen</option>
-      <option value="JO">Jordânia</option>
-      <option value="JQ">Atol Johnston</option>
-      <option value="KE">Quénia</option>
-      <option value="KG">Quirguistão</option>
-      <option value="KN">Coreia do Norte</option>
-      <option value="KQ">Recife Kingman</option>
-      <option value="KR">Kiribati</option>
-      <option value="KS">Coreia do Sul</option>
-      <option value="KT">Ilha Christmas</option>
-      <option value="KU">Kuwait</option>
-      <option value="KV">Cazaquistão</option>
-      <option value="LA">Laos</option>
-      <option value="LE">Líbano</option>
-      <option value="LG">Letónia</option>
-      <option value="LH">Lituânia</option>
-      <option value="LI">Libéria</option>
-      <option value="LO">Eslováquia</option>
-      <option value="LP">Latin Purificado</option>
-      <option value="LQ">Atol Palmyra</option>
-      <option value="LS">Liechtenstein</option>
-      <option value="LT">Lesoto</option>
-      <option value="LU">Luxemburgo</option>
-      <option value="LY">Líbia</option>
-      <option value="MA">Marrocos</option>
-      <option value="MB">Martinica</option>
-      <option value="MC">Macau</option>
-      <option value="MD">Moldávia</option>
-      <option value="ME">Madeira</option>
-      <option value="MF">Mayotte</option>
-      <option value="MG">Mongólia</option>
-      <option value="MH">Montserrat</option>
-      <option value="MI">Malawi</option>
-      <option value="MJ">Montenegro</option>
-      <option value="MK">Macedônia</option>
-      <option value="ML">Mali</option>
-      <option value="MN">Mônaco</option>
-      <option value="MP">Maurícia</option>
-      <option value="MQ">Atol de Midway</option>
-      <option value="MR">Mauritânia</option>
-      <option value="MT">Malta</option>
-      <option value="MU">Omã</option>
-      <option value="MV">Maldivas</option>
-      <option value="MX">México</option>
-      <option value="MY">Malásia</option>
-      <option value="MZ">Moçambique</option>
-      <option value="NC">Nova Caledônia</option>
-      <option value="NE">Niue</option>
-      <option value="NF">Ilha Norfolk</option>
-      <option value="NG">Níger</option>
-      <option value="NH">Vanuatu</option>
-      <option value="NI">Nigéria</option>
-      <option value="NL">Países Baixos</option>
-      <option value="NO">Noruega</option>
-      <option value="NP">Nepal</option>
-      <option value="NR">Nauru</option>
-      <option value="NS">Suriname</option>
-      <option value="NT">Antilhas Holandesas</option>
-      <option value="NU">Nicarágua</option>
-      <option value="NZ">Nova Zelândia</option>
-      <option value="PA">Paraguai</option>
-      <option value="PC">Ilhas Pitcairn</option>
-      <option value="PE">Peru</option>
-      <option value="PF">Ilhas Paracel</option>
-      <option value="PG">Ilhas Spratly</option>
-      <option value="PK">Paquistão</option>
-      <option value="PL">Polônia</option>
-      <option value="PM">Panamá</option>
-      <option value="PT">Portugal</option>
-      <option value="PP">Papua-Nova Guiné</option>
-      <option value="PS">Palau</option>
-      <option value="PU">Guiné-Bissau</option>
-      <option value="QA">Qatar</option>
-      <option value="RE">Reunião</option>
-      <option value="RI">Sérvia</option>
-      <option value="RM">Ilhas Marshall</option>
-      <option value="RN">Saint Martin</option>
-      <option value="RO">Roménia</option>
-      <option value="RP">Filipinas</option>
-      <option value="RQ">Porto Rico</option>
-      <option value="RS">Rússia</option>
-      <option value="RW">Ruanda</option>
-      <option value="SA">Arábia Saudita</option>
-      <option value="SB">Saint Pierre e Miquelon</option>
-      <option value="SC">São Cristóvão e Nevis</option>
-      <option value="SE">Seychelles</option>
-      <option value="SF">África do Sul</option>
-      <option value="SG">Senegal</option>
-      <option value="SH">Santa Helena território</option>
-      <option value="SI">Eslovénia</option>
-      <option value="SL">Serra Leoa</option>
-      <option value="SM">San Marino</option>
-      <option value="SN">Singapura</option>
-      <option value="SO">Somália</option>
-      <option value="SP">Espanha</option>
-      <option value="ST">Santa Lúcia</option>
-      <option value="SU">Sudão</option>
-      <option value="SV">Svalbard</option>
-      <option value="SW">Suécia</option>
-      <option value="SX">Ilhas Geórgia do Sul e Sandwich do Sul</option>
-      <option value="SY">Síria</option>
-      <option value="SZ">Suiça</option>
-      <option value="TB">Saint-Barthélemy Antilhas francesas</option>
-      <option value="TD">Trinidad e Tobago</option>
-      <option value="TH">Tailândia</option>
-      <option value="TI">Tadjiquistão</option>
-      <option value="TK">Ilhas Turks e Caicos</option>
-      <option value="TL">Tokelau</option>
-      <option value="TN">Tonga</option>
-      <option value="TO">Togo</option>
-      <option value="TP">São Tomé e Príncipe</option>
-      <option value="TS">Tunísia</option>
-      <option value="TT">Timor-Leste</option>
-      <option value="TR">Turquia</option>
-      <option value="TV">Tuvalu</option>
-      <option value="TW">Taiwan</option>
-      <option value="TX">Turquemenistão</option>
-      <option value="TZ">Tanzânia</option>
-      <option value="UG">Uganda</option>
-      <option value="UK">Reino Unido</option>
-      <option value="UP">Ucrânia</option>
-      <option value="US">Estados Unidos</option>
-      <option value="UV">Burkina Faso</option>
-      <option value="UY">Uruguai</option>
-      <option value="UZ">Uzbequistão</option>
-      <option value="VC">São Vicente e Granadinas</option>
-      <option value="VE">Venezuela</option>
-      <option value="VI">Ilhas Virgens Britânicas</option>
-      <option value="VM">Vietname</option>
-      <option value="VQ">Ilhas Virgens Americanas</option>
-      <option value="VT">Vaticano</option>
-      <option value="WA">Namíbia</option>
-      <option value="WE">Cisjordânia</option>
-      <option value="WF">Wallis e Futuna</option>
-      <option value="WI">Saara Ocidental</option>
-      <option value="WQ">Ilha Wake</option>
-      <option value="WS">Samoa</option>
-      <option value="WZ">Suazilândia</option>
-      <option value="YM">Iémen</option>
-      <option value="ZA">Zâmbia</option>
-      <option value="ZI">Zimbabwe</option>
-    </select>
+    <label for="countryname" class="w3-tiny bold">país:</label>
+    <select id="countryname" onchange="anotherCountry(this.value, 'state', 'phone', 'postalcode')" name="countryname" class="w3-input w3-border w3-round-large w3-small">
+        <option value="AF" data-countrycode="93">&#x1F1E6&#x1F1EB Afghanistan (+93)</option>
+        <option value="AL" data-countrycode="355">&#x1F1E6&#x1F1FD Albania (+355)</option>
+        <option value="DZ" data-countrycode="213">&#x1F1E9&#x1F1FF Algeria (+213)</option>
+        <option value="AD" data-countrycode="376">&#x1F1E6&#x1F1E9 Andorra (+376)</option>
+        <option value="AO" data-countrycode="244">&#x1F1E6&#x1F1F4 Angola (+244)</option>
+        <option value="AI" data-countrycode="1264">&#x1F1E6&#x1F1EE Anguilla (+1264)</option>
+        <option value="AG" data-countrycode="1268">&#x1F1E6&#x1F1EC Antigua &amp; Barbuda (+1268)</option>
+        <option value="AR" data-countrycode="54">&#x1F1E6&#x1F1F7 Argentina (+54)</option>
+        <option value="AM" data-countrycode="374">&#x1F1E6&#x1F1F2 Armenia (+374)</option>
+        <option value="AW" data-countrycode="297">&#x1F1E6&#x1F1FC Aruba (+297)</option>
+        <option value="AC" data-countrycode="247">&#x1F1E6&#x1F1E8 Ascension Island (+247)</option>
+        <option value="AU" data-countrycode="61">&#x1F1E6&#x1F1FA Australia (+61)</option>
+        <option value="AT" data-countrycode="43">&#x1F1E6&#x1F1F9 Austria (+43)</option>
+        <option value="AZ" data-countrycode="994">&#x1F1E6&#x1F1FF Azerbaijan (+994)</option>
+        <option value="BS" data-countrycode="1242">&#x1F1E7&#x1F1F8 Bahamas (+1242)</option>
+        <option value="BH" data-countrycode="973">&#x1F1E7&#x1F1ED Bahrain (+973)</option>
+        <option value="BD" data-countrycode="880">&#x1F1E7&#x1F1E9 Bangladesh (+880)</option>
+        <option value="BB" data-countrycode="1246">&#x1F1E7&#x1F1E7 Barbados (+1246)</option>
+        <option value="BY" data-countrycode="375">&#x1F1E7&#x1F1FE Belarus (+375)</option>
+        <option value="BE" data-countrycode="32">&#x1F1E7&#x1F1EA Belgium (+32)</option>
+        <option value="BZ" data-countrycode="501">&#x1F1E7&#x1F1FF Belize (+501)</option>
+        <option value="BJ" data-countrycode="229">&#x1F1E7&#x1F1EF Benin (+229)</option>
+        <option value="BM" data-countrycode="1441">&#x1F1E7&#x1F1F2 Bermuda (+1441)</option>
+        <option value="BT" data-countrycode="975">&#x1F1E7&#x1F1F9 Bhutan (+975)</option>
+        <option value="BO" data-countrycode="591">&#x1F1E7&#x1F1F4 Bolivia (+591)</option>
+        <option value="BQ" data-countrycode="599">&#x1F1E7&#x1F1F6 Bonaire, Saba and Sint Eustatius (+599)</option>
+        <option value="BA" data-countrycode="387">&#x1F1E7&#x1F1E6 Bosnia Herzegovina (+387)</option>
+        <option value="BW" data-countrycode="267">&#x1F1E7&#x1F1FC Botswana (+267)</option>
+        <option value="BR" data-countrycode="55" selected>&#x1F1E7&#x1F1F7 Brasil (+55)</option>
+        <option value="IO" data-countrycode="246">&#x1F1EE&#x1F1F4 British Indian Ocean Territory (+246)</option>
+        <option value="BN" data-countrycode="673">&#x1F1E7&#x1F1F3 Brunei (+673)</option>
+        <option value="BG" data-countrycode="359">&#x1F1E7&#x1F1EC Bulgaria (+359)</option>
+        <option value="BF" data-countrycode="226">&#x1F1E7&#x1F1EB Burkina Faso (+226)</option>
+        <option value="BI" data-countrycode="257">&#x1F1E7&#x1F1EE Burundi (+257)</option>
+        <option value="KH" data-countrycode="855">&#x1F1F0&#x1F1ED Cambodia (+855)</option>
+        <option value="CM" data-countrycode="237">&#x1F1E8&#x1F1F2 Cameroon (+237)</option>
+        <option value="CA" data-countrycode="1">&#x1F1E8&#x1F1E6 Canada (+1)</option>
+        <option value="CV" data-countrycode="238">&#x1F1E8&#x1F1FB Cape Verde Islands (+238)</option>
+        <option value="KY" data-countrycode="1345">&#x1F1F0&#x1F1FE Cayman Islands (+1345)</option>
+        <option value="CF" data-countrycode="236">&#x1F1E8&#x1F1EB Central African Republic (+236)</option>
+        <option value="TD" data-countrycode="235">&#x1F1F9&#x1F1E9 Chad (+235)</option>
+        <option value="CL" data-countrycode="56">&#x1F1E8&#x1F1F1 Chile (+56)</option>
+        <option value="CN" data-countrycode="86">&#x1F1E8&#x1F1F3 China (+86)</option>
+        <option value="CO" data-countrycode="57">&#x1F1E8&#x1F1F4 Colombia (+57)</option>
+        <option value="KM" data-countrycode="269">&#x1F1F0&#x1F1F2 Comoros (+269)</option>
+        <option value="CG" data-countrycode="242">&#x1F1E8&#x1F1EC Congo (+242)</option>
+        <option value="CD" data-countrycode="243">&#x1F1E8&#x1F1E9 Congo, Democratic Republic of the (+243)</option>
+        <option value="CK" data-countrycode="682">&#x1F1E8&#x1F1F0 Cook Islands (+682)</option>
+        <option value="CR" data-countrycode="506">&#x1F1E8&#x1F1F7 Costa Rica (+506)</option>
+        <option value="HR" data-countrycode="385">&#x1F1ED&#x1F1F7 Croatia (+385)</option>
+        <option value="CU" data-countrycode="53">&#x1F1E8&#x1F1FA Cuba (+53)</option>
+        <option value="CW" data-countrycode="5999">&#x1F1E8&#x1F1FC Curaçao (+5999)</option>
+        <option value="CY" data-countrycode="357">&#x1F1E8&#x1F1FE Cyprus (+357)</option>
+        <option value="CZ" data-countrycode="420">&#x1F1E8&#x1F1FF Czech Republic (+420)</option>
+        <option value="DK" data-countrycode="45">&#x1F1E9&#x1F1F0 Denmark (+45)</option>
+        <option value="DJ" data-countrycode="253">&#x1F1E9&#x1F1EF Djibouti (+253)</option>
+        <option value="DM" data-countrycode="1767">&#x1F1E9&#x1F1F2 Dominica (+1767)</option>
+        <option value="DO" data-countrycode="1809">&#x1F1E9&#x1F1F4 Dominican Republic (+1809)</option>
+        <option value="TL" data-countrycode="670">&#x1F1F9&#x1F1F1 East Timor (+670)</option>
+        <option value="EC" data-countrycode="593">&#x1F1EA&#x1F1E8 Ecuador (+593)</option>
+        <option value="EG" data-countrycode="20">&#x1F1EA&#x1F1EC Egypt (+20)</option>
+        <option value="SV" data-countrycode="503">&#x1F1F8&#x1F1FB El Salvador (+503)</option>
+        <option value="GQ" data-countrycode="240">&#x1F1EC&#x1F1F6 Equatorial Guinea (+240)</option>
+        <option value="ER" data-countrycode="291">&#x1F1EA&#x1F1F7 Eritrea (+291)</option>
+        <option value="EE" data-countrycode="372">&#x1F1EA&#x1F1EA Estonia (+372)</option>
+        <option value="SZ" data-countrycode="268">&#x1F1F8&#x1F1FF Eswatini (+268)</option>
+        <option value="ET" data-countrycode="251">&#x1F1EA&#x1F1F9 Ethiopia (+251)</option>
+        <option value="FK" data-countrycode="500">&#x1F1EB&#x1F1F0 Falkland Islands (+500)</option>
+        <option value="FO" data-countrycode="298">&#x1F1EB&#x1F1F4 Faroe Islands (+298)</option>
+        <option value="FJ" data-countrycode="679">&#x1F1EB&#x1F1EF Fiji (+679)</option>
+        <option value="FI" data-countrycode="358">&#x1F1EB&#x1F1EE Finland (+358)</option>
+        <option value="FR" data-countrycode="33">&#x1F1EB&#x1F1F7 France (+33)</option>
+        <option value="GF" data-countrycode="594">&#x1F1EC&#x1F1EB French Guiana (+594)</option>
+        <option value="PF" data-countrycode="689">&#x1F1F5&#x1F1EB French Polynesia (+689)</option>
+        <option value="GA" data-countrycode="241">&#x1F1EC&#x1F1E6 Gabon (+241)</option>
+        <option value="GM" data-countrycode="220">&#x1F1EC&#x1F1F2 Gambia (+220)</option>
+        <option value="GE" data-countrycode="995">&#x1F1EC&#x1F1EA Georgia (+995)</option>
+        <option value="DE" data-countrycode="49">&#x1F1E9&#x1F1EA Germany (+49)</option>
+        <option value="GH" data-countrycode="233">&#x1F1EC&#x1F1ED Ghana (+233)</option>
+        <option value="GI" data-countrycode="350">&#x1F1EC&#x1F1EE Gibraltar (+350)</option>
+        <option value="GR" data-countrycode="30">&#x1F1EC&#x1F1F7 Greece (+30)</option>
+        <option value="GL" data-countrycode="299">&#x1F1EC&#x1F1F1 Greenland (+299)</option>
+        <option value="GD" data-countrycode="1473">&#x1F1EC&#x1F1E9 Grenada (+1473)</option>
+        <option value="GP" data-countrycode="590">&#x1F1EC&#x1F1F5 Guadeloupe (+590)</option>
+        <option value="GU" data-countrycode="1671">&#x1F1EC&#x1F1FA Guam (+1671)</option>
+        <option value="GT" data-countrycode="502">&#x1F1EC&#x1F1F9 Guatemala (+502)</option>
+        <option value="GN" data-countrycode="224">&#x1F1EC&#x1F1F3 Guinea (+224)</option>
+        <option value="GW" data-countrycode="245">&#x1F1EC&#x1F1FC Guinea - Bissau (+245)</option>
+        <option value="GY" data-countrycode="592">&#x1F1EC&#x1F1FE Guyana (+592)</option>
+        <option value="HT" data-countrycode="509">&#x1F1ED&#x1F1F9 Haiti (+509)</option>
+        <option value="HN" data-countrycode="504">&#x1F1ED&#x1F1F3 Honduras (+504)</option>
+        <option value="HK" data-countrycode="852">&#x1F1ED&#x1F1F0 Hong Kong (+852)</option>
+        <option value="HU" data-countrycode="36">&#x1F1ED&#x1F1FA Hungary (+36)</option>
+        <option value="IS" data-countrycode="354">&#x1F1EE&#x1F1F8 Iceland (+354)</option>
+        <option value="IN" data-countrycode="91">&#x1F1EE&#x1F1F3 India (+91)</option>
+        <option value="ID" data-countrycode="62">&#x1F1EE&#x1F1E9 Indonesia (+62)</option>
+        <option value="IR" data-countrycode="98">&#x1F1EE&#x1F1F7 Iran (+98)</option>
+        <option value="IQ" data-countrycode="964">&#x1F1EE&#x1F1F6 Iraq (+964)</option>
+        <option value="IE" data-countrycode="353">&#x1F1EE&#x1F1EA Ireland (+353)</option>
+        <option value="IL" data-countrycode="972">&#x1F1EE&#x1F1F1 Israel (+972)</option>
+        <option value="IT" data-countrycode="39">&#x1F1EE&#x1F1F9 Italy (+39)</option>
+        <option value="CI" data-countrycode="225">&#x1F1E8&#x1F1EE Ivory Coast (+225)</option>
+        <option value="JM" data-countrycode="1876">&#x1F1EF&#x1F1F2 Jamaica (+1876)</option>
+        <option value="JP" data-countrycode="81">&#x1F1EF&#x1F1F5 Japan (+81)</option>
+        <option value="JO" data-countrycode="962">&#x1F1EF&#x1F1F4 Jordan (+962)</option>
+        <option value="KZ" data-countrycode="7">&#x1F1F0&#x1F1FF Kazakhstan (+7)</option>
+        <option value="KE" data-countrycode="254">&#x1F1F0&#x1F1EA Kenya (+254)</option>
+        <option value="KI" data-countrycode="686">&#x1F1F0&#x1F1EE Kiribati (+686)</option>
+        <option value="KP" data-countrycode="850">&#x1F1F0&#x1F1F5 Korea, North (+850)</option>
+        <option value="KR" data-countrycode="82">&#x1F1F0&#x1F1F7 Korea, South (+82)</option>
+        <option value="XK" data-countrycode="383">&#x1F1FD&#x1F1F0 Kosovo (+383)</option>
+        <option value="KW" data-countrycode="965">&#x1F1F0&#x1F1FC Kuwait (+965)</option>
+        <option value="KG" data-countrycode="996">&#x1F1F0&#x1F1EC Kyrgyzstan (+996)</option>
+        <option value="LA" data-countrycode="856">&#x1F1F1&#x1F1E6 Laos (+856)</option>
+        <option value="LV" data-countrycode="371">&#x1F1F1&#x1F1FB Latvia (+371)</option>
+        <option value="LB" data-countrycode="961">&#x1F1F1&#x1F1E7 Lebanon (+961)</option>
+        <option value="LS" data-countrycode="266">&#x1F1F1&#x1F1F8 Lesotho (+266)</option>
+        <option value="LR" data-countrycode="231">&#x1F1F1&#x1F1F7 Liberia (+231)</option>
+        <option value="LY" data-countrycode="218">&#x1F1F1&#x1F1FE Libya (+218)</option>
+        <option value="LI" data-countrycode="423">&#x1F1F1&#x1F1EE Liechtenstein (+423)</option>
+        <option value="LT" data-countrycode="370">&#x1F1F1&#x1F1F9 Lithuania (+370)</option>
+        <option value="LU" data-countrycode="352">&#x1F1F1&#x1F1FA Luxembourg (+352)</option>
+        <option value="MO" data-countrycode="853">&#x1F1F2&#x1F1F4 Macao (+853)</option>
+        <option value="MK" data-countrycode="389">&#x1F1F2&#x1F1F0 Macedonia (+389)</option>
+        <option value="MG" data-countrycode="261">&#x1F1F2&#x1F1EC Madagascar (+261)</option>
+        <option value="MW" data-countrycode="265">&#x1F1F2&#x1F1FC Malawi (+265)</option>
+        <option value="MY" data-countrycode="60">&#x1F1F2&#x1F1FE Malaysia (+60)</option>
+        <option value="MV" data-countrycode="960">&#x1F1F2&#x1F1FB Maldives (+960)</option>
+        <option value="ML" data-countrycode="223">&#x1F1F2&#x1F1F1 Mali (+223)</option>
+        <option value="MT" data-countrycode="356">&#x1F1F2&#x1F1F9 Malta (+356)</option>
+        <option value="MH" data-countrycode="692">&#x1F1F2&#x1F1ED Marshall Islands (+692)</option>
+        <option value="MQ" data-countrycode="596">&#x1F1F2&#x1F1F6 Martinique (+596)</option>
+        <option value="MR" data-countrycode="222">&#x1F1F2&#x1F1F7 Mauritania (+222)</option>
+        <option value="MU" data-countrycode="230">&#x1F1F2&#x1F1FA Mauritius (+230)</option>
+        <option value="YT" data-countrycode="262">&#x1F1FE&#x1F1F9 Mayotte (+262)</option>
+        <option value="MX" data-countrycode="52">&#x1F1F2&#x1F1FD Mexico (+52)</option>
+        <option value="FM" data-countrycode="691">&#x1F1EB&#x1F1F2 Micronesia (+691)</option>
+        <option value="MD" data-countrycode="373">&#x1F1F2&#x1F1E9 Moldova (+373)</option>
+        <option value="MC" data-countrycode="377">&#x1F1F2&#x1F1E8 Monaco (+377)</option>
+        <option value="MN" data-countrycode="976">&#x1F1F2&#x1F1F3 Mongolia (+976)</option>
+        <option value="ME" data-countrycode="382">&#x1F1F2&#x1F1EA Montenegro (+382)</option>
+        <option value="MS" data-countrycode="1664">&#x1F1F2&#x1F1F8 Montserrat (+1664)</option>
+        <option value="MA" data-countrycode="212">&#x1F1F2&#x1F1E6 Morocco (+212)</option>
+        <option value="MZ" data-countrycode="258">&#x1F1F2&#x1F1FF Mozambique (+258)</option>
+        <option value="MN" data-countrycode="95">&#x1F1F2&#x1F1F2 Myanmar (+95)</option>
+        <option value="NA" data-countrycode="264">&#x1F1F3&#x1F1E6 Namibia (+264)</option>
+        <option value="NR" data-countrycode="674">&#x1F1F3&#x1F1F7 Nauru (+674)</option>
+        <option value="NP" data-countrycode="977">&#x1F1F3&#x1F1F5 Nepal (+977)</option>
+        <option value="NL" data-countrycode="31">&#x1F1F3&#x1F1F1 Netherlands (+31)</option>
+        <option value="NC" data-countrycode="687">&#x1F1F3&#x1F1E8 New Caledonia (+687)</option>
+        <option value="NZ" data-countrycode="64">&#x1F1F3&#x1F1FF New Zealand (+64)</option>
+        <option value="NI" data-countrycode="505">&#x1F1F3&#x1F1EE Nicaragua (+505)</option>
+        <option value="NE" data-countrycode="227">&#x1F1F3&#x1F1EA Niger (+227)</option>
+        <option value="NG" data-countrycode="234">&#x1F1F3&#x1F1EC Nigeria (+234)</option>
+        <option value="NU" data-countrycode="683">&#x1F1F3&#x1F1FA Niue (+683)</option>
+        <option value="NF" data-countrycode="672">&#x1F1F3&#x1F1EB Norfolk Islands (+672)</option>
+        <option value="NP" data-countrycode="1670">&#x1F1F2&#x1F1F5 Northern Mariana Islands (+1670)</option>
+        <option value="NO" data-countrycode="47">&#x1F1F3&#x1F1F4 Norway (+47)</option>
+        <option value="OM" data-countrycode="968">&#x1F1F4&#x1F1F2 Oman (+968)</option>
+        <option value="PK" data-countrycode="92">&#x1F1F5&#x1F1F0 Pakistan (+92)</option>
+        <option value="PW" data-countrycode="680">&#x1F1F5&#x1F1FC Palau (+680)</option>
+        <option value="PS" data-countrycode="970">&#x1F1F5&#x1F1F8 Palestine (+970)</option>
+        <option value="PA" data-countrycode="507">&#x1F1F5&#x1F1E6 Panama (+507)</option>
+        <option value="PG" data-countrycode="675">&#x1F1F5&#x1F1EC Papua New Guinea (+675)</option>
+        <option value="PY" data-countrycode="595">&#x1F1F5&#x1F1FE Paraguay (+595)</option>
+        <option value="PE" data-countrycode="51">&#x1F1F5&#x1F1EA Peru (+51)</option>
+        <option value="PH" data-countrycode="63">&#x1F1F5&#x1F1ED Philippines (+63)</option>
+        <option value="PL" data-countrycode="48">&#x1F1F5&#x1F1F1 Poland (+48)</option>
+        <option value="PT" data-countrycode="351">&#x1F1F5&#x1F1F9 Portugal (+351)</option>
+        <option value="PR" data-countrycode="1787">&#x1F1F5&#x1F1F7 Puerto Rico (+1787)</option>
+        <option value="QA" data-countrycode="974">&#x1F1F6&#x1F1E6 Qatar (+974)</option>
+        <option value="RE" data-countrycode="262">&#x1F1F7&#x1F1EA Réunion (+262)</option>
+        <option value="RO" data-countrycode="40">&#x1F1F7&#x1F1F4 Romania (+40)</option>
+        <option value="RU" data-countrycode="7">&#x1F1F7&#x1F1FA Russia (+7)</option>
+        <option value="RW" data-countrycode="250">&#x1F1F7&#x1F1FC Rwanda (+250)</option>
+        <option value="WS" data-countrycode="685">&#x1F1FC&#x1F1F8 Samoa (+685)</option>
+        <option value="SM" data-countrycode="378">&#x1F1F8&#x1F1F2 San Marino (+378)</option>
+        <option value="ST" data-countrycode="239">&#x1F1F8&#x1F1F9 São Tomé &amp; Principe (+239)</option>
+        <option value="SA" data-countrycode="966">&#x1F1F8&#x1F1E6 Saudi Arabia (+966)</option>
+        <option value="SN" data-countrycode="221">&#x1F1F8&#x1F1F3 Senegal (+221)</option>
+        <option value="CS" data-countrycode="381">&#x1F1F7&#x1F1F8 Serbia (+381)</option>
+        <option value="SC" data-countrycode="248">&#x1F1F8&#x1F1E8 Seychelles (+248)</option>
+        <option value="SL" data-countrycode="232">&#x1F1F8&#x1F1F1 Sierra Leone (+232)</option>
+        <option value="SG" data-countrycode="65">&#x1F1F8&#x1F1EC Singapore (+65)</option>
+        <option value="SK" data-countrycode="421">&#x1F1F8&#x1F1F0 Slovakia (+421)</option>
+        <option value="SI" data-countrycode="386">&#x1F1F8&#x1F1EE Slovenia (+386)</option>
+        <option value="SB" data-countrycode="677">&#x1F1F8&#x1F1E7 Solomon Islands (+677)</option>
+        <option value="SO" data-countrycode="252">&#x1F1F8&#x1F1F4 Somalia (+252)</option>
+        <option value="ZA" data-countrycode="27">&#x1F1FF&#x1F1E6 South Africa (+27)</option>
+        <option value="SS" data-countrycode="211">&#x1F1F8&#x1F1F8 South Sudan (+211)</option>
+        <option value="ES" data-countrycode="34">&#x1F1EA&#x1F1F8 Spain (+34)</option>
+        <option value="LK" data-countrycode="94">&#x1F1F1&#x1F1F0 Sri Lanka (+94)</option>
+        <option value="SH" data-countrycode="290">&#x1F1F8&#x1F1ED St. Helena (+290)</option>
+        <option value="KN" data-countrycode="1869">&#x1F1F0&#x1F1F3 St. Kitts and Nevis (+1869)</option>
+        <option value="SC" data-countrycode="1758">&#x1F1F1&#x1F1E8 St. Lucia (+1758)</option>
+        <option value="PM" data-countrycode="508">&#x1F1F5&#x1F1F2 St. Pierre and Miquelon (+508)</option>
+        <option value="SD" data-countrycode="249">&#x1F1F8&#x1F1E9 Sudan (+249)</option>
+        <option value="SR" data-countrycode="597">&#x1F1F8&#x1F1F7 Suriname (+597)</option>
+        <option value="SE" data-countrycode="46">&#x1F1F8&#x1F1EA Sweden (+46)</option>
+        <option value="CH" data-countrycode="41">&#x1F1E8&#x1F1ED Switzerland (+41)</option>
+        <option value="SI" data-countrycode="963">&#x1F1F8&#x1F1FE Syria (+963)</option>
+        <option value="TW" data-countrycode="886">&#x1F1F9&#x1F1FC Taiwan (+886)</option>
+        <option value="TJ" data-countrycode="992">&#x1F1F9&#x1F1EF Tajikstan (+992)</option>
+        <option value="TZ" data-countrycode="255">&#x1F1F9&#x1F1FF Tanzania (+255)</option>
+        <option value="TH" data-countrycode="66">&#x1F1F9&#x1F1ED Thailand (+66)</option>
+        <option value="TG" data-countrycode="228">&#x1F1F9&#x1F1EC Togo (+228)</option>
+        <option value="TK" data-countrycode="690">&#x1F1F9&#x1F1F0 Tokelau (+690)</option>
+        <option value="TO" data-countrycode="676">&#x1F1F9&#x1F1F4 Tonga (+676)</option>
+        <option value="TT" data-countrycode="1868">&#x1F1F9&#x1F1F9 Trinidad &amp; Tobago (+1868)</option>
+        <option value="TN" data-countrycode="216">&#x1F1F9&#x1F1F3 Tunisia (+216)</option>
+        <option value="TR" data-countrycode="90">&#x1F1F9&#x1F1F7 Turkey (+90)</option>
+        <option value="TM" data-countrycode="993">&#x1F1F9&#x1F1F2 Turkmenistan (+993)</option>
+        <option value="TC" data-countrycode="1649">&#x1F1F9&#x1F1E8 Turks &amp; Caicos Islands (+1649)</option>
+        <option value="TV" data-countrycode="688">&#x1F1F9&#x1F1FB Tuvalu (+688)</option>
+        <option value="UG" data-countrycode="256">&#x1F1FA&#x1F1EC Uganda (+256)</option>
+        <option value="UA" data-countrycode="380">&#x1F1FA&#x1F1E6 Ukraine (+380)</option>
+        <option value="AE" data-countrycode="971">&#x1F1E6&#x1F1EA United Arab Emirates (+971)</option>
+        <option value="GB" data-countrycode="44">&#x1F1EC&#x1F1E7 United Kingdom (+44)</option>
+        <option value="US" data-countrycode="1">&#x1F1FA&#x1F1F8 United States of America (+1)</option>
+        <option value="UY" data-countrycode="598">&#x1F1FA&#x1F1FE Uruguay (+598)</option>
+        <option value="UZ" data-countrycode="998">&#x1F1FA&#x1F1FF Uzbekistan (+998)</option>
+        <option value="VU" data-countrycode="678">&#x1F1FB&#x1F1FA Vanuatu (+678)</option>
+        <option value="VA" data-countrycode="39">&#x1F1FB&#x1F1E6 Vatican City (+39)</option>
+        <option value="VE" data-countrycode="58">&#x1F1FB&#x1F1EA Venezuela (+58)</option>
+        <option value="VN" data-countrycode="84">&#x1F1FB&#x1F1F3 Vietnam (+84)</option>
+        <option value="VG" data-countrycode="1284">&#x1F1FB&#x1F1EC Virgin Islands - British (+1284)</option>
+        <option value="VI" data-countrycode="1340">&#x1F1FB&#x1F1EE Virgin Islands - US (+1340)</option>
+        <option value="WF" data-countrycode="681">&#x1F1FC&#x1F1EB Wallis &amp; Futuna (+681)</option>
+        <option value="EH" data-countrycode="967">&#x1F1EA&#x1F1ED Western Sahara (+212)</option>
+        <option value="YE" data-countrycode="967">&#x1F1FE&#x1F1EA Yemen (+967)</option>
+        <option value="ZM" data-countrycode="260">&#x1F1FF&#x1F1F2 Zambia (+260)</option>
+        <option value="ZW" data-countrycode="263">&#x1F1FF&#x1F1FC Zimbabwe (+263)</option>
+      </select>
  
  
   </div>
 
+  <div class="w3-padding w3-col s6" id="phonediv">
+    <label class="w3-tiny bold">telefone:</label>
+    <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="phone" id="phone" data-country="BR" oninput="this.value = mask['phone'](this.value)">
+    </div>
+
+
+
+</div>
+<div class="w3-row">
+
+  <div class="w3-padding w3-col s6" id="postalcodediv">
+    <label class="w3-tiny bold">cep:</label>
+      <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="postalcode" data-country="BR" id="postalcode" oninput="this.value = mask['cep'](this.value); fimDoCep(this.value, 'streetaddress', 'district', 'city', 'state')" required>
+  </div>
+  
+ 
+
     <div class="w3-padding w3-col s6" id="stateselector">
       <label for="state" class="w3-tiny bold">estado:</label>
-      <select id="state" name="state" data-country="BR" class="w3-input w3-border w3-round-large w3-tiny">
+      <select id="state" name="state" data-country="BR" class="w3-input w3-border w3-round-large w3-small" required>
         <option hidden disabled selected value></option>
         <option value="AC">acre</option>
         <option value="AL">alagoas</option>
@@ -426,7 +407,7 @@
   <div class="w3-row">
    
     <div class="w3-padding w3-col s6">
-      <label class="w3-small bold">cidade:</label>
+      <label class="w3-tiny bold">cidade:</label>
       <input class="w3-input w3-border w3-round-large w3-small" type="text" name="city" id="city" required>
     </div>
 
@@ -439,22 +420,19 @@
   <div class="w3-row">
   <div class="w3-padding  w3-col s8">
     <label class="w3-tiny bold">rua:</label>
-    <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="street-address" id="street-address" required >
+    <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="streetaddress" id="streetaddress" required >
   </div>
     <div class="w3-padding w3-col s4">
       <label class="w3-tiny bold">numero:</label>
-      <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="street-number" id="street-number"  required>
+      <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="streetnumber" id="streetnumber"  required>
     </div>
     </div>
 <div class="w3-row w3-margin-bottom">
-  <div class="w3-padding w3-col s6">
+  <div class="w3-padding w3-row">
     <label class="w3-tiny bold">complemento:</label>
     <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="complement" id="complement">
   </div>
-<div class="w3-padding w3-col s6">
-<label class="w3-tiny bold">telefone (opcional):</label>
-<input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="phone" id="phone" data-js="phone">
-</div>
+
 
 
 
@@ -466,304 +444,274 @@
 
         </div>
       </div>
+      <input id="website" name="website" type="text" value=""  />
         <div class="w3-row-padding w3-margin-bottom">
    
           <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">entrega</h2>
-            <div class="w3-card w3-animate-right w3-round-large w3-row-padding focuseable" id="card-enderecodaentrega" onclick="focusDiv(this)">
+            <div class="w3-card-4 w3-animate-right w3-round-large w3-row-padding focuseable" id="card-enderecodaentrega" onclick="focusDiv(this)">
 <div class="w3-margin-top w3-animate-top" id="formentrega" style="display:none;">
-              <div class="w3-row">
-            <div class="w3-padding w3-col s6">
+              
+            <div class="w3-padding w3-row">
               <label class="w3-tiny bold">nome do destinatário:</label>
-              <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="delivery-name" id="delivery-name" pattern="\S+.*">
+              <input class="w3-input w3-border w3-round-large w3-small deliveryform" type="text"  name="deliveryname" id="deliveryname" pattern="\S+.*">
             </div>
 
-            <div class="w3-padding w3-col s6">
-              <label class="w3-tiny bold">cep:</label>
-                <input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="delivery-postal-code" id="delivery-postal-code" data-js="cep"  onkeyup="fimDoCep(this.value, 'delivery-street-address', 'delivery-district', 'delivery-city', 'delivery-state')" >
-            </div>
-
-           
-          </div>
+    
           <div class="w3-row">
 
             <div class="w3-padding w3-col s6">
-              <label for="delivery-country-name" class="w3-tiny bold">país:</label>
-              <select id="delivery-country-name" onchange="anotherCountry(this.value, 'state')" name="delivery-country-name" class="w3-input w3-border w3-round-large w3-small">
-                <option value="AA">Aruba</option>
-                <option value="AC">Antígua e Barbuda</option>
-                <option value="AE">Emirados Árabes Unidos</option>
-                <option value="AF">Afeganistão</option>
-                <option value="AG">Argélia</option>
-                <option value="AJ">Azerbaijão</option>
-                <option value="AL">Albânia</option>
-                <option value="AM">Armênia</option>
-                <option value="AN">Andorra</option>
-                <option value="AO">Angola</option>
-                <option value="AQ">Samoa Americana</option>
-                <option value="AR">Argentina</option>
-                <option value="AS">Austrália</option>
-                <option value="AT">Ilhas Ashmore e Cartier</option>
-                <option value="AU">Áustria</option>
-                <option value="AV">Anguilla</option>
-                <option value="AX">Acrotíri</option>
-                <option value="AY">Antártica</option>
-                <option value="AZ">açores</option>
-                <option value="BA">Bahrain</option>
-                <option value="BB">Barbados</option>
-                <option value="BC">Botswana</option>
-                <option value="BD">Bermudas</option>
-                <option value="BE">Bélgica</option>
-                <option value="BF">Bahamas</option>
-                <option value="BG">Bangladesh</option>
-                <option value="BH">Belize</option>
-                <option value="BK">Bósnia e Herzegovina</option>
-                <option value="BL">Bolívia</option>
-                <option value="BM">Birmânia Myanmar</option>
-                <option value="BN">Benim</option>
-                <option value="BO">Bielorrússia</option>
-                <option value="BP">Ilhas Salomão</option>
-                <option value="BQ">Ilha Navassa</option>
-                <option value="BR" selected>Brasil</option>
-                <option value="BT">Butão</option>
-                <option value="BU">Bulgária</option>
-                <option value="BV">Ilha Bouvet</option>
-                <option value="BX">Brunei</option>
-                <option value="BY">Burundi</option>
-                <option value="CA">Canadá</option>
-                <option value="CB">Camboja</option>
-                <option value="CD">Chade</option>
-                <option value="CE">Sri Lanka</option>
-                <option value="CF">República do Congo</option>
-                <option value="CG">República Democrática do Congo</option>
-                <option value="CH">República Popular da China</option>
-                <option value="CL">Chile</option>
-                <option value="CJ">Ilhas Cayman</option>
-                <option value="CK">Ilhas Cocos Keeling</option>
-                <option value="CM">Camarões</option>
-                <option value="CN">Comores</option>
-                <option value="CO">Colômbia</option>
-                <option value="CQ">Ilhas Marianas do Norte</option>
-                <option value="CR">Ilhas do Mar de Coral</option>
-                <option value="CS">Costa Rica</option>
-                <option value="CT">República Centro-Africana</option>
-                <option value="CU">Cuba</option>
-                <option value="CV">Cabo Verde</option>
-                <option value="CW">Ilhas Cook</option>
-                <option value="CY">Chipre</option>
-                <option value="CZ">República Tcheca</option>
-                <option value="DA">Dinamarca</option>
-                <option value="DJ">Djibouti</option>
-                <option value="DO">Dominica</option>
-                <option value="DQ">Ilha Jarvis</option>
-                <option value="DR">República Dominicana</option>
-                <option value="DX">Deceleia</option>
-                <option value="EC">Equador</option>
-                <option value="EG">Egito</option>
-                <option value="EI">Irlanda</option>
-                <option value="EK">Guiné Equatorial</option>
-                <option value="EN">Estónia</option>
-                <option value="ER">Eritreia</option>
-                <option value="ES">El Salvador</option>
-                <option value="ET">Etiópia</option>
-                <option value="EZ">República Checa</option>
-                <option value="FG">Guiana Francesa</option>
-                <option value="FI">Finlândia</option>
-                <option value="FJ">Fiji</option>
-                <option value="FK">Ilhas Falkland Ilhas Malvinas</option>
-                <option value="FM">Estados Federados da Micronésia</option>
-                <option value="FO">Ilhas Feroe</option>
-                <option value="FP">Polinésia Francesa</option>
-                <option value="FQ">Ilha Baker</option>
-                <option value="FR">França</option>
-                <option value="FS">Terras Austrais e Antárticas Francesas</option>
-                <option value="GA">Gâmbia</option>
-                <option value="GB">Gabão</option>
-                <option value="GF">Guiana francesa</option>
-                <option value="GG">Geórgia</option>
-                <option value="GH">Gana</option>
-                <option value="GI">Gibraltar</option>
-                <option value="GJ">Granada</option>
-                <option value="GK">Guernsey</option>
-                <option value="GL">Gronelândia</option>
-                <option value="GM">Alemanha</option>
-                <option value="GP">Guadalupe</option>
-                <option value="GQ">Guam</option>
-                <option value="GR">Grécia</option>
-                <option value="GT">Guatemala</option>
-                <option value="GV">Guiné</option>
-                <option value="GW">Guiné-Bissau</option>
-                <option value="GY">Guiana</option>
-                <option value="GZ">Faixa de Gaza</option>
-                <option value="HA">Haiti</option>
-                <option value="HK">Hong Kong</option>
-                <option value="HM">Ilha Heard e Ilhas McDonald</option>
-                <option value="HO">Honduras</option>
-                <option value="HQ">Ilha Howland</option>
-                <option value="HR">Croácia</option>
-                <option value="HU">Hungria</option>
-                <option value="IC">Islândia</option>
-                <option value="ID">Indonésia</option>
-                <option value="IM">Ilha de Man</option>
-                <option value="IN">Índia</option>
-                <option value="IO">Território Britânico do Oceano Índico</option>
-                <option value="IP">Ilha de Clipperton</option>
-                <option value="IR">Irão</option>
-                <option value="IS">Israel</option>
-                <option value="IT">Itália</option>
-                <option value="CI">Costa do Marfim</option>
-                <option value="IZ">Iraque</option>
-                <option value="JP">Japão</option>
-                <option value="JE">Jersey</option>
-                <option value="JM">Jamaica</option>
-                <option value="JN">Jan Mayen</option>
-                <option value="JO">Jordânia</option>
-                <option value="JQ">Atol Johnston</option>
-                <option value="KE">Quénia</option>
-                <option value="KG">Quirguistão</option>
-                <option value="KN">Coreia do Norte</option>
-                <option value="KQ">Recife Kingman</option>
-                <option value="KR">Kiribati</option>
-                <option value="KS">Coreia do Sul</option>
-                <option value="KT">Ilha Christmas</option>
-                <option value="KU">Kuwait</option>
-                <option value="KV">Cazaquistão</option>
-                <option value="LA">Laos</option>
-                <option value="LE">Líbano</option>
-                <option value="LG">Letónia</option>
-                <option value="LH">Lituânia</option>
-                <option value="LI">Libéria</option>
-                <option value="LO">Eslováquia</option>
-                <option value="LP">Latin Purificado</option>
-                <option value="LQ">Atol Palmyra</option>
-                <option value="LS">Liechtenstein</option>
-                <option value="LT">Lesoto</option>
-                <option value="LU">Luxemburgo</option>
-                <option value="LY">Líbia</option>
-                <option value="MA">Marrocos</option>
-                <option value="MB">Martinica</option>
-                <option value="MC">Macau</option>
-                <option value="MD">Moldávia</option>
-                <option value="ME">Madeira</option>
-                <option value="MF">Mayotte</option>
-                <option value="MG">Mongólia</option>
-                <option value="MH">Montserrat</option>
-                <option value="MI">Malawi</option>
-                <option value="MJ">Montenegro</option>
-                <option value="MK">Macedônia</option>
-                <option value="ML">Mali</option>
-                <option value="MN">Mônaco</option>
-                <option value="MP">Maurícia</option>
-                <option value="MQ">Atol de Midway</option>
-                <option value="MR">Mauritânia</option>
-                <option value="MT">Malta</option>
-                <option value="MU">Omã</option>
-                <option value="MV">Maldivas</option>
-                <option value="MX">México</option>
-                <option value="MY">Malásia</option>
-                <option value="MZ">Moçambique</option>
-                <option value="NC">Nova Caledônia</option>
-                <option value="NE">Niue</option>
-                <option value="NF">Ilha Norfolk</option>
-                <option value="NG">Níger</option>
-                <option value="NH">Vanuatu</option>
-                <option value="NI">Nigéria</option>
-                <option value="NL">Países Baixos</option>
-                <option value="NO">Noruega</option>
-                <option value="NP">Nepal</option>
-                <option value="NR">Nauru</option>
-                <option value="NS">Suriname</option>
-                <option value="NT">Antilhas Holandesas</option>
-                <option value="NU">Nicarágua</option>
-                <option value="NZ">Nova Zelândia</option>
-                <option value="PA">Paraguai</option>
-                <option value="PC">Ilhas Pitcairn</option>
-                <option value="PE">Peru</option>
-                <option value="PF">Ilhas Paracel</option>
-                <option value="PG">Ilhas Spratly</option>
-                <option value="PK">Paquistão</option>
-                <option value="PL">Polônia</option>
-                <option value="PM">Panamá</option>
-                <option value="PT">Portugal</option>
-                <option value="PP">Papua-Nova Guiné</option>
-                <option value="PS">Palau</option>
-                <option value="PU">Guiné-Bissau</option>
-                <option value="QA">Qatar</option>
-                <option value="RE">Reunião</option>
-                <option value="RI">Sérvia</option>
-                <option value="RM">Ilhas Marshall</option>
-                <option value="RN">Saint Martin</option>
-                <option value="RO">Roménia</option>
-                <option value="RP">Filipinas</option>
-                <option value="RQ">Porto Rico</option>
-                <option value="RS">Rússia</option>
-                <option value="RW">Ruanda</option>
-                <option value="SA">Arábia Saudita</option>
-                <option value="SB">Saint Pierre e Miquelon</option>
-                <option value="SC">São Cristóvão e Nevis</option>
-                <option value="SE">Seychelles</option>
-                <option value="SF">África do Sul</option>
-                <option value="SG">Senegal</option>
-                <option value="SH">Santa Helena território</option>
-                <option value="SI">Eslovénia</option>
-                <option value="SL">Serra Leoa</option>
-                <option value="SM">San Marino</option>
-                <option value="SN">Singapura</option>
-                <option value="SO">Somália</option>
-                <option value="SP">Espanha</option>
-                <option value="ST">Santa Lúcia</option>
-                <option value="SU">Sudão</option>
-                <option value="SV">Svalbard</option>
-                <option value="SW">Suécia</option>
-                <option value="SX">Ilhas Geórgia do Sul e Sandwich do Sul</option>
-                <option value="SY">Síria</option>
-                <option value="SZ">Suiça</option>
-                <option value="TB">Saint-Barthélemy Antilhas francesas</option>
-                <option value="TD">Trinidad e Tobago</option>
-                <option value="TH">Tailândia</option>
-                <option value="TI">Tadjiquistão</option>
-                <option value="TK">Ilhas Turks e Caicos</option>
-                <option value="TL">Tokelau</option>
-                <option value="TN">Tonga</option>
-                <option value="TO">Togo</option>
-                <option value="TP">São Tomé e Príncipe</option>
-                <option value="TS">Tunísia</option>
-                <option value="TT">Timor-Leste</option>
-                <option value="TR">Turquia</option>
-                <option value="TV">Tuvalu</option>
-                <option value="TW">Taiwan</option>
-                <option value="TX">Turquemenistão</option>
-                <option value="TZ">Tanzânia</option>
-                <option value="UG">Uganda</option>
-                <option value="UK">Reino Unido</option>
-                <option value="UP">Ucrânia</option>
-                <option value="US">Estados Unidos</option>
-                <option value="UV">Burkina Faso</option>
-                <option value="UY">Uruguai</option>
-                <option value="UZ">Uzbequistão</option>
-                <option value="VC">São Vicente e Granadinas</option>
-                <option value="VE">Venezuela</option>
-                <option value="VI">Ilhas Virgens Britânicas</option>
-                <option value="VM">Vietname</option>
-                <option value="VQ">Ilhas Virgens Americanas</option>
-                <option value="VT">Vaticano</option>
-                <option value="WA">Namíbia</option>
-                <option value="WE">Cisjordânia</option>
-                <option value="WF">Wallis e Futuna</option>
-                <option value="WI">Saara Ocidental</option>
-                <option value="WQ">Ilha Wake</option>
-                <option value="WS">Samoa</option>
-                <option value="WZ">Suazilândia</option>
-                <option value="YM">Iémen</option>
-                <option value="ZA">Zâmbia</option>
-                <option value="ZI">Zimbabwe</option>
+              <label for="deliverycountryname" class="w3-tiny bold">país:</label>
+              <select id="deliverycountryname" onchange="anotherCountry(this.value, 'deliverystate', 'deliveryphone', 'deliverypostalcode')" name="deliverycountryname" class="w3-input w3-border w3-round-large w3-small deliveryform">
+                <option value="AF" data-countrycode="93">&#x1F1E6&#x1F1EB Afghanistan (+93)</option>
+                <option value="AL" data-countrycode="355">&#x1F1E6&#x1F1FD Albania (+355)</option>
+                <option value="DZ" data-countrycode="213">&#x1F1E9&#x1F1FF Algeria (+213)</option>
+                <option value="AD" data-countrycode="376">&#x1F1E6&#x1F1E9 Andorra (+376)</option>
+                <option value="AO" data-countrycode="244">&#x1F1E6&#x1F1F4 Angola (+244)</option>
+                <option value="AI" data-countrycode="1264">&#x1F1E6&#x1F1EE Anguilla (+1264)</option>
+                <option value="AG" data-countrycode="1268">&#x1F1E6&#x1F1EC Antigua &amp; Barbuda (+1268)</option>
+                <option value="AR" data-countrycode="54">&#x1F1E6&#x1F1F7 Argentina (+54)</option>
+                <option value="AM" data-countrycode="374">&#x1F1E6&#x1F1F2 Armenia (+374)</option>
+                <option value="AW" data-countrycode="297">&#x1F1E6&#x1F1FC Aruba (+297)</option>
+                <option value="AC" data-countrycode="247">&#x1F1E6&#x1F1E8 Ascension Island (+247)</option>
+                <option value="AU" data-countrycode="61">&#x1F1E6&#x1F1FA Australia (+61)</option>
+                <option value="AT" data-countrycode="43">&#x1F1E6&#x1F1F9 Austria (+43)</option>
+                <option value="AZ" data-countrycode="994">&#x1F1E6&#x1F1FF Azerbaijan (+994)</option>
+                <option value="BS" data-countrycode="1242">&#x1F1E7&#x1F1F8 Bahamas (+1242)</option>
+                <option value="BH" data-countrycode="973">&#x1F1E7&#x1F1ED Bahrain (+973)</option>
+                <option value="BD" data-countrycode="880">&#x1F1E7&#x1F1E9 Bangladesh (+880)</option>
+                <option value="BB" data-countrycode="1246">&#x1F1E7&#x1F1E7 Barbados (+1246)</option>
+                <option value="BY" data-countrycode="375">&#x1F1E7&#x1F1FE Belarus (+375)</option>
+                <option value="BE" data-countrycode="32">&#x1F1E7&#x1F1EA Belgium (+32)</option>
+                <option value="BZ" data-countrycode="501">&#x1F1E7&#x1F1FF Belize (+501)</option>
+                <option value="BJ" data-countrycode="229">&#x1F1E7&#x1F1EF Benin (+229)</option>
+                <option value="BM" data-countrycode="1441">&#x1F1E7&#x1F1F2 Bermuda (+1441)</option>
+                <option value="BT" data-countrycode="975">&#x1F1E7&#x1F1F9 Bhutan (+975)</option>
+                <option value="BO" data-countrycode="591">&#x1F1E7&#x1F1F4 Bolivia (+591)</option>
+                <option value="BQ" data-countrycode="599">&#x1F1E7&#x1F1F6 Bonaire, Saba and Sint Eustatius (+599)</option>
+                <option value="BA" data-countrycode="387">&#x1F1E7&#x1F1E6 Bosnia Herzegovina (+387)</option>
+                <option value="BW" data-countrycode="267">&#x1F1E7&#x1F1FC Botswana (+267)</option>
+                <option value="BR" data-countrycode="55" selected>&#x1F1E7&#x1F1F7 Brasil (+55)</option>
+                <option value="IO" data-countrycode="246">&#x1F1EE&#x1F1F4 British Indian Ocean Territory (+246)</option>
+                <option value="BN" data-countrycode="673">&#x1F1E7&#x1F1F3 Brunei (+673)</option>
+                <option value="BG" data-countrycode="359">&#x1F1E7&#x1F1EC Bulgaria (+359)</option>
+                <option value="BF" data-countrycode="226">&#x1F1E7&#x1F1EB Burkina Faso (+226)</option>
+                <option value="BI" data-countrycode="257">&#x1F1E7&#x1F1EE Burundi (+257)</option>
+                <option value="KH" data-countrycode="855">&#x1F1F0&#x1F1ED Cambodia (+855)</option>
+                <option value="CM" data-countrycode="237">&#x1F1E8&#x1F1F2 Cameroon (+237)</option>
+                <option value="CA" data-countrycode="1">&#x1F1E8&#x1F1E6 Canada (+1)</option>
+                <option value="CV" data-countrycode="238">&#x1F1E8&#x1F1FB Cape Verde Islands (+238)</option>
+                <option value="KY" data-countrycode="1345">&#x1F1F0&#x1F1FE Cayman Islands (+1345)</option>
+                <option value="CF" data-countrycode="236">&#x1F1E8&#x1F1EB Central African Republic (+236)</option>
+                <option value="TD" data-countrycode="235">&#x1F1F9&#x1F1E9 Chad (+235)</option>
+                <option value="CL" data-countrycode="56">&#x1F1E8&#x1F1F1 Chile (+56)</option>
+                <option value="CN" data-countrycode="86">&#x1F1E8&#x1F1F3 China (+86)</option>
+                <option value="CO" data-countrycode="57">&#x1F1E8&#x1F1F4 Colombia (+57)</option>
+                <option value="KM" data-countrycode="269">&#x1F1F0&#x1F1F2 Comoros (+269)</option>
+                <option value="CG" data-countrycode="242">&#x1F1E8&#x1F1EC Congo (+242)</option>
+                <option value="CD" data-countrycode="243">&#x1F1E8&#x1F1E9 Congo, Democratic Republic of the (+243)</option>
+                <option value="CK" data-countrycode="682">&#x1F1E8&#x1F1F0 Cook Islands (+682)</option>
+                <option value="CR" data-countrycode="506">&#x1F1E8&#x1F1F7 Costa Rica (+506)</option>
+                <option value="HR" data-countrycode="385">&#x1F1ED&#x1F1F7 Croatia (+385)</option>
+                <option value="CU" data-countrycode="53">&#x1F1E8&#x1F1FA Cuba (+53)</option>
+                <option value="CW" data-countrycode="5999">&#x1F1E8&#x1F1FC Curaçao (+5999)</option>
+                <option value="CY" data-countrycode="357">&#x1F1E8&#x1F1FE Cyprus (+357)</option>
+                <option value="CZ" data-countrycode="420">&#x1F1E8&#x1F1FF Czech Republic (+420)</option>
+                <option value="DK" data-countrycode="45">&#x1F1E9&#x1F1F0 Denmark (+45)</option>
+                <option value="DJ" data-countrycode="253">&#x1F1E9&#x1F1EF Djibouti (+253)</option>
+                <option value="DM" data-countrycode="1767">&#x1F1E9&#x1F1F2 Dominica (+1767)</option>
+                <option value="DO" data-countrycode="1809">&#x1F1E9&#x1F1F4 Dominican Republic (+1809)</option>
+                <option value="TL" data-countrycode="670">&#x1F1F9&#x1F1F1 East Timor (+670)</option>
+                <option value="EC" data-countrycode="593">&#x1F1EA&#x1F1E8 Ecuador (+593)</option>
+                <option value="EG" data-countrycode="20">&#x1F1EA&#x1F1EC Egypt (+20)</option>
+                <option value="SV" data-countrycode="503">&#x1F1F8&#x1F1FB El Salvador (+503)</option>
+                <option value="GQ" data-countrycode="240">&#x1F1EC&#x1F1F6 Equatorial Guinea (+240)</option>
+                <option value="ER" data-countrycode="291">&#x1F1EA&#x1F1F7 Eritrea (+291)</option>
+                <option value="EE" data-countrycode="372">&#x1F1EA&#x1F1EA Estonia (+372)</option>
+                <option value="SZ" data-countrycode="268">&#x1F1F8&#x1F1FF Eswatini (+268)</option>
+                <option value="ET" data-countrycode="251">&#x1F1EA&#x1F1F9 Ethiopia (+251)</option>
+                <option value="FK" data-countrycode="500">&#x1F1EB&#x1F1F0 Falkland Islands (+500)</option>
+                <option value="FO" data-countrycode="298">&#x1F1EB&#x1F1F4 Faroe Islands (+298)</option>
+                <option value="FJ" data-countrycode="679">&#x1F1EB&#x1F1EF Fiji (+679)</option>
+                <option value="FI" data-countrycode="358">&#x1F1EB&#x1F1EE Finland (+358)</option>
+                <option value="FR" data-countrycode="33">&#x1F1EB&#x1F1F7 France (+33)</option>
+                <option value="GF" data-countrycode="594">&#x1F1EC&#x1F1EB French Guiana (+594)</option>
+                <option value="PF" data-countrycode="689">&#x1F1F5&#x1F1EB French Polynesia (+689)</option>
+                <option value="GA" data-countrycode="241">&#x1F1EC&#x1F1E6 Gabon (+241)</option>
+                <option value="GM" data-countrycode="220">&#x1F1EC&#x1F1F2 Gambia (+220)</option>
+                <option value="GE" data-countrycode="995">&#x1F1EC&#x1F1EA Georgia (+995)</option>
+                <option value="DE" data-countrycode="49">&#x1F1E9&#x1F1EA Germany (+49)</option>
+                <option value="GH" data-countrycode="233">&#x1F1EC&#x1F1ED Ghana (+233)</option>
+                <option value="GI" data-countrycode="350">&#x1F1EC&#x1F1EE Gibraltar (+350)</option>
+                <option value="GR" data-countrycode="30">&#x1F1EC&#x1F1F7 Greece (+30)</option>
+                <option value="GL" data-countrycode="299">&#x1F1EC&#x1F1F1 Greenland (+299)</option>
+                <option value="GD" data-countrycode="1473">&#x1F1EC&#x1F1E9 Grenada (+1473)</option>
+                <option value="GP" data-countrycode="590">&#x1F1EC&#x1F1F5 Guadeloupe (+590)</option>
+                <option value="GU" data-countrycode="1671">&#x1F1EC&#x1F1FA Guam (+1671)</option>
+                <option value="GT" data-countrycode="502">&#x1F1EC&#x1F1F9 Guatemala (+502)</option>
+                <option value="GN" data-countrycode="224">&#x1F1EC&#x1F1F3 Guinea (+224)</option>
+                <option value="GW" data-countrycode="245">&#x1F1EC&#x1F1FC Guinea - Bissau (+245)</option>
+                <option value="GY" data-countrycode="592">&#x1F1EC&#x1F1FE Guyana (+592)</option>
+                <option value="HT" data-countrycode="509">&#x1F1ED&#x1F1F9 Haiti (+509)</option>
+                <option value="HN" data-countrycode="504">&#x1F1ED&#x1F1F3 Honduras (+504)</option>
+                <option value="HK" data-countrycode="852">&#x1F1ED&#x1F1F0 Hong Kong (+852)</option>
+                <option value="HU" data-countrycode="36">&#x1F1ED&#x1F1FA Hungary (+36)</option>
+                <option value="IS" data-countrycode="354">&#x1F1EE&#x1F1F8 Iceland (+354)</option>
+                <option value="IN" data-countrycode="91">&#x1F1EE&#x1F1F3 India (+91)</option>
+                <option value="ID" data-countrycode="62">&#x1F1EE&#x1F1E9 Indonesia (+62)</option>
+                <option value="IR" data-countrycode="98">&#x1F1EE&#x1F1F7 Iran (+98)</option>
+                <option value="IQ" data-countrycode="964">&#x1F1EE&#x1F1F6 Iraq (+964)</option>
+                <option value="IE" data-countrycode="353">&#x1F1EE&#x1F1EA Ireland (+353)</option>
+                <option value="IL" data-countrycode="972">&#x1F1EE&#x1F1F1 Israel (+972)</option>
+                <option value="IT" data-countrycode="39">&#x1F1EE&#x1F1F9 Italy (+39)</option>
+                <option value="CI" data-countrycode="225">&#x1F1E8&#x1F1EE Ivory Coast (+225)</option>
+                <option value="JM" data-countrycode="1876">&#x1F1EF&#x1F1F2 Jamaica (+1876)</option>
+                <option value="JP" data-countrycode="81">&#x1F1EF&#x1F1F5 Japan (+81)</option>
+                <option value="JO" data-countrycode="962">&#x1F1EF&#x1F1F4 Jordan (+962)</option>
+                <option value="KZ" data-countrycode="7">&#x1F1F0&#x1F1FF Kazakhstan (+7)</option>
+                <option value="KE" data-countrycode="254">&#x1F1F0&#x1F1EA Kenya (+254)</option>
+                <option value="KI" data-countrycode="686">&#x1F1F0&#x1F1EE Kiribati (+686)</option>
+                <option value="KP" data-countrycode="850">&#x1F1F0&#x1F1F5 Korea, North (+850)</option>
+                <option value="KR" data-countrycode="82">&#x1F1F0&#x1F1F7 Korea, South (+82)</option>
+                <option value="XK" data-countrycode="383">&#x1F1FD&#x1F1F0 Kosovo (+383)</option>
+                <option value="KW" data-countrycode="965">&#x1F1F0&#x1F1FC Kuwait (+965)</option>
+                <option value="KG" data-countrycode="996">&#x1F1F0&#x1F1EC Kyrgyzstan (+996)</option>
+                <option value="LA" data-countrycode="856">&#x1F1F1&#x1F1E6 Laos (+856)</option>
+                <option value="LV" data-countrycode="371">&#x1F1F1&#x1F1FB Latvia (+371)</option>
+                <option value="LB" data-countrycode="961">&#x1F1F1&#x1F1E7 Lebanon (+961)</option>
+                <option value="LS" data-countrycode="266">&#x1F1F1&#x1F1F8 Lesotho (+266)</option>
+                <option value="LR" data-countrycode="231">&#x1F1F1&#x1F1F7 Liberia (+231)</option>
+                <option value="LY" data-countrycode="218">&#x1F1F1&#x1F1FE Libya (+218)</option>
+                <option value="LI" data-countrycode="423">&#x1F1F1&#x1F1EE Liechtenstein (+423)</option>
+                <option value="LT" data-countrycode="370">&#x1F1F1&#x1F1F9 Lithuania (+370)</option>
+                <option value="LU" data-countrycode="352">&#x1F1F1&#x1F1FA Luxembourg (+352)</option>
+                <option value="MO" data-countrycode="853">&#x1F1F2&#x1F1F4 Macao (+853)</option>
+                <option value="MK" data-countrycode="389">&#x1F1F2&#x1F1F0 Macedonia (+389)</option>
+                <option value="MG" data-countrycode="261">&#x1F1F2&#x1F1EC Madagascar (+261)</option>
+                <option value="MW" data-countrycode="265">&#x1F1F2&#x1F1FC Malawi (+265)</option>
+                <option value="MY" data-countrycode="60">&#x1F1F2&#x1F1FE Malaysia (+60)</option>
+                <option value="MV" data-countrycode="960">&#x1F1F2&#x1F1FB Maldives (+960)</option>
+                <option value="ML" data-countrycode="223">&#x1F1F2&#x1F1F1 Mali (+223)</option>
+                <option value="MT" data-countrycode="356">&#x1F1F2&#x1F1F9 Malta (+356)</option>
+                <option value="MH" data-countrycode="692">&#x1F1F2&#x1F1ED Marshall Islands (+692)</option>
+                <option value="MQ" data-countrycode="596">&#x1F1F2&#x1F1F6 Martinique (+596)</option>
+                <option value="MR" data-countrycode="222">&#x1F1F2&#x1F1F7 Mauritania (+222)</option>
+                <option value="MU" data-countrycode="230">&#x1F1F2&#x1F1FA Mauritius (+230)</option>
+                <option value="YT" data-countrycode="262">&#x1F1FE&#x1F1F9 Mayotte (+262)</option>
+                <option value="MX" data-countrycode="52">&#x1F1F2&#x1F1FD Mexico (+52)</option>
+                <option value="FM" data-countrycode="691">&#x1F1EB&#x1F1F2 Micronesia (+691)</option>
+                <option value="MD" data-countrycode="373">&#x1F1F2&#x1F1E9 Moldova (+373)</option>
+                <option value="MC" data-countrycode="377">&#x1F1F2&#x1F1E8 Monaco (+377)</option>
+                <option value="MN" data-countrycode="976">&#x1F1F2&#x1F1F3 Mongolia (+976)</option>
+                <option value="ME" data-countrycode="382">&#x1F1F2&#x1F1EA Montenegro (+382)</option>
+                <option value="MS" data-countrycode="1664">&#x1F1F2&#x1F1F8 Montserrat (+1664)</option>
+                <option value="MA" data-countrycode="212">&#x1F1F2&#x1F1E6 Morocco (+212)</option>
+                <option value="MZ" data-countrycode="258">&#x1F1F2&#x1F1FF Mozambique (+258)</option>
+                <option value="MN" data-countrycode="95">&#x1F1F2&#x1F1F2 Myanmar (+95)</option>
+                <option value="NA" data-countrycode="264">&#x1F1F3&#x1F1E6 Namibia (+264)</option>
+                <option value="NR" data-countrycode="674">&#x1F1F3&#x1F1F7 Nauru (+674)</option>
+                <option value="NP" data-countrycode="977">&#x1F1F3&#x1F1F5 Nepal (+977)</option>
+                <option value="NL" data-countrycode="31">&#x1F1F3&#x1F1F1 Netherlands (+31)</option>
+                <option value="NC" data-countrycode="687">&#x1F1F3&#x1F1E8 New Caledonia (+687)</option>
+                <option value="NZ" data-countrycode="64">&#x1F1F3&#x1F1FF New Zealand (+64)</option>
+                <option value="NI" data-countrycode="505">&#x1F1F3&#x1F1EE Nicaragua (+505)</option>
+                <option value="NE" data-countrycode="227">&#x1F1F3&#x1F1EA Niger (+227)</option>
+                <option value="NG" data-countrycode="234">&#x1F1F3&#x1F1EC Nigeria (+234)</option>
+                <option value="NU" data-countrycode="683">&#x1F1F3&#x1F1FA Niue (+683)</option>
+                <option value="NF" data-countrycode="672">&#x1F1F3&#x1F1EB Norfolk Islands (+672)</option>
+                <option value="NP" data-countrycode="1670">&#x1F1F2&#x1F1F5 Northern Mariana Islands (+1670)</option>
+                <option value="NO" data-countrycode="47">&#x1F1F3&#x1F1F4 Norway (+47)</option>
+                <option value="OM" data-countrycode="968">&#x1F1F4&#x1F1F2 Oman (+968)</option>
+                <option value="PK" data-countrycode="92">&#x1F1F5&#x1F1F0 Pakistan (+92)</option>
+                <option value="PW" data-countrycode="680">&#x1F1F5&#x1F1FC Palau (+680)</option>
+                <option value="PS" data-countrycode="970">&#x1F1F5&#x1F1F8 Palestine (+970)</option>
+                <option value="PA" data-countrycode="507">&#x1F1F5&#x1F1E6 Panama (+507)</option>
+                <option value="PG" data-countrycode="675">&#x1F1F5&#x1F1EC Papua New Guinea (+675)</option>
+                <option value="PY" data-countrycode="595">&#x1F1F5&#x1F1FE Paraguay (+595)</option>
+                <option value="PE" data-countrycode="51">&#x1F1F5&#x1F1EA Peru (+51)</option>
+                <option value="PH" data-countrycode="63">&#x1F1F5&#x1F1ED Philippines (+63)</option>
+                <option value="PL" data-countrycode="48">&#x1F1F5&#x1F1F1 Poland (+48)</option>
+                <option value="PT" data-countrycode="351">&#x1F1F5&#x1F1F9 Portugal (+351)</option>
+                <option value="PR" data-countrycode="1787">&#x1F1F5&#x1F1F7 Puerto Rico (+1787)</option>
+                <option value="QA" data-countrycode="974">&#x1F1F6&#x1F1E6 Qatar (+974)</option>
+                <option value="RE" data-countrycode="262">&#x1F1F7&#x1F1EA Réunion (+262)</option>
+                <option value="RO" data-countrycode="40">&#x1F1F7&#x1F1F4 Romania (+40)</option>
+                <option value="RU" data-countrycode="7">&#x1F1F7&#x1F1FA Russia (+7)</option>
+                <option value="RW" data-countrycode="250">&#x1F1F7&#x1F1FC Rwanda (+250)</option>
+                <option value="WS" data-countrycode="685">&#x1F1FC&#x1F1F8 Samoa (+685)</option>
+                <option value="SM" data-countrycode="378">&#x1F1F8&#x1F1F2 San Marino (+378)</option>
+                <option value="ST" data-countrycode="239">&#x1F1F8&#x1F1F9 São Tomé &amp; Principe (+239)</option>
+                <option value="SA" data-countrycode="966">&#x1F1F8&#x1F1E6 Saudi Arabia (+966)</option>
+                <option value="SN" data-countrycode="221">&#x1F1F8&#x1F1F3 Senegal (+221)</option>
+                <option value="CS" data-countrycode="381">&#x1F1F7&#x1F1F8 Serbia (+381)</option>
+                <option value="SC" data-countrycode="248">&#x1F1F8&#x1F1E8 Seychelles (+248)</option>
+                <option value="SL" data-countrycode="232">&#x1F1F8&#x1F1F1 Sierra Leone (+232)</option>
+                <option value="SG" data-countrycode="65">&#x1F1F8&#x1F1EC Singapore (+65)</option>
+                <option value="SK" data-countrycode="421">&#x1F1F8&#x1F1F0 Slovakia (+421)</option>
+                <option value="SI" data-countrycode="386">&#x1F1F8&#x1F1EE Slovenia (+386)</option>
+                <option value="SB" data-countrycode="677">&#x1F1F8&#x1F1E7 Solomon Islands (+677)</option>
+                <option value="SO" data-countrycode="252">&#x1F1F8&#x1F1F4 Somalia (+252)</option>
+                <option value="ZA" data-countrycode="27">&#x1F1FF&#x1F1E6 South Africa (+27)</option>
+                <option value="SS" data-countrycode="211">&#x1F1F8&#x1F1F8 South Sudan (+211)</option>
+                <option value="ES" data-countrycode="34">&#x1F1EA&#x1F1F8 Spain (+34)</option>
+                <option value="LK" data-countrycode="94">&#x1F1F1&#x1F1F0 Sri Lanka (+94)</option>
+                <option value="SH" data-countrycode="290">&#x1F1F8&#x1F1ED St. Helena (+290)</option>
+                <option value="KN" data-countrycode="1869">&#x1F1F0&#x1F1F3 St. Kitts and Nevis (+1869)</option>
+                <option value="SC" data-countrycode="1758">&#x1F1F1&#x1F1E8 St. Lucia (+1758)</option>
+                <option value="PM" data-countrycode="508">&#x1F1F5&#x1F1F2 St. Pierre and Miquelon (+508)</option>
+                <option value="SD" data-countrycode="249">&#x1F1F8&#x1F1E9 Sudan (+249)</option>
+                <option value="SR" data-countrycode="597">&#x1F1F8&#x1F1F7 Suriname (+597)</option>
+                <option value="SE" data-countrycode="46">&#x1F1F8&#x1F1EA Sweden (+46)</option>
+                <option value="CH" data-countrycode="41">&#x1F1E8&#x1F1ED Switzerland (+41)</option>
+                <option value="SI" data-countrycode="963">&#x1F1F8&#x1F1FE Syria (+963)</option>
+                <option value="TW" data-countrycode="886">&#x1F1F9&#x1F1FC Taiwan (+886)</option>
+                <option value="TJ" data-countrycode="992">&#x1F1F9&#x1F1EF Tajikstan (+992)</option>
+                <option value="TZ" data-countrycode="255">&#x1F1F9&#x1F1FF Tanzania (+255)</option>
+                <option value="TH" data-countrycode="66">&#x1F1F9&#x1F1ED Thailand (+66)</option>
+                <option value="TG" data-countrycode="228">&#x1F1F9&#x1F1EC Togo (+228)</option>
+                <option value="TK" data-countrycode="690">&#x1F1F9&#x1F1F0 Tokelau (+690)</option>
+                <option value="TO" data-countrycode="676">&#x1F1F9&#x1F1F4 Tonga (+676)</option>
+                <option value="TT" data-countrycode="1868">&#x1F1F9&#x1F1F9 Trinidad &amp; Tobago (+1868)</option>
+                <option value="TN" data-countrycode="216">&#x1F1F9&#x1F1F3 Tunisia (+216)</option>
+                <option value="TR" data-countrycode="90">&#x1F1F9&#x1F1F7 Turkey (+90)</option>
+                <option value="TM" data-countrycode="993">&#x1F1F9&#x1F1F2 Turkmenistan (+993)</option>
+                <option value="TC" data-countrycode="1649">&#x1F1F9&#x1F1E8 Turks &amp; Caicos Islands (+1649)</option>
+                <option value="TV" data-countrycode="688">&#x1F1F9&#x1F1FB Tuvalu (+688)</option>
+                <option value="UG" data-countrycode="256">&#x1F1FA&#x1F1EC Uganda (+256)</option>
+                <option value="UA" data-countrycode="380">&#x1F1FA&#x1F1E6 Ukraine (+380)</option>
+                <option value="AE" data-countrycode="971">&#x1F1E6&#x1F1EA United Arab Emirates (+971)</option>
+                <option value="GB" data-countrycode="44">&#x1F1EC&#x1F1E7 United Kingdom (+44)</option>
+                <option value="US" data-countrycode="1">&#x1F1FA&#x1F1F8 United States of America (+1)</option>
+                <option value="UY" data-countrycode="598">&#x1F1FA&#x1F1FE Uruguay (+598)</option>
+                <option value="UZ" data-countrycode="998">&#x1F1FA&#x1F1FF Uzbekistan (+998)</option>
+                <option value="VU" data-countrycode="678">&#x1F1FB&#x1F1FA Vanuatu (+678)</option>
+                <option value="VA" data-countrycode="39">&#x1F1FB&#x1F1E6 Vatican City (+39)</option>
+                <option value="VE" data-countrycode="58">&#x1F1FB&#x1F1EA Venezuela (+58)</option>
+                <option value="VN" data-countrycode="84">&#x1F1FB&#x1F1F3 Vietnam (+84)</option>
+                <option value="VG" data-countrycode="1284">&#x1F1FB&#x1F1EC Virgin Islands - British (+1284)</option>
+                <option value="VI" data-countrycode="1340">&#x1F1FB&#x1F1EE Virgin Islands - US (+1340)</option>
+                <option value="WF" data-countrycode="681">&#x1F1FC&#x1F1EB Wallis &amp; Futuna (+681)</option>
+                <option value="EH" data-countrycode="967">&#x1F1EA&#x1F1ED Western Sahara (+212)</option>
+                <option value="YE" data-countrycode="967">&#x1F1FE&#x1F1EA Yemen (+967)</option>
+                <option value="ZM" data-countrycode="260">&#x1F1FF&#x1F1F2 Zambia (+260)</option>
+                <option value="ZW" data-countrycode="263">&#x1F1FF&#x1F1FC Zimbabwe (+263)</option>
               </select>
-           
-           
+            </div>
+              <div class="w3-padding w3-col s6" id="deliveryphonediv">
+                <label class="w3-tiny bold">telefone:</label>
+                <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="deliveryphone" data-country="BR" id="deliveryphone" oninput="this.value = mask['phone'](this.value)">
+              </div>
+
+            </div>
+            <div class="w3-row">
+            <div class="w3-padding w3-col s6" id="deliverypostalcodediv">
+              <label class="w3-tiny bold">cep:</label>
+                <input class="w3-input w3-border w3-round-large w3-small deliveryform" type="tel" name="deliverypostalcode" data-country="BR" id="deliverypostalcode" oninput="this.value = mask['cep'](this.value); fimDoCep(this.value, 'deliverystreetaddress', 'deliverydistrict', 'deliverycity', 'deliverystate')" >
             </div>
 
-              <div class="w3-padding w3-col s6" id="stateselector">
-                <label for="delivery-state" class="w3-tiny bold">estado:</label>
-                <select id="delivery-state" name="delivery-state" data-country="BR" class="w3-input w3-border w3-round-large w3-small">
+
+              <div class="w3-padding w3-col s6" id="deliverystateselector">
+                <label for="deliverystate" class="w3-tiny bold">estado:</label>
+                <select id="deliverystate" name="deliverystate" data-country="BR" class="w3-input w3-border w3-round-large w3-small deliveryform">
                   <option hidden disabled selected value></option>
                   <option value="AC">acre</option>
                   <option value="AL">alagoas</option>
@@ -801,56 +749,54 @@
              
               <div class="w3-padding w3-col s6">
                 <label class="w3-tiny bold">cidade:</label>
-                <input class="w3-input w3-border w3-round-large w3-small" type="text" name="delivery-city" id="delivery-city" >
+                <input class="w3-input w3-border w3-round-large w3-small deliveryform" type="text" name="deliverycity" id="deliverycity" >
               </div>
 
               <div class="w3-padding  w3-col s6">
                 <label class="w3-tiny bold">bairro:</label>
-                <input class="w3-input w3-border w3-round-large w3-small" name="delivery-district" id="delivery-district" type="text" >
+                <input class="w3-input w3-border w3-round-large w3-small deliveryform" name="deliverydistrict" id="deliverydistrict" type="text" >
               </div>
 
             </div>
             <div class="w3-row">
             <div class="w3-padding  w3-col s8">
               <label class="w3-tiny bold">rua:</label>
-              <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="delivery-street-address" id="delivery-street-address"  >
+              <input class="w3-input w3-border w3-round-large w3-small deliveryform" type="text"  name="deliverystreetaddress" id="deliverystreetaddress"  >
             </div>
               <div class="w3-padding w3-col s4">
                 <label class="w3-tiny bold">numero:</label>
-                <input class="w3-input w3-border w3-round-large w3-small" type="tel" name="delivery-street-number" id="street-number"  >
+                <input class="w3-input w3-border w3-round-large w3-small deliveryform" type="tel" name="deliverystreetnumber" id="streetnumber"  >
               </div>
               </div>
     <div class="w3-row">
-      <div class="w3-padding w3-col s6">
-        <label class="w3-tiny bold">telefone:</label>
-        <input class="w3-input w3-border w3-round-large w3-small mask" type="tel" name="delivery-phone" id="receiver-phone" data-js="phone">
-      </div>
+
  
-              <div class="w3-padding w3-col s6">
+              <div class="w3-padding w3-row">
                 <label class="w3-tiny bold">complemento:</label>
-                <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="delivery-complement" id="complement">
+                <input class="w3-input w3-border w3-round-large w3-small" type="text"  name="deliverycomplement" id="complement">
               </div>
 
 
 
             </div>
           </div>
+          
 <div class="w3-row">
           <div class="w3-padding w3-col s6 w3-margin-top">
-            <input class="w3-margin-top w3-check" type="checkbox" id="deliveryequalbill" name="deliveryequalbill" value="deliveryequalbill" onchange="duplicaEndereco(this)" checked>
+            <input class="w3-margin-top " type="checkbox" id="deliveryequalbill" name="deliveryequalbill" value="deliveryequalbill" onchange="duplicaEndereco(this, false)" checked>
             <label class="w3-tiny bold" for="giftwrap"> endereço de entrega é o mesma da fatura.</label>
             </div>
 
             <div class="w3-padding w3-col s6 w3-margin-top">
-              <input class="w3-margin-top w3-check" type="checkbox" id="giftwrap" name="giftwrap" value="giftwrap">
+              <input class="w3-margin-top " type="checkbox" id="giftwrap" name="giftwrap" value="giftwrap">
               <label class="w3-tiny bold" for="giftwrap"> incluir embalagem para presente</label>
               </div>
 
           </div>
           <hr>
                 <div class="w3-row w3-padding w3-left">
-                  <input type="radio" class="w3-radio" id="delivery-type" name="delivery-type" value="free" checked>
-                    <label class="w3-tiny bold" for="delivery-type"> frete grátis (SEDEX)</label>
+                  <input type="radio" class="" id="deliverytype" name="deliverytype" value="free" checked>
+                    <label class="w3-tiny bold" for="deliverytype" id="intfrete"> frete grátis (SEDEX)</label>
   
                 </div>
                 <div class="w3-clear w3-margin-bottom"></div>
@@ -863,7 +809,7 @@
                     <div class="w3-row-padding w3-margin-bottom">
      
                       <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">sua compra</h2>
-                      <div class="w3-row-padding w3-card w3-round-large focuseable" onclick="focusDiv(this)">
+                      <div class="w3-row-padding w3-card-4 w3-round-large focuseable" onclick="focusDiv(this)">
 
             <span id="bagstatus" class="w3-margin"></span>
             
@@ -874,27 +820,31 @@
                 </div>
       <div class="w3-row-padding w3-margin-bottom">
         <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">forma de pagamento</h2>
-        <div class="w3-card w3-round-large w3-row-padding focuseable" id="card-formadepagamento" onclick="focusDiv(this)">
+        <div class="w3-card-4 w3-round-large w3-row-padding focuseable" id="card-formadepagamento" onclick="focusDiv(this)">
 
 
 
 <div class="w3-padding w3-margin-top">
-  <input type="radio" class="w3-radio" id="credit-card" name="payment-type" value="credit-card" checked>
+  <input type="radio" class="" id="credit-card" name="payment-type" value="credit-card" checked>
     <label class="w3-tiny bold" for="credit-card">cartão de crédito</label>
-   <input type="radio" class="w3-radio" id="pix" name="payment-type" value="pix" disabled>
-    <label class="w3-tiny bold" for="pix">pix</label>
+
 </div>
 
 
 <div class="w3-padding w3-row">
   <label class="w3-tiny bold">número do cartão:</label>
-  <input class="w3-input w3-border w3-round-large w3-small mask inputbg dontsave" type="tel"  name="cc-number" id="cc-number" data-js="cartao" onkeyup="fimDoNumero(this.value)"  placeholder="xxxx-xxxx-xxxx-xxxx"  required >
+  <input class="w3-input w3-border w3-round-large w3-small inputbg dontsave" type="tel"  name="cardNumber" id="cardNumber" oninput="this.value = mask['cartao'](this.value); fimDoNumero(this.value)"  placeholder="xxxx-xxxx-xxxx-xxxx"  required >
+</div>
+
+<div class="w3-padding w3-row w3-margin-top">
+  <label class="w3-tiny bold">nome do titular:</label>
+  <input class="w3-input w3-border w3-round-large w3-small" type="text" name="cardHolder" id="cardHolder" required pattern="\S+.*" required oninput="cardholderedited=true;">
 </div>
 
 <div class="w3-row">
-<div class="w3-padding w3-col s3">
-  <label for="cc-exp-month" class="w3-tiny bold">mês:</label>
-  <select id="cc-exp-month" class="w3-input w3-border w3-round-large w3-small dontsave" required>
+<div class="w3-padding w3-col s4">
+  <label for="cardExpirationMonth" class="w3-tiny bold">mês:</label>
+  <select id="cardExpirationMonth" name="cardExpirationMonth" type="text" class="w3-input w3-border w3-round-large w3-small dontsave" required>
     <option hidden disabled selected value></option>
     <option value="01">01 (Janeiro)</option>
     <option value="02">02 (Fevereiro)</option>
@@ -910,18 +860,13 @@
     <option value="12">12 (Dezembro)</option>
   </select>
 </div>
-<div class="w3-padding  w3-col s6">
-  <label for="cc-exp-year" class="w3-tiny bold">ano:</label>
-  <select style="width:50%" id="cc-exp-year" class="w3-input w3-border w3-round-large w3-small dontsave" required>
-    <option hidden disabled selected value></option>
-    <option value="2022">2022</option>
-    <option value="2023">2023</option>
-    <option value="2024">2024</option>
-  </select>
+<div class="w3-padding  w3-col s2">
+  <label for="cardExpirationYear" class="w3-tiny bold">ano:</label>
+    <input class="w3-input w3-border w3-round-large w3-small dontsave" type="tel" name="cardExpirationYear" id="cardExpirationYear" minlength="2" maxlength="2" autocomplete="off" required >
 </div>
-<div class="w3-padding w3-col s3">
+<div class="w3-padding w3-col s3 w3-right">
   <label class="w3-tiny bold">cvv:</label>
-  <input class="w3-input w3-border w3-round-large w3-small dontsave" type="tel"  name="cc-csc" id="cc-csc" maxlength="3" autocomplete="off" required >
+  <input class="w3-input w3-border w3-round-large w3-small dontsave" type="tel"  name="cardCsc" id="cardCsc" maxlength="3" autocomplete="off" required >
 </div>
 </div>
 
@@ -956,17 +901,81 @@
 
 
     <div class="w3-padding w3-col s6">
-      <button style="width: 100%; max-width:200px" class="w3-right w3-margin-top w3-card-4 w3-button w3-xsmall w3-round-large color-d3e4f5 hover-e6e1d8" id="checkoutbuttom" form="checkoutform" type="submit">pagar</button>
+      <button style="width: 100%; max-width:200px" class="w3-right w3-margin-top w3-card-4 w3-button w3-xsmall w3-round-large color-d3e4f5 hover-e6e1d8 clickbtn" id="checkoutbuttom" form="checkoutform" type="submit">pagar</button>
     </div>
   </div>
+
+   
 
  
 <div class="w3-padding w3-clear"></div>
         </div>
       </div>
+      <p class="w3-padding w3-center w3-margin"><img src="/assets/selo-seguranca-pagarme.png" alt="selo de segurança Pagar.me" style="height:50px"></p>
  
   </form>
 
+  <div id="loadermodal" class="w3-modal blurred">
+      
+    <div class="w3-modal-content w3-display-middle">
+
+  
+        <div class="lds-grid w3-display-middle" id="loadersymbol" style="display:block;">
+          <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+ 
+          <div class="w3-display-middle w3-text-white" style="width:350px; display:none;" id="loadersuccess">
+            <a href="/" id="pedidoinfolink">
+            <div class="w3-center"><span class="w3-jumbo w3-padding">&#9989;</span></div>
+            <div class="w3-clear w3-padding w3-margin"></div>
+            <div class="w3-border w3-round-large w3-margin w3-padding w3-center" style="width:300px">
+            <p><span class="bold">Pedido realizado com sucesso!</span></p>
+            <p>Em breve você receberá mais detalhes em seu email.</p>
+          </div>
+        </a>
+          </div>
+
+          <div class="w3-display-middle w3-text-white" id="loaderfail" style="display:none; width:350px" onclick="closeLoader()">
+            <div class="w3-center"><span class="w3-border w3-round-xxlarge w3-large w3-padding bold">!</span></div>
+            <div class="w3-clear w3-padding w3-margin"></div>
+            <div class="w3-border w3-round-large w3-margin w3-padding w3-center" style="width:300px">
+            <p><span class="bold">Pagamento não processado.</span></p>
+            <p>Por favor, revise os dados e tente novamente.</p>
+            <hr>
+            <p class="w3-tiny">Precisa de ajuda? Oferecemos checkout via <a href="https://wa.me/5541991595808" id="whatsappcheckout2" target="_blank"><span style="text-decoration: underline">WhatsApp.</span></a></p>
+           <!--
+            <hr>
+            <p><span class="bold w3-tiny">unable to process payment</span></p>
+            <p class="w3-tiny">please, check your inputs and try again</p>
+            <p class="w3-tiny">it is also possible to pay via chat with our team at <a href="https://wa.me/5541991595808"><span style="text-decoration: underline">whatsapp</span></a></p>
+            -->
+          </div>
+          </div>
+
+          <div class="w3-display-middle w3-text-white" id="loaderestoquefail" style="display:none; width:350px">
+            <a href="/shop">
+            <div class="w3-center"><span class="w3-border w3-round-xxlarge w3-large w3-padding bold" >!</span></div>
+            <div class="w3-clear w3-padding w3-margin"></div>
+            <div class="w3-border w3-round-large w3-margin w3-padding w3-center" style="width:300px">
+            <p><span class="bold">Pagamento não processado.</span></p>
+            <p>Um item não estava mais disponível no estoque, por favor começe novamente.</p>
+            <hr>
+            <p class="w3-tiny">Precisa de ajuda? Oferecemos checkout via <a href="https://wa.me/5541991595808" id="whatsappcheckout3" target="_blank"><span style="text-decoration: underline">WhatsApp.</span></a></p>
+           <!--
+            <hr>
+            <p><span class="bold w3-tiny">unable to process payment</span></p>
+            <p class="w3-tiny">please, check your inputs and try again</p>
+            <p class="w3-tiny">it is also possible to pay via chat with our team at <a href="https://wa.me/5541991595808"><span style="text-decoration: underline">whatsapp</span></a></p>
+            -->
+          </div>
+        </a>
+          </div>
+
+    </div>
+
+
+
+  
+  </div>
 
               
   
@@ -981,8 +990,22 @@
     <!-- End page content -->
 
 
-    <footer class="w3-container" style="height:200px;"> 
-      
+    <footer class="w3-container w3-round-large" style="height:200px;"> 
+
+    
+
+   <div class="w3-container w3-center w3-padding">
+    <a href="/politicas/#politicas"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">nossas políticas</span></p></a>
+    <a href="/politicas/#consciencia"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">consciência</span></p>
+      <a href="https://blog.anafonsaca.com.br"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">blog</span></p>
+        <a href="/contato"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">meus pedidos</span></p>
+          <a href="/contato"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">contato</span></p>
+    </div>  
+
+    <div class="w3-container w3-right" style="line-height: 50px;">
+
+
+    </div>
     
     <div class="w3-contaiener w3-center w3-padding">
  
@@ -991,51 +1014,14 @@
       <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
       <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
       <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
-      <a href="https://wa.me/5541991595808" target="_blank"><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
+      <a href="https://wa.me/5541991595808" target="_blank" id="whatsappcheckout1" ><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
    </div>
-   <div class="w3-container w3-center w3-padding">
-    <a href="/politicas/#politicas"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">nossas políticas</span></p></a>
-    <a href="/politicas/#consciencia"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">consciência</span></p>
-      <a href="https://blog.anafonsaca.com.br"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">blog</span></p>
-        <a href="/contato"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">meus pedidos</span></p>
-          <a href="/contato"><p class="w3-tiny w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">contato</span></p>
-    </div>  
 
-<div class="w3-container w3-center" style="line-height: 50px;">
-      
-  <a href="https://soudealgodao.com.br/" target="_blank"><span class="w3-padding"><img src="/assets/soudealgodao.png" alt="sou marca parceira sou de algodão" style="height:15px"></span></a>
- 
-
-  <a href="https://www.w3.org/2001/tag/doc/web-https" target="_blank"><span class="w3-padding"><img src="/assets/seguro.png" alt="site seguro com ssl" style="height:15px"></span></a>
-
-
-  <a href="https://www.cielo.com.br/e-commerce/" target="_blank"><span class="w3-padding"><img src="/assets/cielo.png" alt="powered by cielo" style="height:15px"></span></a>
-</div>
 <div class="w3-container w3-center w3-padding">
 <p class="w3-tiny">Ana Fonsaca, CNPJ: 40.197.291/0001-74. Florianópolis, SC - Brasil.</p>
 </div>   
 </footer>
-
-
-   
-
-
-    <div id="loadermodal" class="w3-modal blurred">
-      
-      <div class="w3-modal-content">
-
-    
-          <div class="lds-grid w3-display-middle">
-            <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-   
-      </div>
-      <p class="w3-center w3-text-white w3-small" style="position: fixed;left: 0;bottom: 40px;width: 100%;">redirecionando para o checkout cielo</p>
   
-
-    
-    </div>
-
-    
 
     <script src="/js/script.js"></script>
     <script>
