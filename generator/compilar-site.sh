@@ -128,6 +128,24 @@ export titulo='contato'
 } | sh > ../contato/index.html
 
 #############################
+#############################
+
+###contato:
+mkdir ../pedido 2>/dev/null
+
+export titulo='Pedido'
+
+
+
+{ echo "cat <<HEREDOC"
+  cat head.html
+  cat shopcart.html
+  cat pedidomid.html
+  cat footer.html
+  #echo "HEREDOC"
+} | sh > ../pedido/index.html
+
+#############################
 
 
 

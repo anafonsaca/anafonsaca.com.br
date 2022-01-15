@@ -939,6 +939,50 @@ function anotherCountry(country, stateelement, phoneelement, postalelement) {
   
 
 
+  // Pedido Info
+
+function pedidoInfo() {
+    const month = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+    pedido = location.search.substring(1);
+    fullurl = 'https://5mh3k9dold.execute-api.us-east-1.amazonaws.com/default/infopedido?pedido=' + pedido
+    fetch(fullurl).then(response => response.json())
+    .then(data => {
+        
+        atributos = Object.keys(data);
+
+        dataunix = data['venda'].split('_')[1];
+        vendaid = data['venda'].split('_')[0];
+
+        var date = new Date(parseInt(dataunix));
+
+        datastring = date.getDate() + "/" + month[date.getMonth()] + "/"+date.getFullYear();
+        horastring = date.getHours()+ ":" +date.getMinutes();
+
+        document.getElementById('datastring').innerHTML = datastring + ' - ' + horastring;
+
+        document.getElementById('vendaid').innerHTML = vendaid;
+
+        console.log(data['items'].length)
+        console.log(data['items'][0])
+        console.log(data['items'])
+        for (let i = 0; i < atributos.length; i++) {
+        
+            if (document.getElementById(atributos[i])) {
+                document.getElementById(atributos[i]).innerHTML = data[atributos[i]];
+            }
+            
+          }
+
+        }
+
+    )
+    .catch(error => console.error(error))
+  }
+  
+
+
+
+
 
 
 
