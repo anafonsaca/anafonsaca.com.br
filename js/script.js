@@ -29,6 +29,7 @@ var auto_fill_district = 'district'
 var auto_fill_city = 'city'
 var auto_fill_state = 'state'
 
+
 var whats1 = document.getElementById('whatsappcheckout1')
 var whats2 = document.getElementById('whatsappcheckout2')
 
@@ -267,6 +268,80 @@ function setSize(size) {
 }
 
 
+function CNPJorCPFisValid(cpf_cnpj) {
+    if (cpf_cnpj.replace(/[^\d]+/g, "").length == 11){
+        var strCPF = cpf_cnpj.replace(/[^\d]+/g, "");
+        var Soma;
+        var Resto;
+        Soma = 0;
+        if (strCPF == "00000000000") return false;
+
+        for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+
+        Soma = 0;
+        for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+        Resto = (Soma * 10) % 11;
+
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+        return 'cpf';
+    }else if (cpf_cnpj.replace(/[^\d]+/g, "").length == 14){
+        var confirm = cpf_cnpj.replace(/[^\d]+/g, "");
+
+        if (confirm.length != 14) return false;
+
+        // Elimina CNPJs invalidos conhecidos
+        if (
+        confirm == "00000000000000" ||
+        confirm == "11111111111111" ||
+        confirm == "22222222222222" ||
+        confirm == "33333333333333" ||
+        confirm == "44444444444444" ||
+        confirm == "55555555555555" ||
+        confirm == "66666666666666" ||
+        confirm == "77777777777777" ||
+        confirm == "88888888888888" ||
+        confirm == "99999999999999"
+        )
+        return false;
+
+        // Valida DVs
+        var tamanho = confirm.length - 2;
+        var numeros = confirm.substring(0, tamanho);
+        var digitos = confirm.substring(tamanho);
+        var soma = 0;
+        var pos = tamanho - 7;
+        var i;
+        for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) pos = 9;
+        }
+        var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(0)) return false;
+
+        tamanho = tamanho + 1;
+        numeros = confirm.substring(0, tamanho);
+        soma = 0;
+        pos = tamanho - 7;
+        for (i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) pos = 9;
+        }
+        resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+        if (resultado != digitos.charAt(1)) return false;
+
+        return 'cnpj';
+    }
+    return false;
+}
+
+
+
+
 function addToCart(product) {
     if (!product.classList.contains('w3-disabled')) {
         objeto = JSON.stringify(product.dataset);
@@ -297,10 +372,15 @@ function cartRender() {
 
     butoes = document.getElementById("checkoutbuttom");
     var checkoutcart = document.getElementById("checkoutcart");
-    if(checkoutcart)
+
+    if(checkoutcart) {
     carthtml = document.getElementById("checkoutcart");
-    else
+    }
+    else {
     carthtml = document.getElementById("carthtml");
+}
+if (carthtml) {
+
 
     carthtml.innerHTML = "";
     //document.getElementById("totalprice2").innerHTML = '';
@@ -442,6 +522,7 @@ function cartRender() {
     }
 
     calculaParcelas(carttotal);
+}
 }
 
 function calculaParcelas(total) {
@@ -816,6 +897,15 @@ function closeLoader() {
     document.getElementById('loadersuccess').style.display = 'none';
 }
 
+function unfold(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else {
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+
 
 function anotherCountry(country, stateelement, phoneelement, postalelement) {
 
@@ -939,15 +1029,73 @@ function anotherCountry(country, stateelement, phoneelement, postalelement) {
   
 
 
-  // Pedido Info
+// Historico de pedidos
 
-function pedidoInfo() {
+function buscaPedidos() {
+
     const month = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
-    pedido = location.search.substring(1);
-    fullurl = 'https://5mh3k9dold.execute-api.us-east-1.amazonaws.com/default/infopedido?pedido=' + pedido
+    cliente = location.search.substring(1);
+    if (cliente) {
+
+    
+    fullurl = 'https://5mh3k9dold.execute-api.us-east-1.amazonaws.com/default/buscapedidos?cliente=' + cliente
     fetch(fullurl).then(response => response.json())
     .then(data => {
+        for (let i = 0; i < data.length; i++) {
+            data[i].id = data[i].venda.split('_')[0];
+            data[i].dataunix = data[i].venda.split('_')[1];
+            var date = new Date(parseInt(data[i].dataunix));
+ 
+        }
+       data = data.sort((a, b) => parseFloat(b.dataunix) - parseFloat(a.dataunix));
+       pedidoslist = document.getElementById('pedidoslist')
+       for (let i = 0; i < data.length; i++) {
+           var date = new Date(parseInt(data[i].dataunix));
+           var datastring = date.getDate() + "/" + month[date.getMonth()] + "/"+date.getFullYear();
+
+
+           vendahref = document.createElement('a')
+           vendahref.setAttribute('href', '/pedido/?' + data[i].venda);
+
+           vendatitulo = document.createElement("button");
+           vendatitulo.className = "foldeable w3-buttom w3-block w3-left-align w3-margin-bottom"
+           vendatitulo.innerHTML = datastring + ' - ' + data[i].id + ' - ' + data[i].paystatus
         
+           
+           /*
+           vendainfodiv = document.createElement('div');
+           vendainfodiv.className = "w3-container w3-hide"
+
+           vendainfoul = document.createElement('ul')
+           if (data[i].items) {
+           for (let c = 0; c < data[i].items.length; c++) {
+            itemli = document.createElement('li')
+            itemli.innerHTML = data[i].items[c].Name + ' R$' + data[i].items[c].UnitPrice
+            vendainfoul.appendChild(itemli)
+            
+           }
+               }
+           */
+    
+           vendahref.appendChild(vendatitulo)
+           pedidoslist.appendChild(vendahref)
+
+           /*
+           vendainfodiv.appendChild(vendainfoul)
+           pedidoslist.appendChild(vendainfodiv)
+           */
+
+  
+       }
+
+
+       /*
+       ['numero', 'carttotal', 'complemento', 'cidade', 'email', 'estado', 'items', 
+       'bairro', 'paystatus', 'parcelas', 'venda', 'cpf', 'nome', 'phone', 'rua', 'id', 
+       'dataunix']
+       */
+
+        /*
         atributos = Object.keys(data);
 
         dataunix = data['venda'].split('_')[1];
@@ -962,9 +1110,187 @@ function pedidoInfo() {
 
         document.getElementById('vendaid').innerHTML = vendaid;
 
-        console.log(data['items'].length)
-        console.log(data['items'][0])
-        console.log(data['items'])
+    
+
+        carthtml = document.getElementById('pedidoitens');
+        for (let i = 0; i < data['items'].length; i++) {
+            //console.log(data['items'][i])
+            
+
+            //item card
+
+            itemcard = document.createElement("div");
+            itemcard.className = "w3-card w3-round-large w3-display-container w3-padding w3-margin-bottom itemsdiv";
+            carthtml.appendChild(itemcard);
+
+            //item img
+            itemdiv = document.createElement("div");
+            itemdiv.className = "evenly";
+            itemcard.appendChild(itemdiv);
+
+            itemdiv2 = document.createElement("div");
+            itemdiv2.className = "column";
+            itemdiv.appendChild(itemdiv2);
+
+            imglink = document.createElement("a");
+           // imglink.className = "w3-round-large w3-card itemthumb";
+            imglink.setAttribute('href', data['items'][i].Sku);
+            itemdiv2.appendChild(imglink);
+
+            itemimg = document.createElement("img");
+            itemimg.className = "w3-card itemthumb";
+            itemimg.src = '/img/' + data['items'][i].Sku + '/01.webp';
+            imglink.appendChild(itemimg);
+
+
+            //item info div
+
+            iteminfodiv = document.createElement("div");
+            iteminfodiv.className = "w3-display-middle w3-margin-left w3-row-padding";
+            itemcard.appendChild(iteminfodiv);
+
+            //item title
+
+            itemtitle = document.createElement("a");
+            itemtitle.className = "bold w3-large"
+            itemtitle.setAttribute('href', data['items'][i].Sku);
+            itemtitle.innerHTML = data['items'][i].Name;
+            iteminfodiv.appendChild(itemtitle);
+
+            // break line
+            iteminfodiv.appendChild(document.createElement("br"));
+
+            //item size
+
+            itemsize = document.createElement("span");
+            itemsize.className = "w3-small"
+            itemsize.innerHTML = 'tamanho: ' + data['items'][i].Description;
+            iteminfodiv.appendChild(itemsize);
+
+            // break line
+            iteminfodiv.appendChild(document.createElement("br"));
+
+            //item itemprice
+
+            itemprice = document.createElement("span");
+            itemprice.className = "w3-small"
+            itemprice.innerHTML = 'R$' + data['items'][i].UnitPrice;
+            iteminfodiv.appendChild(itemprice);
+        }
+
+
+        for (let i = 0; i < atributos.length; i++) {
+        
+            if (document.getElementById(atributos[i])) {
+                document.getElementById(atributos[i]).innerHTML = data[atributos[i]];
+            }
+            
+          }
+*/
+        }
+
+    )
+    .catch(error => console.error(error))
+}
+  }
+
+
+  // Pedido Info
+
+function pedidoInfo() {
+
+    const month = ["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];
+    pedido = location.search.substring(1);
+    if (pedido) {
+
+    
+    fullurl = 'https://5mh3k9dold.execute-api.us-east-1.amazonaws.com/default/infopedido?pedido=' + pedido
+    fetch(fullurl).then(response => response.json())
+    .then(data => {
+        console.log(data)
+        atributos = Object.keys(data);
+
+        dataunix = data['venda'].split('_')[1];
+        vendaid = data['venda'].split('_')[0];
+
+        var date = new Date(parseInt(dataunix));
+
+        datastring = date.getDate() + "/" + month[date.getMonth()] + "/"+date.getFullYear();
+        horastring = date.getHours()+ ":" +date.getMinutes();
+
+        document.getElementById('datastring').innerHTML = datastring + ' - ' + horastring;
+
+        document.getElementById('vendaid').innerHTML = vendaid;
+
+    
+
+        carthtml = document.getElementById('pedidoitens');
+        for (let i = 0; i < data['items'].length; i++) {
+            //console.log(data['items'][i])
+            
+
+            //item card
+
+            itemcard = document.createElement("div");
+            itemcard.className = "w3-card w3-round-large w3-display-container w3-padding w3-margin-bottom itemsdiv";
+            carthtml.appendChild(itemcard);
+
+            //item img
+            itemdiv = document.createElement("div");
+            itemdiv.className = "evenly";
+            itemcard.appendChild(itemdiv);
+
+            itemdiv2 = document.createElement("div");
+            itemdiv2.className = "column";
+            itemdiv.appendChild(itemdiv2);
+
+            imglink = document.createElement("a");
+           // imglink.className = "w3-round-large w3-card itemthumb";
+            imglink.setAttribute('href', data['items'][i].Sku);
+            itemdiv2.appendChild(imglink);
+
+            itemimg = document.createElement("img");
+            itemimg.className = "w3-card itemthumb";
+            itemimg.src = '/img/' + data['items'][i].Sku + '/01.webp';
+            imglink.appendChild(itemimg);
+
+
+            //item info div
+
+            iteminfodiv = document.createElement("div");
+            iteminfodiv.className = "w3-display-middle w3-margin-left w3-row-padding";
+            itemcard.appendChild(iteminfodiv);
+
+            //item title
+
+            itemtitle = document.createElement("a");
+            itemtitle.className = "bold w3-large"
+            itemtitle.setAttribute('href', data['items'][i].Sku);
+            itemtitle.innerHTML = data['items'][i].Name;
+            iteminfodiv.appendChild(itemtitle);
+
+            // break line
+            iteminfodiv.appendChild(document.createElement("br"));
+
+            //item size
+
+            itemsize = document.createElement("span");
+            itemsize.className = "w3-small"
+            itemsize.innerHTML = 'tamanho: ' + data['items'][i].Description;
+            iteminfodiv.appendChild(itemsize);
+
+            // break line
+            iteminfodiv.appendChild(document.createElement("br"));
+
+            //item itemprice
+
+            itemprice = document.createElement("span");
+            itemprice.className = "w3-small"
+            itemprice.innerHTML = 'R$' + data['items'][i].UnitPrice;
+            iteminfodiv.appendChild(itemprice);
+        }
+
+
         for (let i = 0; i < atributos.length; i++) {
         
             if (document.getElementById(atributos[i])) {
@@ -977,6 +1303,7 @@ function pedidoInfo() {
 
     )
     .catch(error => console.error(error))
+}
   }
   
 
@@ -1099,6 +1426,11 @@ function duplicaEndereco(checkbox, savedelivery) {
 
 cartRender();
 
+var infocard = document.getElementById("infosdopedido");
+if (infocard) {
+    pedidoInfo();
+}
+
 // FORMULARIO SAVE and BUTOM LISTERNER
 
 
@@ -1164,76 +1496,4 @@ cartmodal.addEventListener('click', function (e) {
 
     }
 
-
-
-    function CNPJorCPFisValid(cpf_cnpj) {
-        if (cpf_cnpj.replace(/[^\d]+/g, "").length == 11){
-            var strCPF = cpf_cnpj.replace(/[^\d]+/g, "");
-            var Soma;
-            var Resto;
-            Soma = 0;
-            if (strCPF == "00000000000") return false;
-    
-            for (i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
-            Resto = (Soma * 10) % 11;
-    
-            if ((Resto == 10) || (Resto == 11))  Resto = 0;
-            if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
-    
-            Soma = 0;
-            for (i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
-            Resto = (Soma * 10) % 11;
-    
-            if ((Resto == 10) || (Resto == 11))  Resto = 0;
-            if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
-            return 'cpf';
-        }else if (cpf_cnpj.replace(/[^\d]+/g, "").length == 14){
-            var confirm = cpf_cnpj.replace(/[^\d]+/g, "");
-    
-            if (confirm.length != 14) return false;
-    
-            // Elimina CNPJs invalidos conhecidos
-            if (
-            confirm == "00000000000000" ||
-            confirm == "11111111111111" ||
-            confirm == "22222222222222" ||
-            confirm == "33333333333333" ||
-            confirm == "44444444444444" ||
-            confirm == "55555555555555" ||
-            confirm == "66666666666666" ||
-            confirm == "77777777777777" ||
-            confirm == "88888888888888" ||
-            confirm == "99999999999999"
-            )
-            return false;
-    
-            // Valida DVs
-            var tamanho = confirm.length - 2;
-            var numeros = confirm.substring(0, tamanho);
-            var digitos = confirm.substring(tamanho);
-            var soma = 0;
-            var pos = tamanho - 7;
-            var i;
-            for (i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) pos = 9;
-            }
-            var resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado != digitos.charAt(0)) return false;
-    
-            tamanho = tamanho + 1;
-            numeros = confirm.substring(0, tamanho);
-            soma = 0;
-            pos = tamanho - 7;
-            for (i = tamanho; i >= 1; i--) {
-            soma += numeros.charAt(tamanho - i) * pos--;
-            if (pos < 2) pos = 9;
-            }
-            resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
-            if (resultado != digitos.charAt(1)) return false;
-    
-            return 'cnpj';
-        }
-        return false;
-    }
 
