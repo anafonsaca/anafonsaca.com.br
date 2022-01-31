@@ -12,7 +12,7 @@
         <div class="w3-row-padding w3-margin-bottom">
           <form id="checkoutform" onsubmit="event.preventDefault();">
           <h2 class="bold w3-text-black w3-large bold w3-center w3-padding-32">dados do comprador</h2>
-        <div class="w3-card-4 w3-animate-left w3-round-large w3-row-padding focuseable" id="card-dadosdocomprador" onclick="focusDiv(this)">
+        <div class="w3-card-4 w3-round-large w3-row-padding focuseable" id="card-dadosdocomprador" onclick="focusDiv(this)">
           <div class="w3-padding w3-row w3-margin-top">
             <label class="w3-tiny bold">nome completo:</label>
             <input class="w3-input w3-border w3-round-large w3-small" type="text" name="name" id="name" required pattern="\S+.*" required oninput="cardHolderNameCopy()">
@@ -44,7 +44,7 @@
 <div class="w3-row">
   <div class="w3-padding w3-col s6">
     <label for="countryname" class="w3-tiny bold">país:</label>
-    <select id="countryname" onchange="anotherCountry(this.value, 'state', 'phone', 'postalcode')" name="countryname" class="w3-input w3-border w3-round-large w3-small">
+    <select id="countryname" onchange="anotherCountry(this.value, 'state', 'phone', 'postalcode')" name="countryname" class="w3-input w3-border w3-round-large w3-small" style="-webkit-appearance: none;">
         <option value="AF" data-countrycode="93">&#x1F1E6&#x1F1EB Afghanistan (+93)</option>
         <option value="AL" data-countrycode="355">&#x1F1E6&#x1F1FD Albania (+355)</option>
         <option value="DZ" data-countrycode="213">&#x1F1E9&#x1F1FF Algeria (+213)</option>
@@ -301,7 +301,7 @@
 
     <div class="w3-padding w3-col s6" id="stateselector">
       <label for="state" class="w3-tiny bold">estado:</label>
-      <select id="state" name="state" data-country="BR" class="w3-input w3-border w3-round-large w3-small" required>
+      <select id="state" name="state" data-country="BR" class="w3-input w3-border w3-round-large w3-small" style="-webkit-appearance: none;" required>
         <option hidden disabled selected value></option>
         <option value="AC">acre</option>
         <option value="AL">alagoas</option>
@@ -392,7 +392,7 @@
 
             <div class="w3-padding w3-col s6">
               <label for="deliverycountryname" class="w3-tiny bold">país:</label>
-              <select id="deliverycountryname" onchange="anotherCountry(this.value, 'deliverystate', 'deliveryphone', 'deliverypostalcode')" name="deliverycountryname" class="w3-input w3-border w3-round-large w3-small deliveryform">
+              <select id="deliverycountryname" onchange="anotherCountry(this.value, 'deliverystate', 'deliveryphone', 'deliverypostalcode')" name="deliverycountryname" class="w3-input w3-border w3-round-large w3-small deliveryform" style="-webkit-appearance: none;">
                 <option value="AF" data-countrycode="93">&#x1F1E6&#x1F1EB Afghanistan (+93)</option>
                 <option value="AL" data-countrycode="355">&#x1F1E6&#x1F1FD Albania (+355)</option>
                 <option value="DZ" data-countrycode="213">&#x1F1E9&#x1F1FF Algeria (+213)</option>
@@ -642,7 +642,7 @@
 
               <div class="w3-padding w3-col s6" id="deliverystateselector">
                 <label for="deliverystate" class="w3-tiny bold">estado:</label>
-                <select id="deliverystate" name="deliverystate" data-country="BR" class="w3-input w3-border w3-round-large w3-small deliveryform">
+                <select id="deliverystate" name="deliverystate" data-country="BR" class="w3-input w3-border w3-round-large w3-small deliveryform" style="-webkit-appearance: none;">
                   <option hidden disabled selected value></option>
                   <option value="AC">acre</option>
                   <option value="AL">alagoas</option>
@@ -757,7 +757,7 @@
 
 <div class="w3-padding w3-margin-top">
   <input type="radio" class="" id="credit-card" name="payment-type" value="credit-card" checked>
-    <label class="w3-tiny bold" for="credit-card">cartão de crédito</label>
+    <label class="w3-tiny bold" for="credit-card"><img src="/assets/selo-seguranca-pagarme.png" alt="selo de segurança Pagar.me" style="height:40px"></label>
 
 </div>
 
@@ -775,7 +775,7 @@
 <div class="w3-row">
 <div class="w3-padding w3-col s4">
   <label for="cardExpirationMonth" class="w3-tiny bold">mês:</label>
-  <select id="cardExpirationMonth" name="cardExpirationMonth" type="text" class="w3-input w3-border w3-round-large w3-small dontsave" required>
+  <select id="cardExpirationMonth" name="cardExpirationMonth" type="text" class="w3-input w3-border w3-round-large w3-small dontsave" style="-webkit-appearance: none;" required>
     <option hidden disabled selected value></option>
     <option value="01">01 (Janeiro)</option>
     <option value="02">02 (Fevereiro)</option>
@@ -791,11 +791,11 @@
     <option value="12">12 (Dezembro)</option>
   </select>
 </div>
-<div class="w3-padding  w3-col s2">
+<div class="w3-padding  w3-col s4">
   <label for="cardExpirationYear" class="w3-tiny bold">ano:</label>
     <input class="w3-input w3-border w3-round-large w3-small dontsave" type="tel" name="cardExpirationYear" id="cardExpirationYear" minlength="2" maxlength="2" autocomplete="off" required >
 </div>
-<div class="w3-padding w3-col s3 w3-right">
+<div class="w3-padding w3-col s4 w3-right">
   <label class="w3-tiny bold">cvv:</label>
   <input class="w3-input w3-border w3-round-large w3-small dontsave" type="tel"  name="cardCsc" id="cardCsc" maxlength="3" autocomplete="off" required >
 </div>
@@ -811,20 +811,20 @@
 <div class="w3-row">
 <div class="w3-padding w3-col s6">
   <label for="installments" class="w3-tiny bold">parcelas:</label>
-  <select id="installments" name="installments" class="w3-input w3-border w3-round-large w3-small" required>
+  <select id="installments" name="installments" class="w3-input w3-border w3-round-large w3-small" style="-webkit-appearance: none;" required>
 
     <option value="1" selected>1x à vista - </option>
-    <option value="2" selected>2x - </option>
-    <option value="3" selected>3x - </option>
-    <option value="4" selected>4x - </option>
-    <option value="5" selected>5x - </option>
-    <option value="6" selected>6x - </option>
-    <option value="7" selected>7x - </option>
-    <option value="8" selected>8x - </option>
-    <option value="9" selected>9x - </option>
-    <option value="10" selected>10x - </option>
-    <option value="11" selected>11x - </option>
-    <option value="12" selected>12x - </option>
+    <option value="2">2x - </option>
+    <option value="3">3x - </option>
+    <option value="4">4x - </option>
+    <option value="5">5x - </option>
+    <option value="6">6x - </option>
+    <option value="7">7x - </option>
+    <option value="8">8x - </option>
+    <option value="9">9x - </option>
+    <option value="10">10x - </option>
+    <option value="11">11x - </option>
+    <option value="12">12x - </option>
 
   </select>
 
@@ -842,7 +842,7 @@
 <div class="w3-padding w3-clear"></div>
         </div>
       </div>
-      <p class="w3-padding w3-center w3-margin"><img src="/assets/selo-seguranca-pagarme.png" alt="selo de segurança Pagar.me" style="height:50px"></p>
+      <p class="w3-padding w3-center w3-margin"></p>
  
   </form>
 
