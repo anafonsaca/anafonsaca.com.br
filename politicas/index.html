@@ -47,15 +47,19 @@
        
           <a href="/about" class="w3-bar-item w3-button w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">about</a>
     
-   <!--
-          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
-      
-    -->  
+
           <a href="/shop" class="w3-bar-item w3-button w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">shop</a>
       
       
           <button onclick="toggleCart()" class="w3-bar-item w3-button w3-white w3-round-large hover-f2f0eb" style="width:20%; margin-left:2.5%; margin-right:2.5%">
-            <span><img src="/assets/bag.png" alt="sacola de compras" height="25" style="display: inline;vertical-align: middle;"><span class="button__badge w3-margin-top" id="bagicon"></span></span>
+            <span>
+              <picture>
+                <source srcset="/assets/bag.webp" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/webp">
+                <source srcset="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/png">
+                <img src="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;">
+            </picture>
+              <span class="button__badge w3-margin-top" id="bagicon"></span>
+            </span>
     
           </button>
    
@@ -175,7 +179,16 @@
     <li class="w3-margin-bottom">   Queremos inspirar nossos clientes com atitude sustentável de ter menos quantidade com mais qualidade.
     </li>
   </ul>
-<a href="https://soudealgodao.com.br/" target="_blank"><p class="w3-padding w3-center"><img src="/assets/soudealgodao.png" alt="sou marca parceira sou de algodão" style="height:30px"></p></a>
+<a href="https://soudealgodao.com.br/" target="_blank"><p class="w3-padding w3-center">
+  
+
+  <picture>
+    <source srcset="/assets/soudealgodao.webp" alt="Selo Sou De Algodão" style="height:30px" type="image/webp">
+    <source srcset="/assets/soudealgodao.png" alt="Selo Sou De Algodão" style="height:30px" type="image/png">
+    <img src="/assets/soudealgodao.png" alt="Selo Sou De Algodão" style="height:30px">
+</picture>
+
+</p></a>
 </div>
   
   
@@ -208,12 +221,53 @@
     
     <div class="w3-contaiener w3-center w3-padding">
  
-      <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
-      <a href="https://www.instagram.com/anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
-      <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
-      <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
-      <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
-      <a href="https://wa.me/5541991595808" target="_blank" id="whatsappcheckout1" ><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
+      <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank">
+        <picture>
+          <source srcset="/assets/pinterest.webp" alt="pinterest" class="miniicon" type="image/webp">
+          <source srcset="/assets/pinterest.png" alt="pinterest" class="miniicon" type="image/png">
+          <img src="/assets/pinterest.png" alt="pinterest" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://www.instagram.com/anafonsaca/" target="_blank">
+
+        <picture>
+          <source srcset="/assets/instagram.webp" alt="instagram" class="miniicon" type="image/webp">
+          <source srcset="/assets/instagram.png" alt="instagram" class="miniicon" type="image/png">
+          <img src="/assets/instagram.png" alt="instagram" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank">
+
+        <picture>
+          <source srcset="/assets/spotify.webp" alt="spotify" class="miniicon" type="image/webp">
+          <source srcset="/assets/spotify.png" alt="spotify" class="miniicon" type="image/png">
+          <img src="/assets/spotify.png" alt="spotify" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://twitter.com/anafonsaca" target="_blank">
+
+        <picture>
+          <source srcset="/assets/twitter.webp" alt="twitter" class="miniicon" type="image/webp">
+          <source srcset="/assets/twitter.png" alt="twitter" class="miniicon" type="image/png">
+          <img src="/assets/twitter.png" alt="twitter" class="miniicon">
+      </picture>
+      </a>
+      <a href="mailto:shop.anafonsaca@gmail.com" target="_blank">
+
+        <picture>
+          <source srcset="/assets/email.webp" alt="email" class="miniicon" type="image/webp">
+          <source srcset="/assets/email.png" alt="email" class="miniicon" type="image/png">
+          <img src="/assets/email.png" alt="email" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://wa.me/5541991595808" target="_blank" id="whatsappcheckout1" >
+
+        <picture>
+          <source srcset="/assets/whatsapp.webp" alt="whatsapp" class="miniicon" type="image/webp">
+          <source srcset="/assets/whatsapp.png" alt="whatsapp" class="miniicon" type="image/png">
+          <img src="/assets/whatsapp.png" alt="whatsapp" class="miniicon">
+      </picture>
+      </a>
    </div>
 
 <div class="w3-container w3-center w3-padding">

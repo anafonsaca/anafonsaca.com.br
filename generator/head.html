@@ -47,15 +47,19 @@
        
           <a href="/about" class="w3-bar-item w3-button w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">about</a>
     
-   <!--
-          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
-      
-    -->  
+
           <a href="/shop" class="w3-bar-item w3-button w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">shop</a>
       
       
           <button onclick="toggleCart()" class="w3-bar-item w3-button w3-white w3-round-large hover-f2f0eb" style="width:20%; margin-left:2.5%; margin-right:2.5%">
-            <span><img src="/assets/bag.png" alt="sacola de compras" height="25" style="display: inline;vertical-align: middle;"><span class="button__badge w3-margin-top" id="bagicon"></span></span>
+            <span>
+              <picture>
+                <source srcset="/assets/bag.webp" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/webp">
+                <source srcset="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/png">
+                <img src="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;">
+            </picture>
+              <span class="button__badge w3-margin-top" id="bagicon"></span>
+            </span>
     
           </button>
    

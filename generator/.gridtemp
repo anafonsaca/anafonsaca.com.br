@@ -4,7 +4,13 @@
     <a href="/shop/vestido-daisy-+-totebag">
       <div class="w3-display-container w3-card w3-round-large" style="overflow: hidden;">
         <div class="thumbgrid w3-round-large">
-    <img src="/img/KIT01SS22/01-grid.webp" class="w3-round-large" style="width:100%">
+  
+    <picture>
+      <source srcset="/img/KIT01SS22/01-grid.webp" alt="vestido daisy + totebag" class="w3-round-large" style="width:100%" type="image/webp">
+      <source srcset="/img/KIT01SS22/01-grid.jpg" alt="vestido daisy + totebag" class="w3-round-large" style="width:100%" type="image/jpg">
+      <img src="/img/KIT01SS22/01-grid.jpg" alt="vestido daisy + totebag" class="w3-round-large" style="width:100%">
+  </picture>
+
   </div>
     <span class="w3-tag w3-display-topleft w3-tiny w3-round-large transparente w3-margin">kit 10% off</span>
   </div>

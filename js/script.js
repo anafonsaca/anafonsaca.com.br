@@ -446,7 +446,7 @@ if (carthtml) {
 
             itemimg = document.createElement("img");
             itemimg.className = "w3-card itemthumb";
-            itemimg.src = '/img/' + obj.sku + '/01.webp';
+            itemimg.src = '/img/' + obj.sku + '/01-grid.jpg';
             imglink.appendChild(itemimg);
 
             //item remove btn
@@ -1139,7 +1139,7 @@ function buscaPedidos() {
 
             itemimg = document.createElement("img");
             itemimg.className = "w3-card itemthumb";
-            itemimg.src = '/img/' + data['items'][i].Sku + '/01.webp';
+            itemimg.src = '/img/' + data['items'][i].Sku + '/01-grid.jpg';
             imglink.appendChild(itemimg);
 
 
@@ -1251,7 +1251,7 @@ function pedidoInfo() {
 
             itemimg = document.createElement("img");
             itemimg.className = "w3-card itemthumb";
-            itemimg.src = '/img/' + data['items'][i].Sku + '/01.webp';
+            itemimg.src = '/img/' + data['items'][i].Sku + '/01-grid.jpg';
             imglink.appendChild(itemimg);
 
 

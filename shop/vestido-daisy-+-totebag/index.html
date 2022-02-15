@@ -47,15 +47,19 @@
        
           <a href="/about" class="w3-bar-item w3-button w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">about</a>
     
-   <!--
-          <a href="https://blog.anafonsaca.com.br" target="_blank" class="w3-bar-item w3-button w3-block w3-white w3-round-large hover-e4d5d3 activeblog" lang="en" style="width:20%">blog</a>
-      
-    -->  
+
           <a href="/shop" class="w3-bar-item w3-button w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">shop</a>
       
       
           <button onclick="toggleCart()" class="w3-bar-item w3-button w3-white w3-round-large hover-f2f0eb" style="width:20%; margin-left:2.5%; margin-right:2.5%">
-            <span><img src="/assets/bag.png" alt="sacola de compras" height="25" style="display: inline;vertical-align: middle;"><span class="button__badge w3-margin-top" id="bagicon"></span></span>
+            <span>
+              <picture>
+                <source srcset="/assets/bag.webp" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/webp">
+                <source srcset="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/png">
+                <img src="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;">
+            </picture>
+              <span class="button__badge w3-margin-top" id="bagicon"></span>
+            </span>
     
           </button>
    
@@ -121,7 +125,9 @@
       <div class="w3-container w3-row w3-padding-64">
         <div class="slidecontainer w3-half cursor w3-margin-bottom" style="padding-left: 16px; padding-right: 16px;">
           <div class="w3-card w3-display-container w3-round-large">
-            <img src="/img/KIT01SS22/01.webp" alt="imagem do produto" class="w3-round-large" id="slide" style="width:100%" onclick="goModal(this);">
+            <img src="/img/KIT01SS22/01.jpg" alt="imagem do produto" class="w3-round-large" id="slide" style="width:100%" onclick="goModal(this);">
+
+
             <div class="w3-btn w3-round-large w3-display-left w3-container w3-text-white" onclick="prevSlide()">
               <p>❮</p>
             </div>
@@ -131,34 +137,34 @@
           </div>
           <div class="row thumbs w3-margin-top">
             <div class="column pad4">
-              <img class="thumb cursor w3-card w3-round-large" src="/img/KIT01SS22/01.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 01">
+              <img class="thumb cursor w3-card w3-round-large" src="/img/KIT01SS22/01.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 01">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/02.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 02">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/02.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 02">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/03.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 03">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/03.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 03">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/04.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 04">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/04.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 04">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/05.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 05">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/05.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 05">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/06.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 06">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/06.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 06">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/07.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 07">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/07.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 07">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/08.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 08">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/08.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 08">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/09.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 09">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/09.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 09">
             </div>
             <div class="column pad4">
-              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/10.webp" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 10">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/KIT01SS22/10.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 10">
             </div>
           </div>
         </div>
@@ -398,12 +404,53 @@ Manequim 40 a 42 adquira o tamanho M <br></p>
     
     <div class="w3-contaiener w3-center w3-padding">
  
-      <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank"><img src="/assets/pinterest.png" alt="pinterest"  class="miniicon"></a>
-      <a href="https://www.instagram.com/anafonsaca/" target="_blank"><img src="/assets/instagram.png" alt="instagram"  class="miniicon"></a>
-      <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank"><img src="/assets/spotify.png" alt="spotify"  class="miniicon"></a>
-      <a href="https://twitter.com/anafonsaca" target="_blank"><img src="/assets/twitter.png" alt="twitter"  class="miniicon"></a>
-      <a href="mailto:shop.anafonsaca@gmail.com" target="_blank"><img src="/assets/email.png" alt="email"  class="miniicon"></a>
-      <a href="https://wa.me/5541991595808" target="_blank" id="whatsappcheckout1" ><img src="/assets/whatsapp.png" alt="whatsapp"  class="miniicon"></a>
+      <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank">
+        <picture>
+          <source srcset="/assets/pinterest.webp" alt="pinterest" class="miniicon" type="image/webp">
+          <source srcset="/assets/pinterest.png" alt="pinterest" class="miniicon" type="image/png">
+          <img src="/assets/pinterest.png" alt="pinterest" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://www.instagram.com/anafonsaca/" target="_blank">
+
+        <picture>
+          <source srcset="/assets/instagram.webp" alt="instagram" class="miniicon" type="image/webp">
+          <source srcset="/assets/instagram.png" alt="instagram" class="miniicon" type="image/png">
+          <img src="/assets/instagram.png" alt="instagram" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank">
+
+        <picture>
+          <source srcset="/assets/spotify.webp" alt="spotify" class="miniicon" type="image/webp">
+          <source srcset="/assets/spotify.png" alt="spotify" class="miniicon" type="image/png">
+          <img src="/assets/spotify.png" alt="spotify" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://twitter.com/anafonsaca" target="_blank">
+
+        <picture>
+          <source srcset="/assets/twitter.webp" alt="twitter" class="miniicon" type="image/webp">
+          <source srcset="/assets/twitter.png" alt="twitter" class="miniicon" type="image/png">
+          <img src="/assets/twitter.png" alt="twitter" class="miniicon">
+      </picture>
+      </a>
+      <a href="mailto:shop.anafonsaca@gmail.com" target="_blank">
+
+        <picture>
+          <source srcset="/assets/email.webp" alt="email" class="miniicon" type="image/webp">
+          <source srcset="/assets/email.png" alt="email" class="miniicon" type="image/png">
+          <img src="/assets/email.png" alt="email" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://wa.me/5541991595808" target="_blank" id="whatsappcheckout1" >
+
+        <picture>
+          <source srcset="/assets/whatsapp.webp" alt="whatsapp" class="miniicon" type="image/webp">
+          <source srcset="/assets/whatsapp.png" alt="whatsapp" class="miniicon" type="image/png">
+          <img src="/assets/whatsapp.png" alt="whatsapp" class="miniicon">
+      </picture>
+      </a>
    </div>
 
 <div class="w3-container w3-center w3-padding">

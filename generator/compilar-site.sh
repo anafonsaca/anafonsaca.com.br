@@ -31,10 +31,13 @@ shopt -s nocaseglob
 for i in *.jpg; do
 printf "%s" "${i%.*}.webp..."
 if convert "$i" -resize 1920x1920\> "${i%.*}".webp; then
+convert "$i" -resize 1920x1920\> "${i%.*}".jpg
 convert "$i" -resize 1280x1280\> "${i%.*}"-grid.webp
+convert "$i" -resize 1280x1280\> "${i%.*}"-grid.jpg
 #convert "$i" -resize 120x120\> "${i%.*}"-thumb.webp
+#convert "$i" -resize 120x120\> "${i%.*}"-thumb.jpg
 echo "ok"
-trash "$i"
+#trash "$i"
 fi
 done
 cd ..
