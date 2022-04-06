@@ -206,6 +206,12 @@ export nota=$(jq -r ."$sku".nota <<< "$json")
 export obs=$(jq -r ."$sku".obs <<< "$json")
 export grid=$(jq -r ."$sku".grid <<< "$json")
 
+if [[ "$estoque" -lt 1 ]]; then
+export exibepreco="invisivel"
+else
+export exibepreco="exibe"
+fi
+
 #if [[ -n "$tag" ]]; then
 #export precoativo="invisivel"
 #else

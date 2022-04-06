@@ -12,12 +12,16 @@
   </picture>
 
   </div>
-    <span class="w3-tag w3-display-topleft w3-tiny w3-round-large transparente w3-margin">kit 10% off</span>
+    <span class="w3-tag w3-display-topleft w3-tiny w3-round-large transparentemesmo w3-margin">ESGOTADO</span>
   </div>
   <p class="w3-center">
+    <div style="min-height: 80px;">
     <span class="bold w3-small">vestido daisy + totebag</span><br>
-    <span class=" w3-tiny ">R$ 728</span><br>
-    <span class="w3-tiny ">12x R$ 60,67 </span>
+  <span class="invisivel">
+    <span class=" w3-tiny ">R$ </span><br>
+    <span class="w3-tiny ">12x R$ 0 </span>
+  </span>
+</div>
     <p></a>
   </div>
 

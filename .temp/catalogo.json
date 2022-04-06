@@ -9,14 +9,15 @@
         "p": "0",
         "m": "0",
         "g": "0",
-        "u": "10",
+        "u": "5",
         "tipo": "unico",
-        "estoque": "10",
+        "estoque": "5",
         "relacionados": "CAL01SS22, CAM01SS22",
         "composicao": "algod\u00e3o cru 200g/m2",
-        "tag": "",
+        "tag": "-30%",
         "grid": "on",
-        "preco": "148"
+        "antigo": "148",
+        "preco": "98"
     },
     "VES04SS22": {
         "sku": "VES04SS22",
@@ -25,17 +26,18 @@
         "nota": "Essa pe\u00e7a exala aroma floral s\u00f3 de olhar, um verdadeiro campo de flores! \n",
         "obs": "Essa pe\u00e7a acompanha faixa com o mesmo tecido do vestido. <br>\nA modelagem do vestido \u00e9 ampla, sugerimos que: <br>\nManequim 34 a 38 adquira o tamanho P <br>\nManequim 40 a 42 adquira o tamanho M <br>",
         "cor": "estampado",
-        "p": "2",
-        "m": "3",
+        "p": "1",
+        "m": "2",
         "g": "0",
         "u": "0",
         "tipo": "variado",
-        "estoque": "5",
+        "estoque": "3",
         "relacionados": "TO01SS22",
         "composicao": "100% algod\u00e3o com certifa\u00e7\u00e3o BCI (better cotton initiative)",
-        "tag": "",
+        "tag": "-20%",
         "grid": "on",
-        "preco": "658"
+        "antigo": "658",
+        "preco": "528"
     },
     "BER01SS22": {
         "sku": "BER01SS22",
@@ -52,9 +54,10 @@
         "estoque": "0",
         "relacionados": "CAM01SS22, CAM02SS22, TO01SS22",
         "composicao": "90% viscose 10% poliester",
-        "tag": "esgotada",
+        "tag": "ESGOTADA",
         "grid": "on",
-        "preco": "578"
+        "antigo": "578",
+        "preco": ""
     },
     "VES02SS22": {
         "sku": "VES02SS22",
@@ -64,16 +67,17 @@
         "obs": "Essa pe\u00e7a acompanha a faixa com o mesmo tecido do vestido. ",
         "cor": "rosa",
         "p": "0",
-        "m": "1",
+        "m": "0",
         "g": "1",
         "u": "0",
         "tipo": "variado",
-        "estoque": "2",
+        "estoque": "1",
         "relacionados": "CAM02SS22",
         "composicao": "68% algod\u00e3o 32% seda forro 100% algod\u00e3o",
-        "tag": "\u00faltimas unidades",
+        "tag": "-20%",
         "grid": "on",
-        "preco": "848"
+        "antigo": "848",
+        "preco": "678"
     },
     "CAM02SS22": {
         "sku": "CAM02SS22",
@@ -90,9 +94,10 @@
         "estoque": "0",
         "relacionados": "CAL01SS22, BER01SS22, TO01SS22",
         "composicao": "70% algod\u00e3o 30% linho",
-        "tag": "esgotada",
+        "tag": "ESGOTADA",
         "grid": "on",
-        "preco": "628"
+        "antigo": "628",
+        "preco": ""
     },
     "CAM01SS22": {
         "sku": "CAM01SS22",
@@ -109,9 +114,10 @@
         "estoque": "3",
         "relacionados": "CAL01SS22, BER01SS22, TO01SS22",
         "composicao": "70% algod\u00e3o 27% poliamida 3% elastano",
-        "tag": "\u00faltimas unidades",
+        "tag": "-30%",
         "grid": "on",
-        "preco": "528"
+        "antigo": "528",
+        "preco": "428"
     },
     "VES03SS22": {
         "sku": "VES03SS22",
@@ -121,16 +127,17 @@
         "obs": "Essa pe\u00e7a acompanha faixa com o mesmo tecido do vestido. <br>\nA modelagem do vestido \u00e9 ampla, sugerimos que: <br>\nManequim 34 a 38 adquira o tamanho P <br>\nManequim 40 a 42 adquira o tamanho M <br>",
         "cor": "estampado",
         "p": "2",
-        "m": "4",
+        "m": "3",
         "g": "0",
         "u": "0",
         "tipo": "variado",
-        "estoque": "6",
+        "estoque": "5",
         "relacionados": "TO01SS22",
         "composicao": "100% algod\u00e3o com certifa\u00e7\u00e3o BCI (better cotton initiative)",
-        "tag": "",
+        "tag": "-20%",
         "grid": "on",
-        "preco": "648"
+        "antigo": "648",
+        "preco": "518"
     },
     "VES01SS22": {
         "sku": "VES01SS22",
@@ -141,15 +148,16 @@
         "cor": "branco",
         "p": "0",
         "m": "0",
-        "g": "1",
+        "g": "0",
         "u": "0",
         "tipo": "variado",
-        "estoque": "1",
+        "estoque": "0",
         "relacionados": "TO01SS22",
         "composicao": "100% algod\u00e3o",
-        "tag": "\u00faltima unidade",
+        "tag": "ESGOTADO",
         "grid": "on",
-        "preco": "718"
+        "antigo": "718",
+        "preco": ""
     },
     "CAL01SS22": {
         "sku": "CAL01SS22",
@@ -166,9 +174,10 @@
         "estoque": "0",
         "relacionados": "CAM01SS22, CAM02SS22, TO01SS22",
         "composicao": "90% viscose 10% poliester",
-        "tag": "esgotada",
+        "tag": "ESGOTADA",
         "grid": "on",
-        "preco": "678"
+        "antigo": "678",
+        "preco": ""
     },
     "KIT01SS22": {
         "sku": "KIT01SS22",
@@ -177,16 +186,17 @@
         "nota": "Para passar o ver\u00e3o com muito conforto e estilo!",
         "obs": "Essa pe\u00e7a acompanha faixa com o mesmo tecido do vestido. <br>\nA modelagem do vestido \u00e9 ampla, sugerimos que: <br>\nManequim 34 a 38 adquira o tamanho P <br>\nManequim 40 a 42 adquira o tamanho M <br>",
         "cor": "mix",
-        "p": "1",
-        "m": "1",
+        "p": "0",
+        "m": "0",
         "g": "0",
         "u": "0",
         "tipo": "variado",
-        "estoque": "2",
+        "estoque": "0",
         "relacionados": "",
         "composicao": "100% algod\u00e3o com certifa\u00e7\u00e3o BCI (better cotton initiative)",
-        "tag": "kit 10% off",
+        "tag": "ESGOTADO",
         "grid": "on",
-        "preco": "728"
+        "antigo": "728",
+        "preco": ""
     }
 }

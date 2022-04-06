@@ -284,9 +284,16 @@ body, h1, h2, h3, h4, h5, p {
      background-color: rgba(0,0,0,0.3) !important;
    }
 
+   .transparentemesmo {
+    background-color: rgba(0,0,0,0.0) !important;
+    color: grey
+  }
+
    .invisivel {
      display: none;
    }
+
+
 
  .formborder1:not(:placeholder-shown) {
   border-color: hsl(0, 76%, 50%);
