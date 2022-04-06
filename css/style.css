@@ -294,9 +294,13 @@ body, h1, h2, h3, h4, h5, p {
    }
 
    .riscado {
-     color: #C70039;
+  
      text-decoration:line-through;
      font-style: italic;
+   }
+
+   .vermelho {
+    color: #C70039;
    }
 
 
