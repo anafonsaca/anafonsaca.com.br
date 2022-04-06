@@ -1,14 +1,14 @@
 
 
 <div class="w3-col s6 m4 l3 cursor w3-round-large">
-    <a href="/shop/vestido-daisy-+-totebag">
+    <a href="/shop/Vestido-Daisy-+-Totebag">
       <div class="w3-display-container w3-card w3-round-large" style="overflow: hidden;">
         <div class="thumbgrid w3-round-large">
   
     <picture>
-      <source srcset="/img/KIT01SS22/01-grid.webp" alt="vestido daisy + totebag" class="w3-round-large" style="width:100%" type="image/webp">
-      <source srcset="/img/KIT01SS22/01-grid.jpg" alt="vestido daisy + totebag" class="w3-round-large" style="width:100%" type="image/jpg">
-      <img src="/img/KIT01SS22/01-grid.jpg" alt="vestido daisy + totebag" class="w3-round-large" style="width:100%">
+      <source srcset="/img/KIT01SS22/01-grid.webp" alt="Vestido Daisy + Totebag" class="w3-round-large" style="width:100%" type="image/webp">
+      <source srcset="/img/KIT01SS22/01-grid.jpg" alt="Vestido Daisy + Totebag" class="w3-round-large" style="width:100%" type="image/jpg">
+      <img src="/img/KIT01SS22/01-grid.jpg" alt="Vestido Daisy + Totebag" class="w3-round-large" style="width:100%">
   </picture>
 
   </div>
@@ -16,7 +16,7 @@
   </div>
   <p class="w3-center">
     <div style="min-height: 110px;">
-    <span class="bold w3-small">vestido daisy + totebag</span><br>
+    <span class="w3-small">Vestido Daisy + Totebag</span><br>
   <span class="invisivel">
     <span class=" w3-tiny  riscado w3-tiny">R$ 728</span><br>
     <span class=" w3-small  vermelho bold">R$ </span><br>
