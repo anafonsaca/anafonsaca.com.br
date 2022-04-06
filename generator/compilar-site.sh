@@ -205,6 +205,7 @@ export tag=$(jq -r ."$sku".tag <<< "$json")
 export nota=$(jq -r ."$sku".nota <<< "$json")
 export obs=$(jq -r ."$sku".obs <<< "$json")
 export grid=$(jq -r ."$sku".grid <<< "$json")
+export antigo=$(jq -r ."$sku".antigo <<< "$json")
 
 if [[ "$estoque" -lt 1 ]]; then
 export exibepreco="invisivel"

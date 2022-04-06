@@ -15,10 +15,11 @@
     <span class="w3-tag w3-display-topleft w3-tiny w3-round-large transparentemesmo w3-margin">ESGOTADO</span>
   </div>
   <p class="w3-center">
-    <div style="min-height: 80px;">
+    <div style="min-height: 110px;">
     <span class="bold w3-small">vestido daisy + totebag</span><br>
   <span class="invisivel">
-    <span class=" w3-tiny ">R$ </span><br>
+    <span class=" w3-tiny  riscado w3-tiny">R$ 728</span><br>
+    <span class=" w3-small ">R$ </span><br>
     <span class="w3-tiny ">12x R$ 0 </span>
   </span>
 </div>
