@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <title>ana fonsaca - Vestido Hygge</title>
+  <meta name="description" content="@shop.anafonsaca">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://anafonsaca.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ana fonsaca">
+<meta property="og:description" content="@shop.anafonsaca">
+<meta property="og:image" content="https://anafonsaca.com.br/assets/anafon.jpg">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="anafonsaca.com.br">
+<meta property="twitter:url" content="https://anafonsaca.com.br/">
+<meta name="twitter:title" content="ana fonsaca">
+<meta name="twitter:description" content="@shop.anafonsaca">
+<meta name="twitter:image" content="https://anafonsaca.com.br/assets/anafon.jpg">
+
+<!-- Meta Tags Generated via https://www.opengraph.xyz -->
+   
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="/css/w3.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BK8KR9TX0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BK8KR9TX0W');
+</script>
+
+
+
+
+    <!-- Links (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-padding w3-white">
+ 
+          <a href="/" class="w3-bar-item w3-button w3-white w3-round-large hover-f9dec7 activehome" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">home</a>
+     
+       
+          <a href="/about" class="w3-bar-item w3-button w3-white w3-round-large hover-faeadf activeabout" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">about</a>
+    
+
+          <a href="/shop" class="w3-bar-item w3-button w3-white w3-round-large hover-e6e1d8 activeshop" lang="en" style="width:20%; margin-left:2.5%; margin-right:2.5%">shop</a>
+      
+      
+          <button onclick="toggleCart()" class="w3-bar-item w3-button w3-white w3-round-large hover-f2f0eb" style="width:20%; margin-left:2.5%; margin-right:2.5%">
+            <span>
+              <picture>
+                <source srcset="/assets/bag.webp" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/webp">
+                <source srcset="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;" type="image/png">
+                <img src="/assets/bag.png" alt="carrinho de compras" height="25" style="display: inline;vertical-align: middle;">
+            </picture>
+              <span class="button__badge w3-margin-top" id="bagicon"></span>
+            </span>
+    
+          </button>
+   
+      </div>
+    </div>
+
+   
+
+
+    <!-- loader -->
+ 
+    <!-- start Shopping Cart -->
+   
+
+      <div id="shopCart" class="w3-modal blurred">
+
+<div class="w3-modal-content w3-round-large w3-margin-bottom" id="innerCart" style="max-width:600px">
+
+
+  <div class="w3-bar w3-white w3-round-large">
+           
+    <button onclick="toggleCart()" class="w3-bar-item w3-button w3-block color-ffffff w3-round-large w3-xsmall hover-f2f0eb w3-right">x</button>
+
+
+
+  </div>
+  <!--
+  <h2 class="bold w3-text-black w3-large bold w3-center">sua compra:</h2>
+  <div class="w3-clear w3-margin"></div>
+  -->
+  <span id="bagstatus"></span>
+ 
+        <!-- item list start -->
+          <div id="suacompra" class="w3-container">  <!-- foldable (class) -->
+            
+          <div class="w3-clear" id="carthtml"></div>
+          <div id="cartbtns">
+           <!-- <button onclick="checkoutGo()" class="w3-bar-item w3-card w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-d3e4f5 " id="checkoutbuttom">checkout</button> -->
+            <a href="/checkout" onclick="toggleCart()"><button class="w3-bar-item w3-card-4 w3-margin-bottom w3-block w3-button w3-xsmall w3-round-large color-d3e4f5 hover-e6e1d8 w3-right clickbtn" style="width:50%" id="checkoutbuttom">checkout</button></a> 
+          </div>
+        </div>
+ 
+
+        <!-- itemlist end -->
+
+  </div>
+  </div>
+  
+
+
+
+
+   
+   
+    <!-- end Shopping Cart -->
+    <!-- Start page content -->
+    <span id="pagecontent">
+      <div id="modalbox" class="w3-modal blurred" onclick="this.style.display='none'">
+        <div class="w3-modal-content">
+          <img src="#" id="modalimg" class="">
+        </div>
+      </div>
+      <div class="w3-container w3-row w3-padding-64">
+        <div class="slidecontainer w3-half cursor w3-margin-bottom" style="padding-left: 16px; padding-right: 16px;">
+          <div class="w3-card w3-display-container w3-round-large">
+            <img src="/img/VES02SS22/01.jpg" alt="imagem do produto" class="w3-round-large" id="slide" style="width:100%" onclick="goModal(this);">
+
+
+            <div class="w3-btn w3-round-large w3-display-left w3-container w3-text-white" onclick="prevSlide()">
+              <p>❮</p>
+            </div>
+            <div class="w3-btn w3-round-large w3-display-right w3-container w3-text-white" onclick="nextSlide()">
+              <p>❯</p>
+            </div>
+          </div>
+          <div class="row thumbs w3-margin-top">
+            <div class="column pad4">
+              <img class="thumb cursor w3-card w3-round-large" src="/img/VES02SS22/01.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 01">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/02.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 02">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/03.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 03">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/04.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 04">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/05.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 05">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/06.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 06">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/07.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 07">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/08.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 08">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/09.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 09">
+            </div>
+            <div class="column pad4">
+              <img class="thumb cursor  w3-card w3-round-large" src="/img/VES02SS22/10.jpg" onerror="this.style.display='none'; this.classList.remove('thumb')" onclick="showSlide(this)" alt="foto do produto 10">
+            </div>
+          </div>
+        </div>
+        <div class="w3-half w3-row-padding">
+          <!-- About Container -->
+          <div class="" style="max-width:700px;">
+            <div class="w3-container w3-round-large w3-card w3-margin-bottom">
+              <div class="w3-section">
+                <h5 class="bold w3-large">Vestido Hygge</h5>
+                
+              </div>
+              <span class="invisivel">
+              <div class="w3-clear"></div>
+            <!--  <span class=" w3-tiny  riscado w3-tiny">R$ 848</span><br>-->
+              <div class="w3-section w3-small bold">R$ 678</div>
+              <p class="w3-section w3-tiny">12x R$ 56,50</p>
+              <div class="w3-clear"></div>
+            </span>
+              <div class="w3-section w3-small">
+                <p>O vestido hygge é feito em seda com algodão, carrega leveza e sofisticação. <br>
+Modelo regata, fluido, com bolsos na lateral e gola arredondada com franzidos. <br>
+Nas costas possui fechamento em gota com botão. <br>
+Acabamento interno em viés e costura francesa.<br></p>
+                <p class="bold">Essa peça é atemporal, elegante, e merece ser editada de mil e uma maneiras, vai de um casamento até o look do dia a dia. </p>
+
+              </div>
+            </div>
+
+           
+
+            <div class="w3-card w3-container w3-round-large w3-margin-bottom">
+  
+              <div class="w3-section">
+                <p class="w3-small">composição: 68% algodão 32% seda forro 100% algodão</p>
+                <p class="w3-small bold">Essa peça acompanha a faixa com o mesmo tecido do vestido. </p>
+              </div>
+
+
+            </div>
+
+
+
+          
+              <button class="w3-card-4 w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom clickbtn" onclick="toggleTable()" ><img src="/assets/metric.png" alt="tabelas de medida" height="30" style="display: inline;vertical-align: middle;"> tabela de medidas</button>
+              <button class="w3-card-4 w3-button w3-small w3-round-large hover-e6e1d8 w3-margin-bottom clickbtn" onclick="toggleCuidados()" ><img src="/assets/cottom.png" alt="cuidados com a peça" height="30" style="display: inline;vertical-align: middle;"> cuidados com a peça</button>
+              <div class="w3-clear w3-margin-bottom"></div>
+
+          
+              <div class="w3-margin-bottom">
+                <p class="w3-tiny">escolha seu tamanho:</p>
+            <div class="evenly ">
+
+              <div class="w3-left" id="sizes">
+                <span class="tooltip">
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small clickbtn" id="pbtn" onclick="setSize(this)">P</button>
+                  <span class="tooltiptext color-f2f0eb" id="ptip"></span>
+                </span>
+                <span class="tooltip">
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-faeadf w3-small clickbtn" id="mbtn" onclick="setSize(this)">M</button>
+                  <span class="tooltiptext color-f2f0eb" id="mtip"></span>
+                </span>
+                <span class="tooltip">
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-e4d5d3 w3-small clickbtn" id="gbtn" onclick="setSize(this)">G</button>
+                  <span class="tooltiptext color-f2f0eb" id="gtip"></span>
+                </span>
+
+              </div>
+              <div class="w3-left" id="uniqsize" style="display: none;">
+                <span class="tooltip">
+                  <button class="w3-card-4 w3-tiny w3-button w3-white w3-round-large sizebutton hover-f9dec7 w3-small clickbtn" id="ubtn" onclick="setSize(this)">único</button>
+                  <span class="tooltiptext color-f2f0eb" id="utip"></span>
+                </span>
+
+              </div>
+              <button class="w3-card-4 w3-button w3-small color-d3e4f5 w3-round-large w3-disabled hover-e6e1d8 w3-large w3-right clickbtn" onclick="addToCart(this)" id="btnadd" style="width:50%" data-sku="VES02SS22" data-tamanho="" data-nome="Vestido Hygge" data-cor="rosa" data-valor="678" data-path="/shop/Vestido-Hygge">comprar</button>
+
+     
+            </div>
+
+            </div>
+
+
+
+<!--     
+            <p class="w3-center w3-tiny w3-margin-top" style="font-style:italic;">ESGOTADA</p>
+  -->          
+          </div>
+        </div>
+      </div>
+      <!-- Add a background color and large text to the whole page -->
+
+      <div id="tabelamedidas" class="w3-modal blurred" onclick="toggleTable()">
+
+        <div class="w3-modal-content w3-margin-bottom w3-round-large trans w3-text-white" style="max-width:800px">
+          <!--
+          <div class="w3-row w3-padding-24">
+            <button class="w3-button w3-white w3-display-topright w3-round-large w3-large hover-f2f0eb" onclick="toggleTable()">x</button>
+          </div> 
+          -->
+            <table class="w3-table w3-bordered w3-small w3-round-large">
+                <tbody class="w3-round-large">
+                <tr class="w3-round-large">
+                <td> </td>
+                <td>
+                
+                <p class="w3-center bold">P: 34 a 36</p>
+                </td>
+                <td>
+                <p class="w3-center bold">M: 38 a 40</p>
+                </td>
+                <td>
+                <p class="w3-center bold">G: 40 a 42</p>
+                </td>
+                </tr>
+                <tr>
+                <td>
+                <p class="bold">busto</p>
+                <i class="w3-tiny">medir abaixo do braço ao redor do peito na parte mais saliente do busto</i>
+                </td>
+                <td class="w3-center">84 a 89 cm</td>
+                <td class="w3-center">89 a 94 cm</td>
+                <td class="w3-center"> 94 a 99 cm</td>
+                </tr>
+                <tr>
+                <td>
+                <p class="bold">manga</p>
+                <i class="w3-tiny">medir do ombro ao punho</i>
+                </td>
+                <td class="w3-center"> 58 a 60 cm</td>
+                <td class="w3-center"> 60 a 62 cm</td>
+                <td class="w3-center"> 62 a 64 cm</td>
+                <tr>
+                    <td>
+                    <p class="bold">cintura</p>
+                    <i class="w3-tiny">medir ao redor da linha mais fina da cintura</i>
+                    </td>
+                    <td class="w3-center">65 a 70 cm</td>
+                    <td class="w3-center">70 a 75 cm</td>
+                    <td class="w3-center">75 a 80 cm</td>
+                </tr>
+                
+                <tr>
+                    <td>
+                    <p class="bold">quadril</p>
+                    <i class="w3-tiny">medir ao redor da parte mais saliente</i>
+                    </td>
+                    <td class="w3-center">92 a 96 cm</td>
+                    <td class="w3-center">96 a 100 cm</td>
+                    <td class="w3-center">100 a 104 cm</td>
+                </tr>
+                </tbody>
+                </table>
+           <div class="w3-small w3-margin">
+                    <p>ao se medir não aperta a fita, deixar confortável</p>
+                    <p>cada tecido possui um comportamento diferente, seja por sua gramatura ou fibra, podendo existir baixas variações nas medidas</p>
+                    <p>a modelo veste P e possui as medidas: <br> altura: 1,70cm / busto: 84cm / cintura: 62cm / quadril 90cm.</p>
+           </div>  
+  
+          </div>
+        </div>
+
+
+        <div id="cuidadospeca" class="w3-modal blurred" onclick="toggleCuidados()">
+
+          <div class="w3-modal-content w3-padding w3-margin-bottom w3-round-large trans w3-text-white" style="max-width:800px">
+           
+<h2 class="w3-center bold">Guia de cuidado com as roupas</h2>
+
+<p class="w3-small">Lave com consciência, cuidado e passe suas roupas adiante.</p>
+
+<p class="w3-small">Na ana fonsaca criamos peças para durar muito tempo, por isso é importante estar ciente de como cuidar delas. Com alguns pequenos cuidados, é possível aumentar a vida útil da peça, reutilizando, reciclando, e ajudando a reduzir impactos sociais e no meio ambiente.</p>
+
+<p class="w3-small">A melhor forma de cuidar da sua roupa varia de peça para peça, por isso é fundamental sempre ler atentamente a etiqueta de composição fixada na peça antes de lavar. Além disso, compartilhamos algumas dicas para aumentar o ciclo de vida da sua roupa: </p>
+<ul class="w3-center w3-padding-32" style="list-style-type: circle !important; text-align:justify">
+<li class="w3-small" style="text-align:justify"> Lave as suas peças em temperaturas baixas, no programa de lavagem suave, com ciclo de centrifugação baixo. Se for possível, lavar manualmente, principalmente as peças com porcentagem de seda na composição. </li>
+
+<li class="w3-small" style="text-align:justify"> Ao lavá-las na máquina, proteja suas peças delicadas em saquinhos de roupa. </li>
+
+<li class="w3-small" style="text-align:justify"> Seque suas roupas ao ar livre em vez de colocá-las na secadora - além de ser menos agressivo para as fibras dos tecidos, também gasta menos energia.</li>
+
+<li class="w3-small" style="text-align:justify"> Ao detectar uma mancha, use o removedor de manchas no local específico em vez de lavar toda a roupa e deixa-la de molho. </li>
+
+<li class="w3-small" style="text-align:justify"> Se sua roupa descosturar, rasgar, ou sofrer qualquer tipo de dano, tente conserta-la ao invés de simplesmente substituí-la.</li>
+
+<li class="w3-small" style="text-align:justify"> Quando a sua caminhada junto com a peça chegar ao fim, ou seja, quando ela não lhe servir mais, dê a outras pessoas a chance de comprá-la ou doá-la.</li>
+</ul>  
+            </div>
+          </div>
+
+
+
+
+        
+
+      <div id="aviseme" class="w3-modal blurred">
+        <div class="w3-modal-content w3-card-4 w3-round-large clickbtn" style="max-width:600px">
+          <div class="w3-center"><br>
+            <span onclick="document.getElementById('aviseme').style.display='none'" class="w3-button w3-small w3-display-topright w3-round-large w3-white hover-f2f0eb w3-card w3-margin" title="fechar">x</span>
+          </div>
+          <form class="w3-container" action="https://submit-form.com/xRfYsYUt">
+            <div class="w3-section">
+              <p id="avisemetexto">avise-me quando voltar ao estoque</p>
+              <!-- <label><b>email:</b></label> -->
+              <input class="w3-input w3-border" type="email" placeholder="email" name="email" required>
+              <button class="w3-button w3-block color-e6e1d8 w3-section w3-padding w3-round-large hover-f2f0eb" type="submit">enviar</button>
+            </div>
+          </form>
+
+              
+  
+
+
+
+
+  </div>
+</div>
+    </span>
+    <div id="snackbar" class="w3-center color-ba8671">produto adicionado</div>
+    <!-- End page content -->
+
+
+    <footer class="w3-container w3-round-large" style="height:200px;"> 
+
+    
+
+   <div class="w3-container w3-center w3-padding">
+    <a href="/politicas/#politicas"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">nossas políticas</span></p></a>
+    <a href="/politicas/#consciencia"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">consciência</span></p>
+      <a href="https://blog.anafonsaca.com.br"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">blog</span></p>
+        <a href="/contato"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">meus pedidos</span></p>
+          <a href="/contato"><p class="w3-small w3-margin"><span class="hover-e4d5d3 w3-round-large w3-padding">contato</span></p>
+    </div>  
+
+    <div class="w3-container w3-right" style="line-height: 50px;">
+
+
+    </div>
+    
+    <div class="w3-contaiener w3-center w3-padding">
+ 
+      <a href="https://br.pinterest.com/shopanafonsaca/" target="_blank">
+        <picture>
+          <source srcset="/assets/pinterest.webp" alt="pinterest" class="miniicon" type="image/webp">
+          <source srcset="/assets/pinterest.png" alt="pinterest" class="miniicon" type="image/png">
+          <img src="/assets/pinterest.png" alt="pinterest" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://www.instagram.com/anafonsaca/" target="_blank">
+
+        <picture>
+          <source srcset="/assets/instagram.webp" alt="instagram" class="miniicon" type="image/webp">
+          <source srcset="/assets/instagram.png" alt="instagram" class="miniicon" type="image/png">
+          <img src="/assets/instagram.png" alt="instagram" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://open.spotify.com/user/3132skvcfvckibzv2hwgpwwuv4jq?si=014e7df9a59f492f" target="_blank">
+
+        <picture>
+          <source srcset="/assets/spotify.webp" alt="spotify" class="miniicon" type="image/webp">
+          <source srcset="/assets/spotify.png" alt="spotify" class="miniicon" type="image/png">
+          <img src="/assets/spotify.png" alt="spotify" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://twitter.com/anafonsaca" target="_blank">
+
+        <picture>
+          <source srcset="/assets/twitter.webp" alt="twitter" class="miniicon" type="image/webp">
+          <source srcset="/assets/twitter.png" alt="twitter" class="miniicon" type="image/png">
+          <img src="/assets/twitter.png" alt="twitter" class="miniicon">
+      </picture>
+      </a>
+      <a href="mailto:shop.anafonsaca@gmail.com" target="_blank">
+
+        <picture>
+          <source srcset="/assets/email.webp" alt="email" class="miniicon" type="image/webp">
+          <source srcset="/assets/email.png" alt="email" class="miniicon" type="image/png">
+          <img src="/assets/email.png" alt="email" class="miniicon">
+      </picture>
+      </a>
+      <a href="https://wa.me/5541991595808" target="_blank" id="whatsappcheckout1" >
+
+        <picture>
+          <source srcset="/assets/whatsapp.webp" alt="whatsapp" class="miniicon" type="image/webp">
+          <source srcset="/assets/whatsapp.png" alt="whatsapp" class="miniicon" type="image/png">
+          <img src="/assets/whatsapp.png" alt="whatsapp" class="miniicon">
+      </picture>
+      </a>
+   </div>
+
+<div class="w3-container w3-center w3-padding">
+<p class="w3-tiny">Ana Fonsaca, CNPJ: 40.197.291/0001-74. Florianópolis, SC - Brasil.</p>
+</div>   
+</footer>
+  
+
+    <script src="/js/script.js"></script>
+    <script>
+      getEstoque("VES02SS22");
+   
+    </script>
+    
+  </body>
+</html>

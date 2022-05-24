@@ -25,7 +25,7 @@ dynamodb = boto3.resource('dynamodb')
 
 table = dynamodb.Table('anafonsaca-estoque')
 
-
+#        'u': int(data[roupa]['u']),
 with table.batch_writer() as writer:
     for roupa in data:  
         writer.put_item(Item={
@@ -35,9 +35,7 @@ with table.batch_writer() as writer:
         'm': int(data[roupa]['m']),
         
         'g': int(data[roupa]['g']), 
-        
-        
-        'u': int(data[roupa]['u']),
+
         
         
         'preco': str(data[roupa]['preco'])
